@@ -19,14 +19,14 @@ by the component.
 <tr><td colspan="4" class="ttitle1">BitIoLdd3 Initialization</td></tr>
 <tr><td class="ttitle2">Address</td><td class="ttitle2">Register</td><td class="ttitle2">Register Value</td><td class="ttitle2">Register Description</td></tr>
 <tr><td>0x400FF054</td><td>GPIOB_PDDR</td>
-<td class="regNotResetVal">0x00040000</td>
+<td class="regNotResetVal">0x00000001</td>
  <td>GPIOB_PDDR register, peripheral BitIoLdd3.</td></tr>
 <tr><td>0x400FF040</td><td>GPIOB_PDOR</td>
-<td class="regNotResetVal">0x00040000</td>
+<td class="regNotResetVal">0x00000001</td>
  <td>GPIOB_PDOR register, peripheral BitIoLdd3.</td></tr>
-<tr><td>0x4004A048</td><td>PORTB_PCR18</td>
+<tr><td>0x4004A000</td><td>PORTB_PCR0</td>
 <td class="regNotResetVal">0x00000100</td>
- <td>PORTB_PCR18 register, peripheral BitIoLdd3.</td></tr>
+ <td>PORTB_PCR0 register, peripheral BitIoLdd3.</td></tr>
 </table>
 Color Denotes Reset Value
 <br/>
@@ -71,7 +71,7 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x400FF054</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00040000</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000001</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
 <tr><td>0 - 31</td><td>PDD</td><td>0x00</td><td>Port Data Direction</td>
@@ -113,12 +113,12 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x400FF040</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00040000</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000001</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
 <tr><td>0 - 31</td><td>PDO</td><td>0x00</td><td>Port Data Output</td>
 </tr></table>
-<div class="reghdr1">PORTB_PCR18</div>
+<div class="reghdr1">PORTB_PCR0</div>
 <div class="regdiag">
 <table class="regtbl">
 <tr class="trd1r">
@@ -162,7 +162,7 @@ registers of the peripheral(s) configured by the component.
 </table>
         
 </div>
-<table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x4004A048</td></tr>
+<table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x4004A000</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000100</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
@@ -180,7 +180,7 @@ registers of the peripheral(s) configured by the component.
 \page BitIoLdd3_settings Component Settings
 \code
 **          Component name                                 : BitIoLdd3
-**          Pin for I/O                                    : TSI0_CH11/PTB18/TPM2_CH0
+**          Pin for I/O                                    : ADC0_SE8/TSI0_CH0/PTB0/LLWU_P5/I2C0_SCL/TPM1_CH0
 **          Pin signal                                     : 
 **          Direction                                      : Output
 **          Initialization                                 : 

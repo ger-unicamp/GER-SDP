@@ -92,6 +92,8 @@ void ClockInterruption_OnInterrupt(void)
 			clockCounter = 0;
 			// E 20 microssegundos para se preparar para o proximo ciclo.
 			state = WAIT_TRANSFER_CHARGE;
+//			DebugLED_NegVal();// APAGAR
+			COMMUNICATION_SERIAL++;
 		}
 
 		break;

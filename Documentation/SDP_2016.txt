@@ -68,6 +68,8 @@ Module "DebugLED"  (component BitIO)
                 only if the direction = _[output]_ or _[input/output]_.
    - DebugLED_SetVal -Sets (to one) the output value. It is equivalent to the [PutVal(TRUE)]. This method is available only if 
                 the direction = _[output]_ or _[input/output]_.
+   - DebugLED_NegVal -Negates (inverts) the output value. It is equivalent to the [PutVal(!GetVal())]. This method is available 
+                only if the direction = _[output]_ or _[input/output]_.
 
 Module "ImageConverter" (component ADC)
    - ImageConverter_MeasureChan -This method performs measurement on one channel. (Note: If the <number of conversions> is more 

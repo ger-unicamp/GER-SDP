@@ -32,6 +32,7 @@ unsigned int arrayOfPixels[2][128];
 extern unsigned int arrayOfPixels[2][128];
 int state;
 int transferTime;
+volatile int COMMUNICATION_SERIAL;
 
 // Methods.
 void cameraStartReading(int serialTest);

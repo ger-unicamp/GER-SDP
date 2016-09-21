@@ -7,7 +7,7 @@
 **     Version     : Component 02.086, Driver 01.00, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-09-04, 08:49, # CodeGen: 28
+**     Date/Time   : 2016-09-21, 18:27, # CodeGen: 49
 **     Abstract    :
 **         This component "BitIO" implements an one-bit input/output.
 **         It uses one bit/pin of a port.
@@ -16,7 +16,7 @@
 **         (if supported by target language and compiler).
 **     Settings    :
 **          Component name                                 : DebugLED
-**          Pin for I/O                                    : TSI0_CH11/PTB18/TPM2_CH0
+**          Pin for I/O                                    : ADC0_SE8/TSI0_CH0/PTB0/LLWU_P5/I2C0_SCL/TPM1_CH0
 **          Pin signal                                     : 
 **          BitIO_LDD                                      : BitIO_LDD
 **          Direction                                      : Output
@@ -30,6 +30,7 @@
 **         PutVal - void DebugLED_PutVal(bool Val);
 **         ClrVal - void DebugLED_ClrVal(void);
 **         SetVal - void DebugLED_SetVal(void);
+**         NegVal - void DebugLED_NegVal(void);
 **
 **     Copyright : 1997 - 2015 Freescale Semiconductor, Inc. 
 **     All Rights Reserved.
@@ -153,6 +154,21 @@ void DebugLED_ClrVal(void)
 */
 /*
 void DebugLED_SetVal(void)
+
+**  This method is implemented as a macro. See DebugLED.h file.  **
+*/
+
+/*
+** ===================================================================
+**     Method      :  DebugLED_NegVal (component BitIO)
+**     Description :
+**         This method negates (inverts) the output value.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+/*
+void DebugLED_NegVal(void)
 
 **  This method is implemented as a macro. See DebugLED.h file.  **
 */

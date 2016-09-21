@@ -7,7 +7,7 @@
 **     Version     : Component 01.033, Driver 01.03, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-09-04, 08:49, # CodeGen: 28
+**     Date/Time   : 2016-09-21, 18:27, # CodeGen: 49
 **     Abstract    :
 **         The HAL BitIO component provides a low level API for unified
 **         access to general purpose digital input/output pins across
@@ -17,7 +17,7 @@
 **         portable to various microprocessors.
 **     Settings    :
 **          Component name                                 : BitIoLdd3
-**          Pin for I/O                                    : TSI0_CH11/PTB18/TPM2_CH0
+**          Pin for I/O                                    : ADC0_SE8/TSI0_CH0/PTB0/LLWU_P5/I2C0_SCL/TPM1_CH0
 **          Pin signal                                     : 
 **          Direction                                      : Output
 **          Initialization                                 : 
@@ -31,6 +31,7 @@
 **         PutVal - void BitIoLdd3_PutVal(LDD_TDeviceData *DeviceDataPtr, bool Val);
 **         ClrVal - void BitIoLdd3_ClrVal(LDD_TDeviceData *DeviceDataPtr);
 **         SetVal - void BitIoLdd3_SetVal(LDD_TDeviceData *DeviceDataPtr);
+**         NegVal - void BitIoLdd3_NegVal(LDD_TDeviceData *DeviceDataPtr);
 **
 **     Copyright : 1997 - 2015 Freescale Semiconductor, Inc. 
 **     All Rights Reserved.
@@ -113,11 +114,12 @@ extern "C" {
 #define BitIoLdd3_PutVal_METHOD_ENABLED /*!< PutVal method of the component BitIoLdd3 is enabled (generated) */
 #define BitIoLdd3_ClrVal_METHOD_ENABLED /*!< ClrVal method of the component BitIoLdd3 is enabled (generated) */
 #define BitIoLdd3_SetVal_METHOD_ENABLED /*!< SetVal method of the component BitIoLdd3 is enabled (generated) */
+#define BitIoLdd3_NegVal_METHOD_ENABLED /*!< NegVal method of the component BitIoLdd3 is enabled (generated) */
 
 /* Definition of implementation constants */
 #define BitIoLdd3_MODULE_BASE_ADDRESS FPTB_BASE_PTR /*!< Name of macro used as the base address */
 #define BitIoLdd3_PORTCONTROL_BASE_ADDRESS PORTB_BASE_PTR /*!< Name of macro used as the base address */
-#define BitIoLdd3_PORT_MASK 0x00040000U /*!< Mask of the allocated pin from the port */
+#define BitIoLdd3_PORT_MASK 0x01U      /*!< Mask of the allocated pin from the port */
 
 
 
@@ -224,6 +226,22 @@ void BitIoLdd3_ClrVal(LDD_TDeviceData *DeviceDataPtr);
 */
 /* ===================================================================*/
 void BitIoLdd3_SetVal(LDD_TDeviceData *DeviceDataPtr);
+
+/*
+** ===================================================================
+**     Method      :  BitIoLdd3_NegVal (component BitIO_LDD)
+*/
+/*!
+**     @brief
+**         Negates (inverts) the output value. It is equivalent to the
+**         [PutVal(!GetVal())]. This method is available only if the
+**         direction = _[output]_ or _[input/output]_.
+**     @param
+**         DeviceDataPtr   - Pointer to device data
+**                           structure returned by <Init> method.
+*/
+/* ===================================================================*/
+void BitIoLdd3_NegVal(LDD_TDeviceData *DeviceDataPtr);
 
 /* END BitIoLdd3. */
 
