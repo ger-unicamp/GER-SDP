@@ -2,7 +2,7 @@
 <GenerationInfo_G_C>
   <Options>
     <ProjectName>SDP_2016</ProjectName>
-    <ProjectDirectory>\home\marcelo\workspace.kds\SDP_2016\</ProjectDirectory>
+    <ProjectDirectory>\home\marcelo\Documentos\GER\SDP\Projeto\SDP_2016\</ProjectDirectory>
     <ProjectMainModuleName>main</ProjectMainModuleName>
     <DestEventsDirectory>Sources\</DestEventsDirectory>
     <DestDriversSubDirectory>..\Generated_Code\</DestDriversSubDirectory>

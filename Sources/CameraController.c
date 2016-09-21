@@ -50,6 +50,7 @@ void initializeCamera()
 {
 	state = HALF_LOW_CLK;
 	clockCounter = 0;
+	transferTime = 0;
 }
 
 void testMode()

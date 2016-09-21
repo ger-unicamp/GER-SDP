@@ -75,13 +75,25 @@ void ClockInterruption_OnInterrupt(void)
 
 	case HALF_LOW_CLK:
 	{
+
+		// next state
+		state = HIGH_CLK;
+
 		if (clockCounter == 0)
 		{
 			// SI High.
 			SI_SetVal();
 			while (!SI_GetVal());
 		}
-		state = HIGH_CLK;
+		// Fim de um ciclo.
+		// A camera precisa de um clock a mais para enviar o ultimo pixel.
+		else if (clockCounter == 129)
+		{
+			clockCounter = 0;
+			// E 20 microssegundos para se preparar para o proximo ciclo.
+			state = WAIT_TRANSFER_CHARGE;
+		}
+
 		break;
 	}
 	case HIGH_CLK:
@@ -115,28 +127,24 @@ void ClockInterruption_OnInterrupt(void)
 
 		state = HALF_LOW_CLK;
 
-		if (clockCounter == 130)
-		{
-			clockCounter = 0;
+		break;
+	}
 
-//			if (serialTest == TRUE)
-//			{
-//				serialTestStart = TRUE;
-//				state = SERIAL_WAIT;
-//			}
+	// Pixel charge transfer time
+	case WAIT_TRANSFER_CHARGE:
+	{
+		if (transferTime)
+		{
+			transferTime++;
+		}
+		else
+		{
+			transferTime = 0;
+			state = HALF_LOW_CLK;
 		}
 
 		break;
 	}
-//	case SERIAL_WAIT:
-//	{
-//		if (serialFinished == TRUE)
-//		{
-//			state = HALF_LOW_CLK;
-//			serialFinished = FALSE;
-//		}
-//		break;
-//	}
 	}
 }
 

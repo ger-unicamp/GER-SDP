@@ -19,7 +19,7 @@
  * 3) LOW_CLK.
  * 4) HALF_LOW_CLK.
  */
-enum clockState {HIGH_CLK, HALF_HIGH_CLK, LOW_CLK, HALF_LOW_CLK, SERIAL_WAIT};
+enum clockState {HIGH_CLK, HALF_HIGH_CLK, LOW_CLK, HALF_LOW_CLK, WAIT_TRANSFER_CHARGE};
 
 enum logicalLevel {LOW, HIGH};
 
@@ -31,6 +31,7 @@ unsigned int arrayOfPixels[2][128];
 // Lembrando de que o .h é copiado para os módulos.
 extern unsigned int arrayOfPixels[2][128];
 int state;
+int transferTime;
 
 // Methods.
 void cameraStartReading(int serialTest);
