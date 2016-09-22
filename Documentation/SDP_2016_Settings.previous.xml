@@ -603,11 +603,11 @@ PE_DEBUGHALT();
       <DisableEvent v="don&amp;apos;t generate code" />
       <Start v="don&amp;apos;t generate code" />
       <Stop v="don&amp;apos;t generate code" />
-      <Measure v="don&amp;apos;t generate code" />
+      <Measure v="generate code" />
       <MeasureChan v="generate code" />
       <EnableExtChanTrigger v="don&amp;apos;t generate code" />
       <EnableIntChanTrigger v="don&amp;apos;t generate code" />
-      <GetValue v="don&amp;apos;t generate code" />
+      <GetValue v="generate code" />
       <GetChanValue v="generate code" />
       <GetValue8 v="don&amp;apos;t generate code" />
       <GetChanValue8 v="don&amp;apos;t generate code" />

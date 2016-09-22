@@ -7,7 +7,7 @@
 **     Version     : Component 01.697, Driver 01.00, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-09-21, 22:00, # CodeGen: 51
+**     Date/Time   : 2016-09-22, 01:33, # CodeGen: 53
 **     Abstract    :
 **         This device "ADC" implements an A/D converter,
 **         its control methods and interrupt/event handling procedure.
@@ -21,7 +21,7 @@
 **            A/D interrupt priority                       : medium priority
 **          A/D channels                                   : 1
 **            Channel0                                     : 
-**              A/D channel (pin)                          : ADC0_SE13/TSI0_CH8/PTB3/I2C0_SDA/TPM2_CH1
+**              A/D channel (pin)                          : ADC0_SE6b/PTD5/SPI1_SCK/UART2_TX/TPM0_CH5
 **              A/D channel (pin) signal                   : 
 **              Mode select                                : Single Ended
 **          A/D resolution                                 : 8 bits

@@ -355,7 +355,7 @@
     </GenFiles>
     <SignalListFile>Documentation\SDP_2016_SIGNALS.txt</SignalListFile>
     <DestinationCompiler>GNUC</DestinationCompiler>
-    <ProjectModificationStamp>30</ProjectModificationStamp>
+    <ProjectModificationStamp>31</ProjectModificationStamp>
   </Options>
   <CpuID_2>
     <Generated>true</Generated>
@@ -1439,8 +1439,8 @@
     <GenComponentVersion>01.697</GenComponentVersion>
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1228255237</HeaderAge>
-    <CodeAge>1228255237</CodeAge>
+    <HeaderAge>1228278835</HeaderAge>
+    <CodeAge>1228278835</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>25</GenNumMethods>
     <Enable>false</Enable>
@@ -1604,8 +1604,8 @@
       <GenComponentVersion>01.183</GenComponentVersion>
       <GenDriverVersion>01.08</GenDriverVersion>
       <GenEventModule>Events</GenEventModule>
-      <HeaderAge>1228255001</HeaderAge>
-      <CodeAge>1228255001</CodeAge>
+      <HeaderAge>1228278835</HeaderAge>
+      <CodeAge>1228278835</CodeAge>
       <AsemblAge>-1</AsemblAge>
       <GenNumMethods>25</GenNumMethods>
       <Init>true</Init>
@@ -1714,63 +1714,63 @@
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
         <LineBeg>147</LineBeg>
-        <LineEnd>219</LineEnd>
+        <LineEnd>221</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos10>StartSingleMeasurement</MethodPos10>
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>220</LineBeg>
-        <LineEnd>269</LineEnd>
+        <LineBeg>222</LineBeg>
+        <LineEnd>271</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos11>CancelMeasurement</MethodPos11>
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>270</LineBeg>
-        <LineEnd>299</LineEnd>
+        <LineBeg>272</LineBeg>
+        <LineEnd>301</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos12>CreateSampleGroup</MethodPos12>
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>300</LineBeg>
-        <LineEnd>362</LineEnd>
+        <LineBeg>302</LineBeg>
+        <LineEnd>364</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos13>GetMeasuredValues</MethodPos13>
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>363</LineBeg>
-        <LineEnd>407</LineEnd>
+        <LineBeg>365</LineBeg>
+        <LineEnd>409</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos14>GetMeasurementCompleteStatus</MethodPos14>
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>408</LineBeg>
-        <LineEnd>440</LineEnd>
+        <LineBeg>410</LineBeg>
+        <LineEnd>442</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos15>StartCalibration</MethodPos15>
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>441</LineBeg>
-        <LineEnd>473</LineEnd>
+        <LineBeg>443</LineBeg>
+        <LineEnd>475</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos16>GetCalibrationResultStatus</MethodPos16>
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>474</LineBeg>
-        <LineEnd>521</LineEnd>
+        <LineBeg>476</LineBeg>
+        <LineEnd>523</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos17>MeasurementCompleteInterrupt</MethodPos17>
         <MethodType>internal_method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>522</LineBeg>
-        <LineEnd>539</LineEnd>
+        <LineBeg>524</LineBeg>
+        <LineEnd>541</LineEnd>
       </MethodPos>
       <GenExtraFilesCount>1</GenExtraFilesCount>
       <ExtraFile0>Documentation\doxygen\AdcLdd1_component.txt</ExtraFile0>

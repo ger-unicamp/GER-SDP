@@ -497,7 +497,7 @@ PE_DEBUGHALT();
             <group name="Channel 0">
               <enumgroup name="Channel mode" v="Single Ended">
                 <group name="Input">
-                  <A_D_channel__pin_ v="ADC0_SE13/TSI0_CH8/PTB3/I2C0_SDA/TPM2_CH1" />
+                  <A_D_channel__pin_ v="ADC0_SE6b/PTD5/SPI1_SCK/UART2_TX/TPM0_CH5" />
                 </group>
               </enumgroup>
             </group>
@@ -574,7 +574,7 @@ PE_DEBUGHALT();
       </boolgroup>
       <list name="A/D channels" v="1">
         <group name="Channel0">
-          <A_D_channel__pin_ v="ADC0_SE13/TSI0_CH8/PTB3/I2C0_SDA/TPM2_CH1" />
+          <A_D_channel__pin_ v="ADC0_SE6b/PTD5/SPI1_SCK/UART2_TX/TPM0_CH5" />
           <boolgroup name="Mode select" v="Single Ended" />
         </group>
       </list>
