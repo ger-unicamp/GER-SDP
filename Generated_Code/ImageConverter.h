@@ -7,7 +7,7 @@
 **     Version     : Component 01.697, Driver 01.00, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-09-04, 17:00, # CodeGen: 32
+**     Date/Time   : 2016-09-21, 20:10, # CodeGen: 57
 **     Abstract    :
 **         This device "ADC" implements an A/D converter,
 **         its control methods and interrupt/event handling procedure.
@@ -21,11 +21,11 @@
 **            A/D interrupt priority                       : medium priority
 **          A/D channels                                   : 1
 **            Channel0                                     : 
-**              A/D channel (pin)                          : ADC0_SE13/TSI0_CH8/PTB3/I2C0_SDA/TPM2_CH1
+**              A/D channel (pin)                          : ADC0_SE6b/PTD5/SPI1_SCK/UART2_TX/TPM0_CH5
 **              A/D channel (pin) signal                   : 
 **              Mode select                                : Single Ended
 **          A/D resolution                                 : 8 bits
-**          Conversion time                                : 6.538462 µs
+**          Conversion time                                : 13.076923 µs
 **          Low-power mode                                 : Disabled
 **          High-speed conversion mode                     : Disabled
 **          Asynchro clock output                          : Disabled
@@ -40,7 +40,9 @@
 **            Low speed mode                               : This component disabled
 **            Slow speed mode                              : This component disabled
 **     Contents    :
+**         Measure      - byte ImageConverter_Measure(bool WaitForResult);
 **         MeasureChan  - byte ImageConverter_MeasureChan(bool WaitForResult, byte Channel);
+**         GetValue     - byte ImageConverter_GetValue(void* Values);
 **         GetChanValue - byte ImageConverter_GetChanValue(byte Channel, void* Value);
 **         Calibrate    - byte ImageConverter_Calibrate(bool WaitForResult);
 **
@@ -126,6 +128,41 @@ void ImageConverter_HWEnDi(void);
 ** ===================================================================
 */
 
+byte ImageConverter_Measure(bool WaitForResult);
+/*
+** ===================================================================
+**     Method      :  ImageConverter_Measure (component ADC)
+*/
+/*!
+**     @brief
+**         This method performs one measurement on all channels that
+**         are set in the component inspector. (Note: If the [number of
+**         conversions] is more than one the conversion of A/D channels
+**         is performed specified number of times.)
+**     @param
+**         WaitForResult   - Wait for a result of a
+**                           conversion. If [interrupt service] is
+**                           disabled, A/D peripheral doesn't support
+**                           measuring all channels at once or Autoscan
+**                           mode property isn't enabled and at the same
+**                           time the [number of channels] is greater
+**                           than 1, then the WaitForResult parameter is
+**                           ignored and the method waits for each
+**                           result every time. If the [interrupt
+**                           service] is disabled and a [number of
+**                           conversions] is greater than 1, the
+**                           parameter is ignored and the method also
+**                           waits for each result every time.
+**     @return
+**                         - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+**                           ERR_DISABLED - Device is disabled
+**                           ERR_BUSY - A conversion is already running
+*/
+/* ===================================================================*/
+
 #define ImageConverter_MeasureChan(W,Ch) PE_ImageConverter_MeasureChan(W)
 byte PE_ImageConverter_MeasureChan(bool WaitForResult);
 /*
@@ -157,6 +194,38 @@ byte PE_ImageConverter_MeasureChan(bool WaitForResult);
 **                           ERR_DISABLED - Device is disabled
 **                           ERR_BUSY - A conversion is already running
 **                           ERR_RANGE - Parameter "Channel" out of range
+*/
+/* ===================================================================*/
+
+byte ImageConverter_GetValue(void* Values);
+/*
+** ===================================================================
+**     Method      :  ImageConverter_GetValue (component ADC)
+*/
+/*!
+**     @brief
+**         Returns the last measured values for all channels. Format
+**         and width of the value is a native format of the A/D
+**         converter.
+**     @param
+**         Values          - Pointer to the array that contains
+**                           the measured data. Data type is a byte, a
+**                           word or an int. It depends on the supported
+**                           modes, resolution, etc. of the AD converter.
+**                           See the Version specific information for
+**                           the current CPU in [General Info].
+**     @return
+**                         - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+**                           ERR_NOTAVAIL - Requested value not
+**                           available
+**                           ERR_OVERRUN - External trigger overrun flag
+**                           was detected after the last value(s) was
+**                           obtained (for example by GetValue). This
+**                           error may not be supported on some CPUs
+**                           (see generated code).
 */
 /* ===================================================================*/
 

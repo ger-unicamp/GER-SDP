@@ -103,7 +103,7 @@ void ClockInterruption_OnInterrupt(void)
 		// Clock High.
 		CLK_SetVal();
 
-		//ImageConverter_MeasureChan(FALSE, 0);
+		ImageConverter_Measure(FALSE);
 
 		clockCounter++;
 
@@ -119,6 +119,10 @@ void ClockInterruption_OnInterrupt(void)
 			SI_ClrVal();
 			while (SI_GetVal());
 		}
+
+		// Conversao AD.
+//		ImageConverter_MeasureChan(FALSE, 0);
+
 		state = LOW_CLK;
 		break;
 	}
@@ -167,7 +171,7 @@ void ClockInterruption_OnInterrupt(void)
 void ImageConverter_OnEnd(void)
 {
 
-	ImageConverter_GetChanValue(0, &pixelArray[0][clockCounter]);
+	ImageConverter_GetValue(&arrayOfPixels[clockCounter]);
 }
 
 /*

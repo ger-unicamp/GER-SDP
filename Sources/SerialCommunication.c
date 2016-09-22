@@ -65,9 +65,17 @@ void sendArrayOfPixels(uint8_t array[])
 
 void runSerialTest()
 {
-	serialTest = TRUE;
+//	serialTest = TRUE;
+//
+//	while (!serialTestStart) {}
+//
+//	sendArrayOfPixels(pixelArray[0]);
+}
+void sendC(char ch)
+{
+	init_Serial();
 
-	while (!serialTestStart) {}
-
-	sendArrayOfPixels(pixelArray[0]);
+	sendChar(ch);
+	sendChar('\n');
+	sendChar('\r');
 }

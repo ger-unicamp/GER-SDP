@@ -26,10 +26,10 @@ enum logicalLevel {LOW, HIGH};
 int clockCounter;
 
 // Aqui vc declara o vetor
-unsigned int arrayOfPixels[2][128];
+unsigned int arrayOfPixels[128];
 // Isso funciona como se fosse um protótipo do vetor.
 // Lembrando de que o .h é copiado para os módulos.
-extern unsigned int arrayOfPixels[2][128];
+extern unsigned int arrayOfPixels[128];
 int state;
 int transferTime;
 volatile int COMMUNICATION_SERIAL;

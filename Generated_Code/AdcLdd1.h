@@ -7,7 +7,7 @@
 **     Version     : Component 01.183, Driver 01.08, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-09-04, 16:56, # CodeGen: 29
+**     Date/Time   : 2016-09-21, 20:10, # CodeGen: 57
 **     Abstract    :
 **         This device "ADC_LDD" implements an A/D converter,
 **         its control methods and interrupt/event handling procedure.
@@ -23,7 +23,7 @@
 **            Channel 0                                    : 
 **              Channel mode                               : Single Ended
 **                Input                                    : 
-**                  A/D channel (pin)                      : ADC0_SE13/TSI0_CH8/PTB3/I2C0_SDA/TPM2_CH1
+**                  A/D channel (pin)                      : ADC0_SE6b/PTD5/SPI1_SCK/UART2_TX/TPM0_CH5
 **                  A/D channel (pin) signal               : 
 **          Static sample groups                           : Disabled
 **          Max. samples                                   : 8
@@ -33,12 +33,12 @@
 **          Asynchro clock output                          : Disabled
 **          Sample time                                    : 4 clock periods
 **          Number of conversions                          : 1
-**          Conversion time                                : 6.538462 µs
-**          ADC clock                                      : 2.621 MHz (381.47 ns)
-**          Single conversion time - Single-ended          : 8.63 us
-**          Single conversion time - Differential          : 12.445 us
-**          Additional conversion time - Single-ended      : 6.484 us
-**          Additional conversion time - Differential      : 10.299 us
+**          Conversion time                                : 13.076923 µs
+**          ADC clock                                      : 1.31 MHz (762.939 ns)
+**          Single conversion time - Single-ended          : 17.023 us
+**          Single conversion time - Differential          : 24.652 us
+**          Additional conversion time - Single-ended      : 12.969 us
+**          Additional conversion time - Differential      : 20.599 us
 **          Result type                                    : unsigned 8 bits, right justified
 **          Trigger                                        : Disabled
 **          Voltage reference                              : 

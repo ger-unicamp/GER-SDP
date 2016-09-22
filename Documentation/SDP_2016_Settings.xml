@@ -497,7 +497,7 @@ PE_DEBUGHALT();
             <group name="Channel 0">
               <enumgroup name="Channel mode" v="Single Ended">
                 <group name="Input">
-                  <A_D_channel__pin_ v="ADC0_SE13/TSI0_CH8/PTB3/I2C0_SDA/TPM2_CH1" />
+                  <A_D_channel__pin_ v="ADC0_SE6b/PTD5/SPI1_SCK/UART2_TX/TPM0_CH5" />
                 </group>
               </enumgroup>
             </group>
@@ -509,12 +509,12 @@ PE_DEBUGHALT();
           <Asynchro_clock_output v="Disabled" />
           <Sample_time v="4 clock periods" />
           <Number_of_conversions v="1" />
-          <Conversion_time v="6.538462 &amp;#181;s" />
-          <ADC_clock v="2.621 MHz (381.47 ns)" />
-          <Single_conversion_time___Single_ended v="8.63 us" />
-          <Single_conversion_time___Differential v="12.445 us" />
-          <Additional_conversion_time___Single_ended v="6.484 us" />
-          <Additional_conversion_time___Differential v="10.299 us" />
+          <Conversion_time v="13.076923 &amp;#181;s" />
+          <ADC_clock v="1.31 MHz (762.939 ns)" />
+          <Single_conversion_time___Single_ended v="17.023 us" />
+          <Single_conversion_time___Differential v="24.652 us" />
+          <Additional_conversion_time___Single_ended v="12.969 us" />
+          <Additional_conversion_time___Differential v="20.599 us" />
           <Result_type v="unsigned 8 bits, right justified" />
           <boolgroup name="Trigger" v="Disabled" />
           <group name="Voltage reference">
@@ -574,12 +574,12 @@ PE_DEBUGHALT();
       </boolgroup>
       <list name="A/D channels" v="1">
         <group name="Channel0">
-          <A_D_channel__pin_ v="ADC0_SE13/TSI0_CH8/PTB3/I2C0_SDA/TPM2_CH1" />
+          <A_D_channel__pin_ v="ADC0_SE6b/PTD5/SPI1_SCK/UART2_TX/TPM0_CH5" />
           <boolgroup name="Mode select" v="Single Ended" />
         </group>
       </list>
       <A_D_resolution v="8 bits" />
-      <Conversion_time v="6.538462 &amp;#181;s" />
+      <Conversion_time v="13.076923 &amp;#181;s" />
       <Low_power_mode v="Disabled" />
       <High_speed_conversion_mode v="Disabled" />
       <Asynchro_clock_output v="Disabled" />
@@ -603,11 +603,11 @@ PE_DEBUGHALT();
       <DisableEvent v="don&amp;apos;t generate code" />
       <Start v="don&amp;apos;t generate code" />
       <Stop v="don&amp;apos;t generate code" />
-      <Measure v="don&amp;apos;t generate code" />
+      <Measure v="generate code" />
       <MeasureChan v="generate code" />
       <EnableExtChanTrigger v="don&amp;apos;t generate code" />
       <EnableIntChanTrigger v="don&amp;apos;t generate code" />
-      <GetValue v="don&amp;apos;t generate code" />
+      <GetValue v="generate code" />
       <GetChanValue v="generate code" />
       <GetValue8 v="don&amp;apos;t generate code" />
       <GetChanValue8 v="don&amp;apos;t generate code" />
