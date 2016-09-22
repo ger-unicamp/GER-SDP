@@ -65,9 +65,17 @@ int main(void)
 
 	/* Write your code here */
 
-	uint8_t vetor[128];
-	for (int i=0;i<128;i++){vetor[i] = i;}
+	/* TEste de conversao ad e comunicao serial */
+//	unsigned char c;
+//	while (1)
+//	{
+//		ImageConverter_Measure(TRUE);
+//		ImageConverter_GetValue(&c);
+//		sendAChar(c);
+//	}
 
+	/* TEste do pixelArray com serial e camera */
+	for (int i=0;i<128;i++){pixelArray[0][i] = i;}
 	while(1)
 	{
 		state = HALF_LOW_CLK;
@@ -76,9 +84,11 @@ int main(void)
 
 		while (COMMUNICATION_SERIAL != 2);
 		ClockInterruption_Disable();
-		sendArrayOfPixels(vetor);
-		COMMUNICATION_SERIAL =0;
+		sendArrayOfPixels(pixelArray[0]);
+		COMMUNICATION_SERIAL = 0;
 	}
+
+
 	// Tempo para transmitir uma linha: 45 ms.
 	// Tempo para a câmera gerar uma linha 5ms
 	// Tempo total do funcionamento da câmera.
@@ -128,14 +138,14 @@ int main(void)
 
 
 	/*** Don't write any code pass this line, or it will be deleted during code generation. ***/
-	/*** RTOS startup code. Macro PEX_RTOS_START is defined by the RTOS component. DON'T MODIFY THIS CODE!!! ***/
-#ifdef PEX_RTOS_START
-	PEX_RTOS_START();                  /* Startup of the selected RTOS. Macro is defined by the RTOS component. */
-#endif
-	/*** End of RTOS startup code.  ***/
-	/*** Processor Expert end of main routine. DON'T MODIFY THIS CODE!!! ***/
-	for(;;){}
-	/*** Processor Expert end of main routine. DON'T WRITE CODE BELOW!!! ***/
+  /*** RTOS startup code. Macro PEX_RTOS_START is defined by the RTOS component. DON'T MODIFY THIS CODE!!! ***/
+  #ifdef PEX_RTOS_START
+    PEX_RTOS_START();                  /* Startup of the selected RTOS. Macro is defined by the RTOS component. */
+  #endif
+  /*** End of RTOS startup code.  ***/
+  /*** Processor Expert end of main routine. DON'T MODIFY THIS CODE!!! ***/
+  for(;;){}
+  /*** Processor Expert end of main routine. DON'T WRITE CODE BELOW!!! ***/
 } /*** End of main routine. DO NOT MODIFY THIS TEXT!!! ***/
 
 /* END main */

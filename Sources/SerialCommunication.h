@@ -29,5 +29,6 @@ typedef struct
 void runSerialTest();
 void sendArrayOfPixels(uint8_t array[]);
 void itoa_8_bit(uint8_t sample);
+void sendAChar(char c);
 
 #endif /* SOURCES_SERIALCOMMUNICATION_H_ */

@@ -71,3 +71,12 @@ void runSerialTest()
 
 	sendArrayOfPixels(pixelArray[0]);
 }
+
+void sendAChar(char c)
+{
+	init_Serial();
+	sendChar(c);
+	sendChar('\n');
+	sendChar('\r');
+
+}

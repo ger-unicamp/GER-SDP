@@ -103,8 +103,6 @@ void ClockInterruption_OnInterrupt(void)
 		// Clock High.
 		CLK_SetVal();
 
-		//ImageConverter_MeasureChan(FALSE, 0);
-
 		clockCounter++;
 
 		state = HALF_HIGH_CLK;
@@ -119,6 +117,9 @@ void ClockInterruption_OnInterrupt(void)
 			SI_ClrVal();
 			while (SI_GetVal());
 		}
+
+		// Começa conversão AD
+		ImageConverter_Measure(FALSE);
 		state = LOW_CLK;
 		break;
 	}
