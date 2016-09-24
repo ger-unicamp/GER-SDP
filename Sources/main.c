@@ -65,76 +65,18 @@ int main(void)
 
 	/* Write your code here */
 
-	/* TEste de conversao ad e comunicao serial */
-//	unsigned char c;
-//	while (1)
-//	{
-//		ImageConverter_Measure(TRUE);
-//		ImageConverter_GetValue(&c);
-//		sendAChar(c);
-//	}
-
-	/* TEste do pixelArray com serial e camera */
-	for (int i=0;i<128;i++){pixelArray[0][i] = i;}
-	while(1)
+		while(1)
 	{
 		state = HALF_LOW_CLK;
 		clockCounter = 0;
 		ClockInterruption_Enable();
 
-		while (COMMUNICATION_SERIAL != 2);
+		while (COMMUNICATION_SERIAL != 10);
 		ClockInterruption_Disable();
 		sendArrayOfPixels(pixelArray[0]);
+
 		COMMUNICATION_SERIAL = 0;
 	}
-
-
-	// Tempo para transmitir uma linha: 45 ms.
-	// Tempo para a câmera gerar uma linha 5ms
-	// Tempo total do funcionamento da câmera.
-
-
-	//	while(1)
-	//	{
-	//		DebugLED_PutVal(0);
-	//		sendArrayOfPixels(vetor);
-	//
-	//		DebugLED_PutVal(1);
-	//		sendArrayOfPixels(vetor);
-	//	}
-
-//
-//	state = HALF_LOW_CLK;
-//	clockCounter = 0;
-//	ClockInterruption_Enable();
-	/*
-	int MAXIMO = 1000000;
-//	for (int i = 0; i < MAXIMO; i++);DebugLED_ClrVal();
-	while (1)
-	{
-		state = HALF_LOW_CLK;
-		clockCounter = 0;
-		ClockInterruption_Enable();
-
-	for (int i = 0; i < MAXIMO; i++);
-		ClockInterruption_Disable();
-
-		for (int i = 0; i < MAXIMO; i++);
-
-	}
-
-	//runSerialTest();
-
-//	int i = 0; while (i < 128){array[i++] = i;}
-
-//	while (1) {
-//		ImageConverter_MeasureChan(TRUE, 0);
-//
-//		ImageConverter_GetChanValue(0, array);
-//
-//		sendArrayOfPixels(array);
-//	}
-//	while (1){ sendArrayOfPixels(array); }
 
 
 	/*** Don't write any code pass this line, or it will be deleted during code generation. ***/

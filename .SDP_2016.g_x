@@ -22,7 +22,7 @@
   <GeneratedFilesList>
     <GeneratedByPE>
       <File Name="Static_Code/PDD/PORT_PDD.h" FileDate="2016-09-21, 21:55:31" FileAge="1474505731000" FileType="1048576" />
-      <File Name="Sources/main.c" FileDate="2016-09-22, 01:23:52" FileAge="1474518232000" FileType="128" />
+      <File Name="Sources/main.c" FileDate="2016-09-23, 17:01:49" FileAge="1474660909000" FileType="128" />
       <File Name="Generated_Code/Vectors.c" FileDate="2016-09-21, 21:55:30" FileAge="1474505730000" FileType="45637" CompNumb="2" />
       <File Name="Static_Code/PDD/UART_PDD.h" FileDate="2016-09-21, 21:55:31" FileAge="1474505731000" FileType="1048576" />
       <File Name="Documentation/doxygen/RoutingReport_component.txt" FileDate="2016-09-21, 21:55:30" FileAge="1474505730000" FileType="45637" CompNumb="2" />
@@ -85,7 +85,7 @@
       <File Name="Generated_Code/SI.c" FileDate="2016-09-21, 21:55:30" FileAge="1474505730000" FileType="45637" CompNumb="3" />
       <File Name="Static_Code/PDD/DAC_PDD.h" FileDate="2016-09-21, 21:55:30" FileAge="1474505730000" FileType="1048576" />
       <File Name="Generated_Code/PE_Error.h" FileDate="2016-09-21, 21:55:30" FileAge="1474505730000" FileType="45637" />
-      <File Name="Documentation/SDP_2016_SIGNALS.txt" FileDate="2016-09-22, 01:34:08" FileAge="1474518848000" FileType="3072" />
+      <File Name="Documentation/SDP_2016_SIGNALS.txt" FileDate="2016-09-23, 17:02:02" FileAge="1474660922000" FileType="3072" />
       <File Name="Static_Code/IO_Map/MKL25Z4.h" FileDate="2016-09-21, 21:55:30" FileAge="1474505730000" FileType="1048576" CompNumb="2" />
       <File Name="Generated_Code/CLK.h" FileDate="2016-09-21, 21:55:30" FileAge="1474505730000" FileType="45637" CompNumb="6" />
       <File Name="Generated_Code/SerialCom.h" FileDate="2016-09-21, 21:55:30" FileAge="1474505730000" FileType="45637" CompNumb="23" />
@@ -98,9 +98,9 @@
       <File Name="Generated_Code/PE_LDD.c" FileDate="2016-09-21, 21:55:30" FileAge="1474505730000" FileType="45637" CompNumb="2" />
       <File Name="ProjectInfo.xml" FileDate="2016-09-21, 21:55:47" FileAge="1474505747000" FileType="45637" />
       <File Name="Static_Code/PDD/PDD_Types.h" FileDate="2016-09-21, 21:55:31" FileAge="1474505731000" FileType="1048576" CompNumb="2" />
-      <File Name="Documentation/doxygen/SDP_2016_project.txt" FileDate="2016-09-21, 21:55:30" FileAge="1474505730000" FileType="45637" CompNumb="2" />
       <File Name="Documentation/doxygen/BitIoLdd1_component.txt" FileDate="2016-09-21, 21:55:30" FileAge="1474505730000" FileType="45637" CompNumb="4" />
+      <File Name="Documentation/doxygen/SDP_2016_project.txt" FileDate="2016-09-21, 21:55:30" FileAge="1474505730000" FileType="45637" CompNumb="2" />
     </GeneratedByPE>
   </GeneratedFilesList>
-  <CodeGenReference>56</CodeGenReference>
+  <CodeGenReference>60</CodeGenReference>
 </CodeGenerationInfo>
