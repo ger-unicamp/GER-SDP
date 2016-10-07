@@ -2,13 +2,13 @@
 clear; clc;
 
 % Digite aqui o nome da porta que sera utilizada.
-PORTA = "/dev/ttyACM2";
+PORTA = "/dev/ttyACM0";
 
 % Escolha o modo de operacao desejado:
 % Digite (1): Para exibir a imagem digital da camera.
 % Digite (2): Para exibir o grafico em tempo real dos pixels da camera.
 % Digite (3): Para imprimir o vetor de pixels na Janela de Comandos.
-COMANDO = 3;
+COMANDO = 1;
 
 pkg load instrument-control;
 
