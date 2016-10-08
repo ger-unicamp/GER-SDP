@@ -64,20 +64,8 @@ int main(void)
 	/*** End of Processor Expert internal initialization.                    ***/
 
 	/* Write your code here */
-//	cameraStartReading(1);
+	cameraStartReading(TRUE);
 
-		while(1)
-	{
-		state = HALF_LOW_CLK;
-		clockCounter = 0;
-		ClockInterruption_Enable();
-
-		while (COMMUNICATION_SERIAL != 10);
-		ClockInterruption_Disable();
-		sendArrayOfPixels(pixelArray[0]);
-
-		COMMUNICATION_SERIAL = 0;
-	}
 
 
 	/*** Don't write any code pass this line, or it will be deleted during code generation. ***/

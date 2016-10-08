@@ -9,7 +9,7 @@
 #include "CameraController.h"
 
 /* ===================================================================
- **     Method      :  void cameraStartReading(int serialTest)
+ **     Method      :  void cameraStartReading(bool serialTest)
  **
  **
  **     @brief
@@ -17,47 +17,30 @@
  **			Therefore, it's necessary enable him.
  **
  **     @param
- **			int serialTest:
- **							-> 0: For it starts camera reading.
- **							-> 1: For it starts the serial communication.
+ **			bool serialTest:
+ **							-> FALSE: For it starts camera reading.
+ **							-> TRUE: For it starts the serial communication.
  **
  **
  ** ===================================================================*/
-void cameraStartReading(int serialTest)
+void cameraStartReading(bool serialTest)
 {
-	if (serialTest == FALSE)
+	if (serialTest == TRUE)
 	{
-		// Initialize camera to begin reading.
-		initializeCamera();
-
-		// Ativa a câmera.
-		ClockInterruption_Enable();
-	}
-
-	else if (serialTest == TRUE)
-	{
-		while(1)
-		{
-			state = HALF_LOW_CLK;
-			clockCounter = 0;
-			ClockInterruption_Enable();
-
-			while (COMMUNICATION_SERIAL != 10);
-			ClockInterruption_Disable();
-			sendArrayOfPixels(pixelArray[0]);
-
-			COMMUNICATION_SERIAL = 0;
-		}
-//		testMode();
+		testMode();
 	}
 
 	else
 	{
-		// Error, do something.
-		return;
+		// Initializes the camera
+		initializeCamera();
+
+		// Camera activation
+		ClockInterruption_Enable();
 	}
+
 }
-///////////////////VER SE PODE DECLARAR VARIAVEL IM HEADER E COMO FAZER ISSO.
+
 void initializeCamera()
 {
 	state = HALF_LOW_CLK;
@@ -65,24 +48,28 @@ void initializeCamera()
 	transferTime = 0;
 }
 
+// Serial Communication Mode.
 void testMode()
 {
-	initializeCamera();
-	//
-	//		isReading = TRUE;
-	//
-	ClockInterruption_Enable();
-	//
-	//		// Wait the end of reading.
-	//		while (isReading == TRUE);
-	//
-	//		ClockInterruption_Disable();
-
-	while (1)
+	while(TRUE)
 	{
-		// Serial communication.
-		send ('a');
-		send('\n');
-		send('\r');
+		// Initializes the camera
+		initializeCamera();
+
+		// Camera activation
+		ClockInterruption_Enable();
+
+		// Expects the camera to finish
+		while (COMMUNICATION_SERIAL != 10);
+
+		// disable the camera
+		ClockInterruption_Disable();
+
+		// send array by serial communication
+		sendArrayOfPixels(pixelArray[0]);
+
+		// flag is disabled
+		COMMUNICATION_SERIAL = 0;
 	}
+
 }

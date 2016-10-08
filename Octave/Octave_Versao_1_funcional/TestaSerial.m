@@ -2,7 +2,7 @@
 clear; clc;
 
 % Digite aqui o nome da porta que sera utilizada.
-PORTA = "/dev/ttyACM0";
+PORTA = findSerialPort();
 
 % Escolha o modo de operacao desejado:
 % Digite (1): Para exibir a imagem digital da camera.
