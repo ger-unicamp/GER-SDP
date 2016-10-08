@@ -85,6 +85,7 @@ void ClockInterruption_OnInterrupt(void)
 			SI_SetVal();
 			while (!SI_GetVal());
 		}
+
 		// Fim de um ciclo.
 		// A camera precisa de um clock a mais para enviar o ultimo pixel.
 		else if (clockCounter == 129)
@@ -93,7 +94,16 @@ void ClockInterruption_OnInterrupt(void)
 			// E 20 microssegundos para se preparar para o proximo ciclo.
 			state = WAIT_TRANSFER_CHARGE;
 
-			COMMUNICATION_SERIAL++;
+			// Updates the control samples
+			if (measuringCounter < 0)
+			{
+				// In this case happened overflow.
+				measuringCounter = 0;
+			}
+			else
+			{
+				measuringCounter++;
+			}
 		}
 
 		break;
@@ -118,8 +128,9 @@ void ClockInterruption_OnInterrupt(void)
 			while (SI_GetVal());
 		}
 
-		// Começa conversão AD
+		// Starts the AD convertion
 		ImageConverter_Measure(FALSE);
+
 		state = LOW_CLK;
 		break;
 	}

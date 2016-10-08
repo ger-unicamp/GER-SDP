@@ -11,7 +11,9 @@ Sources/CameraController.o: ../Sources/CameraController.c \
  /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/TU1.h \
  /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Static_Code/PDD/PIT_PDD.h \
  /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Static_Code/PDD/PDD_Types.h \
- /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Cpu.h
+ /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Cpu.h \
+ ../Sources/SerialCommunication.h \
+ /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/SerialCom.h
 
 ../Sources/CameraController.h:
 
@@ -38,3 +40,7 @@ Sources/CameraController.o: ../Sources/CameraController.c \
 /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Static_Code/PDD/PDD_Types.h:
 
 /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Cpu.h:
+
+../Sources/SerialCommunication.h:
+
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/SerialCom.h:

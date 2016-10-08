@@ -43,9 +43,14 @@ void cameraStartReading(bool serialTest)
 
 void initializeCamera()
 {
+	// Inicial state
 	state = HALF_LOW_CLK;
+
 	clockCounter = 0;
+
 	transferTime = 0;
+	// Number of samples
+	measuringCounter = 0;
 }
 
 // Serial Communication Mode.
@@ -59,17 +64,14 @@ void testMode()
 		// Camera activation
 		ClockInterruption_Enable();
 
-		// Expects the camera to finish
-		while (COMMUNICATION_SERIAL != 10);
+		// Expects the camera to finish N readings
+		while (measuringCounter != 10);
 
 		// disable the camera
 		ClockInterruption_Disable();
 
 		// send array by serial communication
 		sendArrayOfPixels(pixelArray[0]);
-
-		// flag is disabled
-		COMMUNICATION_SERIAL = 0;
 	}
 
 }
