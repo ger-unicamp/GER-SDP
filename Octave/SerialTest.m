@@ -1,3 +1,4 @@
+
 % Limpa as variaveis e a Janela de Comandos.
 clear; clc;
 
@@ -8,7 +9,9 @@ PORTA = findSerialPort();
 % Digite (1): Para exibir a imagem digital da camera.
 % Digite (2): Para exibir o grafico em tempo real dos pixels da camera.
 % Digite (3): Para imprimir o vetor de pixels na Janela de Comandos.
-COMANDO = 2;
+COMANDO = 1;
+CALIBRATION1 = false;
+CALIBRATION2 = false;
 
 pkg load instrument-control;
 
@@ -33,6 +36,8 @@ digit = 2;
 number = 0;
 read = false;
 vetor = 0;
+calibrated = false;
+calibrationParameters = 0;
 
 while true
   % Realiza a leitura.
@@ -58,6 +63,15 @@ while true
   elseif (in == 10)
     % Descarta o "carriage return";
     srl_read(s,1);
+    
+    if (!calibrated && CALIBRATION1)
+      calibrationParameters = getCalibrationParameters(vetor);
+      calibrated = true;
+    endif
+    vetor = vetor + calibrationParameters;
+    if (CALIBRATION2)
+      vetor = calibration(vetor);
+    endif
     
     % Exibe a imagem digital da camera.
     if (COMANDO == 1)
