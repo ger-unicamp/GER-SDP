@@ -7,7 +7,7 @@
 **     Version     : Component 01.183, Driver 01.08, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-08, 10:30, # CodeGen: 61
+**     Date/Time   : 2016-10-09, 00:10, # CodeGen: 64
 **     Abstract    :
 **         This device "ADC_LDD" implements an A/D converter,
 **         its control methods and interrupt/event handling procedure.
@@ -200,11 +200,7 @@ LDD_TDeviceData* AdcLdd1_Init(LDD_TUserData *UserDataPtr)
   PORTD_PCR5 &= (uint32_t)~(uint32_t)((PORT_PCR_ISF_MASK | PORT_PCR_MUX(0x07)));
   /* ADC0_CFG2: MUXSEL=1 */
   ADC0_CFG2 |= ADC_CFG2_MUXSEL_MASK;
-<<<<<<< HEAD:Generated_Code/AdcLdd1.c
   /* ADC0_CFG1: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,ADLPC=0,ADIV=3,ADLSMP=0,MODE=0,ADICLK=1 */
-=======
-  /* ADC0_CFG1: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,ADLPC=0,ADIV=3,ADLSMP=0,MODE=0,ADICLK=0 */
->>>>>>> marcelo:KDS/SDP-2016/Generated_Code/AdcLdd1.c
   ADC0_CFG1 = ADC_CFG1_ADIV(0x03) |
               ADC_CFG1_MODE(0x00) |
               ADC_CFG1_ADICLK(0x01);

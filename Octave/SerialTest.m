@@ -9,7 +9,8 @@ PORTA = findSerialPort();
 % Digite (1): Para exibir a imagem digital da camera.
 % Digite (2): Para exibir o grafico em tempo real dos pixels da camera.
 % Digite (3): Para imprimir o vetor de pixels na Janela de Comandos.
-COMANDO = 1;
+% Digite (4): Para teste.
+COMANDO = 2;
 CALIBRATION1 = false;
 CALIBRATION2 = false;
 
@@ -89,7 +90,11 @@ while true
     elseif (COMANDO == 3)
       disp(vetor);
       pause(1);
-    
+      
+    elseif (COMANDO == 4)
+    display("entrou");
+    naosei(vetor);
+    %pause(1);
     else display("Modo de operacao invalido!");
     endif
     

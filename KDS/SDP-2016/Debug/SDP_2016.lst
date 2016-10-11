@@ -31,15 +31,15 @@ Idx Name          Size      VMA       LMA       File off  Algn  Flags
   8 .romp         00000018  1ffff218  00001a48  0000f218  2**0  CONTENTS, ALLOC, LOAD, DATA
   9 ._user_heap_stack 00000400  1ffff230  00001a60  0000f230  2**0  ALLOC
  10 .ARM.attributes 00000028  00000000  00000000  0000f230  2**0  CONTENTS, READONLY
- 11 .debug_info   00003d89  00000000  00000000  0000f258  2**0  CONTENTS, READONLY, DEBUGGING
- 12 .debug_abbrev 0000144d  00000000  00000000  00012fe1  2**0  CONTENTS, READONLY, DEBUGGING
- 13 .debug_aranges 00000428  00000000  00000000  0001442e  2**0  CONTENTS, READONLY, DEBUGGING
- 14 .debug_ranges 00000310  00000000  00000000  00014856  2**0  CONTENTS, READONLY, DEBUGGING
- 15 .debug_macro  00012e64  00000000  00000000  00014b66  2**0  CONTENTS, READONLY, DEBUGGING
- 16 .debug_line   0000418a  00000000  00000000  000279ca  2**0  CONTENTS, READONLY, DEBUGGING
- 17 .debug_str    00040e05  00000000  00000000  0002bb54  2**0  CONTENTS, READONLY, DEBUGGING
- 18 .comment      00000070  00000000  00000000  0006c959  2**0  CONTENTS, READONLY
- 19 .debug_frame  00000bb4  00000000  00000000  0006c9cc  2**2  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_info   00003d75  00000000  00000000  0000f258  2**0  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_abbrev 0000143b  00000000  00000000  00012fcd  2**0  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_aranges 00000430  00000000  00000000  00014408  2**0  CONTENTS, READONLY, DEBUGGING
+ 14 .debug_ranges 00000318  00000000  00000000  00014838  2**0  CONTENTS, READONLY, DEBUGGING
+ 15 .debug_macro  00012e64  00000000  00000000  00014b50  2**0  CONTENTS, READONLY, DEBUGGING
+ 16 .debug_line   000040f5  00000000  00000000  000279b4  2**0  CONTENTS, READONLY, DEBUGGING
+ 17 .debug_str    00040d8c  00000000  00000000  0002baa9  2**0  CONTENTS, READONLY, DEBUGGING
+ 18 .comment      00000070  00000000  00000000  0006c835  2**0  CONTENTS, READONLY
+ 19 .debug_frame  00000bd4  00000000  00000000  0006c8a8  2**2  CONTENTS, READONLY, DEBUGGING
 SYMBOL TABLE:
 00000000 l    d  .interrupts	00000000 .interrupts
 00000400 l    d  .cfmprotect	00000000 .cfmprotect
@@ -164,6 +164,7 @@ SYMBOL TABLE:
 000006ac g     F .text	0000003c testMode
 000019d8 g       .ARM	00000000 __exidx_start
 000019bc g     O .text	00000004 _global_impure_ptr
+00001270 g     F .text	00000034 ImageConverter_GetValue
 00001944 g     F .text	0000004c __libc_init_array
 00000b2c  w    F .text	00000008 __init_user
 00000470 g     F .text	00000000 _mainCRTStartup
@@ -248,7 +249,6 @@ SYMBOL TABLE:
 00000060 g       *ABS*	00000000 ___data_size
 00000fd4 g     F .text	0000000c Cpu_INT_NMIInterrupt
 00000000  w      *UND*	00000000 __register_frame_info
-00001270 g     F .text	00000034 PE_ImageConverter_GetChanValue
 
 
 
@@ -987,13 +987,13 @@ void ImageConverter_OnEnd(void)
      806:	af00      	add	r7, sp, #0
 /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/Events.c:182
 
-	ImageConverter_GetChanValue(0, &pixelArray[0][clockCounter]);
+	ImageConverter_GetValue(&pixelArray[0][clockCounter]);
      808:	4b04      	ldr	r3, [pc, #16]	; (81c <ImageConverter_OnEnd+0x18>)
      80a:	681a      	ldr	r2, [r3, #0]
      80c:	4b04      	ldr	r3, [pc, #16]	; (820 <ImageConverter_OnEnd+0x1c>)
      80e:	18d3      	adds	r3, r2, r3
      810:	1c18      	adds	r0, r3, #0
-     812:	f000 fd2d 	bl	1270 <PE_ImageConverter_GetChanValue>
+     812:	f000 fd2d 	bl	1270 <ImageConverter_GetValue>
 /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/Events.c:183
 }
      816:	46bd      	mov	sp, r7
@@ -1072,41 +1072,55 @@ void SerialCom_OnBlockSent(LDD_TUserData *UserDataPtr)
 
 00000854 <init_Serial>:
 init_Serial():
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:14
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:14
+#include "DebugLED.h"
+
+static Serial_Device deviceData;
+
+static void init_Serial()
+{
      854:	b580      	push	{r7, lr}
      856:	af00      	add	r7, sp, #0
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:15
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:15
+	deviceData.handle = SerialCom_Init(&deviceData); /* Initialization of serial component */
      858:	4b05      	ldr	r3, [pc, #20]	; (870 <init_Serial+0x1c>)
      85a:	1c18      	adds	r0, r3, #0
      85c:	f000 fd66 	bl	132c <SerialCom_Init>
      860:	1c02      	adds	r2, r0, #0
      862:	4b03      	ldr	r3, [pc, #12]	; (870 <init_Serial+0x1c>)
      864:	601a      	str	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:16
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:16
+	deviceData.isSent = FALSE;
      866:	4b02      	ldr	r3, [pc, #8]	; (870 <init_Serial+0x1c>)
      868:	2200      	movs	r2, #0
      86a:	711a      	strb	r2, [r3, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:17
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:17
+}
      86c:	46bd      	mov	sp, r7
      86e:	bd80      	pop	{r7, pc}
      870:	1ffff07c 	.word	0x1ffff07c
 
 00000874 <sendChar>:
 sendChar():
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:20
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:20
+
+static int sendChar(unsigned char ch)
+{
      874:	b580      	push	{r7, lr}
      876:	b082      	sub	sp, #8
      878:	af00      	add	r7, sp, #0
      87a:	1c02      	adds	r2, r0, #0
      87c:	1dfb      	adds	r3, r7, #7
      87e:	701a      	strb	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:21
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:21
+	deviceData.isSent = FALSE;
      880:	4b0c      	ldr	r3, [pc, #48]	; (8b4 <sendChar+0x40>)
      882:	2200      	movs	r2, #0
      884:	711a      	strb	r2, [r3, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:22
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:22
+	while(SerialCom_SendBlock(deviceData.handle, (LDD_TData*)&ch, 1)!= ERR_OK) {} /* Send char */
      886:	46c0      	nop			; (mov r8, r8)
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:22 (discriminator 1)
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:22 (discriminator 1)
      888:	4b0a      	ldr	r3, [pc, #40]	; (8b4 <sendChar+0x40>)
      88a:	681a      	ldr	r2, [r3, #0]
      88c:	1dfb      	adds	r3, r7, #7
@@ -1117,15 +1131,17 @@ sendChar():
      898:	1c03      	adds	r3, r0, #0
      89a:	2b00      	cmp	r3, #0
      89c:	d1f4      	bne.n	888 <sendChar+0x14>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:23
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:23
+	while(!deviceData.isSent) {} /* wait until we get the green flag from the TX interrupt */
      89e:	46c0      	nop			; (mov r8, r8)
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:23 (discriminator 1)
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:23 (discriminator 1)
      8a0:	4b04      	ldr	r3, [pc, #16]	; (8b4 <sendChar+0x40>)
      8a2:	791b      	ldrb	r3, [r3, #4]
      8a4:	b2db      	uxtb	r3, r3
      8a6:	2b00      	cmp	r3, #0
      8a8:	d0fa      	beq.n	8a0 <sendChar+0x2c>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:24
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:24
+}
      8aa:	1c18      	adds	r0, r3, #0
      8ac:	46bd      	mov	sp, r7
      8ae:	b002      	add	sp, #8
@@ -1135,14 +1151,23 @@ sendChar():
 
 000008b8 <itoa_8_bit>:
 itoa_8_bit():
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:27
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:27
+
+void itoa_8_bit(uint8_t sample)
+{
      8b8:	b580      	push	{r7, lr}
      8ba:	b088      	sub	sp, #32
      8bc:	af00      	add	r7, sp, #0
      8be:	1c02      	adds	r2, r0, #0
      8c0:	1dfb      	adds	r3, r7, #7
      8c2:	701a      	strb	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:37
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:37
+	{
+		sendChar('E');
+		return;
+	}
+
+	R1 = (unsigned char) (sample % 10) + '0';
      8c4:	1dfb      	adds	r3, r7, #7
      8c6:	781b      	ldrb	r3, [r3, #0]
      8c8:	1c18      	adds	r0, r3, #0
@@ -1154,7 +1179,8 @@ itoa_8_bit():
      8d6:	331f      	adds	r3, #31
      8d8:	3230      	adds	r2, #48	; 0x30
      8da:	701a      	strb	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:38
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:38
+	Q1 = sample / 10;
      8dc:	1dfb      	adds	r3, r7, #7
      8de:	781b      	ldrb	r3, [r3, #0]
      8e0:	1c18      	adds	r0, r3, #0
@@ -1163,7 +1189,9 @@ itoa_8_bit():
      8e8:	1c03      	adds	r3, r0, #0
      8ea:	b2db      	uxtb	r3, r3
      8ec:	61bb      	str	r3, [r7, #24]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:40
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:40
+
+	R2 = (unsigned char) (Q1 % 10) + '0';
      8ee:	69bb      	ldr	r3, [r7, #24]
      8f0:	1c18      	adds	r0, r3, #0
      8f2:	210a      	movs	r1, #10
@@ -1174,14 +1202,17 @@ itoa_8_bit():
      8fe:	3317      	adds	r3, #23
      900:	3230      	adds	r2, #48	; 0x30
      902:	701a      	strb	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:41
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:41
+	Q2 = Q1 / 10;
      904:	69bb      	ldr	r3, [r7, #24]
      906:	1c18      	adds	r0, r3, #0
      908:	210a      	movs	r1, #10
      90a:	f7ff fe3b 	bl	584 <__aeabi_idiv>
      90e:	1c03      	adds	r3, r0, #0
      910:	613b      	str	r3, [r7, #16]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:43
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:43
+
+	R3 = (unsigned char) (Q2 % 10) + '0';
      912:	693b      	ldr	r3, [r7, #16]
      914:	1c18      	adds	r0, r3, #0
      916:	210a      	movs	r1, #10
@@ -1192,25 +1223,30 @@ itoa_8_bit():
      922:	330f      	adds	r3, #15
      924:	3230      	adds	r2, #48	; 0x30
      926:	701a      	strb	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:45
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:45
+
+	sendChar(R3);
      928:	1c3b      	adds	r3, r7, #0
      92a:	330f      	adds	r3, #15
      92c:	781b      	ldrb	r3, [r3, #0]
      92e:	1c18      	adds	r0, r3, #0
      930:	f7ff ffa0 	bl	874 <sendChar>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:46
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:46
+	sendChar(R2);
      934:	1c3b      	adds	r3, r7, #0
      936:	3317      	adds	r3, #23
      938:	781b      	ldrb	r3, [r3, #0]
      93a:	1c18      	adds	r0, r3, #0
      93c:	f7ff ff9a 	bl	874 <sendChar>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:47
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:47
+	sendChar(R1);
      940:	1c3b      	adds	r3, r7, #0
      942:	331f      	adds	r3, #31
      944:	781b      	ldrb	r3, [r3, #0]
      946:	1c18      	adds	r0, r3, #0
      948:	f7ff ff94 	bl	874 <sendChar>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:48
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:48
+}
      94c:	46bd      	mov	sp, r7
      94e:	b008      	add	sp, #32
      950:	bd80      	pop	{r7, pc}
@@ -1218,46 +1254,71 @@ itoa_8_bit():
 
 00000954 <sendArrayOfPixels>:
 sendArrayOfPixels():
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:51
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:51
+
+void sendArrayOfPixels(uint8_t array[])
+{
      954:	b580      	push	{r7, lr}
      956:	b084      	sub	sp, #16
      958:	af00      	add	r7, sp, #0
      95a:	6078      	str	r0, [r7, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:52
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:52
+	init_Serial();
      95c:	f7ff ff7a 	bl	854 <init_Serial>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:54
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:54
+
+	for (int pixel = 0; pixel < 128; pixel++)
      960:	2300      	movs	r3, #0
      962:	60fb      	str	r3, [r7, #12]
      964:	e00c      	b.n	980 <sendArrayOfPixels+0x2c>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:56 (discriminator 2)
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:56 (discriminator 2)
+	{
+		itoa_8_bit(array[pixel]);
      966:	68fb      	ldr	r3, [r7, #12]
      968:	687a      	ldr	r2, [r7, #4]
      96a:	18d3      	adds	r3, r2, r3
      96c:	781b      	ldrb	r3, [r3, #0]
      96e:	1c18      	adds	r0, r3, #0
      970:	f7ff ffa2 	bl	8b8 <itoa_8_bit>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:57 (discriminator 2)
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:57 (discriminator 2)
+		sendChar(' ');
      974:	2020      	movs	r0, #32
      976:	f7ff ff7d 	bl	874 <sendChar>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:54 (discriminator 2)
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:54 (discriminator 2)
+
+void sendArrayOfPixels(uint8_t array[])
+{
+	init_Serial();
+
+	for (int pixel = 0; pixel < 128; pixel++)
      97a:	68fb      	ldr	r3, [r7, #12]
      97c:	3301      	adds	r3, #1
      97e:	60fb      	str	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:54 (discriminator 1)
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:54 (discriminator 1)
      980:	68fb      	ldr	r3, [r7, #12]
      982:	2b7f      	cmp	r3, #127	; 0x7f
      984:	ddef      	ble.n	966 <sendArrayOfPixels+0x12>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:60
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:60
+	{
+		itoa_8_bit(array[pixel]);
+		sendChar(' ');
+	}
+
+	sendChar('\n');
      986:	200a      	movs	r0, #10
      988:	f7ff ff74 	bl	874 <sendChar>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:61
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:61
+	sendChar('\r');
      98c:	200d      	movs	r0, #13
      98e:	f7ff ff71 	bl	874 <sendChar>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:63
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:63
+
+	serialFinished = TRUE;
      992:	4b03      	ldr	r3, [pc, #12]	; (9a0 <sendArrayOfPixels+0x4c>)
      994:	2201      	movs	r2, #1
      996:	701a      	strb	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Sources/SerialCommunication.c:64
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Sources/SerialCommunication.c:64
+}
      998:	46bd      	mov	sp, r7
      99a:	b004      	add	sp, #16
      99c:	bd80      	pop	{r7, pc}
@@ -1299,50 +1360,76 @@ int main(void)
 
 000009b4 <__copy_rom_section>:
 __copy_rom_section():
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:44
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:44
+
+/*
+ *	Routine to copy a single section from ROM to RAM ...
+ */
+void __copy_rom_section(unsigned long dst, unsigned long src, unsigned long size)
+{
      9b4:	b580      	push	{r7, lr}
      9b6:	b08a      	sub	sp, #40	; 0x28
      9b8:	af00      	add	r7, sp, #0
      9ba:	60f8      	str	r0, [r7, #12]
      9bc:	60b9      	str	r1, [r7, #8]
      9be:	607a      	str	r2, [r7, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:45
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:45
+	unsigned long len = size;
      9c0:	687b      	ldr	r3, [r7, #4]
      9c2:	627b      	str	r3, [r7, #36]	; 0x24
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:47
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:47
+
+	const unsigned int size_int = sizeof(int);
      9c4:	2304      	movs	r3, #4
      9c6:	623b      	str	r3, [r7, #32]
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:48
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:48
+	const unsigned int mask_int = sizeof(int)-1;
      9c8:	2303      	movs	r3, #3
      9ca:	61fb      	str	r3, [r7, #28]
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:50
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:50
+
+	const unsigned int size_short = sizeof(short);
      9cc:	2302      	movs	r3, #2
      9ce:	61bb      	str	r3, [r7, #24]
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:51
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:51
+	const unsigned int mask_short = sizeof(short)-1;
      9d0:	2301      	movs	r3, #1
      9d2:	617b      	str	r3, [r7, #20]
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:53
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:53
+
+	const unsigned int size_char = sizeof(char);
      9d4:	2301      	movs	r3, #1
      9d6:	613b      	str	r3, [r7, #16]
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:55
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:55
+
+	if( dst == src || size == 0)
      9d8:	68fa      	ldr	r2, [r7, #12]
      9da:	68bb      	ldr	r3, [r7, #8]
      9dc:	429a      	cmp	r2, r3
      9de:	d002      	beq.n	9e6 <__copy_rom_section+0x32>
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:55 (discriminator 1)
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:55 (discriminator 1)
      9e0:	687b      	ldr	r3, [r7, #4]
      9e2:	2b00      	cmp	r3, #0
      9e4:	d100      	bne.n	9e8 <__copy_rom_section+0x34>
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:57
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:57
+	{
+		return;
      9e6:	e04d      	b.n	a84 <__copy_rom_section+0xd0>
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:61
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:61
+	}
+
+
+	while( len > 0)
      9e8:	e049      	b.n	a7e <__copy_rom_section+0xca>
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:64
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:64
+	{
+
+		if( !(src & mask_int) && !(dst & mask_int) && len >= size_int)
      9ea:	68bb      	ldr	r3, [r7, #8]
      9ec:	69fa      	ldr	r2, [r7, #28]
      9ee:	4013      	ands	r3, r2
      9f0:	d118      	bne.n	a24 <__copy_rom_section+0x70>
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:64 (discriminator 1)
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:64 (discriminator 1)
      9f2:	68fb      	ldr	r3, [r7, #12]
      9f4:	69fa      	ldr	r2, [r7, #28]
      9f6:	4013      	ands	r3, r2
@@ -1351,33 +1438,40 @@ __copy_rom_section():
      9fc:	6a3b      	ldr	r3, [r7, #32]
      9fe:	429a      	cmp	r2, r3
      a00:	d310      	bcc.n	a24 <__copy_rom_section+0x70>
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:66
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:66
+		{
+			*((int *)dst)  = *((int*)src);
      a02:	68fb      	ldr	r3, [r7, #12]
      a04:	68ba      	ldr	r2, [r7, #8]
      a06:	6812      	ldr	r2, [r2, #0]
      a08:	601a      	str	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:67
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:67
+			dst += size_int;
      a0a:	68fa      	ldr	r2, [r7, #12]
      a0c:	6a3b      	ldr	r3, [r7, #32]
      a0e:	18d3      	adds	r3, r2, r3
      a10:	60fb      	str	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:68
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:68
+			src += size_int;
      a12:	68ba      	ldr	r2, [r7, #8]
      a14:	6a3b      	ldr	r3, [r7, #32]
      a16:	18d3      	adds	r3, r2, r3
      a18:	60bb      	str	r3, [r7, #8]
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:69
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:69
+			len -= size_int;
      a1a:	6a7a      	ldr	r2, [r7, #36]	; 0x24
      a1c:	6a3b      	ldr	r3, [r7, #32]
      a1e:	1ad3      	subs	r3, r2, r3
      a20:	627b      	str	r3, [r7, #36]	; 0x24
      a22:	e02c      	b.n	a7e <__copy_rom_section+0xca>
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:71
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:71
+		}
+		else if( !(src & mask_short) && !(dst & mask_short) && len >= size_short)
      a24:	68bb      	ldr	r3, [r7, #8]
      a26:	697a      	ldr	r2, [r7, #20]
      a28:	4013      	ands	r3, r2
      a2a:	d118      	bne.n	a5e <__copy_rom_section+0xaa>
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:71 (discriminator 1)
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:71 (discriminator 1)
      a2c:	68fb      	ldr	r3, [r7, #12]
      a2e:	697a      	ldr	r2, [r7, #20]
      a30:	4013      	ands	r3, r2
@@ -1386,52 +1480,76 @@ __copy_rom_section():
      a36:	69bb      	ldr	r3, [r7, #24]
      a38:	429a      	cmp	r2, r3
      a3a:	d310      	bcc.n	a5e <__copy_rom_section+0xaa>
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:73
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:73
+		{
+			*((short *)dst)  = *((short*)src);
      a3c:	68fb      	ldr	r3, [r7, #12]
      a3e:	68ba      	ldr	r2, [r7, #8]
      a40:	8812      	ldrh	r2, [r2, #0]
      a42:	801a      	strh	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:74
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:74
+			dst += size_short;
      a44:	68fa      	ldr	r2, [r7, #12]
      a46:	69bb      	ldr	r3, [r7, #24]
      a48:	18d3      	adds	r3, r2, r3
      a4a:	60fb      	str	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:75
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:75
+			src += size_short;
      a4c:	68ba      	ldr	r2, [r7, #8]
      a4e:	69bb      	ldr	r3, [r7, #24]
      a50:	18d3      	adds	r3, r2, r3
      a52:	60bb      	str	r3, [r7, #8]
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:76
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:76
+			len -= size_short;
      a54:	6a7a      	ldr	r2, [r7, #36]	; 0x24
      a56:	69bb      	ldr	r3, [r7, #24]
      a58:	1ad3      	subs	r3, r2, r3
      a5a:	627b      	str	r3, [r7, #36]	; 0x24
      a5c:	e00f      	b.n	a7e <__copy_rom_section+0xca>
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:80
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:80
+		}
+		else
+		{
+			*((char *)dst)  = *((char*)src);
      a5e:	68fb      	ldr	r3, [r7, #12]
      a60:	68ba      	ldr	r2, [r7, #8]
      a62:	7812      	ldrb	r2, [r2, #0]
      a64:	701a      	strb	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:81
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:81
+			dst += size_char;
      a66:	68fa      	ldr	r2, [r7, #12]
      a68:	693b      	ldr	r3, [r7, #16]
      a6a:	18d3      	adds	r3, r2, r3
      a6c:	60fb      	str	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:82
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:82
+			src += size_char;
      a6e:	68ba      	ldr	r2, [r7, #8]
      a70:	693b      	ldr	r3, [r7, #16]
      a72:	18d3      	adds	r3, r2, r3
      a74:	60bb      	str	r3, [r7, #8]
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:83
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:83
+			len -= size_char;
      a76:	6a7a      	ldr	r2, [r7, #36]	; 0x24
      a78:	693b      	ldr	r3, [r7, #16]
      a7a:	1ad3      	subs	r3, r2, r3
      a7c:	627b      	str	r3, [r7, #36]	; 0x24
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:61 (discriminator 1)
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:61 (discriminator 1)
+	{
+		return;
+	}
+
+
+	while( len > 0)
      a7e:	6a7b      	ldr	r3, [r7, #36]	; 0x24
      a80:	2b00      	cmp	r3, #0
      a82:	d1b2      	bne.n	9ea <__copy_rom_section+0x36>
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:86
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:86
+			dst += size_char;
+			src += size_char;
+			len -= size_char;
+		}
+	}
+}
      a84:	46bd      	mov	sp, r7
      a86:	b00a      	add	sp, #40	; 0x28
      a88:	bd80      	pop	{r7, pc}
@@ -1439,21 +1557,42 @@ __copy_rom_section():
 
 00000a8c <__copy_rom_sections_to_ram>:
 __copy_rom_sections_to_ram():
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:98
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:98
+ *  It is a table of RomInfo
+ *	structures.  The final entry in the table has all-zero
+ *	fields.
+ */
+void __copy_rom_sections_to_ram(void)
+{
      a8c:	b590      	push	{r4, r7, lr}
      a8e:	b083      	sub	sp, #12
      a90:	af00      	add	r7, sp, #0
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:102
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:102
+
+	int				index;
+
+	if (__S_romp == 0L) return;
      a92:	4b23      	ldr	r3, [pc, #140]	; (b20 <__copy_rom_sections_to_ram+0x94>)
      a94:	2b00      	cmp	r3, #0
      a96:	d100      	bne.n	a9a <__copy_rom_sections_to_ram+0xe>
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:102 (discriminator 1)
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:102 (discriminator 1)
      a98:	e03e      	b.n	b18 <__copy_rom_sections_to_ram+0x8c>
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:107
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:107
+
+	/*
+	 *	Go through the entire table, copying sections from ROM to RAM.
+	 */
+	for (index = 0;
      a9a:	2300      	movs	r3, #0
      a9c:	607b      	str	r3, [r7, #4]
      a9e:	e01d      	b.n	adc <__copy_rom_sections_to_ram+0x50>
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:113
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:113
+		 __S_romp[index].Source != 0 ||
+		 __S_romp[index].Target != 0 ||
+		 __S_romp[index].Size != 0;
+		 ++index)
+	{
+		__copy_rom_section( __S_romp[index].Target,
      aa0:	491f      	ldr	r1, [pc, #124]	; (b20 <__copy_rom_sections_to_ram+0x94>)
      aa2:	687a      	ldr	r2, [r7, #4]
      aa4:	1c13      	adds	r3, r2, #0
@@ -1480,11 +1619,23 @@ __copy_rom_sections_to_ram():
      ace:	681b      	ldr	r3, [r3, #0]
      ad0:	1c1a      	adds	r2, r3, #0
      ad2:	f7ff ff6f 	bl	9b4 <__copy_rom_section>
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:111
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:111
+	 */
+	for (index = 0;
+		 __S_romp[index].Source != 0 ||
+		 __S_romp[index].Target != 0 ||
+		 __S_romp[index].Size != 0;
+		 ++index)
      ad6:	687b      	ldr	r3, [r7, #4]
      ad8:	3301      	adds	r3, #1
      ada:	607b      	str	r3, [r7, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:108 (discriminator 1)
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:108 (discriminator 1)
+
+	/*
+	 *	Go through the entire table, copying sections from ROM to RAM.
+	 */
+	for (index = 0;
+		 __S_romp[index].Source != 0 ||
      adc:	4910      	ldr	r1, [pc, #64]	; (b20 <__copy_rom_sections_to_ram+0x94>)
      ade:	687a      	ldr	r2, [r7, #4]
      ae0:	1c13      	adds	r3, r2, #0
@@ -1492,10 +1643,18 @@ __copy_rom_sections_to_ram():
      ae4:	189b      	adds	r3, r3, r2
      ae6:	009b      	lsls	r3, r3, #2
      ae8:	585b      	ldr	r3, [r3, r1]
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:107 (discriminator 1)
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:107 (discriminator 1)
+	if (__S_romp == 0L) return;
+
+	/*
+	 *	Go through the entire table, copying sections from ROM to RAM.
+	 */
+	for (index = 0;
      aea:	2b00      	cmp	r3, #0
      aec:	d1d8      	bne.n	aa0 <__copy_rom_sections_to_ram+0x14>
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:109
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:109
+		 __S_romp[index].Source != 0 ||
+		 __S_romp[index].Target != 0 ||
      aee:	490c      	ldr	r1, [pc, #48]	; (b20 <__copy_rom_sections_to_ram+0x94>)
      af0:	687a      	ldr	r2, [r7, #4]
      af2:	1c13      	adds	r3, r2, #0
@@ -1504,10 +1663,18 @@ __copy_rom_sections_to_ram():
      af8:	009b      	lsls	r3, r3, #2
      afa:	18cb      	adds	r3, r1, r3
      afc:	685b      	ldr	r3, [r3, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:108
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:108
+
+	/*
+	 *	Go through the entire table, copying sections from ROM to RAM.
+	 */
+	for (index = 0;
+		 __S_romp[index].Source != 0 ||
      afe:	2b00      	cmp	r3, #0
      b00:	d1ce      	bne.n	aa0 <__copy_rom_sections_to_ram+0x14>
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:110
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:110
+		 __S_romp[index].Target != 0 ||
+		 __S_romp[index].Size != 0;
      b02:	4907      	ldr	r1, [pc, #28]	; (b20 <__copy_rom_sections_to_ram+0x94>)
      b04:	687a      	ldr	r2, [r7, #4]
      b06:	1c13      	adds	r3, r2, #0
@@ -1517,10 +1684,22 @@ __copy_rom_sections_to_ram():
      b0e:	18cb      	adds	r3, r1, r3
      b10:	3308      	adds	r3, #8
      b12:	681b      	ldr	r3, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:109
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:109
+	/*
+	 *	Go through the entire table, copying sections from ROM to RAM.
+	 */
+	for (index = 0;
+		 __S_romp[index].Source != 0 ||
+		 __S_romp[index].Target != 0 ||
      b14:	2b00      	cmp	r3, #0
      b16:	d1c3      	bne.n	aa0 <__copy_rom_sections_to_ram+0x14>
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:118
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:118
+		__copy_rom_section( __S_romp[index].Target,
+							__S_romp[index].Source,
+							__S_romp[index].Size );
+
+	}
+}
      b18:	46bd      	mov	sp, r7
      b1a:	b003      	add	sp, #12
      b1c:	bd90      	pop	{r4, r7, pc}
@@ -1529,27 +1708,58 @@ __copy_rom_sections_to_ram():
 
 00000b24 <__init_registers>:
 __init_registers():
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:168
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:168
+  }
+}
+#endif
+
+void __attribute__ ((weak)) __init_registers(void)
+{
      b24:	b580      	push	{r7, lr}
      b26:	af00      	add	r7, sp, #0
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:174
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:174
+  #if defined(SCB_CPACR)
+  /* Initialize FPU */
+  SCB_CPACR |= SCB_CPACR_CP10(3U) | SCB_CPACR_CP11(3U); 
+  #endif
+
+}
      b28:	46bd      	mov	sp, r7
      b2a:	bd80      	pop	{r7, pc}
 
 00000b2c <__init_user>:
 __init_user():
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:182
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:182
+{
+
+}
+
+void __attribute__ ((weak)) __init_user(void)
+{
      b2c:	b580      	push	{r7, lr}
      b2e:	af00      	add	r7, sp, #0
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:184
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:184
+
+}
      b30:	46bd      	mov	sp, r7
      b32:	bd80      	pop	{r7, pc}
 
 00000b34 <__thumb_startup>:
 __thumb_startup():
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:197
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:197
+	__thumb_startup();
+}
+
+__attribute__((naked)) void __thumb_startup(void)
+{
+int addr = (int)__SP_INIT;
      b34:	4c0a      	ldr	r4, [pc, #40]	; (b60 <skip_sp+0x18>)
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:202
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:202
+
+    /* setup the stack before we attempt anything else
+       skip stack setup if __SP_INIT is 0
+       assume sp is already setup. */
+    __asm (
      b36:	1c20      	adds	r0, r4, #0
      b38:	2800      	cmp	r0, #0
      b3a:	d005      	beq.n	b48 <skip_sp>
@@ -1561,48 +1771,91 @@ __thumb_startup():
      b46:	b001      	add	sp, #4
 
 00000b48 <skip_sp>:
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:216
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:216
+    "add  sp,#4\n\t"
+    "skip_sp:\n\t"
+    ::"r"(addr));
+
+    /* Setup registers */
+    __init_registers();
      b48:	f7ff ffec 	bl	b24 <__init_registers>
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:219
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:219
+    
+    /* setup hardware */
+    __init_hardware();
      b4c:	f000 fa4e 	bl	fec <__init_hardware>
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:222
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:222
+    
+    /* SUPPORT_ROM_TO_RAM */
+    __copy_rom_sections_to_ram();
      b50:	f7ff ff9c 	bl	a8c <__copy_rom_sections_to_ram>
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:225
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:225
+    
+    /* initializations before main, user specific */
+    __init_user();
      b54:	f7ff ffea 	bl	b2c <__init_user>
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:228
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:228
+
+#ifndef __ATOLLIC__
+    _start();
      b58:	f7ff fc8a 	bl	470 <_mainCRTStartup>
-/home/marcelo/Documentos/GER/SDP/Projeto/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:238 (discriminator 1)
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Project_Settings/Startup_Code/startup.c:238 (discriminator 1)
+    __libc_init_array();
+    main();
+#endif
+
+    /*	should never get here */
+    while (1);
      b5c:	e7fe      	b.n	b5c <skip_sp+0x14>
      b5e:	46c0      	nop			; (mov r8, r8)
      b60:	20003000 	.word	0x20003000
 
 00000b64 <AdcLdd1_Init>:
 AdcLdd1_Init():
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:176
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:176
+**     @return
+**                         - Device data structure pointer.
+*/
+/* ===================================================================*/
+LDD_TDeviceData* AdcLdd1_Init(LDD_TUserData *UserDataPtr)
+{
      b64:	b580      	push	{r7, lr}
      b66:	b084      	sub	sp, #16
      b68:	af00      	add	r7, sp, #0
      b6a:	6078      	str	r0, [r7, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:181
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:181
+  /* Allocate LDD device structure */
+  AdcLdd1_TDeviceDataPtr DeviceDataPrv;
+
+  /* {Default RTOS Adapter} Driver memory allocation: Dynamic allocation is simulated by a pointer to the static object */
+  DeviceDataPrv = &DeviceDataPrv__DEFAULT_RTOS_ALLOC;
      b6c:	4b25      	ldr	r3, [pc, #148]	; (c04 <AdcLdd1_Init+0xa0>)
      b6e:	60fb      	str	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:182
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:182
+  DeviceDataPrv->UserData = UserDataPtr; /* Store the RTOS device structure */
      b70:	68fb      	ldr	r3, [r7, #12]
      b72:	687a      	ldr	r2, [r7, #4]
      b74:	605a      	str	r2, [r3, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:185
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:185
+  /* Interrupt vector(s) allocation */
+  /* {Default RTOS Adapter} Set interrupt vector: IVT is static, ISR parameter is passed by the global variable */
+  INT_ADC0__DEFAULT_RTOS_ISRPARAM = DeviceDataPrv;
      b76:	4b24      	ldr	r3, [pc, #144]	; (c08 <AdcLdd1_Init+0xa4>)
      b78:	68fa      	ldr	r2, [r7, #12]
      b7a:	601a      	str	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:186
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:186
+  DeviceDataPrv->SampleCount = 0U;     /* Initializing SampleCount for right access of some methods to SC1n registers before first conversion is done */
      b7c:	68fb      	ldr	r3, [r7, #12]
      b7e:	2200      	movs	r2, #0
      b80:	701a      	strb	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:187
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:187
+  DeviceDataPrv->CompleteStatus = FALSE; /* Clear measurement complete status flag */
      b82:	68fb      	ldr	r3, [r7, #12]
      b84:	2200      	movs	r2, #0
      b86:	709a      	strb	r2, [r3, #2]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:189
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:189
+  /* SIM_SCGC6: ADC0=1 */
+  SIM_SCGC6 |= SIM_SCGC6_ADC0_MASK;
      b88:	4a20      	ldr	r2, [pc, #128]	; (c0c <AdcLdd1_Init+0xa8>)
      b8a:	4920      	ldr	r1, [pc, #128]	; (c0c <AdcLdd1_Init+0xa8>)
      b8c:	4b20      	ldr	r3, [pc, #128]	; (c10 <AdcLdd1_Init+0xac>)
@@ -1612,7 +1865,10 @@ AdcLdd1_Init():
      b94:	4319      	orrs	r1, r3
      b96:	4b1e      	ldr	r3, [pc, #120]	; (c10 <AdcLdd1_Init+0xac>)
      b98:	50d1      	str	r1, [r2, r3]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:192
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:192
+  /* Interrupt vector(s) priority setting */
+  /* NVIC_IPR3: PRI_15=0x80 */
+  NVIC_IPR3 = (uint32_t)((NVIC_IPR3 & (uint32_t)~(uint32_t)(
      b9a:	4a1e      	ldr	r2, [pc, #120]	; (c14 <AdcLdd1_Init+0xb0>)
      b9c:	491d      	ldr	r1, [pc, #116]	; (c14 <AdcLdd1_Init+0xb0>)
      b9e:	23c3      	movs	r3, #195	; 0xc3
@@ -1623,7 +1879,13 @@ AdcLdd1_Init():
      ba8:	23c3      	movs	r3, #195	; 0xc3
      baa:	009b      	lsls	r3, r3, #2
      bac:	50d1      	str	r1, [r2, r3]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:198
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:198
+               NVIC_IP_PRI_15(0x7F)
+              )) | (uint32_t)(
+               NVIC_IP_PRI_15(0x80)
+              ));
+  /* NVIC_ISER: SETENA|=0x8000 */
+  NVIC_ISER |= NVIC_ISER_SETENA(0x8000);
      bae:	4b19      	ldr	r3, [pc, #100]	; (c14 <AdcLdd1_Init+0xb0>)
      bb0:	4a18      	ldr	r2, [pc, #96]	; (c14 <AdcLdd1_Init+0xb0>)
      bb2:	6812      	ldr	r2, [r2, #0]
@@ -1631,46 +1893,69 @@ AdcLdd1_Init():
      bb6:	0209      	lsls	r1, r1, #8
      bb8:	430a      	orrs	r2, r1
      bba:	601a      	str	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:200
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:200
+  /* PORTD_PCR5: ISF=0,MUX=0 */
+  PORTD_PCR5 &= (uint32_t)~(uint32_t)((PORT_PCR_ISF_MASK | PORT_PCR_MUX(0x07)));
      bbc:	4b16      	ldr	r3, [pc, #88]	; (c18 <AdcLdd1_Init+0xb4>)
      bbe:	4a16      	ldr	r2, [pc, #88]	; (c18 <AdcLdd1_Init+0xb4>)
      bc0:	6951      	ldr	r1, [r2, #20]
      bc2:	4a16      	ldr	r2, [pc, #88]	; (c1c <AdcLdd1_Init+0xb8>)
      bc4:	400a      	ands	r2, r1
      bc6:	615a      	str	r2, [r3, #20]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:202
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:202
+  /* ADC0_CFG2: MUXSEL=1 */
+  ADC0_CFG2 |= ADC_CFG2_MUXSEL_MASK;
      bc8:	4b15      	ldr	r3, [pc, #84]	; (c20 <AdcLdd1_Init+0xbc>)
      bca:	4a15      	ldr	r2, [pc, #84]	; (c20 <AdcLdd1_Init+0xbc>)
      bcc:	68d2      	ldr	r2, [r2, #12]
      bce:	2110      	movs	r1, #16
      bd0:	430a      	orrs	r2, r1
      bd2:	60da      	str	r2, [r3, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:204
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:204
+  /* ADC0_CFG1: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,ADLPC=0,ADIV=3,ADLSMP=0,MODE=0,ADICLK=1 */
+  ADC0_CFG1 = ADC_CFG1_ADIV(0x03) |
      bd4:	4b12      	ldr	r3, [pc, #72]	; (c20 <AdcLdd1_Init+0xbc>)
-     bd6:	2260      	movs	r2, #96	; 0x60
+     bd6:	2261      	movs	r2, #97	; 0x61
      bd8:	609a      	str	r2, [r3, #8]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:209
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:209
+              ADC_CFG1_MODE(0x00) |
+              ADC_CFG1_ADICLK(0x01);
+
+  /* ADC0_CFG2: ADACKEN=0,ADHSC=0,ADLSTS=0 */
+  ADC0_CFG2 &= (uint32_t)~(uint32_t)(
      bda:	4b11      	ldr	r3, [pc, #68]	; (c20 <AdcLdd1_Init+0xbc>)
      bdc:	4a10      	ldr	r2, [pc, #64]	; (c20 <AdcLdd1_Init+0xbc>)
      bde:	68d2      	ldr	r2, [r2, #12]
      be0:	210f      	movs	r1, #15
      be2:	438a      	bics	r2, r1
      be4:	60da      	str	r2, [r3, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:215
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:215
+                ADC_CFG2_ADACKEN_MASK |
+                ADC_CFG2_ADHSC_MASK |
+                ADC_CFG2_ADLSTS(0x03)
+               );
+  /* ADC0_SC2: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,ADACT=0,ADTRG=0,ACFE=0,ACFGT=0,ACREN=0,DMAEN=0,REFSEL=0 */
+  ADC0_SC2 = ADC_SC2_REFSEL(0x00);
      be6:	4b0e      	ldr	r3, [pc, #56]	; (c20 <AdcLdd1_Init+0xbc>)
      be8:	2200      	movs	r2, #0
      bea:	621a      	str	r2, [r3, #32]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:217
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:217
+  /* ADC0_SC3: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,CAL=0,CALF=1,??=0,??=0,ADCO=0,AVGE=0,AVGS=0 */
+  ADC0_SC3 = (ADC_SC3_CALF_MASK | ADC_SC3_AVGS(0x00));
      bec:	4b0c      	ldr	r3, [pc, #48]	; (c20 <AdcLdd1_Init+0xbc>)
      bee:	2240      	movs	r2, #64	; 0x40
      bf0:	625a      	str	r2, [r3, #36]	; 0x24
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:219
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:219
+  /* Registration of the device structure */
+  PE_LDD_RegisterDeviceStructure(PE_LDD_COMPONENT_AdcLdd1_ID,DeviceDataPrv);
      bf2:	4b0c      	ldr	r3, [pc, #48]	; (c24 <AdcLdd1_Init+0xc0>)
      bf4:	68fa      	ldr	r2, [r7, #12]
      bf6:	615a      	str	r2, [r3, #20]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:220
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:220
+  return ((LDD_TDeviceData *)DeviceDataPrv); /* Return pointer to the data data structure */
      bf8:	68fb      	ldr	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:221
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:221
+}
      bfa:	1c18      	adds	r0, r3, #0
      bfc:	46bd      	mov	sp, r7
      bfe:	b004      	add	sp, #16
@@ -1688,42 +1973,57 @@ AdcLdd1_Init():
 
 00000c28 <AdcLdd1_StartSingleMeasurement>:
 AdcLdd1_StartSingleMeasurement():
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:262
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:262
+**                           ERR_DISABLED - Component is disabled
+**                           ERR_BUSY - A measurement is in progress 
+*/
+/* ===================================================================*/
+LDD_TError AdcLdd1_StartSingleMeasurement(LDD_TDeviceData *DeviceDataPtr)
+{
      c28:	b580      	push	{r7, lr}
      c2a:	b082      	sub	sp, #8
      c2c:	af00      	add	r7, sp, #0
      c2e:	6078      	str	r0, [r7, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:264
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:264
+  (void)DeviceDataPtr;                 /* Parameter is not used, suppress unused argument warning */
+  if (ADC_PDD_GetConversionActiveFlag(ADC0_BASE_PTR) != 0U) { /* Last measurement still pending? */
      c30:	4b0d      	ldr	r3, [pc, #52]	; (c68 <AdcLdd1_StartSingleMeasurement+0x40>)
      c32:	6a1a      	ldr	r2, [r3, #32]
      c34:	2380      	movs	r3, #128	; 0x80
      c36:	4013      	ands	r3, r2
      c38:	d001      	beq.n	c3e <AdcLdd1_StartSingleMeasurement+0x16>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:265
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:265
+    return ERR_BUSY;                   /* Yes, return ERR_BUSY */
      c3a:	2308      	movs	r3, #8
      c3c:	e010      	b.n	c60 <AdcLdd1_StartSingleMeasurement+0x38>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:267
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:267
+  }
+  ADC_PDD_SetContinuousMode(ADC0_BASE_PTR, ADC_PDD_ONE_CONVERSION); /* Set one conversion mode */
      c3e:	4b0a      	ldr	r3, [pc, #40]	; (c68 <AdcLdd1_StartSingleMeasurement+0x40>)
      c40:	4a09      	ldr	r2, [pc, #36]	; (c68 <AdcLdd1_StartSingleMeasurement+0x40>)
      c42:	6a52      	ldr	r2, [r2, #36]	; 0x24
      c44:	2148      	movs	r1, #72	; 0x48
      c46:	438a      	bics	r2, r1
      c48:	625a      	str	r2, [r3, #36]	; 0x24
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:268
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:268
+  ADC_PDD_SetConversionTriggerType(ADC0_BASE_PTR, ADC_PDD_SW_TRIGGER); /* Select SW triggering */
      c4a:	4b07      	ldr	r3, [pc, #28]	; (c68 <AdcLdd1_StartSingleMeasurement+0x40>)
      c4c:	4a06      	ldr	r2, [pc, #24]	; (c68 <AdcLdd1_StartSingleMeasurement+0x40>)
      c4e:	6a12      	ldr	r2, [r2, #32]
      c50:	2140      	movs	r1, #64	; 0x40
      c52:	438a      	bics	r2, r1
      c54:	621a      	str	r2, [r3, #32]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:269
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:269
+  ADC_PDD_WriteStatusControl1Reg(ADC0_BASE_PTR, 0U, ((AdcLdd1_TDeviceDataPtr)DeviceDataPtr)->FirstSample); /* Set sample 0 and start conversion */
      c56:	4b04      	ldr	r3, [pc, #16]	; (c68 <AdcLdd1_StartSingleMeasurement+0x40>)
      c58:	687a      	ldr	r2, [r7, #4]
      c5a:	7852      	ldrb	r2, [r2, #1]
      c5c:	601a      	str	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:270
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:270
+  return ERR_OK;                       /* OK */
      c5e:	2300      	movs	r3, #0
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:271
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:271
+}
      c60:	1c18      	adds	r0, r3, #0
      c62:	46bd      	mov	sp, r7
      c64:	b002      	add	sp, #8
@@ -1732,7 +2032,13 @@ AdcLdd1_StartSingleMeasurement():
 
 00000c6c <AdcLdd1_CreateSampleGroup>:
 AdcLdd1_CreateSampleGroup():
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:345
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:345
+**                           variable value is out of range
+**                           ERR_BUSY - Measurement is in progress 
+*/
+/* ===================================================================*/
+LDD_TError AdcLdd1_CreateSampleGroup(LDD_TDeviceData *DeviceDataPtr, LDD_ADC_TSample *SampleGroupPtr, uint8_t SampleCount)
+{
      c6c:	b580      	push	{r7, lr}
      c6e:	b086      	sub	sp, #24
      c70:	af00      	add	r7, sp, #0
@@ -1740,54 +2046,73 @@ AdcLdd1_CreateSampleGroup():
      c74:	60b9      	str	r1, [r7, #8]
      c76:	1dfb      	adds	r3, r7, #7
      c78:	701a      	strb	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:346
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:346
+  AdcLdd1_TDeviceDataPtr DeviceDataPrv = (AdcLdd1_TDeviceDataPtr)DeviceDataPtr;
      c7a:	68fb      	ldr	r3, [r7, #12]
      c7c:	617b      	str	r3, [r7, #20]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:350
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:350
+
+  /* Sample count test - this test can be disabled by setting the "Ignore range checking"
+     property to the "yes" value in the "Configuration inspector" */
+  if ((SampleCount > AdcLdd1_MAX_HW_SAMPLE_COUNT) || (SampleCount == 0U)) { /* Is number of sample greater then supported by the HW? */
      c7e:	1dfb      	adds	r3, r7, #7
      c80:	781b      	ldrb	r3, [r3, #0]
      c82:	2b01      	cmp	r3, #1
      c84:	d803      	bhi.n	c8e <AdcLdd1_CreateSampleGroup+0x22>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:350 (discriminator 1)
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:350 (discriminator 1)
      c86:	1dfb      	adds	r3, r7, #7
      c88:	781b      	ldrb	r3, [r3, #0]
      c8a:	2b00      	cmp	r3, #0
      c8c:	d101      	bne.n	c92 <AdcLdd1_CreateSampleGroup+0x26>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:351
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:351
+    return ERR_PARAM_SAMPLE_COUNT;     /* Yes, return ERR_PARAM_SAMPLE_COUNT */
      c8e:	2396      	movs	r3, #150	; 0x96
      c90:	e017      	b.n	cc2 <AdcLdd1_CreateSampleGroup+0x56>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:353
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:353
+  }
+  if (ADC_PDD_GetConversionActiveFlag(ADC0_BASE_PTR) != 0U) { /* Last measurement still pending? */
      c92:	4b0e      	ldr	r3, [pc, #56]	; (ccc <AdcLdd1_CreateSampleGroup+0x60>)
      c94:	6a1a      	ldr	r2, [r3, #32]
      c96:	2380      	movs	r3, #128	; 0x80
      c98:	4013      	ands	r3, r2
      c9a:	d001      	beq.n	ca0 <AdcLdd1_CreateSampleGroup+0x34>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:354
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:354
+    return ERR_BUSY;                   /* Yes, return ERR_BUSY */
      c9c:	2308      	movs	r3, #8
      c9e:	e010      	b.n	cc2 <AdcLdd1_CreateSampleGroup+0x56>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:356
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:356
+  }
+  DeviceDataPrv->SampleCount = SampleCount; /* Remember sample count */
      ca0:	697b      	ldr	r3, [r7, #20]
      ca2:	1dfa      	adds	r2, r7, #7
      ca4:	7812      	ldrb	r2, [r2, #0]
      ca6:	701a      	strb	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:359
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:359
+  /* Channel index test - this test can be disabled by setting the "Ignore range checking"
+     property to the "yes" value in the "Configuration inspector" */
+  if (SampleGroupPtr[0].ChannelIdx >= AdcLdd1_CHANNEL_COUNT) { /* Is channel index out of range? */
      ca8:	68bb      	ldr	r3, [r7, #8]
      caa:	781b      	ldrb	r3, [r3, #0]
      cac:	2b00      	cmp	r3, #0
      cae:	d001      	beq.n	cb4 <AdcLdd1_CreateSampleGroup+0x48>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:360
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:360
+    return ERR_PARAM_INDEX;            /* Yes, return ERR_PARAM_INDEX */
      cb0:	2382      	movs	r3, #130	; 0x82
      cb2:	e006      	b.n	cc2 <AdcLdd1_CreateSampleGroup+0x56>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:362
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:362
+  }
+  DeviceDataPrv->FirstSample = (ChannelToPin[SampleGroupPtr[0].ChannelIdx]) | (uint8_t)(LDD_ADC_ON_MEASUREMENT_COMPLETE); /* Remember first sample */
      cb4:	2346      	movs	r3, #70	; 0x46
      cb6:	2240      	movs	r2, #64	; 0x40
      cb8:	4313      	orrs	r3, r2
      cba:	b2da      	uxtb	r2, r3
      cbc:	697b      	ldr	r3, [r7, #20]
      cbe:	705a      	strb	r2, [r3, #1]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:363
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:363
+  return ERR_OK;                       /* OK */
      cc0:	2300      	movs	r3, #0
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:364
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:364
+}
      cc2:	1c18      	adds	r0, r3, #0
      cc4:	46bd      	mov	sp, r7
      cc6:	b006      	add	sp, #24
@@ -1797,22 +2122,35 @@ AdcLdd1_CreateSampleGroup():
 
 00000cd0 <AdcLdd1_GetMeasuredValues>:
 AdcLdd1_GetMeasuredValues():
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:399
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:399
+**                           active clock configuration
+**                           ERR_DISABLED - Component is disabled
+*/
+/* ===================================================================*/
+LDD_TError AdcLdd1_GetMeasuredValues(LDD_TDeviceData *DeviceDataPtr, LDD_TData *BufferPtr)
+{
      cd0:	b580      	push	{r7, lr}
      cd2:	b084      	sub	sp, #16
      cd4:	af00      	add	r7, sp, #0
      cd6:	6078      	str	r0, [r7, #4]
      cd8:	6039      	str	r1, [r7, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:401
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:401
+  uint8_t Sample;
+  AdcLdd1_TResultData *pBuffer = (AdcLdd1_TResultData *)BufferPtr;
      cda:	683b      	ldr	r3, [r7, #0]
      cdc:	60bb      	str	r3, [r7, #8]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:405
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:405
+
+  /* Copy values from result registers defined in the active sample
+     group to the user supplied buffer */
+  for (Sample = 0U; Sample < ((AdcLdd1_TDeviceDataPtr)DeviceDataPtr)->SampleCount; Sample++) {
      cde:	1c3b      	adds	r3, r7, #0
      ce0:	330f      	adds	r3, #15
      ce2:	2200      	movs	r2, #0
      ce4:	701a      	strb	r2, [r3, #0]
      ce6:	e014      	b.n	d12 <AdcLdd1_GetMeasuredValues+0x42>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:406 (discriminator 2)
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:406 (discriminator 2)
+    pBuffer[Sample] =(uint8_t)(ADC_PDD_GetResultValueRaw(ADC0_BASE_PTR, Sample));
      ce8:	1c3b      	adds	r3, r7, #0
      cea:	330f      	adds	r3, #15
      cec:	781b      	ldrb	r3, [r3, #0]
@@ -1827,7 +2165,13 @@ AdcLdd1_GetMeasuredValues():
      cfe:	588a      	ldr	r2, [r1, r2]
      d00:	b2d2      	uxtb	r2, r2
      d02:	701a      	strb	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:405 (discriminator 2)
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:405 (discriminator 2)
+  uint8_t Sample;
+  AdcLdd1_TResultData *pBuffer = (AdcLdd1_TResultData *)BufferPtr;
+
+  /* Copy values from result registers defined in the active sample
+     group to the user supplied buffer */
+  for (Sample = 0U; Sample < ((AdcLdd1_TDeviceDataPtr)DeviceDataPtr)->SampleCount; Sample++) {
      d04:	1c3b      	adds	r3, r7, #0
      d06:	330f      	adds	r3, #15
      d08:	781a      	ldrb	r2, [r3, #0]
@@ -1835,7 +2179,7 @@ AdcLdd1_GetMeasuredValues():
      d0c:	330f      	adds	r3, #15
      d0e:	3201      	adds	r2, #1
      d10:	701a      	strb	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:405 (discriminator 1)
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:405 (discriminator 1)
      d12:	687b      	ldr	r3, [r7, #4]
      d14:	781b      	ldrb	r3, [r3, #0]
      d16:	1c3a      	adds	r2, r7, #0
@@ -1843,9 +2187,13 @@ AdcLdd1_GetMeasuredValues():
      d1a:	7812      	ldrb	r2, [r2, #0]
      d1c:	429a      	cmp	r2, r3
      d1e:	d3e3      	bcc.n	ce8 <AdcLdd1_GetMeasuredValues+0x18>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:408
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:408
+    pBuffer[Sample] =(uint8_t)(ADC_PDD_GetResultValueRaw(ADC0_BASE_PTR, Sample));
+  }
+  return ERR_OK;                       /* OK */
      d20:	2300      	movs	r3, #0
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:409
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:409
+}
      d22:	1c18      	adds	r0, r3, #0
      d24:	46bd      	mov	sp, r7
      d26:	b004      	add	sp, #16
@@ -1855,113 +2203,145 @@ AdcLdd1_GetMeasuredValues():
 
 00000d30 <AdcLdd1_GetCalibrationResultStatus>:
 AdcLdd1_GetCalibrationResultStatus():
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:497
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:497
+**                           ERR_FAILED - Last calibration hasn't been
+**                           finished correctly
+*/
+/* ===================================================================*/
+LDD_TError AdcLdd1_GetCalibrationResultStatus(LDD_TDeviceData *DeviceDataPtr)
+{
      d30:	b580      	push	{r7, lr}
      d32:	b084      	sub	sp, #16
      d34:	af00      	add	r7, sp, #0
      d36:	6078      	str	r0, [r7, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:501
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:501
+  uint32_t GainValue;
+
+  (void)DeviceDataPtr;                 /* Parameter is not used, suppress unused argument warning */
+  if (ADC_PDD_GetCalibrationFailedStatusFlag(ADC0_BASE_PTR)) {
      d38:	4b2a      	ldr	r3, [pc, #168]	; (de4 <AdcLdd1_GetCalibrationResultStatus+0xb4>)
      d3a:	6a5a      	ldr	r2, [r3, #36]	; 0x24
      d3c:	2340      	movs	r3, #64	; 0x40
      d3e:	4013      	ands	r3, r2
      d40:	d001      	beq.n	d46 <AdcLdd1_GetCalibrationResultStatus+0x16>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:502
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:502
+    return ERR_FAILED;
      d42:	231b      	movs	r3, #27
      d44:	e04a      	b.n	ddc <AdcLdd1_GetCalibrationResultStatus+0xac>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:506
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:506
+  }
+  /* If calibration is successfully passed place calibrated value into gain registers */
+  /* Cumulated gradually because of undefined behavior: the order of volatile accesses is undefined in this statement */
+  GainValue = ADC_PDD_GetPlus0CalibrationValue(ADC0_BASE_PTR); /* Find plus gain value */
      d46:	4b27      	ldr	r3, [pc, #156]	; (de4 <AdcLdd1_GetCalibrationResultStatus+0xb4>)
      d48:	6cdb      	ldr	r3, [r3, #76]	; 0x4c
      d4a:	60fb      	str	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:507
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:507
+  GainValue += ADC_PDD_GetPlus1CalibrationValue(ADC0_BASE_PTR);
      d4c:	4b25      	ldr	r3, [pc, #148]	; (de4 <AdcLdd1_GetCalibrationResultStatus+0xb4>)
      d4e:	6c9b      	ldr	r3, [r3, #72]	; 0x48
      d50:	68fa      	ldr	r2, [r7, #12]
      d52:	18d3      	adds	r3, r2, r3
      d54:	60fb      	str	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:508
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:508
+  GainValue += ADC_PDD_GetPlus2CalibrationValue(ADC0_BASE_PTR);
      d56:	4b23      	ldr	r3, [pc, #140]	; (de4 <AdcLdd1_GetCalibrationResultStatus+0xb4>)
      d58:	6c5b      	ldr	r3, [r3, #68]	; 0x44
      d5a:	68fa      	ldr	r2, [r7, #12]
      d5c:	18d3      	adds	r3, r2, r3
      d5e:	60fb      	str	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:509
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:509
+  GainValue += ADC_PDD_GetPlus3CalibrationValue(ADC0_BASE_PTR);
      d60:	4b20      	ldr	r3, [pc, #128]	; (de4 <AdcLdd1_GetCalibrationResultStatus+0xb4>)
      d62:	6c1b      	ldr	r3, [r3, #64]	; 0x40
      d64:	68fa      	ldr	r2, [r7, #12]
      d66:	18d3      	adds	r3, r2, r3
      d68:	60fb      	str	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:510
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:510
+  GainValue += ADC_PDD_GetPlus4CalibrationValue(ADC0_BASE_PTR);
      d6a:	4b1e      	ldr	r3, [pc, #120]	; (de4 <AdcLdd1_GetCalibrationResultStatus+0xb4>)
      d6c:	6bdb      	ldr	r3, [r3, #60]	; 0x3c
      d6e:	68fa      	ldr	r2, [r7, #12]
      d70:	18d3      	adds	r3, r2, r3
      d72:	60fb      	str	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:511
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:511
+  GainValue += ADC_PDD_GetPlusSCalibrationValue(ADC0_BASE_PTR);
      d74:	4b1b      	ldr	r3, [pc, #108]	; (de4 <AdcLdd1_GetCalibrationResultStatus+0xb4>)
      d76:	6b9b      	ldr	r3, [r3, #56]	; 0x38
      d78:	68fa      	ldr	r2, [r7, #12]
      d7a:	18d3      	adds	r3, r2, r3
      d7c:	60fb      	str	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:512
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:512
+  GainValue = (GainValue >> 1U) | 0x8000U;
      d7e:	68fb      	ldr	r3, [r7, #12]
      d80:	085b      	lsrs	r3, r3, #1
      d82:	2280      	movs	r2, #128	; 0x80
      d84:	0212      	lsls	r2, r2, #8
      d86:	4313      	orrs	r3, r2
      d88:	60fb      	str	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:513
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:513
+  ADC_PDD_SetPlusGainValue(ADC0_BASE_PTR,GainValue); /* Set plus gain value */
      d8a:	4b16      	ldr	r3, [pc, #88]	; (de4 <AdcLdd1_GetCalibrationResultStatus+0xb4>)
      d8c:	68fa      	ldr	r2, [r7, #12]
      d8e:	62da      	str	r2, [r3, #44]	; 0x2c
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:514
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:514
+  GainValue = ADC_PDD_GetMinus0CalibrationValue(ADC0_BASE_PTR); /* Find minus gain value */
      d90:	4b14      	ldr	r3, [pc, #80]	; (de4 <AdcLdd1_GetCalibrationResultStatus+0xb4>)
      d92:	6edb      	ldr	r3, [r3, #108]	; 0x6c
      d94:	60fb      	str	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:515
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:515
+  GainValue += ADC_PDD_GetMinus1CalibrationValue(ADC0_BASE_PTR);
      d96:	4b13      	ldr	r3, [pc, #76]	; (de4 <AdcLdd1_GetCalibrationResultStatus+0xb4>)
      d98:	6e9b      	ldr	r3, [r3, #104]	; 0x68
      d9a:	68fa      	ldr	r2, [r7, #12]
      d9c:	18d3      	adds	r3, r2, r3
      d9e:	60fb      	str	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:516
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:516
+  GainValue += ADC_PDD_GetMinus2CalibrationValue(ADC0_BASE_PTR);
      da0:	4b10      	ldr	r3, [pc, #64]	; (de4 <AdcLdd1_GetCalibrationResultStatus+0xb4>)
      da2:	6e5b      	ldr	r3, [r3, #100]	; 0x64
      da4:	68fa      	ldr	r2, [r7, #12]
      da6:	18d3      	adds	r3, r2, r3
      da8:	60fb      	str	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:517
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:517
+  GainValue += ADC_PDD_GetMinus3CalibrationValue(ADC0_BASE_PTR);
      daa:	4b0e      	ldr	r3, [pc, #56]	; (de4 <AdcLdd1_GetCalibrationResultStatus+0xb4>)
      dac:	6e1b      	ldr	r3, [r3, #96]	; 0x60
      dae:	68fa      	ldr	r2, [r7, #12]
      db0:	18d3      	adds	r3, r2, r3
      db2:	60fb      	str	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:518
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:518
+  GainValue += ADC_PDD_GetMinus4CalibrationValue(ADC0_BASE_PTR);
      db4:	4b0b      	ldr	r3, [pc, #44]	; (de4 <AdcLdd1_GetCalibrationResultStatus+0xb4>)
      db6:	6ddb      	ldr	r3, [r3, #92]	; 0x5c
      db8:	68fa      	ldr	r2, [r7, #12]
      dba:	18d3      	adds	r3, r2, r3
      dbc:	60fb      	str	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:519
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:519
+  GainValue += ADC_PDD_GetMinusSCalibrationValue(ADC0_BASE_PTR);
      dbe:	4b09      	ldr	r3, [pc, #36]	; (de4 <AdcLdd1_GetCalibrationResultStatus+0xb4>)
      dc0:	6d9b      	ldr	r3, [r3, #88]	; 0x58
      dc2:	68fa      	ldr	r2, [r7, #12]
      dc4:	18d3      	adds	r3, r2, r3
      dc6:	60fb      	str	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:520
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:520
+  GainValue =  (GainValue >> 1U) | 0x8000U;
      dc8:	68fb      	ldr	r3, [r7, #12]
      dca:	085b      	lsrs	r3, r3, #1
      dcc:	2280      	movs	r2, #128	; 0x80
      dce:	0212      	lsls	r2, r2, #8
      dd0:	4313      	orrs	r3, r2
      dd2:	60fb      	str	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:521
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:521
+  ADC_PDD_SetMinusGainValue(ADC0_BASE_PTR,GainValue); /* Set minus gain value */
      dd4:	4b03      	ldr	r3, [pc, #12]	; (de4 <AdcLdd1_GetCalibrationResultStatus+0xb4>)
      dd6:	68fa      	ldr	r2, [r7, #12]
      dd8:	631a      	str	r2, [r3, #48]	; 0x30
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:522
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:522
+  return ERR_OK;
      dda:	2300      	movs	r3, #0
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:523
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:523
+}
      ddc:	1c18      	adds	r0, r3, #0
      dde:	46bd      	mov	sp, r7
      de0:	b004      	add	sp, #16
@@ -1970,27 +2350,39 @@ AdcLdd1_GetCalibrationResultStatus():
 
 00000de8 <AdcLdd1_MeasurementCompleteInterrupt>:
 AdcLdd1_MeasurementCompleteInterrupt():
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:535
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:535
+**         Measurement complete interrupt handler
+**         This method is internal. It is used by Processor Expert only.
+** ===================================================================
+*/
+PE_ISR(AdcLdd1_MeasurementCompleteInterrupt)
+{
      de8:	b580      	push	{r7, lr}
      dea:	b082      	sub	sp, #8
      dec:	af00      	add	r7, sp, #0
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:537
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:537
+  /* {Default RTOS Adapter} ISR parameter is passed through the global variable */
+  AdcLdd1_TDeviceDataPtr DeviceDataPrv = INT_ADC0__DEFAULT_RTOS_ISRPARAM;
      dee:	4b08      	ldr	r3, [pc, #32]	; (e10 <AdcLdd1_MeasurementCompleteInterrupt+0x28>)
      df0:	681b      	ldr	r3, [r3, #0]
      df2:	607b      	str	r3, [r7, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:538
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:538
+  DeviceDataPrv->CompleteStatus = TRUE; /* Set measurement complete status flag */
      df4:	687b      	ldr	r3, [r7, #4]
      df6:	2201      	movs	r2, #1
      df8:	709a      	strb	r2, [r3, #2]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:539
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:539
+  AdcLdd1_OnMeasurementComplete(DeviceDataPrv->UserData);
      dfa:	687b      	ldr	r3, [r7, #4]
      dfc:	685b      	ldr	r3, [r3, #4]
      dfe:	1c18      	adds	r0, r3, #0
      e00:	f000 fa50 	bl	12a4 <AdcLdd1_OnMeasurementComplete>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:540
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:540
+  (void)ADC_PDD_GetResultValueRaw(ADC0_BASE_PTR, 0U); /* Clear conversion complete flag */
      e04:	4b03      	ldr	r3, [pc, #12]	; (e14 <AdcLdd1_MeasurementCompleteInterrupt+0x2c>)
      e06:	691b      	ldr	r3, [r3, #16]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:541
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/AdcLdd1.c:541
+}
      e08:	46bd      	mov	sp, r7
      e0a:	b002      	add	sp, #8
      e0c:	bd80      	pop	{r7, pc}
@@ -2000,33 +2392,54 @@ AdcLdd1_MeasurementCompleteInterrupt():
 
 00000e18 <BitIoLdd1_Init>:
 BitIoLdd1_Init():
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:123
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:123
+**                         - Pointer to the dynamically allocated private
+**                           structure or NULL if there was an error.
+*/
+/* ===================================================================*/
+LDD_TDeviceData* BitIoLdd1_Init(LDD_TUserData *UserDataPtr)
+{
      e18:	b580      	push	{r7, lr}
      e1a:	b084      	sub	sp, #16
      e1c:	af00      	add	r7, sp, #0
      e1e:	6078      	str	r0, [r7, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:128
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:128
+  /* Allocate device structure */
+  BitIoLdd1_TDeviceDataPtr DeviceDataPrv;
+
+  /* {Default RTOS Adapter} Driver memory allocation: Dynamic allocation is simulated by a pointer to the static object */
+  DeviceDataPrv = &DeviceDataPrv__DEFAULT_RTOS_ALLOC;
      e20:	4b10      	ldr	r3, [pc, #64]	; (e64 <BitIoLdd1_Init+0x4c>)
      e22:	60fb      	str	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:129
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:129
+  DeviceDataPrv->UserDataPtr = UserDataPtr; /* Store the RTOS device structure */
      e24:	68fb      	ldr	r3, [r7, #12]
      e26:	687a      	ldr	r2, [r7, #4]
      e28:	601a      	str	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:132
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:132
+  /* Configure pin as output */
+  /* GPIOD_PDDR: PDD|=0x80 */
+  GPIOD_PDDR |= GPIO_PDDR_PDD(0x80);
      e2a:	4b0f      	ldr	r3, [pc, #60]	; (e68 <BitIoLdd1_Init+0x50>)
      e2c:	4a0e      	ldr	r2, [pc, #56]	; (e68 <BitIoLdd1_Init+0x50>)
      e2e:	6952      	ldr	r2, [r2, #20]
      e30:	2180      	movs	r1, #128	; 0x80
      e32:	430a      	orrs	r2, r1
      e34:	615a      	str	r2, [r3, #20]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:135
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:135
+  /* Set initialization value */
+  /* GPIOD_PDOR: PDO&=~0x80 */
+  GPIOD_PDOR &= (uint32_t)~(uint32_t)(GPIO_PDOR_PDO(0x80));
      e36:	4b0c      	ldr	r3, [pc, #48]	; (e68 <BitIoLdd1_Init+0x50>)
      e38:	4a0b      	ldr	r2, [pc, #44]	; (e68 <BitIoLdd1_Init+0x50>)
      e3a:	6812      	ldr	r2, [r2, #0]
      e3c:	2180      	movs	r1, #128	; 0x80
      e3e:	438a      	bics	r2, r1
      e40:	601a      	str	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:138
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:138
+  /* Initialization of Port Control register */
+  /* PORTD_PCR7: ISF=0,MUX=1 */
+  PORTD_PCR7 = (uint32_t)((PORTD_PCR7 & (uint32_t)~(uint32_t)(
      e42:	4b0a      	ldr	r3, [pc, #40]	; (e6c <BitIoLdd1_Init+0x54>)
      e44:	4a09      	ldr	r2, [pc, #36]	; (e6c <BitIoLdd1_Init+0x54>)
      e46:	69d1      	ldr	r1, [r2, #28]
@@ -2036,13 +2449,21 @@ BitIoLdd1_Init():
      e4e:	0049      	lsls	r1, r1, #1
      e50:	430a      	orrs	r2, r1
      e52:	61da      	str	r2, [r3, #28]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:145
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:145
+                PORT_PCR_MUX(0x06)
+               )) | (uint32_t)(
+                PORT_PCR_MUX(0x01)
+               ));
+  /* Registration of the device structure */
+  PE_LDD_RegisterDeviceStructure(PE_LDD_COMPONENT_BitIoLdd1_ID,DeviceDataPrv);
      e54:	4b07      	ldr	r3, [pc, #28]	; (e74 <BitIoLdd1_Init+0x5c>)
      e56:	68fa      	ldr	r2, [r7, #12]
      e58:	601a      	str	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:146
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:146
+  return ((LDD_TDeviceData *)DeviceDataPrv);
      e5a:	68fb      	ldr	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:147
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:147
+}
      e5c:	1c18      	adds	r0, r3, #0
      e5e:	46bd      	mov	sp, r7
      e60:	b004      	add	sp, #16
@@ -2055,23 +2476,35 @@ BitIoLdd1_Init():
 
 00000e78 <BitIoLdd1_GetVal>:
 BitIoLdd1_GetVal():
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:169
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:169
+**                           <false> - logical "0" (Low level)
+**                           <true> - logical "1" (High level)
+*/
+/* ===================================================================*/
+bool BitIoLdd1_GetVal(LDD_TDeviceData *DeviceDataPtr)
+{
      e78:	b580      	push	{r7, lr}
      e7a:	b084      	sub	sp, #16
      e7c:	af00      	add	r7, sp, #0
      e7e:	6078      	str	r0, [r7, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:173
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:173
+  uint32_t PortData;                   /* Port data masked according to the bit used */
+
+  (void)DeviceDataPtr;                 /* Parameter is not used, suppress unused argument warning */
+  PortData = GPIO_PDD_GetPortDataOutput(BitIoLdd1_MODULE_BASE_ADDRESS) & BitIoLdd1_PORT_MASK;
      e80:	4b06      	ldr	r3, [pc, #24]	; (e9c <BitIoLdd1_GetVal+0x24>)
      e82:	681a      	ldr	r2, [r3, #0]
      e84:	2380      	movs	r3, #128	; 0x80
      e86:	4013      	ands	r3, r2
      e88:	60fb      	str	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:174
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:174
+  return (PortData != 0U) ? (bool)TRUE : (bool)FALSE;
      e8a:	68fb      	ldr	r3, [r7, #12]
      e8c:	1e5a      	subs	r2, r3, #1
      e8e:	4193      	sbcs	r3, r2
      e90:	b2db      	uxtb	r3, r3
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:175
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:175
+}
      e92:	1c18      	adds	r0, r3, #0
      e94:	46bd      	mov	sp, r7
      e96:	b004      	add	sp, #16
@@ -2081,16 +2514,25 @@ BitIoLdd1_GetVal():
 
 00000ea0 <BitIoLdd1_ClrVal>:
 BitIoLdd1_ClrVal():
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:226
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:226
+**         DeviceDataPtr   - Pointer to device data
+**                           structure returned by <Init> method.
+*/
+/* ===================================================================*/
+void BitIoLdd1_ClrVal(LDD_TDeviceData *DeviceDataPtr)
+{
      ea0:	b580      	push	{r7, lr}
      ea2:	b082      	sub	sp, #8
      ea4:	af00      	add	r7, sp, #0
      ea6:	6078      	str	r0, [r7, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:228
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:228
+  (void)DeviceDataPtr;                 /* Parameter is not used, suppress unused argument warning */
+  GPIO_PDD_ClearPortDataOutputMask(BitIoLdd1_MODULE_BASE_ADDRESS, BitIoLdd1_PORT_MASK);
      ea8:	4b02      	ldr	r3, [pc, #8]	; (eb4 <BitIoLdd1_ClrVal+0x14>)
      eaa:	2280      	movs	r2, #128	; 0x80
      eac:	609a      	str	r2, [r3, #8]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:229
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:229
+}
      eae:	46bd      	mov	sp, r7
      eb0:	b002      	add	sp, #8
      eb2:	bd80      	pop	{r7, pc}
@@ -2098,16 +2540,25 @@ BitIoLdd1_ClrVal():
 
 00000eb8 <BitIoLdd1_SetVal>:
 BitIoLdd1_SetVal():
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:246
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:246
+**         DeviceDataPtr   - Pointer to device data
+**                           structure returned by <Init> method.
+*/
+/* ===================================================================*/
+void BitIoLdd1_SetVal(LDD_TDeviceData *DeviceDataPtr)
+{
      eb8:	b580      	push	{r7, lr}
      eba:	b082      	sub	sp, #8
      ebc:	af00      	add	r7, sp, #0
      ebe:	6078      	str	r0, [r7, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:248
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:248
+  (void)DeviceDataPtr;                 /* Parameter is not used, suppress unused argument warning */
+  GPIO_PDD_SetPortDataOutputMask(BitIoLdd1_MODULE_BASE_ADDRESS, BitIoLdd1_PORT_MASK);
      ec0:	4b02      	ldr	r3, [pc, #8]	; (ecc <BitIoLdd1_SetVal+0x14>)
      ec2:	2280      	movs	r2, #128	; 0x80
      ec4:	605a      	str	r2, [r3, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:249
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd1.c:249
+}
      ec6:	46bd      	mov	sp, r7
      ec8:	b002      	add	sp, #8
      eca:	bd80      	pop	{r7, pc}
@@ -2115,33 +2566,54 @@ BitIoLdd1_SetVal():
 
 00000ed0 <BitIoLdd2_Init>:
 BitIoLdd2_Init():
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd2.c:123
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd2.c:123
+**                         - Pointer to the dynamically allocated private
+**                           structure or NULL if there was an error.
+*/
+/* ===================================================================*/
+LDD_TDeviceData* BitIoLdd2_Init(LDD_TUserData *UserDataPtr)
+{
      ed0:	b580      	push	{r7, lr}
      ed2:	b084      	sub	sp, #16
      ed4:	af00      	add	r7, sp, #0
      ed6:	6078      	str	r0, [r7, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd2.c:128
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd2.c:128
+  /* Allocate device structure */
+  BitIoLdd2_TDeviceDataPtr DeviceDataPrv;
+
+  /* {Default RTOS Adapter} Driver memory allocation: Dynamic allocation is simulated by a pointer to the static object */
+  DeviceDataPrv = &DeviceDataPrv__DEFAULT_RTOS_ALLOC;
      ed8:	4b10      	ldr	r3, [pc, #64]	; (f1c <BitIoLdd2_Init+0x4c>)
      eda:	60fb      	str	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd2.c:129
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd2.c:129
+  DeviceDataPrv->UserDataPtr = UserDataPtr; /* Store the RTOS device structure */
      edc:	68fb      	ldr	r3, [r7, #12]
      ede:	687a      	ldr	r2, [r7, #4]
      ee0:	601a      	str	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd2.c:132
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd2.c:132
+  /* Configure pin as output */
+  /* GPIOE_PDDR: PDD|=2 */
+  GPIOE_PDDR |= GPIO_PDDR_PDD(0x02);
      ee2:	4b0f      	ldr	r3, [pc, #60]	; (f20 <BitIoLdd2_Init+0x50>)
      ee4:	4a0e      	ldr	r2, [pc, #56]	; (f20 <BitIoLdd2_Init+0x50>)
      ee6:	6952      	ldr	r2, [r2, #20]
      ee8:	2102      	movs	r1, #2
      eea:	430a      	orrs	r2, r1
      eec:	615a      	str	r2, [r3, #20]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd2.c:135
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd2.c:135
+  /* Set initialization value */
+  /* GPIOE_PDOR: PDO&=~2 */
+  GPIOE_PDOR &= (uint32_t)~(uint32_t)(GPIO_PDOR_PDO(0x02));
      eee:	4b0c      	ldr	r3, [pc, #48]	; (f20 <BitIoLdd2_Init+0x50>)
      ef0:	4a0b      	ldr	r2, [pc, #44]	; (f20 <BitIoLdd2_Init+0x50>)
      ef2:	6812      	ldr	r2, [r2, #0]
      ef4:	2102      	movs	r1, #2
      ef6:	438a      	bics	r2, r1
      ef8:	601a      	str	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd2.c:138
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd2.c:138
+  /* Initialization of Port Control register */
+  /* PORTE_PCR1: ISF=0,MUX=1 */
+  PORTE_PCR1 = (uint32_t)((PORTE_PCR1 & (uint32_t)~(uint32_t)(
      efa:	4b0a      	ldr	r3, [pc, #40]	; (f24 <BitIoLdd2_Init+0x54>)
      efc:	4a09      	ldr	r2, [pc, #36]	; (f24 <BitIoLdd2_Init+0x54>)
      efe:	6851      	ldr	r1, [r2, #4]
@@ -2151,13 +2623,21 @@ BitIoLdd2_Init():
      f06:	0049      	lsls	r1, r1, #1
      f08:	430a      	orrs	r2, r1
      f0a:	605a      	str	r2, [r3, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd2.c:145
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd2.c:145
+                PORT_PCR_MUX(0x06)
+               )) | (uint32_t)(
+                PORT_PCR_MUX(0x01)
+               ));
+  /* Registration of the device structure */
+  PE_LDD_RegisterDeviceStructure(PE_LDD_COMPONENT_BitIoLdd2_ID,DeviceDataPrv);
      f0c:	4b07      	ldr	r3, [pc, #28]	; (f2c <BitIoLdd2_Init+0x5c>)
      f0e:	68fa      	ldr	r2, [r7, #12]
      f10:	605a      	str	r2, [r3, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd2.c:146
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd2.c:146
+  return ((LDD_TDeviceData *)DeviceDataPrv);
      f12:	68fb      	ldr	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd2.c:147
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd2.c:147
+}
      f14:	1c18      	adds	r0, r3, #0
      f16:	46bd      	mov	sp, r7
      f18:	b004      	add	sp, #16
@@ -2170,16 +2650,25 @@ BitIoLdd2_Init():
 
 00000f30 <BitIoLdd2_ClrVal>:
 BitIoLdd2_ClrVal():
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd2.c:226
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd2.c:226
+**         DeviceDataPtr   - Pointer to device data
+**                           structure returned by <Init> method.
+*/
+/* ===================================================================*/
+void BitIoLdd2_ClrVal(LDD_TDeviceData *DeviceDataPtr)
+{
      f30:	b580      	push	{r7, lr}
      f32:	b082      	sub	sp, #8
      f34:	af00      	add	r7, sp, #0
      f36:	6078      	str	r0, [r7, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd2.c:228
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd2.c:228
+  (void)DeviceDataPtr;                 /* Parameter is not used, suppress unused argument warning */
+  GPIO_PDD_ClearPortDataOutputMask(BitIoLdd2_MODULE_BASE_ADDRESS, BitIoLdd2_PORT_MASK);
      f38:	4b02      	ldr	r3, [pc, #8]	; (f44 <BitIoLdd2_ClrVal+0x14>)
      f3a:	2202      	movs	r2, #2
      f3c:	609a      	str	r2, [r3, #8]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd2.c:229
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd2.c:229
+}
      f3e:	46bd      	mov	sp, r7
      f40:	b002      	add	sp, #8
      f42:	bd80      	pop	{r7, pc}
@@ -2187,16 +2676,25 @@ BitIoLdd2_ClrVal():
 
 00000f48 <BitIoLdd2_SetVal>:
 BitIoLdd2_SetVal():
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd2.c:246
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd2.c:246
+**         DeviceDataPtr   - Pointer to device data
+**                           structure returned by <Init> method.
+*/
+/* ===================================================================*/
+void BitIoLdd2_SetVal(LDD_TDeviceData *DeviceDataPtr)
+{
      f48:	b580      	push	{r7, lr}
      f4a:	b082      	sub	sp, #8
      f4c:	af00      	add	r7, sp, #0
      f4e:	6078      	str	r0, [r7, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd2.c:248
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd2.c:248
+  (void)DeviceDataPtr;                 /* Parameter is not used, suppress unused argument warning */
+  GPIO_PDD_SetPortDataOutputMask(BitIoLdd2_MODULE_BASE_ADDRESS, BitIoLdd2_PORT_MASK);
      f50:	4b02      	ldr	r3, [pc, #8]	; (f5c <BitIoLdd2_SetVal+0x14>)
      f52:	2202      	movs	r2, #2
      f54:	605a      	str	r2, [r3, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd2.c:249
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd2.c:249
+}
      f56:	46bd      	mov	sp, r7
      f58:	b002      	add	sp, #8
      f5a:	bd80      	pop	{r7, pc}
@@ -2204,33 +2702,54 @@ BitIoLdd2_SetVal():
 
 00000f60 <BitIoLdd3_Init>:
 BitIoLdd3_Init():
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd3.c:123
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd3.c:123
+**                         - Pointer to the dynamically allocated private
+**                           structure or NULL if there was an error.
+*/
+/* ===================================================================*/
+LDD_TDeviceData* BitIoLdd3_Init(LDD_TUserData *UserDataPtr)
+{
      f60:	b580      	push	{r7, lr}
      f62:	b084      	sub	sp, #16
      f64:	af00      	add	r7, sp, #0
      f66:	6078      	str	r0, [r7, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd3.c:128
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd3.c:128
+  /* Allocate device structure */
+  BitIoLdd3_TDeviceDataPtr DeviceDataPrv;
+
+  /* {Default RTOS Adapter} Driver memory allocation: Dynamic allocation is simulated by a pointer to the static object */
+  DeviceDataPrv = &DeviceDataPrv__DEFAULT_RTOS_ALLOC;
      f68:	4b10      	ldr	r3, [pc, #64]	; (fac <BitIoLdd3_Init+0x4c>)
      f6a:	60fb      	str	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd3.c:129
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd3.c:129
+  DeviceDataPrv->UserDataPtr = UserDataPtr; /* Store the RTOS device structure */
      f6c:	68fb      	ldr	r3, [r7, #12]
      f6e:	687a      	ldr	r2, [r7, #4]
      f70:	601a      	str	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd3.c:132
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd3.c:132
+  /* Configure pin as output */
+  /* GPIOB_PDDR: PDD|=1 */
+  GPIOB_PDDR |= GPIO_PDDR_PDD(0x01);
      f72:	4b0f      	ldr	r3, [pc, #60]	; (fb0 <BitIoLdd3_Init+0x50>)
      f74:	4a0e      	ldr	r2, [pc, #56]	; (fb0 <BitIoLdd3_Init+0x50>)
      f76:	6952      	ldr	r2, [r2, #20]
      f78:	2101      	movs	r1, #1
      f7a:	430a      	orrs	r2, r1
      f7c:	615a      	str	r2, [r3, #20]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd3.c:135
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd3.c:135
+  /* Set initialization value */
+  /* GPIOB_PDOR: PDO|=1 */
+  GPIOB_PDOR |= GPIO_PDOR_PDO(0x01);
      f7e:	4b0c      	ldr	r3, [pc, #48]	; (fb0 <BitIoLdd3_Init+0x50>)
      f80:	4a0b      	ldr	r2, [pc, #44]	; (fb0 <BitIoLdd3_Init+0x50>)
      f82:	6812      	ldr	r2, [r2, #0]
      f84:	2101      	movs	r1, #1
      f86:	430a      	orrs	r2, r1
      f88:	601a      	str	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd3.c:138
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd3.c:138
+  /* Initialization of Port Control register */
+  /* PORTB_PCR0: ISF=0,MUX=1 */
+  PORTB_PCR0 = (uint32_t)((PORTB_PCR0 & (uint32_t)~(uint32_t)(
      f8a:	4b0a      	ldr	r3, [pc, #40]	; (fb4 <BitIoLdd3_Init+0x54>)
      f8c:	4a09      	ldr	r2, [pc, #36]	; (fb4 <BitIoLdd3_Init+0x54>)
      f8e:	6811      	ldr	r1, [r2, #0]
@@ -2240,13 +2759,21 @@ BitIoLdd3_Init():
      f96:	0049      	lsls	r1, r1, #1
      f98:	430a      	orrs	r2, r1
      f9a:	601a      	str	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd3.c:145
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd3.c:145
+                PORT_PCR_MUX(0x06)
+               )) | (uint32_t)(
+                PORT_PCR_MUX(0x01)
+               ));
+  /* Registration of the device structure */
+  PE_LDD_RegisterDeviceStructure(PE_LDD_COMPONENT_BitIoLdd3_ID,DeviceDataPrv);
      f9c:	4b07      	ldr	r3, [pc, #28]	; (fbc <BitIoLdd3_Init+0x5c>)
      f9e:	68fa      	ldr	r2, [r7, #12]
      fa0:	611a      	str	r2, [r3, #16]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd3.c:146
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd3.c:146
+  return ((LDD_TDeviceData *)DeviceDataPrv);
      fa2:	68fb      	ldr	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/BitIoLdd3.c:147
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/BitIoLdd3.c:147
+}
      fa4:	1c18      	adds	r0, r3, #0
      fa6:	46bd      	mov	sp, r7
      fa8:	b004      	add	sp, #16
@@ -2838,43 +3365,43 @@ byte ImageConverter_Measure(bool WaitForResult)
     126a:	46c0      	nop			; (mov r8, r8)
     126c:	1ffff09d 	.word	0x1ffff09d
 
-00001270 <PE_ImageConverter_GetChanValue>:
-PE_ImageConverter_GetChanValue():
-/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/ImageConverter.c:315
-byte ImageConverter_GetChanValue(byte Channel, void* Value)
-was optimised based on the current component setting. An appropriate macro has been defined 
-in the AD1.h to maintain API compatibility.
+00001270 <ImageConverter_GetValue>:
+ImageConverter_GetValue():
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/ImageConverter.c:263
+**                           error may not be supported on some CPUs
+**                           (see generated code).
 */
-byte PE_ImageConverter_GetChanValue(void* Value)
+/* ===================================================================*/
+byte ImageConverter_GetValue(void* Values)
 {
     1270:	b580      	push	{r7, lr}
     1272:	b082      	sub	sp, #8
     1274:	af00      	add	r7, sp, #0
     1276:	6078      	str	r0, [r7, #4]
-/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/ImageConverter.c:316
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/ImageConverter.c:264
   if (!OutFlg) {                       /* Is output flag set? */
-    1278:	4b08      	ldr	r3, [pc, #32]	; (129c <PE_ImageConverter_GetChanValue+0x2c>)
+    1278:	4b08      	ldr	r3, [pc, #32]	; (129c <ImageConverter_GetValue+0x2c>)
     127a:	781b      	ldrb	r3, [r3, #0]
     127c:	b2db      	uxtb	r3, r3
     127e:	2b00      	cmp	r3, #0
-    1280:	d101      	bne.n	1286 <PE_ImageConverter_GetChanValue+0x16>
-/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/ImageConverter.c:317
+    1280:	d101      	bne.n	1286 <ImageConverter_GetValue+0x16>
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/ImageConverter.c:265
     return ERR_NOTAVAIL;               /* If no then error */
     1282:	2309      	movs	r3, #9
-    1284:	e005      	b.n	1292 <PE_ImageConverter_GetChanValue+0x22>
-/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/ImageConverter.c:320
+    1284:	e005      	b.n	1292 <ImageConverter_GetValue+0x22>
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/ImageConverter.c:268
   }
-  /* Copy value from temporary buffer */
-  *(AdcLdd1_TResultData *)Value = ImageConverter_OutV;
-    1286:	4b06      	ldr	r3, [pc, #24]	; (12a0 <PE_ImageConverter_GetChanValue+0x30>)
+  /* Copy measured values */
+  *(AdcLdd1_TResultData *)Values = ImageConverter_OutV;
+    1286:	4b06      	ldr	r3, [pc, #24]	; (12a0 <ImageConverter_GetValue+0x30>)
     1288:	781b      	ldrb	r3, [r3, #0]
     128a:	b2da      	uxtb	r2, r3
     128c:	687b      	ldr	r3, [r7, #4]
     128e:	701a      	strb	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/ImageConverter.c:321
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/ImageConverter.c:269
   return ERR_OK;
     1290:	2300      	movs	r3, #0
-/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/ImageConverter.c:322
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/ImageConverter.c:270
 }
     1292:	1c18      	adds	r0, r3, #0
     1294:	46bd      	mov	sp, r7
@@ -3689,32 +4216,54 @@ PE_ISR(SerialCom_Interrupt)
 
 000016dc <TU1_Init>:
 TU1_Init():
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:153
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:153
+**                         - Pointer to the dynamically allocated private
+**                           structure or NULL if there was an error.
+*/
+/* ===================================================================*/
+LDD_TDeviceData* TU1_Init(LDD_TUserData *UserDataPtr)
+{
     16dc:	b580      	push	{r7, lr}
     16de:	b084      	sub	sp, #16
     16e0:	af00      	add	r7, sp, #0
     16e2:	6078      	str	r0, [r7, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:156
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:156
+  TU1_TDeviceData *DeviceDataPrv;
+
+  if (PE_LDD_DeviceDataList[PE_LDD_COMPONENT_TU1_ID] == NULL) {
     16e4:	4b2a      	ldr	r3, [pc, #168]	; (1790 <TU1_Init+0xb4>)
     16e6:	689b      	ldr	r3, [r3, #8]
     16e8:	2b00      	cmp	r3, #0
     16ea:	d140      	bne.n	176e <TU1_Init+0x92>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:159
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:159
+    /* Allocate device structure */
+    /* {Default RTOS Adapter} Driver memory allocation: Dynamic allocation is simulated by a pointer to the static object */
+    DeviceDataPrv = &DeviceDataPrv__DEFAULT_RTOS_ALLOC;
     16ec:	4b29      	ldr	r3, [pc, #164]	; (1794 <TU1_Init+0xb8>)
     16ee:	60fb      	str	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:160
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:160
+    DeviceDataPrv->UserDataPtr = UserDataPtr; /* Store the RTOS device structure */
     16f0:	68fb      	ldr	r3, [r7, #12]
     16f2:	687a      	ldr	r2, [r7, #4]
     16f4:	605a      	str	r2, [r3, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:161
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:161
+    DeviceDataPrv->InitCntr = 1U;      /* First initialization */
     16f6:	68fb      	ldr	r3, [r7, #12]
     16f8:	2201      	movs	r2, #1
     16fa:	701a      	strb	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:172
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:172
+    DeviceDataPrv->InitCntr++;         /* Increment counter of initialization */
+    return ((LDD_TDeviceData *)DeviceDataPrv); /* Return pointer to the device data structure */
+  }
+  /* Interrupt vector(s) allocation */
+  /* {Default RTOS Adapter} Set interrupt vector: IVT is static, ISR parameter is passed by the global variable */
+  INT_PIT__DEFAULT_RTOS_ISRPARAM = DeviceDataPrv;
     16fc:	4b26      	ldr	r3, [pc, #152]	; (1798 <TU1_Init+0xbc>)
     16fe:	68fa      	ldr	r2, [r7, #12]
     1700:	601a      	str	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:174
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:174
+  /* SIM_SCGC6: PIT=1 */
+  SIM_SCGC6 |= SIM_SCGC6_PIT_MASK;
     1702:	4a26      	ldr	r2, [pc, #152]	; (179c <TU1_Init+0xc0>)
     1704:	4925      	ldr	r1, [pc, #148]	; (179c <TU1_Init+0xc0>)
     1706:	4b26      	ldr	r3, [pc, #152]	; (17a0 <TU1_Init+0xc4>)
@@ -3724,29 +4273,39 @@ TU1_Init():
     170e:	4319      	orrs	r1, r3
     1710:	4b23      	ldr	r3, [pc, #140]	; (17a0 <TU1_Init+0xc4>)
     1712:	50d1      	str	r1, [r2, r3]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:176
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:176
+  /* PIT_MCR: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,MDIS=0,FRZ=0 */
+  PIT_MCR = 0x00U;                     /* Enable device clock */
     1714:	4b23      	ldr	r3, [pc, #140]	; (17a4 <TU1_Init+0xc8>)
     1716:	2200      	movs	r2, #0
     1718:	601a      	str	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:178
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:178
+  /* PIT_TCTRL0: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,CHN=0,TIE=0,TEN=0 */
+  PIT_TCTRL0 = 0x00U;                  /* Clear control register */
     171a:	4a22      	ldr	r2, [pc, #136]	; (17a4 <TU1_Init+0xc8>)
     171c:	2384      	movs	r3, #132	; 0x84
     171e:	005b      	lsls	r3, r3, #1
     1720:	2100      	movs	r1, #0
     1722:	50d1      	str	r1, [r2, r3]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:180
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:180
+  /* PIT_TFLG0: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,TIF=1 */
+  PIT_TFLG0 = PIT_TFLG_TIF_MASK;       /* Clear timer flag register */
     1724:	4a1f      	ldr	r2, [pc, #124]	; (17a4 <TU1_Init+0xc8>)
     1726:	2386      	movs	r3, #134	; 0x86
     1728:	005b      	lsls	r3, r3, #1
     172a:	2101      	movs	r1, #1
     172c:	50d1      	str	r1, [r2, r3]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:182
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:182
+  /* PIT_LDVAL0: TSV=0xD1 */
+  PIT_LDVAL0 = PIT_LDVAL_TSV(0xD1);    /* Set up load register */
     172e:	4a1d      	ldr	r2, [pc, #116]	; (17a4 <TU1_Init+0xc8>)
     1730:	2380      	movs	r3, #128	; 0x80
     1732:	005b      	lsls	r3, r3, #1
     1734:	21d1      	movs	r1, #209	; 0xd1
     1736:	50d1      	str	r1, [r2, r3]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:184
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:184
+  /* NVIC_IPR5: PRI_22=0x80 */
+  NVIC_IPR5 = (uint32_t)((NVIC_IPR5 & (uint32_t)~(uint32_t)(
     1738:	4a1b      	ldr	r2, [pc, #108]	; (17a8 <TU1_Init+0xcc>)
     173a:	491b      	ldr	r1, [pc, #108]	; (17a8 <TU1_Init+0xcc>)
     173c:	23c5      	movs	r3, #197	; 0xc5
@@ -3757,7 +4316,13 @@ TU1_Init():
     1746:	23c5      	movs	r3, #197	; 0xc5
     1748:	009b      	lsls	r3, r3, #2
     174a:	50d1      	str	r1, [r2, r3]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:190
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:190
+               NVIC_IP_PRI_22(0x7F)
+              )) | (uint32_t)(
+               NVIC_IP_PRI_22(0x80)
+              ));
+  /* NVIC_ISER: SETENA|=0x00400000 */
+  NVIC_ISER |= NVIC_ISER_SETENA(0x00400000);
     174c:	4b16      	ldr	r3, [pc, #88]	; (17a8 <TU1_Init+0xcc>)
     174e:	4a16      	ldr	r2, [pc, #88]	; (17a8 <TU1_Init+0xcc>)
     1750:	6812      	ldr	r2, [r2, #0]
@@ -3765,37 +4330,57 @@ TU1_Init():
     1754:	03c9      	lsls	r1, r1, #15
     1756:	430a      	orrs	r2, r1
     1758:	601a      	str	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:192
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:192
+  /* PIT_TCTRL0: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,CHN=0,TIE=1,TEN=0 */
+  PIT_TCTRL0 = PIT_TCTRL_TIE_MASK;     /* Set up control register */
     175a:	4a12      	ldr	r2, [pc, #72]	; (17a4 <TU1_Init+0xc8>)
     175c:	2384      	movs	r3, #132	; 0x84
     175e:	005b      	lsls	r3, r3, #1
     1760:	2102      	movs	r1, #2
     1762:	50d1      	str	r1, [r2, r3]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:194
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:194
+  /* Registration of the device structure */
+  PE_LDD_RegisterDeviceStructure(PE_LDD_COMPONENT_TU1_ID,DeviceDataPrv);
     1764:	4b0a      	ldr	r3, [pc, #40]	; (1790 <TU1_Init+0xb4>)
     1766:	68fa      	ldr	r2, [r7, #12]
     1768:	609a      	str	r2, [r3, #8]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:195
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:195
+  return ((LDD_TDeviceData *)DeviceDataPrv); /* Return pointer to the device data structure */
     176a:	68fb      	ldr	r3, [r7, #12]
     176c:	e00c      	b.n	1788 <TU1_Init+0xac>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:165
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:165
+    DeviceDataPrv->UserDataPtr = UserDataPtr; /* Store the RTOS device structure */
+    DeviceDataPrv->InitCntr = 1U;      /* First initialization */
+  }
+  else {
+    /* Memory is already allocated */
+    DeviceDataPrv = (TU1_TDeviceDataPtr) PE_LDD_DeviceDataList[PE_LDD_COMPONENT_TU1_ID];
     176e:	4b08      	ldr	r3, [pc, #32]	; (1790 <TU1_Init+0xb4>)
     1770:	689b      	ldr	r3, [r3, #8]
     1772:	60fb      	str	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:166
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:166
+    DeviceDataPrv->UserDataPtr = UserDataPtr; /* Store the RTOS device structure */
     1774:	68fb      	ldr	r3, [r7, #12]
     1776:	687a      	ldr	r2, [r7, #4]
     1778:	605a      	str	r2, [r3, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:167
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:167
+    DeviceDataPrv->InitCntr++;         /* Increment counter of initialization */
     177a:	68fb      	ldr	r3, [r7, #12]
     177c:	781b      	ldrb	r3, [r3, #0]
     177e:	3301      	adds	r3, #1
     1780:	b2da      	uxtb	r2, r3
     1782:	68fb      	ldr	r3, [r7, #12]
     1784:	701a      	strb	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:168
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:168
+    return ((LDD_TDeviceData *)DeviceDataPrv); /* Return pointer to the device data structure */
     1786:	68fb      	ldr	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:196
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:196
+  /* PIT_TCTRL0: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,CHN=0,TIE=1,TEN=0 */
+  PIT_TCTRL0 = PIT_TCTRL_TIE_MASK;     /* Set up control register */
+  /* Registration of the device structure */
+  PE_LDD_RegisterDeviceStructure(PE_LDD_COMPONENT_TU1_ID,DeviceDataPrv);
+  return ((LDD_TDeviceData *)DeviceDataPrv); /* Return pointer to the device data structure */
+}
     1788:	1c18      	adds	r0, r3, #0
     178a:	46bd      	mov	sp, r7
     178c:	b004      	add	sp, #16
@@ -3811,12 +4396,20 @@ TU1_Init():
 
 000017b0 <TU1_Enable>:
 TU1_Enable():
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:218
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:218
+**                           ERR_SPEED - The component does not work in
+**                           the active clock configuration
+*/
+/* ===================================================================*/
+LDD_TError TU1_Enable(LDD_TDeviceData *DeviceDataPtr)
+{
     17b0:	b580      	push	{r7, lr}
     17b2:	b082      	sub	sp, #8
     17b4:	af00      	add	r7, sp, #0
     17b6:	6078      	str	r0, [r7, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:220
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:220
+  (void)DeviceDataPtr;                 /* Parameter is not used, suppress unused argument warning */
+  PIT_PDD_EnableDevice(PIT_BASE_PTR, PIT_PDD_CHANNEL_0, PDD_ENABLE); /* Enable the device */
     17b8:	4a07      	ldr	r2, [pc, #28]	; (17d8 <TU1_Enable+0x28>)
     17ba:	4907      	ldr	r1, [pc, #28]	; (17d8 <TU1_Enable+0x28>)
     17bc:	2384      	movs	r3, #132	; 0x84
@@ -3827,9 +4420,11 @@ TU1_Enable():
     17c6:	2384      	movs	r3, #132	; 0x84
     17c8:	005b      	lsls	r3, r3, #1
     17ca:	50d1      	str	r1, [r2, r3]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:221
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:221
+  return ERR_OK;
     17cc:	2300      	movs	r3, #0
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:222
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:222
+}
     17ce:	1c18      	adds	r0, r3, #0
     17d0:	46bd      	mov	sp, r7
     17d2:	b002      	add	sp, #8
@@ -3839,12 +4434,20 @@ TU1_Enable():
 
 000017dc <TU1_Disable>:
 TU1_Disable():
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:244
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:244
+**                           ERR_SPEED - The component does not work in
+**                           the active clock configuration
+*/
+/* ===================================================================*/
+LDD_TError TU1_Disable(LDD_TDeviceData *DeviceDataPtr)
+{
     17dc:	b580      	push	{r7, lr}
     17de:	b082      	sub	sp, #8
     17e0:	af00      	add	r7, sp, #0
     17e2:	6078      	str	r0, [r7, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:246
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:246
+  (void)DeviceDataPtr;                 /* Parameter is not used, suppress unused argument warning */
+  PIT_PDD_EnableDevice(PIT_BASE_PTR, PIT_PDD_CHANNEL_0, PDD_DISABLE);
     17e4:	4a08      	ldr	r2, [pc, #32]	; (1808 <TU1_Disable+0x2c>)
     17e6:	4908      	ldr	r1, [pc, #32]	; (1808 <TU1_Disable+0x2c>)
     17e8:	2384      	movs	r3, #132	; 0x84
@@ -3857,9 +4460,11 @@ TU1_Disable():
     17f6:	2384      	movs	r3, #132	; 0x84
     17f8:	005b      	lsls	r3, r3, #1
     17fa:	50d1      	str	r1, [r2, r3]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:247
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:247
+  return ERR_OK;
     17fc:	2300      	movs	r3, #0
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:248
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:248
+}
     17fe:	1c18      	adds	r0, r3, #0
     1800:	46bd      	mov	sp, r7
     1802:	b002      	add	sp, #8
@@ -3869,15 +4474,25 @@ TU1_Disable():
 
 0000180c <TU1_Interrupt>:
 TU1_Interrupt():
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:305
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:305
+**         and eventually invokes event(s) of the component.
+**         This method is internal. It is used by Processor Expert only.
+** ===================================================================
+*/
+PE_ISR(TU1_Interrupt)
+{
     180c:	b580      	push	{r7, lr}
     180e:	b082      	sub	sp, #8
     1810:	af00      	add	r7, sp, #0
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:307
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:307
+  /* {Default RTOS Adapter} ISR parameter is passed through the global variable */
+  TU1_TDeviceDataPtr DeviceDataPrv = INT_PIT__DEFAULT_RTOS_ISRPARAM;
     1812:	4b0a      	ldr	r3, [pc, #40]	; (183c <TU1_Interrupt+0x30>)
     1814:	681b      	ldr	r3, [r3, #0]
     1816:	607b      	str	r3, [r7, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:309
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:309
+
+  PIT_PDD_ClearInterruptFlag(PIT_BASE_PTR, PIT_PDD_CHANNEL_0); /* Clear interrupt flag */
     1818:	4a09      	ldr	r2, [pc, #36]	; (1840 <TU1_Interrupt+0x34>)
     181a:	2386      	movs	r3, #134	; 0x86
     181c:	005b      	lsls	r3, r3, #1
@@ -3887,12 +4502,14 @@ TU1_Interrupt():
     1824:	2380      	movs	r3, #128	; 0x80
     1826:	005b      	lsls	r3, r3, #1
     1828:	58d3      	ldr	r3, [r2, r3]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:310
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:310
+  TU1_OnCounterRestart(DeviceDataPrv->UserDataPtr); /* Invoke OnCounterRestart event */
     182a:	687b      	ldr	r3, [r7, #4]
     182c:	685b      	ldr	r3, [r3, #4]
     182e:	1c18      	adds	r0, r3, #0
     1830:	f000 f860 	bl	18f4 <TU1_OnCounterRestart>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TU1.c:311
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TU1.c:311
+}
     1834:	46bd      	mov	sp, r7
     1836:	b002      	add	sp, #8
     1838:	bd80      	pop	{r7, pc}
@@ -3902,47 +4519,71 @@ TU1_Interrupt():
 
 00001844 <TimerIntLdd1_Init>:
 TimerIntLdd1_Init():
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:145
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:145
+**                         - Pointer to the dynamically allocated private
+**                           structure or NULL if there was an error.
+*/
+/* ===================================================================*/
+LDD_TDeviceData* TimerIntLdd1_Init(LDD_TUserData *UserDataPtr)
+{
     1844:	b580      	push	{r7, lr}
     1846:	b084      	sub	sp, #16
     1848:	af00      	add	r7, sp, #0
     184a:	6078      	str	r0, [r7, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:149
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:149
+  /* Allocate device structure */
+  TimerIntLdd1_TDeviceData *DeviceDataPrv;
+  /* {Default RTOS Adapter} Driver memory allocation: Dynamic allocation is simulated by a pointer to the static object */
+  DeviceDataPrv = &DeviceDataPrv__DEFAULT_RTOS_ALLOC;
     184c:	4b0f      	ldr	r3, [pc, #60]	; (188c <TimerIntLdd1_Init+0x48>)
     184e:	60fb      	str	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:150
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:150
+  DeviceDataPrv->UserDataPtr = UserDataPtr; /* Store the RTOS device structure */
     1850:	68fb      	ldr	r3, [r7, #12]
     1852:	687a      	ldr	r2, [r7, #4]
     1854:	609a      	str	r2, [r3, #8]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:151
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:151
+  DeviceDataPrv->EnUser = FALSE;       /* Set the flag "device disabled" */
     1856:	68fb      	ldr	r3, [r7, #12]
     1858:	2200      	movs	r2, #0
     185a:	711a      	strb	r2, [r3, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:153
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:153
+  /* Registration of the device structure */
+  PE_LDD_RegisterDeviceStructure(PE_LDD_COMPONENT_TimerIntLdd1_ID,DeviceDataPrv);
     185c:	4b0c      	ldr	r3, [pc, #48]	; (1890 <TimerIntLdd1_Init+0x4c>)
     185e:	68fa      	ldr	r2, [r7, #12]
     1860:	60da      	str	r2, [r3, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:154
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:154
+  DeviceDataPrv->LinkedDeviceDataPtr = TU1_Init((LDD_TUserData *)NULL);
     1862:	2000      	movs	r0, #0
     1864:	f7ff ff3a 	bl	16dc <TU1_Init>
     1868:	1c02      	adds	r2, r0, #0
     186a:	68fb      	ldr	r3, [r7, #12]
     186c:	601a      	str	r2, [r3, #0]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:155
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:155
+  if (DeviceDataPrv->LinkedDeviceDataPtr == NULL) { /* Is initialization of TimerUnit unsuccessful? */
     186e:	68fb      	ldr	r3, [r7, #12]
     1870:	681b      	ldr	r3, [r3, #0]
     1872:	2b00      	cmp	r3, #0
     1874:	d104      	bne.n	1880 <TimerIntLdd1_Init+0x3c>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:157
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:157
+    /* Unregistration of the device structure */
+    PE_LDD_UnregisterDeviceStructure(PE_LDD_COMPONENT_TimerIntLdd1_ID);
     1876:	4b06      	ldr	r3, [pc, #24]	; (1890 <TimerIntLdd1_Init+0x4c>)
     1878:	2200      	movs	r2, #0
     187a:	60da      	str	r2, [r3, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:160
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:160
+    /* Deallocation of the device structure */
+    /* {Default RTOS Adapter} Driver memory deallocation: Dynamic allocation is simulated, no deallocation code is generated */
+    return NULL;                       /* If so, then the TimerInt initialization is also unsuccessful */
     187c:	2300      	movs	r3, #0
     187e:	e000      	b.n	1882 <TimerIntLdd1_Init+0x3e>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:162
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:162
+  }
+  return ((LDD_TDeviceData *)DeviceDataPrv); /* Return pointer to the device data structure */
     1880:	68fb      	ldr	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:163
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:163
+}
     1882:	1c18      	adds	r0, r3, #0
     1884:	46bd      	mov	sp, r7
     1886:	b004      	add	sp, #16
@@ -3953,31 +4594,45 @@ TimerIntLdd1_Init():
 
 00001894 <TimerIntLdd1_Enable>:
 TimerIntLdd1_Enable():
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:184
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:184
+**                           ERR_SPEED - The component does not work in
+**                           the active clock configuration
+*/
+/* ===================================================================*/
+LDD_TError TimerIntLdd1_Enable(LDD_TDeviceData *DeviceDataPtr)
+{
     1894:	b580      	push	{r7, lr}
     1896:	b084      	sub	sp, #16
     1898:	af00      	add	r7, sp, #0
     189a:	6078      	str	r0, [r7, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:185
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:185
+  TimerIntLdd1_TDeviceData *DeviceDataPrv = (TimerIntLdd1_TDeviceData *)DeviceDataPtr;
     189c:	687b      	ldr	r3, [r7, #4]
     189e:	60fb      	str	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:187
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:187
+
+  if (!DeviceDataPrv->EnUser) {        /* Is the device disabled by user? */
     18a0:	68fb      	ldr	r3, [r7, #12]
     18a2:	791b      	ldrb	r3, [r3, #4]
     18a4:	2b00      	cmp	r3, #0
     18a6:	d107      	bne.n	18b8 <TimerIntLdd1_Enable+0x24>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:188
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:188
+    DeviceDataPrv->EnUser = TRUE;      /* If yes then set the flag "device enabled" */
     18a8:	68fb      	ldr	r3, [r7, #12]
     18aa:	2201      	movs	r2, #1
     18ac:	711a      	strb	r2, [r3, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:189
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:189
+    (void)TU1_Enable(DeviceDataPrv->LinkedDeviceDataPtr); /* Enable TimerUnit */
     18ae:	68fb      	ldr	r3, [r7, #12]
     18b0:	681b      	ldr	r3, [r3, #0]
     18b2:	1c18      	adds	r0, r3, #0
     18b4:	f7ff ff7c 	bl	17b0 <TU1_Enable>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:191
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:191
+  }
+  return ERR_OK;
     18b8:	2300      	movs	r3, #0
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:192
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:192
+}
     18ba:	1c18      	adds	r0, r3, #0
     18bc:	46bd      	mov	sp, r7
     18be:	b004      	add	sp, #16
@@ -3986,31 +4641,45 @@ TimerIntLdd1_Enable():
 
 000018c4 <TimerIntLdd1_Disable>:
 TimerIntLdd1_Disable():
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:213
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:213
+**                           ERR_SPEED - The component does not work in
+**                           the active clock configuration
+*/
+/* ===================================================================*/
+LDD_TError TimerIntLdd1_Disable(LDD_TDeviceData *DeviceDataPtr)
+{
     18c4:	b580      	push	{r7, lr}
     18c6:	b084      	sub	sp, #16
     18c8:	af00      	add	r7, sp, #0
     18ca:	6078      	str	r0, [r7, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:214
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:214
+  TimerIntLdd1_TDeviceData *DeviceDataPrv = (TimerIntLdd1_TDeviceData *)DeviceDataPtr;
     18cc:	687b      	ldr	r3, [r7, #4]
     18ce:	60fb      	str	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:216
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:216
+
+  if (DeviceDataPrv->EnUser) {         /* Is the device enabled by user? */
     18d0:	68fb      	ldr	r3, [r7, #12]
     18d2:	791b      	ldrb	r3, [r3, #4]
     18d4:	2b00      	cmp	r3, #0
     18d6:	d007      	beq.n	18e8 <TimerIntLdd1_Disable+0x24>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:217
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:217
+    DeviceDataPrv->EnUser = FALSE;     /* If yes then set the flag "device enabled" */
     18d8:	68fb      	ldr	r3, [r7, #12]
     18da:	2200      	movs	r2, #0
     18dc:	711a      	strb	r2, [r3, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:218
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:218
+   (void)TU1_Disable(DeviceDataPrv->LinkedDeviceDataPtr); /* Disable TimerUnit component */
     18de:	68fb      	ldr	r3, [r7, #12]
     18e0:	681b      	ldr	r3, [r3, #0]
     18e2:	1c18      	adds	r0, r3, #0
     18e4:	f7ff ff7a 	bl	17dc <TU1_Disable>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:220
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:220
+  }
+  return ERR_OK;
     18e8:	2300      	movs	r3, #0
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:221
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:221
+}
     18ea:	1c18      	adds	r0, r3, #0
     18ec:	46bd      	mov	sp, r7
     18ee:	b004      	add	sp, #16
@@ -4019,21 +4688,32 @@ TimerIntLdd1_Disable():
 
 000018f4 <TU1_OnCounterRestart>:
 TU1_OnCounterRestart():
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:272
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:272
+**         eventually invokes event TimerIntLdd1_OnInterrupt.
+**         This method is internal. It is used by Processor Expert only.
+** ===================================================================
+*/
+void TU1_OnCounterRestart(LDD_TUserData *UserDataPtr)
+{
     18f4:	b580      	push	{r7, lr}
     18f6:	b084      	sub	sp, #16
     18f8:	af00      	add	r7, sp, #0
     18fa:	6078      	str	r0, [r7, #4]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:273
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:273
+  TimerIntLdd1_TDeviceData *DeviceDataPrv = PE_LDD_DeviceDataList[PE_LDD_COMPONENT_TimerIntLdd1_ID];
     18fc:	4b05      	ldr	r3, [pc, #20]	; (1914 <TU1_OnCounterRestart+0x20>)
     18fe:	68db      	ldr	r3, [r3, #12]
     1900:	60fb      	str	r3, [r7, #12]
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:276
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:276
+
+  (void)UserDataPtr;                   /* Parameter is not used, suppress unused argument warning */
+  TimerIntLdd1_OnInterrupt(DeviceDataPrv->UserDataPtr); /* Invoke OnInterrupt event */
     1902:	68fb      	ldr	r3, [r7, #12]
     1904:	689b      	ldr	r3, [r3, #8]
     1906:	1c18      	adds	r0, r3, #0
     1908:	f7ff fb5a 	bl	fc0 <TimerIntLdd1_OnInterrupt>
-/home/marcelo/Documentos/GER/SDP/Projeto/versão antiga/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:277
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Debug/../Generated_Code/TimerIntLdd1.c:277
+}
     190c:	46bd      	mov	sp, r7
     190e:	b004      	add	sp, #16
     1910:	bd80      	pop	{r7, pc}

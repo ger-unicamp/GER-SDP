@@ -179,7 +179,7 @@ void ClockInterruption_OnInterrupt(void)
 void ImageConverter_OnEnd(void)
 {
 
-	ImageConverter_GetValue(&arrayOfPixels[clockCounter]);
+	ImageConverter_GetValue(&pixelArray[0][clockCounter]);
 }
 
 /*
