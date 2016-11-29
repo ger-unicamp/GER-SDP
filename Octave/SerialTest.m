@@ -94,7 +94,7 @@ while true
     elseif (COMANDO == 4)
     display("entrou");
     naosei(vetor);
-    %pause(1);
+    pause(0.1);
     else display("Modo de operacao invalido!");
     endif
     

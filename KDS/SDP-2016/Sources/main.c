@@ -37,11 +37,23 @@
 #include "ClockInterruption.h"
 #include "TimerIntLdd1.h"
 #include "TU1.h"
-#include "DebugLED.h"
-#include "BitIoLdd3.h"
 #include "ImageConverter.h"
 #include "AdcLdd1.h"
 #include "SerialCom.h"
+#include "Enable_Motors.h"
+#include "BitIoLdd4.h"
+#include "Motor_A_In_1.h"
+#include "PwmLdd1.h"
+#include "TU2.h"
+#include "Motor_A_In_2.h"
+#include "PwmLdd2.h"
+#include "Motor_B_In1.h"
+#include "PwmLdd3.h"
+#include "Motor_B_In2.h"
+#include "PwmLdd4.h"
+#include "Servomotor.h"
+#include "PwmLdd5.h"
+#include "TU3.h"
 /* Including shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"
@@ -53,9 +65,14 @@
 #include "GlobalVariables.h"
 
 
+#define MAX_DIR 18900
+#define CEN_DIR 18550
+#define MIN_DIR 18200
+
+
 /*lint -save  -e970 Disable MISRA rule (6.3) checking. */
 int main(void)
-/*lint -restore Enable MISRA rule (6.3) checking. */
+/*lint -restore Enable_Motors MISRA rule (6.3) checking. */
 {
 	/* Write your local variable definition here */
 
@@ -64,6 +81,15 @@ int main(void)
 	/*** End of Processor Expert internal initialization.                    ***/
 
 	/* Write your code here */
+//	while (1)
+//	{
+//		Servomotor_SetDutyUS(MAX_DIR);
+//		for (int i = 0; i < 10000000; i++);
+//		Servomotor_SetDutyUS(MIN_DIR);
+//		for (int i = 0; i < 10000000; i++);
+//	}
+//
+//	Enable_Motors_SetVal();
 	cameraStartReading(TRUE);
 
 	/*** Don't write any code pass this line, or it will be deleted during code generation. ***/

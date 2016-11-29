@@ -26,9 +26,16 @@
 - \subpage BitIoLdd2
 - \subpage TU1
 - \subpage TimerIntLdd1
-- \subpage BitIoLdd3
 - \subpage AdcLdd1
 - \subpage SerialCom
+- \subpage BitIoLdd4
+- \subpage TU2
+- \subpage PwmLdd1
+- \subpage PwmLdd2
+- \subpage PwmLdd3
+- \subpage PwmLdd4
+- \subpage TU3
+- \subpage PwmLdd5
 
 */
 

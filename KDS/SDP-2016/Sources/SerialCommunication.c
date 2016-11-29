@@ -6,7 +6,6 @@
  */
 
 #include "SerialCommunication.h"
-#include "DebugLED.h"
 
 static Serial_Device deviceData;
 

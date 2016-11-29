@@ -56,21 +56,6 @@ Module "TU1"       (component TimerUnit_LDD)
                 generated (See the "Events" tab in the Component inspector) are not handled by this method. In this case the 
                 method returns ERR_PARAM_MASK error code. See also method <GetEventMask>.
 
-Module "DebugLED"  (component BitIO)
-   - DebugLED_GetVal -Returns the input/output value. If the direction is [input] then the input value of the pin is read and 
-                returned. If the direction is [output] then the last written value is returned (see <Safe mode> property for 
-                limitations). This method cannot be disabled if direction is [input].
-   - DebugLED_PutVal -The specified output value is set. If the direction is [input], the component saves the value to a memory 
-                or a register and this value will be written to the pin after switching to the output mode (using 
-                [SetDir(TRUE)]; see <Safe mode> property for limitations). If the direction is [output], it writes the value to 
-                the pin. (Method is available only if the direction = _[output]_ or _[input/output]_).
-   - DebugLED_ClrVal -Clears (set to zero) the output value. It is equivalent to the [PutVal(FALSE)]. This method is available 
-                only if the direction = _[output]_ or _[input/output]_.
-   - DebugLED_SetVal -Sets (to one) the output value. It is equivalent to the [PutVal(TRUE)]. This method is available only if 
-                the direction = _[output]_ or _[input/output]_.
-   - DebugLED_NegVal -Negates (inverts) the output value. It is equivalent to the [PutVal(!GetVal())]. This method is available 
-                only if the direction = _[output]_ or _[input/output]_.
-
 Module "ImageConverter" (component ADC)
    - ImageConverter_Measure -This method performs one measurement on all channels that are set in the component inspector. 
                 (Note: If the <number of conversions> is more than one the conversion of A/D channels is performed specified 
@@ -101,6 +86,106 @@ Module "SerialCom" (component Serial_LDD)
                 immediately after the last receive operation has finished (e.g. from the <OnBlockReceived> event). This method 
                 finishes immediately after calling it - it doesn't wait the end of data reception. Use event <OnBlockReceived> 
                 to check the end of data reception or method GetReceivedDataNum to check the state of receiving.
+
+Module "Enable_Motors" (component BitIO)
+   - Enable_Motors_ClrVal -Clears (set to zero) the output value. It is equivalent to the [PutVal(FALSE)]. This method is 
+                available only if the direction = _[output]_ or _[input/output]_.
+   - Enable_Motors_SetVal -Sets (to one) the output value. It is equivalent to the [PutVal(TRUE)]. This method is available 
+                only if the direction = _[output]_ or _[input/output]_.
+
+Module "Motor_A_In_1" (component PWM)
+   - Motor_A_In_1_SetRatio16 -This method sets a new duty-cycle ratio. Ratio is expressed as a 16-bit unsigned integer number. 
+                0 - FFFF value is proportional to ratio 0 - 100%. The method is available only if it is not selected list of 
+                predefined values in <Starting pulse width> property.   Note: Calculated duty depends on the timer 
+                possibilities and on the selected period.
+   - Motor_A_In_1_SetDutyUS -This method sets the new duty value of the output signal. The duty is expressed in microseconds as 
+                a 16-bit unsigned integer number. The method is available only if it is not selected list of predefined values 
+                in <Starting pulse width> property.
+   - Motor_A_In_1_SetDutyMS -This method sets the new duty value of the output signal. The duty is expressed in milliseconds as 
+                a 16-bit unsigned integer number. The method is available only if it is not selected list of predefined values 
+                in <Starting pulse width> property.
+
+Module "TU2"       (component TimerUnit_LDD)
+   - TU2_Init -Initializes the device. Allocates memory for the device data structure, allocates interrupt vectors and sets 
+                interrupt priority, sets pin routing, sets timing, etc. If the property <"Enable in init. code"> is set to 
+                "yes" value then the device is also enabled (see the description of the <Enable> method). In this case the 
+                <Enable> method is not necessary and needn't to be generated. This method can be called only once. Before the 
+                second call of Init the <Deinit> must be called first.
+   - TU2_GetPeriodTicks -Returns the number of counter ticks before re-initialization. See also method <SetPeriodTicks>. This 
+                method is available only if the property <"Counter restart"> is switched to 'on-match' value.
+   - TU2_GetCounterValue -Returns the content of counter register. This method can be used both if counter is enabled and if 
+                counter is disabled. The method is not available if HW doesn't allow reading of the counter.
+   - TU2_SetOffsetTicks -Sets the new offset value to channel specified by the parameter ChannelIdx. It is user responsibility 
+                to use value below selected period. This method is available when at least one channel is configured.
+   - TU2_GetOffsetTicks -Returns the number of counter ticks to compare match channel specified by the parameter ChannelIdx. 
+                See also method <SetOffsetTicks>. This method is available when at least one channel is configured.
+   - TU2_SelectOutputAction -Sets the type of compare match and counter overflow action on channel output. This method is 
+                available when at least one channel is configured.
+
+Module "Motor_A_In_2" (component PWM)
+   - Motor_A_In_2_SetRatio16 -This method sets a new duty-cycle ratio. Ratio is expressed as a 16-bit unsigned integer number. 
+                0 - FFFF value is proportional to ratio 0 - 100%. The method is available only if it is not selected list of 
+                predefined values in <Starting pulse width> property.   Note: Calculated duty depends on the timer 
+                possibilities and on the selected period.
+   - Motor_A_In_2_SetDutyUS -This method sets the new duty value of the output signal. The duty is expressed in microseconds as 
+                a 16-bit unsigned integer number. The method is available only if it is not selected list of predefined values 
+                in <Starting pulse width> property.
+   - Motor_A_In_2_SetDutyMS -This method sets the new duty value of the output signal. The duty is expressed in milliseconds as 
+                a 16-bit unsigned integer number. The method is available only if it is not selected list of predefined values 
+                in <Starting pulse width> property.
+
+Module "Motor_B_In1" (component PWM)
+   - Motor_B_In1_SetRatio16 -This method sets a new duty-cycle ratio. Ratio is expressed as a 16-bit unsigned integer number. 0 
+                - FFFF value is proportional to ratio 0 - 100%. The method is available only if it is not selected list of 
+                predefined values in <Starting pulse width> property.   Note: Calculated duty depends on the timer 
+                possibilities and on the selected period.
+   - Motor_B_In1_SetDutyUS -This method sets the new duty value of the output signal. The duty is expressed in microseconds as 
+                a 16-bit unsigned integer number. The method is available only if it is not selected list of predefined values 
+                in <Starting pulse width> property.
+   - Motor_B_In1_SetDutyMS -This method sets the new duty value of the output signal. The duty is expressed in milliseconds as 
+                a 16-bit unsigned integer number. The method is available only if it is not selected list of predefined values 
+                in <Starting pulse width> property.
+
+Module "Motor_B_In2" (component PWM)
+   - Motor_B_In2_SetRatio16 -This method sets a new duty-cycle ratio. Ratio is expressed as a 16-bit unsigned integer number. 0 
+                - FFFF value is proportional to ratio 0 - 100%. The method is available only if it is not selected list of 
+                predefined values in <Starting pulse width> property.   Note: Calculated duty depends on the timer 
+                possibilities and on the selected period.
+   - Motor_B_In2_SetDutyUS -This method sets the new duty value of the output signal. The duty is expressed in microseconds as 
+                a 16-bit unsigned integer number. The method is available only if it is not selected list of predefined values 
+                in <Starting pulse width> property.
+   - Motor_B_In2_SetDutyMS -This method sets the new duty value of the output signal. The duty is expressed in milliseconds as 
+                a 16-bit unsigned integer number. The method is available only if it is not selected list of predefined values 
+                in <Starting pulse width> property.
+
+Module "Servomotor" (component PWM)
+   - Servomotor_SetRatio16 -This method sets a new duty-cycle ratio. Ratio is expressed as a 16-bit unsigned integer number. 0 
+                - FFFF value is proportional to ratio 0 - 100%. The method is available only if it is not selected list of 
+                predefined values in <Starting pulse width> property.   Note: Calculated duty depends on the timer 
+                possibilities and on the selected period.
+   - Servomotor_SetDutyUS -This method sets the new duty value of the output signal. The duty is expressed in microseconds as a 
+                16-bit unsigned integer number. The method is available only if it is not selected list of predefined values in 
+                <Starting pulse width> property.
+   - Servomotor_SetDutyMS -This method sets the new duty value of the output signal. The duty is expressed in milliseconds as a 
+                16-bit unsigned integer number. The method is available only if it is not selected list of predefined values in 
+                <Starting pulse width> property.
+
+Module "TU3"       (component TimerUnit_LDD)
+   - TU3_Init -Initializes the device. Allocates memory for the device data structure, allocates interrupt vectors and sets 
+                interrupt priority, sets pin routing, sets timing, etc. If the property <"Enable in init. code"> is set to 
+                "yes" value then the device is also enabled (see the description of the <Enable> method). In this case the 
+                <Enable> method is not necessary and needn't to be generated. This method can be called only once. Before the 
+                second call of Init the <Deinit> must be called first.
+   - TU3_GetPeriodTicks -Returns the number of counter ticks before re-initialization. See also method <SetPeriodTicks>. This 
+                method is available only if the property <"Counter restart"> is switched to 'on-match' value.
+   - TU3_GetCounterValue -Returns the content of counter register. This method can be used both if counter is enabled and if 
+                counter is disabled. The method is not available if HW doesn't allow reading of the counter.
+   - TU3_SetOffsetTicks -Sets the new offset value to channel specified by the parameter ChannelIdx. It is user responsibility 
+                to use value below selected period. This method is available when at least one channel is configured.
+   - TU3_GetOffsetTicks -Returns the number of counter ticks to compare match channel specified by the parameter ChannelIdx. 
+                See also method <SetOffsetTicks>. This method is available when at least one channel is configured.
+   - TU3_SelectOutputAction -Sets the type of compare match and counter overflow action on channel output. This method is 
+                available when at least one channel is configured.
 
 Module "Cpu"       (component MKL25Z128LK4)
 

@@ -6,7 +6,7 @@
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-08, 10:30, # CodeGen: 61
+**     Date/Time   : 2016-11-29, 16:34, # CodeGen: 75
 **     Abstract    :
 **
 **     Settings    :
@@ -68,11 +68,23 @@
 #include "ClockInterruption.h"
 #include "TimerIntLdd1.h"
 #include "TU1.h"
-#include "DebugLED.h"
-#include "BitIoLdd3.h"
 #include "ImageConverter.h"
 #include "AdcLdd1.h"
 #include "SerialCom.h"
+#include "Enable_Motors.h"
+#include "BitIoLdd4.h"
+#include "Motor_A_In_1.h"
+#include "PwmLdd1.h"
+#include "TU2.h"
+#include "Motor_A_In_2.h"
+#include "PwmLdd2.h"
+#include "Motor_B_In1.h"
+#include "PwmLdd3.h"
+#include "Motor_B_In2.h"
+#include "PwmLdd4.h"
+#include "Servomotor.h"
+#include "PwmLdd5.h"
+#include "TU3.h"
 
 
 /*
