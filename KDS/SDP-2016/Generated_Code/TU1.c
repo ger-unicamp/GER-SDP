@@ -7,7 +7,7 @@
 **     Version     : Component 01.164, Driver 01.11, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-08, 10:30, # CodeGen: 61
+**     Date/Time   : 2016-12-29, 22:36, # CodeGen: 150
 **     Abstract    :
 **          This TimerUnit component provides a low level API for unified hardware access across
 **          various timer devices using the Prescaler-Counter-Compare-Capture timer structure.
@@ -50,10 +50,9 @@
 **            Clock configuration 6                        : This component disabled
 **            Clock configuration 7                        : This component disabled
 **     Contents    :
-**         Init         - LDD_TDeviceData* TU1_Init(LDD_TUserData *UserDataPtr);
-**         Enable       - LDD_TError TU1_Enable(LDD_TDeviceData *DeviceDataPtr);
-**         Disable      - LDD_TError TU1_Disable(LDD_TDeviceData *DeviceDataPtr);
-**         SetEventMask - LDD_TError TU1_SetEventMask(LDD_TDeviceData *DeviceDataPtr, LDD_TEventMask...
+**         Init    - LDD_TDeviceData* TU1_Init(LDD_TUserData *UserDataPtr);
+**         Enable  - LDD_TError TU1_Enable(LDD_TDeviceData *DeviceDataPtr);
+**         Disable - LDD_TError TU1_Disable(LDD_TDeviceData *DeviceDataPtr);
 **
 **     Copyright : 1997 - 2015 Freescale Semiconductor, Inc. 
 **     All Rights Reserved.
@@ -244,50 +243,6 @@ LDD_TError TU1_Disable(LDD_TDeviceData *DeviceDataPtr)
 {
   (void)DeviceDataPtr;                 /* Parameter is not used, suppress unused argument warning */
   PIT_PDD_EnableDevice(PIT_BASE_PTR, PIT_PDD_CHANNEL_0, PDD_DISABLE);
-  return ERR_OK;
-}
-
-/*
-** ===================================================================
-**     Method      :  TU1_SetEventMask (component TimerUnit_LDD)
-*/
-/*!
-**     @brief
-**         Enables/disables event(s). The events contained within the
-**         mask are enabled. Events not contained within the mask are
-**         disabled. The component event masks are defined in the
-**         PE_Types.h file. Note: Event that are not generated (See the
-**         "Events" tab in the Component inspector) are not handled by
-**         this method. In this case the method returns ERR_PARAM_MASK
-**         error code. See also method [GetEventMask].
-**     @param
-**         DeviceDataPtr   - Device data structure
-**                           pointer returned by [Init] method.
-**     @param
-**         EventMask       - Event mask
-**     @return
-**                         - Error code, possible codes:
-**                           ERR_OK - OK
-**                           ERR_SPEED - The component does not work in
-**                           the active clock configuration
-**                           ERR_PARAM_MASK - Event mask is not valid
-*/
-/* ===================================================================*/
-LDD_TError TU1_SetEventMask(LDD_TDeviceData *DeviceDataPtr, LDD_TEventMask EventMask)
-{
-  (void)DeviceDataPtr;                 /* Parameter is not used, suppress unused argument warning */
-  /* Event mask test - this test can be disabled by setting the "Ignore range checking"
-     property to the "yes" value in the "Configuration inspector" */
-  if ((EventMask & ((LDD_TEventMask)~AVAILABLE_EVENTS_MASK)) != 0U) {
-    return ERR_PARAM_MASK;
-  }
-  if ((EventMask & LDD_TIMERUNIT_ON_COUNTER_RESTART) != 0U) { /* Is the event enabled? */
-    PIT_PDD_ClearInterruptFlag(PIT_BASE_PTR, PIT_PDD_CHANNEL_0); /* If yes then clear flag */
-    PIT_PDD_EnableInterrupt(PIT_BASE_PTR, PIT_PDD_CHANNEL_0); /* and enable interrupt */
-  }
-  else {
-    PIT_PDD_DisableInterrupt(PIT_BASE_PTR, PIT_PDD_CHANNEL_0); /* Disable PIT interrupt */
-  }
   return ERR_OK;
 }
 

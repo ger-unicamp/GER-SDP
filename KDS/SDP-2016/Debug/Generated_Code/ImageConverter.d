@@ -52,6 +52,9 @@ Generated_Code/ImageConverter.o: ../Generated_Code/ImageConverter.c \
  /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/TU3.h \
  /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/PwmLdd5.h \
  /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/TU3.h \
+ /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/SW2_Start_Button.h \
+ /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/BitIoLdd3.h \
+ /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/BitIoLdd3.h \
  /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/CameraController.h \
  /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/SerialCommunication.h \
  ../Generated_Code/ImageConverter.h
@@ -161,6 +164,12 @@ Generated_Code/ImageConverter.o: ../Generated_Code/ImageConverter.c \
 /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/PwmLdd5.h:
 
 /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/TU3.h:
+
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/SW2_Start_Button.h:
+
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/BitIoLdd3.h:
+
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/BitIoLdd3.h:
 
 /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/CameraController.h:
 

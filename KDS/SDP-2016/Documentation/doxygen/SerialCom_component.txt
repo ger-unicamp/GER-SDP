@@ -478,7 +478,7 @@ registers of the peripheral(s) configured by the component.
 **            Auto initialization                          : no
 **            Event mask                                   : 
 **              OnBlockSent                                : Enabled
-**              OnBlockReceived                            : Enabled
+**              OnBlockReceived                            : Disabled
 **              OnTxComplete                               : Disabled
 **              OnError                                    : Disabled
 **              OnBreak                                    : Disabled

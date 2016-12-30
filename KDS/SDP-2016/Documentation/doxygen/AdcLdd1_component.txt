@@ -32,6 +32,9 @@ by the component.
 <tr><td>0x4003B00C</td><td>ADC0_CFG2</td>
 <td class="regNotResetVal">0x00000010</td>
  <td>ADC0_CFG2 register, peripheral AdcLdd1.</td></tr>
+<tr><td>0x4004D074</td><td>PORTE_PCR29</td>
+<td class="regResetVal">0x00000000</td>
+ <td>PORTE_PCR29 register, peripheral AdcLdd1.</td></tr>
 <tr><td>0x4003B008</td><td>ADC0_CFG1</td>
 <td class="regNotResetVal">0x00000061</td>
  <td>ADC0_CFG1 register, peripheral AdcLdd1.</td></tr>
@@ -360,6 +363,63 @@ registers of the peripheral(s) configured by the component.
 <tr><td>2</td><td>ADHSC</td><td>0x00</td><td>High-Speed Configuration</td>
 <tr><td>0 - 1</td><td>ADLSTS</td><td>0x00</td><td>Long Sample Time Select</td>
 </tr></table>
+<div class="reghdr1">PORTE_PCR29</div>
+<div class="regdiag">
+<table class="regtbl">
+<tr class="trd1r">
+<td class="trd1c">Bit</td><td>31</td><td>30</td><td>29</td><td>28</td><td>27</td><td>26</td><td>25</td><td>24</td><td>23</td>
+<td>22</td><td>21</td><td>20</td><td>19</td><td>18</td><td>17</td><td>16</td>
+</tr>
+<tr>
+<td class="trd1c">R</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">ISF</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="4" rowspan="2">IRQC</td>
+</tr>
+<tr>
+<td class="trd1c">W</td>
+</tr>
+<tr class="trd1r">
+<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+</tr>
+</table>
+<table class="regtbl">
+<tr class="trd1r">
+<td class="trd1c">Bit</td><td>15</td><td>14</td><td>13</td><td>12</td><td>11</td><td>10</td><td>9</td><td>8</td><td>7</td>
+<td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td>
+</tr>
+<tr>
+<td class="trd1c">R</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">-</td><td colspan="3" rowspan="2">MUX</td>
+<td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">DSE</td><td colspan="1" rowspan="2">-</td>
+<td colspan="1" rowspan="2">PFE</td><td colspan="1" rowspan="2">-</td><td colspan="1" rowspan="2">SRE</td>
+<td colspan="1" rowspan="2">PE</td><td colspan="1" rowspan="2">PS</td>
+</tr>
+<tr>
+<td class="trd1c">W</td>
+</tr>
+<tr class="trd1r">
+<td class="trd1c">Reset</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>?</td><td>?</td><td>?</td><td>0</td><td>?</td>
+<td>0</td><td>?</td><td>0</td><td>?</td><td>?</td><td>?</td>
+</tr>
+</table>
+        
+</div>
+<table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x4004D074</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000000</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
+<tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
+<tr><td>24</td><td>ISF</td><td>0x00</td><td>Interrupt Status Flag</td>
+<tr><td>16 - 19</td><td>IRQC</td><td>0x00</td><td>Interrupt Configuration</td>
+<tr><td>8 - 10</td><td>MUX</td><td>0x00</td><td>Pin Mux Control</td>
+<tr><td>6</td><td>DSE</td><td>0x00</td><td>Drive Strength Enable</td>
+<tr><td>4</td><td>PFE</td><td>0x00</td><td>Passive Filter Enable</td>
+<tr><td>2</td><td>SRE</td><td>0x00</td><td>Slew Rate Enable</td>
+<tr><td>1</td><td>PE</td><td>0x00</td><td>Pull Enable</td>
+<tr><td>0</td><td>PS</td><td>0x00</td><td>Pull Select</td>
+</tr></table>
 <div class="reghdr1">ADC0_CFG1</div>
 <div class="regdiag">
 <table class="regtbl">
@@ -539,12 +599,17 @@ registers of the peripheral(s) configured by the component.
 **            A/D interrupt                                : INT_ADC0
 **            A/D interrupt priority                       : medium priority
 **          DMA                                            : Disabled
-**          A/D channel list                               : 1
+**          A/D channel list                               : 2
 **            Channel 0                                    : 
 **              Channel mode                               : Single Ended
 **                Input                                    : 
 **                  A/D channel (pin)                      : ADC0_SE6b/PTD5/SPI1_SCK/UART2_TX/TPM0_CH5
-**                  A/D channel (pin) signal               : 
+**                  A/D channel (pin) signal               : Analog_Output_Camera
+**            Channel 1                                    : 
+**              Channel mode                               : Single Ended
+**                Input                                    : 
+**                  A/D channel (pin)                      : CMP0_IN5/ADC0_SE4b/PTE29/TPM0_CH2/TPM_CLKIN0
+**                  A/D channel (pin) signal               : Battery_Level
 **          Static sample groups                           : Disabled
 **          Max. samples                                   : 8
 **          A/D resolution                                 : 8 bits

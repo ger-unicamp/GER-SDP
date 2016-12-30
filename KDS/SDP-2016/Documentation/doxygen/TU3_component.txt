@@ -18,7 +18,7 @@ by the component.
 <td class="regNotResetVal">0x0B800001</td>
  <td>SIM_SCGC6 register, peripheral TU3.</td></tr>
 <tr><td>0x40039000</td><td>TPM1_SC</td>
-<td class="regNotResetVal">0x0000000B</td>
+<td class="regNotResetVal">0x00000003</td>
  <td>TPM1_SC register, peripheral TU3.</td></tr>
 <tr><td>0x40039004</td><td>TPM1_CNT</td>
 <td class="regResetVal">0x00000000</td>
@@ -151,7 +151,7 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x40039000</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x0000000B</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000003</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
 <tr><td>8</td><td>DMA</td><td>0x00</td><td>DMA Enable</td>
@@ -503,7 +503,7 @@ registers of the peripheral(s) configured by the component.
 **                  Output pin signal                      : 
 **                Interrupt                                : Disabled
 **          Initialization                                 : 
-**            Enabled in init. code                        : yes
+**            Enabled in init. code                        : no
 **            Auto initialization                          : no
 **            Event mask                                   : 
 **              OnCounterRestart                           : Disabled

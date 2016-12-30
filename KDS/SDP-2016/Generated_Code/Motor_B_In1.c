@@ -7,7 +7,7 @@
 **     Version     : Component 02.241, Driver 01.01, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-11-29, 16:14, # CodeGen: 71
+**     Date/Time   : 2016-12-23, 14:50, # CodeGen: 96
 **     Abstract    :
 **         This component implements a pulse-width modulation generator
 **         that generates signal with variable duty and fixed cycle. 
@@ -20,7 +20,7 @@
 **          Counter                                        : TPM0_CNT
 **          Interrupt service/event                        : Disabled
 **          Period                                         : 25 ms
-**          Starting pulse width                           : 0 ms
+**          Starting pulse width                           : 25 ms
 **          Initial polarity                               : low
 **          Same period in modes                           : no
 **          Component uses entire timer                    : no
@@ -34,9 +34,7 @@
 **          Referenced components                          : 
 **            PWM_LDD                                      : PWM_LDD
 **     Contents    :
-**         SetRatio16 - byte Motor_B_In1_SetRatio16(word Ratio);
-**         SetDutyUS  - byte Motor_B_In1_SetDutyUS(word Time);
-**         SetDutyMS  - byte Motor_B_In1_SetDutyMS(word Time);
+**         SetRatio8 - byte Motor_B_In1_SetRatio8(byte Ratio);
 **
 **     Copyright : 1997 - 2015 Freescale Semiconductor, Inc. 
 **     All Rights Reserved.
@@ -91,18 +89,18 @@ extern "C" {
 
 /*
 ** ===================================================================
-**     Method      :  Motor_B_In1_SetRatio16 (component PWM)
+**     Method      :  Motor_B_In1_SetRatio8 (component PWM)
 **     Description :
 **         This method sets a new duty-cycle ratio. Ratio is expressed
-**         as a 16-bit unsigned integer number. 0 - FFFF value is
+**         as an 8-bit unsigned integer number. 0 - FF value is
 **         proportional to ratio 0 - 100%. The method is available
 **         only if it is not selected list of predefined values in
 **         <Starting pulse width> property. 
-**         Note: Calculated duty depends on the timer possibilities and
+**         Note: Calculated duty depends on the timer capabilities and
 **         on the selected period.
 **     Parameters  :
 **         NAME            - DESCRIPTION
-**         Ratio           - Ratio to set. 0 - 65535 value is
+**         Ratio           - Ratio to set. 0 - 255 value is
 **                           proportional to ratio 0 - 100%
 **     Returns     :
 **         ---             - Error code, possible codes:
@@ -112,57 +110,7 @@ extern "C" {
 ** ===================================================================
 */
 /*
-byte Motor_B_In1_SetRatio16(word Ratio)
-**  This method is implemented as a macro. See Motor_B_In1.h file.  **
-*/
-
-/*
-** ===================================================================
-**     Method      :  Motor_B_In1_SetDutyUS (component PWM)
-**     Description :
-**         This method sets the new duty value of the output signal.
-**         The duty is expressed in microseconds as a 16-bit
-**         unsigned integer number.
-**     Parameters  :
-**         NAME            - DESCRIPTION
-**         Time            - Duty to set [in microseconds]
-**                      (0 to --- us in high speed mode)
-**     Returns     :
-**         ---             - Error code, possible codes:
-**                           ERR_OK - OK
-**                           ERR_SPEED - This device does not work in
-**                           the active speed mode
-**                           ERR_MATH - Overflow during evaluation
-**                           ERR_RANGE - Parameter out of range
-** ===================================================================
-*/
-/*
-byte Motor_B_In1_SetDutyUS(word Time)
-**  This method is implemented as a macro. See Motor_B_In1.h file.  **
-*/
-
-/*
-** ===================================================================
-**     Method      :  Motor_B_In1_SetDutyMS (component PWM)
-**     Description :
-**         This method sets the new duty value of the output signal.
-**         The duty is expressed in milliseconds as a 16-bit
-**         unsigned integer number.
-**     Parameters  :
-**         NAME            - DESCRIPTION
-**         Time            - Duty to set [in milliseconds]
-**                      (0 to 25 ms in high speed mode)
-**     Returns     :
-**         ---             - Error code, possible codes:
-**                           ERR_OK - OK
-**                           ERR_SPEED - This device does not work in
-**                           the active speed mode
-**                           ERR_MATH - Overflow during evaluation
-**                           ERR_RANGE - Parameter out of range
-** ===================================================================
-*/
-/*
-byte Motor_B_In1_SetDutyMS(word Time)
+byte Motor_B_In1_SetRatio8(byte Ratio)
 **  This method is implemented as a macro. See Motor_B_In1.h file.  **
 */
 

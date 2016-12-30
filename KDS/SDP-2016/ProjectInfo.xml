@@ -50,26 +50,42 @@
   </PATHS>
   <FILES>
     <GeneratedCs>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/AD_Converter.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/AdcLdd1.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/BitIoLdd1.c</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/BitIoLdd10.c</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/BitIoLdd11.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/BitIoLdd2.c</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/BitIoLdd3.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/BitIoLdd4.c</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/BitIoLdd5.c</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/BitIoLdd6.c</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/BitIoLdd7.c</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/BitIoLdd8.c</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/BitIoLdd9.c</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/BlueLED.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/CLK.c</PathName>
-      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/ClockInterruption.c</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Camera_CLK_Interruption.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Cpu.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Enable_Motors.c</PathName>
-      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/ImageConverter.c</PathName>
-      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Motor_A_In_1.c</PathName>
-      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Motor_A_In_2.c</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/ErrorLED.c</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/GreenLED.c</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Motor_A_In1.c</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Motor_A_In2.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Motor_B_In1.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Motor_B_In2.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/PE_LDD.c</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Power_Level1.c</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Power_Level2.c</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Power_Level3.c</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Power_Level4.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/PwmLdd1.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/PwmLdd2.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/PwmLdd3.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/PwmLdd4.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/PwmLdd5.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/SI.c</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/SW2_Start_Button.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/SerialCom.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Servomotor.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/TU1.c</PathName>
@@ -78,46 +94,68 @@
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/TimerIntLdd1.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Vectors.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Project_Settings/Startup_Code/startup.c</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/BatteryController.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/CameraController.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/Events.c</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/MotorController.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/SerialCommunication.c</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/ServoController.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/main.c</PathName>
     </GeneratedCs>
     <GeneratedHs>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/AD_Converter.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/AdcLdd1.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/BitIoLdd1.h</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/BitIoLdd10.h</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/BitIoLdd11.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/BitIoLdd2.h</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/BitIoLdd3.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/BitIoLdd4.h</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/BitIoLdd5.h</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/BitIoLdd6.h</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/BitIoLdd7.h</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/BitIoLdd8.h</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/BitIoLdd9.h</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/BlueLED.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/CLK.h</PathName>
-      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/ClockInterruption.h</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Camera_CLK_Interruption.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Cpu.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Enable_Motors.h</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/ErrorLED.h</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/GreenLED.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/IO_Map.h</PathName>
-      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/ImageConverter.h</PathName>
-      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Motor_A_In_1.h</PathName>
-      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Motor_A_In_2.h</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Motor_A_In1.h</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Motor_A_In2.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Motor_B_In1.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Motor_B_In2.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/PE_Const.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/PE_Error.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/PE_LDD.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/PE_Types.h</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Power_Level1.h</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Power_Level2.h</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Power_Level3.h</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Power_Level4.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/PwmLdd1.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/PwmLdd2.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/PwmLdd3.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/PwmLdd4.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/PwmLdd5.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/SI.h</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/SW2_Start_Button.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/SerialCom.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Servomotor.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/TU1.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/TU2.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/TU3.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/TimerIntLdd1.h</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/BatteryController.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/CameraController.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/Events.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/GlobalVariables.h</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/MotorController.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/SerialCommunication.h</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/ServoController.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Static_Code/IO_Map/MKL25Z4.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Static_Code/PDD/ADC_PDD.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Static_Code/PDD/CMP_PDD.h</PathName>

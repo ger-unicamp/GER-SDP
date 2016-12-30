@@ -7,7 +7,7 @@
 **     Version     : Component 01.164, Driver 01.11, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-11-29, 16:20, # CodeGen: 72
+**     Date/Time   : 2016-12-23, 13:00, # CodeGen: 88
 **     Abstract    :
 **          This TimerUnit component provides a low level API for unified hardware access across
 **          various timer devices using the Prescaler-Counter-Compare-Capture timer structure.
@@ -28,7 +28,7 @@
 **            Channel 0                                    : 
 **              Mode                                       : Compare
 **                Compare                                  : TPM0_C2V
-**                Offset                                   : 0 ms
+**                Offset                                   : 25 ms
 **                Output on compare                        : Set
 **                  Output on overrun                      : Clear
 **                  Initial state                          : Low
@@ -38,7 +38,7 @@
 **            Channel 1                                    : 
 **              Mode                                       : Compare
 **                Compare                                  : TPM0_C3V
-**                Offset                                   : 10 ms
+**                Offset                                   : 25 ms
 **                Output on compare                        : Set
 **                  Output on overrun                      : Clear
 **                  Initial state                          : Low
@@ -48,7 +48,7 @@
 **            Channel 2                                    : 
 **              Mode                                       : Compare
 **                Compare                                  : TPM0_C0V
-**                Offset                                   : 0 ms
+**                Offset                                   : 25 ms
 **                Output on compare                        : Set
 **                  Output on overrun                      : Clear
 **                  Initial state                          : Low
@@ -58,7 +58,7 @@
 **            Channel 3                                    : 
 **              Mode                                       : Compare
 **                Compare                                  : TPM0_C1V
-**                Offset                                   : 10 ms
+**                Offset                                   : 25 ms
 **                Output on compare                        : Set
 **                  Output on overrun                      : Clear
 **                  Initial state                          : Low
@@ -169,10 +169,10 @@ extern "C" {
 #define TU2_NUMBER_OF_CHANNELS 0x04U   /* Count of predefined channels */
 #define TU2_COUNTER_WIDTH  0x10U       /* Counter width in bits  */
 #define TU2_COUNTER_DIR    DIR_UP      /* Direction of counting */
-#define TU2_OFFSET_0_TICKS 0x00ul      /* Initialization value of offset as 'counter ticks' for channel 0 */
-#define TU2_OFFSET_1_TICKS 0x6666ul    /* Initialization value of offset as 'counter ticks' for channel 1 */
-#define TU2_OFFSET_2_TICKS 0x00ul      /* Initialization value of offset as 'counter ticks' for channel 2 */
-#define TU2_OFFSET_3_TICKS 0x6666ul    /* Initialization value of offset as 'counter ticks' for channel 3 */
+#define TU2_OFFSET_0_TICKS 0xFFFFul    /* Initialization value of offset as 'counter ticks' for channel 0 */
+#define TU2_OFFSET_1_TICKS 0xFFFFul    /* Initialization value of offset as 'counter ticks' for channel 1 */
+#define TU2_OFFSET_2_TICKS 0xFFFFul    /* Initialization value of offset as 'counter ticks' for channel 2 */
+#define TU2_OFFSET_3_TICKS 0xFFFFul    /* Initialization value of offset as 'counter ticks' for channel 3 */
 /*! Peripheral base address of a device allocated by the component. This constant can be used directly in PDD macros. */
 #define TU2_PRPH_BASE_ADDRESS  0x40038000U
   

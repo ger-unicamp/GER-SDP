@@ -19,7 +19,7 @@
         <Line>PE_Const</Line>
         <Line>IO_Map</Line>
       </GenSharedModules>
-      <ShrdHeaderAge0>1232962515</ShrdHeaderAge0>
+      <ShrdHeaderAge0>1234896055</ShrdHeaderAge0>
       <ShrdCodeAge0>-1</ShrdCodeAge0>
       <ShrdAsemblAge0>-1</ShrdAsemblAge0>
       <ShrdHeaderAge1>1229497930</ShrdHeaderAge1>
@@ -31,7 +31,7 @@
       <ShrdHeaderAge3>1229497930</ShrdHeaderAge3>
       <ShrdCodeAge3>-1</ShrdCodeAge3>
       <ShrdAsemblAge3>-1</ShrdAsemblAge3>
-      <GenExtraFiles lines_count="23">
+      <GenExtraFiles lines_count="31">
         <Line>Documentation\doxygen\BitIoLdd1_component.txt</Line>
         <Line>Documentation\doxygen\BitIoLdd2_component.txt</Line>
         <Line>Documentation\doxygen\TU1_component.txt</Line>
@@ -46,6 +46,14 @@
         <Line>Documentation\doxygen\PwmLdd4_component.txt</Line>
         <Line>Documentation\doxygen\TU3_component.txt</Line>
         <Line>Documentation\doxygen\PwmLdd5_component.txt</Line>
+        <Line>Documentation\doxygen\BitIoLdd3_component.txt</Line>
+        <Line>Documentation\doxygen\BitIoLdd5_component.txt</Line>
+        <Line>Documentation\doxygen\BitIoLdd6_component.txt</Line>
+        <Line>Documentation\doxygen\BitIoLdd7_component.txt</Line>
+        <Line>Documentation\doxygen\BitIoLdd8_component.txt</Line>
+        <Line>Documentation\doxygen\BitIoLdd9_component.txt</Line>
+        <Line>Documentation\doxygen\BitIoLdd10_component.txt</Line>
+        <Line>Documentation\doxygen\BitIoLdd11_component.txt</Line>
         <Line>Documentation\doxygen\SDP_2016_project.txt</Line>
         <Line>Documentation\doxygen\RoutingReport_component.txt</Line>
         <Line>Documentation\doxygen\pex.doxyfile</Line>
@@ -56,18 +64,26 @@
         <Line>Project_Settings\Startup_Code\startup.c</Line>
         <Line>Generated_Code\Vectors.c</Line>
       </GenExtraFiles>
-      <GenExtraFileSrcDir21>lib\Kinetis\startup\</GenExtraFileSrcDir21>
-      <GenExtraFileSrcDir17>Repositories\lib\doxygen\</GenExtraFileSrcDir17>
-      <XtraAge18>1232962515</XtraAge18>
-      <XtraAge19>1232962637</XtraAge19>
-      <XtraAge21>1229497930</XtraAge21>
-      <XtraAge22>1232962637</XtraAge22>
+      <GenExtraFileSrcDir29>lib\Kinetis\startup\</GenExtraFileSrcDir29>
+      <GenExtraFileSrcDir25>Repositories\lib\doxygen\</GenExtraFileSrcDir25>
+      <XtraAge26>1234896055</XtraAge26>
+      <XtraAge27>1234897005</XtraAge27>
+      <XtraAge29>1229497930</XtraAge29>
+      <XtraAge30>1234897005</XtraAge30>
+      <GenExtraFileType30>4</GenExtraFileType30>
+      <GenExtraFileType29>5</GenExtraFileType29>
+      <GenExtraFileType28>4</GenExtraFileType28>
+      <GenExtraFileType27>4</GenExtraFileType27>
+      <GenExtraFileType26>4</GenExtraFileType26>
+      <GenExtraFileType25>5</GenExtraFileType25>
+      <GenExtraFileType24>4</GenExtraFileType24>
+      <GenExtraFileType23>4</GenExtraFileType23>
       <GenExtraFileType22>4</GenExtraFileType22>
-      <GenExtraFileType21>5</GenExtraFileType21>
+      <GenExtraFileType21>4</GenExtraFileType21>
       <GenExtraFileType20>4</GenExtraFileType20>
       <GenExtraFileType19>4</GenExtraFileType19>
       <GenExtraFileType18>4</GenExtraFileType18>
-      <GenExtraFileType17>5</GenExtraFileType17>
+      <GenExtraFileType17>4</GenExtraFileType17>
       <GenExtraFileType16>4</GenExtraFileType16>
       <GenExtraFileType15>4</GenExtraFileType15>
       <GenExtraFileType14>4</GenExtraFileType14>
@@ -323,33 +339,46 @@
       <GenEventModules lines_count="1">
         <Line>Events</Line>
       </GenEventModules>
-      <GenMethodsInEvents lines_count="6">
-        <Line>SerialCom_OnBlockReceived</Line>
+      <GenMethodsInEvents lines_count="4">
         <Line>SerialCom_OnBlockSent</Line>
-        <Line>ImageConverter_OnEnd</Line>
-        <Line>ImageConverter_OnCalibrationEnd</Line>
-        <Line>ClockInterruption_OnInterrupt</Line>
+        <Line>AD_Converter_OnEnd</Line>
+        <Line>Camera_CLK_Interruption_OnInterrupt</Line>
         <Line>Cpu_OnNMIINT</Line>
       </GenMethodsInEvents>
-      <GenAllModules lines_count="30">
+      <GenAllModules lines_count="46">
+        <Line>AD_Converter</Line>
         <Line>AdcLdd1</Line>
         <Line>BitIoLdd1</Line>
+        <Line>BitIoLdd10</Line>
+        <Line>BitIoLdd11</Line>
         <Line>BitIoLdd2</Line>
+        <Line>BitIoLdd3</Line>
         <Line>BitIoLdd4</Line>
+        <Line>BitIoLdd5</Line>
+        <Line>BitIoLdd6</Line>
+        <Line>BitIoLdd7</Line>
+        <Line>BitIoLdd8</Line>
+        <Line>BitIoLdd9</Line>
+        <Line>BlueLED</Line>
+        <Line>Camera_CLK_Interruption</Line>
         <Line>CLK</Line>
-        <Line>ClockInterruption</Line>
         <Line>Cpu</Line>
         <Line>Enable_Motors</Line>
+        <Line>ErrorLED</Line>
         <Line>Events</Line>
-        <Line>ImageConverter</Line>
+        <Line>GreenLED</Line>
         <Line>IO_Map</Line>
-        <Line>Motor_A_In_1</Line>
-        <Line>Motor_A_In_2</Line>
+        <Line>Motor_A_In1</Line>
+        <Line>Motor_A_In2</Line>
         <Line>Motor_B_In1</Line>
         <Line>Motor_B_In2</Line>
         <Line>PE_Const</Line>
         <Line>PE_Error</Line>
         <Line>PE_Types</Line>
+        <Line>Power_Level1</Line>
+        <Line>Power_Level2</Line>
+        <Line>Power_Level3</Line>
+        <Line>Power_Level4</Line>
         <Line>PwmLdd1</Line>
         <Line>PwmLdd2</Line>
         <Line>PwmLdd3</Line>
@@ -358,29 +387,30 @@
         <Line>SerialCom</Line>
         <Line>Servomotor</Line>
         <Line>SI</Line>
+        <Line>SW2_Start_Button</Line>
         <Line>TimerIntLdd1</Line>
         <Line>TU1</Line>
         <Line>TU2</Line>
         <Line>TU3</Line>
       </GenAllModules>
       <GenExternModules lines_count="0" />
-      <GenBeanModules lines_count="24">
+      <GenBeanModules lines_count="40">
         <Line>SI</Line>
         <Line>BitIoLdd1</Line>
         <Line>CLK</Line>
         <Line>BitIoLdd2</Line>
-        <Line>ClockInterruption</Line>
+        <Line>Camera_CLK_Interruption</Line>
         <Line>TimerIntLdd1</Line>
         <Line>TU1</Line>
-        <Line>ImageConverter</Line>
+        <Line>AD_Converter</Line>
         <Line>AdcLdd1</Line>
         <Line>SerialCom</Line>
         <Line>Enable_Motors</Line>
         <Line>BitIoLdd4</Line>
-        <Line>Motor_A_In_1</Line>
+        <Line>Motor_A_In1</Line>
         <Line>PwmLdd1</Line>
         <Line>TU2</Line>
-        <Line>Motor_A_In_2</Line>
+        <Line>Motor_A_In2</Line>
         <Line>PwmLdd2</Line>
         <Line>Motor_B_In1</Line>
         <Line>PwmLdd3</Line>
@@ -389,11 +419,27 @@
         <Line>Servomotor</Line>
         <Line>PwmLdd5</Line>
         <Line>TU3</Line>
+        <Line>SW2_Start_Button</Line>
+        <Line>BitIoLdd3</Line>
+        <Line>Power_Level1</Line>
+        <Line>BitIoLdd5</Line>
+        <Line>Power_Level2</Line>
+        <Line>BitIoLdd6</Line>
+        <Line>Power_Level3</Line>
+        <Line>BitIoLdd7</Line>
+        <Line>Power_Level4</Line>
+        <Line>BitIoLdd8</Line>
+        <Line>ErrorLED</Line>
+        <Line>BitIoLdd9</Line>
+        <Line>GreenLED</Line>
+        <Line>BitIoLdd10</Line>
+        <Line>BlueLED</Line>
+        <Line>BitIoLdd11</Line>
       </GenBeanModules>
     </GenFiles>
     <SignalListFile>Documentation\SDP_2016_SIGNALS.txt</SignalListFile>
     <DestinationCompiler>GNUC</DestinationCompiler>
-    <ProjectModificationStamp>38</ProjectModificationStamp>
+    <ProjectModificationStamp>95</ProjectModificationStamp>
   </Options>
   <CpuID_2>
     <Generated>true</Generated>
@@ -402,7 +448,7 @@
     <GenDriverVersion>01.04</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
     <HeaderAge>1229497930</HeaderAge>
-    <CodeAge>1232962637</CodeAge>
+    <CodeAge>1234897005</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>11</GenNumMethods>
     <SetClockConfiguration>false</SetClockConfiguration>
@@ -903,18 +949,18 @@
   </ComponentID_6>
   <ComponentID_8>
     <Generated>true</Generated>
-    <GenCompName>ClockInterruption</GenCompName>
+    <GenCompName>Camera_CLK_Interruption</GenCompName>
     <GenComponentVersion>02.161</GenComponentVersion>
     <GenDriverVersion>01.02</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1229497930</HeaderAge>
-    <CodeAge>1229497930</CodeAge>
+    <HeaderAge>1235072167</HeaderAge>
+    <CodeAge>1235072167</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>14</GenNumMethods>
     <Enable>true</Enable>
     <Disable>true</Disable>
-    <EnableEvent>true</EnableEvent>
-    <DisableEvent>true</DisableEvent>
+    <EnableEvent>false</EnableEvent>
+    <DisableEvent>false</DisableEvent>
     <SetPeriodMode>false</SetPeriodMode>
     <SetPeriodTicks16>false</SetPeriodTicks16>
     <SetPeriodTicks32>false</SetPeriodTicks32>
@@ -927,87 +973,59 @@
     <SetFreqMHz>false</SetFreqMHz>
     <GenNumEvents>3</GenNumEvents>
     <BeforeNewSpeed_Selected>0</BeforeNewSpeed_Selected>
-    <BeforeNewSpeed_Name>ClockInterruption_BeforeNewSpeed</BeforeNewSpeed_Name>
+    <BeforeNewSpeed_Name>Camera_CLK_Interruption_BeforeNewSpeed</BeforeNewSpeed_Name>
     <BeforeNewSpeed_Priority>interrupts disabled</BeforeNewSpeed_Priority>
     <AfterNewSpeed_Selected>0</AfterNewSpeed_Selected>
-    <AfterNewSpeed_Name>ClockInterruption_AfterNewSpeed</AfterNewSpeed_Name>
+    <AfterNewSpeed_Name>Camera_CLK_Interruption_AfterNewSpeed</AfterNewSpeed_Name>
     <AfterNewSpeed_Priority>interrupts disabled</AfterNewSpeed_Priority>
     <OnInterrupt_Selected>2</OnInterrupt_Selected>
-    <OnInterrupt_Name>ClockInterruption_OnInterrupt</OnInterrupt_Name>
+    <OnInterrupt_Name>Camera_CLK_Interruption_OnInterrupt</OnInterrupt_Name>
     <OnInterrupt_Priority>same as interrupt</OnInterrupt_Priority>
     <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
     <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
     <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
-    <GenMethodPos>10</GenMethodPos>
+    <GenMethodPos>6</GenMethodPos>
     <MethodPos>
       <MethodPos0>Enable</MethodPos0>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>111</LineBeg>
-      <LineEnd>126</LineEnd>
+      <LineBeg>109</LineBeg>
+      <LineEnd>124</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos1>Disable</MethodPos1>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>127</LineBeg>
-      <LineEnd>142</LineEnd>
+      <LineBeg>125</LineBeg>
+      <LineEnd>140</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos2>EnableEvent</MethodPos2>
-      <MethodType>method</MethodType>
-      <ModuleType>Header</ModuleType>
-      <LineBeg>143</LineBeg>
-      <LineEnd>157</LineEnd>
-    </MethodPos>
-    <MethodPos>
-      <MethodPos3>DisableEvent</MethodPos3>
-      <MethodType>method</MethodType>
-      <ModuleType>Header</ModuleType>
-      <LineBeg>158</LineBeg>
-      <LineEnd>172</LineEnd>
-    </MethodPos>
-    <MethodPos>
-      <MethodPos4>InheritedComponent OnInterrupt</MethodPos4>
+      <MethodPos2>InheritedComponent OnInterrupt</MethodPos2>
       <MethodType>inherited_event</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>173</LineBeg>
-      <LineEnd>182</LineEnd>
+      <LineBeg>141</LineBeg>
+      <LineEnd>150</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos5>Enable</MethodPos5>
+      <MethodPos3>Enable</MethodPos3>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>98</LineBeg>
-      <LineEnd>117</LineEnd>
+      <LineBeg>96</LineBeg>
+      <LineEnd>115</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos6>Disable</MethodPos6>
+      <MethodPos4>Disable</MethodPos4>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>118</LineBeg>
-      <LineEnd>137</LineEnd>
+      <LineBeg>116</LineBeg>
+      <LineEnd>135</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos7>EnableEvent</MethodPos7>
-      <MethodType>method</MethodType>
-      <ModuleType>Code</ModuleType>
-      <LineBeg>138</LineBeg>
-      <LineEnd>156</LineEnd>
-    </MethodPos>
-    <MethodPos>
-      <MethodPos8>DisableEvent</MethodPos8>
-      <MethodType>method</MethodType>
-      <ModuleType>Code</ModuleType>
-      <LineBeg>157</LineBeg>
-      <LineEnd>175</LineEnd>
-    </MethodPos>
-    <MethodPos>
-      <MethodPos9>InheritedComponent OnInterrupt</MethodPos9>
+      <MethodPos5>InheritedComponent OnInterrupt</MethodPos5>
       <MethodType>inherited_event</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>176</LineBeg>
-      <LineEnd>189</LineEnd>
+      <LineBeg>136</LineBeg>
+      <LineEnd>149</LineEnd>
     </MethodPos>
     <GenExtraFilesCount>0</GenExtraFilesCount>
     <InhrCompID_9>
@@ -1016,15 +1034,15 @@
       <GenComponentVersion>01.018</GenComponentVersion>
       <GenDriverVersion>01.02</GenDriverVersion>
       <GenEventModule>Events</GenEventModule>
-      <HeaderAge>1229497930</HeaderAge>
-      <CodeAge>1229497930</CodeAge>
+      <HeaderAge>1235072167</HeaderAge>
+      <CodeAge>1235072167</CodeAge>
       <AsemblAge>-1</AsemblAge>
       <GenNumMethods>17</GenNumMethods>
       <Init>true</Init>
       <Deinit>false</Deinit>
       <Enable>true</Enable>
       <Disable>true</Disable>
-      <SetEventMask>true</SetEventMask>
+      <SetEventMask>false</SetEventMask>
       <GetEventMask>false</GetEventMask>
       <GetEventStatus>false</GetEventStatus>
       <SelectPeriod>false</SelectPeriod>
@@ -1044,76 +1062,62 @@
       <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
       <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
       <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
-      <GenMethodPos>10</GenMethodPos>
+      <GenMethodPos>8</GenMethodPos>
       <MethodPos>
         <MethodPos0>Init</MethodPos0>
         <MethodType>method</MethodType>
         <ModuleType>Header</ModuleType>
-        <LineBeg>133</LineBeg>
-        <LineEnd>158</LineEnd>
+        <LineBeg>131</LineBeg>
+        <LineEnd>156</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos1>Enable</MethodPos1>
         <MethodType>method</MethodType>
         <ModuleType>Header</ModuleType>
-        <LineBeg>159</LineBeg>
-        <LineEnd>178</LineEnd>
+        <LineBeg>157</LineBeg>
+        <LineEnd>176</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos2>Disable</MethodPos2>
         <MethodType>method</MethodType>
         <ModuleType>Header</ModuleType>
-        <LineBeg>179</LineBeg>
-        <LineEnd>198</LineEnd>
+        <LineBeg>177</LineBeg>
+        <LineEnd>196</LineEnd>
       </MethodPos>
       <MethodPos>
-        <MethodPos3>SetEventMask</MethodPos3>
-        <MethodType>method</MethodType>
-        <ModuleType>Header</ModuleType>
-        <LineBeg>199</LineBeg>
-        <LineEnd>226</LineEnd>
-      </MethodPos>
-      <MethodPos>
-        <MethodPos4>Interrupt</MethodPos4>
+        <MethodPos3>Interrupt</MethodPos3>
         <MethodType>internal_method</MethodType>
         <ModuleType>Header</ModuleType>
-        <LineBeg>227</LineBeg>
+        <LineBeg>197</LineBeg>
+        <LineEnd>208</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos4>Init</MethodPos4>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>116</LineBeg>
+        <LineEnd>162</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos5>Enable</MethodPos5>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>163</LineBeg>
+        <LineEnd>191</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos6>Disable</MethodPos6>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>192</LineBeg>
+        <LineEnd>220</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos7>Interrupt</MethodPos7>
+        <MethodType>internal_method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>221</LineBeg>
         <LineEnd>238</LineEnd>
-      </MethodPos>
-      <MethodPos>
-        <MethodPos5>Init</MethodPos5>
-        <MethodType>method</MethodType>
-        <ModuleType>Code</ModuleType>
-        <LineBeg>117</LineBeg>
-        <LineEnd>163</LineEnd>
-      </MethodPos>
-      <MethodPos>
-        <MethodPos6>Enable</MethodPos6>
-        <MethodType>method</MethodType>
-        <ModuleType>Code</ModuleType>
-        <LineBeg>164</LineBeg>
-        <LineEnd>192</LineEnd>
-      </MethodPos>
-      <MethodPos>
-        <MethodPos7>Disable</MethodPos7>
-        <MethodType>method</MethodType>
-        <ModuleType>Code</ModuleType>
-        <LineBeg>193</LineBeg>
-        <LineEnd>221</LineEnd>
-      </MethodPos>
-      <MethodPos>
-        <MethodPos8>SetEventMask</MethodPos8>
-        <MethodType>method</MethodType>
-        <ModuleType>Code</ModuleType>
-        <LineBeg>222</LineBeg>
-        <LineEnd>259</LineEnd>
-      </MethodPos>
-      <MethodPos>
-        <MethodPos9>Interrupt</MethodPos9>
-        <MethodType>internal_method</MethodType>
-        <ModuleType>Code</ModuleType>
-        <LineBeg>260</LineBeg>
-        <LineEnd>277</LineEnd>
       </MethodPos>
       <GenExtraFilesCount>1</GenExtraFilesCount>
       <ExtraFile0>Documentation\doxygen\TimerIntLdd1_component.txt</ExtraFile0>
@@ -1125,15 +1129,15 @@
     <GenComponentVersion>01.164</GenComponentVersion>
     <GenDriverVersion>01.11</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1229497930</HeaderAge>
-    <CodeAge>1229497930</CodeAge>
+    <HeaderAge>1235072167</HeaderAge>
+    <CodeAge>1235072167</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>22</GenNumMethods>
     <Init>true</Init>
     <Deinit>false</Deinit>
     <Enable>true</Enable>
     <Disable>true</Disable>
-    <SetEventMask>true</SetEventMask>
+    <SetEventMask>false</SetEventMask>
     <GetEventMask>false</GetEventMask>
     <GetEventStatus>false</GetEventStatus>
     <SelectInputFrequency>false</SelectInputFrequency>
@@ -1184,88 +1188,74 @@
     <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
     <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
     <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
-    <GenMethodPos>10</GenMethodPos>
+    <GenMethodPos>8</GenMethodPos>
     <MethodPos>
       <MethodPos0>Init</MethodPos0>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>145</LineBeg>
-      <LineEnd>170</LineEnd>
+      <LineBeg>143</LineBeg>
+      <LineEnd>168</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos1>Enable</MethodPos1>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>171</LineBeg>
-      <LineEnd>191</LineEnd>
+      <LineBeg>169</LineBeg>
+      <LineEnd>189</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos2>Disable</MethodPos2>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>192</LineBeg>
-      <LineEnd>212</LineEnd>
+      <LineBeg>190</LineBeg>
+      <LineEnd>210</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos3>SetEventMask</MethodPos3>
-      <MethodType>method</MethodType>
-      <ModuleType>Header</ModuleType>
-      <LineBeg>213</LineBeg>
-      <LineEnd>240</LineEnd>
-    </MethodPos>
-    <MethodPos>
-      <MethodPos4>Interrupt</MethodPos4>
+      <MethodPos3>Interrupt</MethodPos3>
       <MethodType>internal_method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>241</LineBeg>
-      <LineEnd>253</LineEnd>
+      <LineBeg>211</LineBeg>
+      <LineEnd>223</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos5>Init</MethodPos5>
+      <MethodPos4>Init</MethodPos4>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>123</LineBeg>
-      <LineEnd>196</LineEnd>
+      <LineBeg>122</LineBeg>
+      <LineEnd>195</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos6>Enable</MethodPos6>
+      <MethodPos5>Enable</MethodPos5>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>197</LineBeg>
-      <LineEnd>222</LineEnd>
+      <LineBeg>196</LineBeg>
+      <LineEnd>221</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos7>Disable</MethodPos7>
+      <MethodPos6>Disable</MethodPos6>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>223</LineBeg>
-      <LineEnd>248</LineEnd>
+      <LineBeg>222</LineBeg>
+      <LineEnd>247</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos8>SetEventMask</MethodPos8>
-      <MethodType>method</MethodType>
-      <ModuleType>Code</ModuleType>
-      <LineBeg>249</LineBeg>
-      <LineEnd>292</LineEnd>
-    </MethodPos>
-    <MethodPos>
-      <MethodPos9>Interrupt</MethodPos9>
+      <MethodPos7>Interrupt</MethodPos7>
       <MethodType>internal_method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>293</LineBeg>
-      <LineEnd>311</LineEnd>
+      <LineBeg>248</LineBeg>
+      <LineEnd>266</LineEnd>
     </MethodPos>
     <GenExtraFilesCount>1</GenExtraFilesCount>
     <ExtraFile0>Documentation\doxygen\TU1_component.txt</ExtraFile0>
   </ComponentID_10>
   <ComponentID_21>
     <Generated>true</Generated>
-    <GenCompName>ImageConverter</GenCompName>
+    <GenCompName>AD_Converter</GenCompName>
     <GenComponentVersion>01.697</GenComponentVersion>
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1229502897</HeaderAge>
-    <CodeAge>1229502877</CodeAge>
+    <HeaderAge>1234611931</HeaderAge>
+    <CodeAge>1234830880</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>25</GenNumMethods>
     <Enable>false</Enable>
@@ -1295,132 +1285,139 @@
     <ConnectPin>false</ConnectPin>
     <GenNumEvents>4</GenNumEvents>
     <BeforeNewSpeed_Selected>0</BeforeNewSpeed_Selected>
-    <BeforeNewSpeed_Name>ImageConverter_BeforeNewSpeed</BeforeNewSpeed_Name>
+    <BeforeNewSpeed_Name>AD_Converter_BeforeNewSpeed</BeforeNewSpeed_Name>
     <BeforeNewSpeed_Priority>interrupts disabled</BeforeNewSpeed_Priority>
     <AfterNewSpeed_Selected>0</AfterNewSpeed_Selected>
-    <AfterNewSpeed_Name>ImageConverter_AfterNewSpeed</AfterNewSpeed_Name>
+    <AfterNewSpeed_Name>AD_Converter_AfterNewSpeed</AfterNewSpeed_Name>
     <AfterNewSpeed_Priority>interrupts disabled</AfterNewSpeed_Priority>
     <OnEnd_Selected>3</OnEnd_Selected>
-    <OnEnd_Name>ImageConverter_OnEnd</OnEnd_Name>
+    <OnEnd_Name>AD_Converter_OnEnd</OnEnd_Name>
     <OnEnd_Priority>same as interrupt</OnEnd_Priority>
-    <OnCalibrationEnd_Selected>3</OnCalibrationEnd_Selected>
-    <OnCalibrationEnd_Name>ImageConverter_OnCalibrationEnd</OnCalibrationEnd_Name>
+    <OnCalibrationEnd_Selected>1</OnCalibrationEnd_Selected>
+    <OnCalibrationEnd_Name>AD_Converter_OnCalibrationEnd</OnCalibrationEnd_Name>
     <OnCalibrationEnd_Priority>same as interrupt</OnCalibrationEnd_Priority>
     <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
     <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
     <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
-    <GenMethodPos>16</GenMethodPos>
+    <GenMethodPos>17</GenMethodPos>
     <MethodPos>
       <MethodPos0>HWEnDi</MethodPos0>
       <MethodType>internal_method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>117</LineBeg>
-      <LineEnd>129</LineEnd>
+      <LineBeg>121</LineBeg>
+      <LineEnd>133</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos1>Measure</MethodPos1>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>130</LineBeg>
-      <LineEnd>164</LineEnd>
+      <LineBeg>134</LineBeg>
+      <LineEnd>168</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos2>MeasureChan</MethodPos2>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>165</LineBeg>
-      <LineEnd>198</LineEnd>
+      <LineBeg>169</LineBeg>
+      <LineEnd>201</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos3>GetValue</MethodPos3>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>199</LineBeg>
-      <LineEnd>230</LineEnd>
+      <LineBeg>202</LineBeg>
+      <LineEnd>233</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos4>GetChanValue</MethodPos4>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>231</LineBeg>
-      <LineEnd>269</LineEnd>
+      <LineBeg>234</LineBeg>
+      <LineEnd>271</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos5>Calibrate</MethodPos5>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>270</LineBeg>
-      <LineEnd>296</LineEnd>
+      <LineBeg>272</LineBeg>
+      <LineEnd>298</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos6>ADC_LDD OnMeasurementComplete</MethodPos6>
       <MethodType>inherited_event</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>297</LineBeg>
-      <LineEnd>298</LineEnd>
+      <LineBeg>299</LineBeg>
+      <LineEnd>300</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos7>Init</MethodPos7>
       <MethodType>internal_method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>299</LineBeg>
-      <LineEnd>311</LineEnd>
+      <LineBeg>301</LineBeg>
+      <LineEnd>313</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos8>HWEnDi</MethodPos8>
+      <MethodPos8>ClrSumV</MethodPos8>
       <MethodType>internal_method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>114</LineBeg>
-      <LineEnd>134</LineEnd>
+      <LineBeg>121</LineBeg>
+      <LineEnd>136</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos9>Measure</MethodPos9>
+      <MethodPos9>HWEnDi</MethodPos9>
+      <MethodType>internal_method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>137</LineBeg>
+      <LineEnd>166</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos10>Measure</MethodPos10>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>135</LineBeg>
-      <LineEnd>180</LineEnd>
+      <LineBeg>167</LineBeg>
+      <LineEnd>212</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos10>MeasureChan</MethodPos10>
+      <MethodPos11>MeasureChan</MethodPos11>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>181</LineBeg>
-      <LineEnd>230</LineEnd>
+      <LineBeg>213</LineBeg>
+      <LineEnd>266</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos11>GetValue</MethodPos11>
+      <MethodPos12>GetValue</MethodPos12>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>231</LineBeg>
-      <LineEnd>270</LineEnd>
+      <LineBeg>267</LineBeg>
+      <LineEnd>307</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos12>GetChanValue</MethodPos12>
+      <MethodPos13>GetChanValue</MethodPos13>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>271</LineBeg>
-      <LineEnd>322</LineEnd>
+      <LineBeg>308</LineBeg>
+      <LineEnd>362</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos13>Calibrate</MethodPos13>
+      <MethodPos14>Calibrate</MethodPos14>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>323</LineBeg>
-      <LineEnd>366</LineEnd>
+      <LineBeg>363</LineBeg>
+      <LineEnd>406</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos14>ADC_LDD OnMeasurementComplete</MethodPos14>
+      <MethodPos15>ADC_LDD OnMeasurementComplete</MethodPos15>
       <MethodType>inherited_event</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>367</LineBeg>
-      <LineEnd>392</LineEnd>
+      <LineBeg>407</LineBeg>
+      <LineEnd>447</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos15>Init</MethodPos15>
+      <MethodPos16>Init</MethodPos16>
       <MethodType>internal_method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>393</LineBeg>
-      <LineEnd>410</LineEnd>
+      <LineBeg>448</LineBeg>
+      <LineEnd>465</LineEnd>
     </MethodPos>
     <GenExtraFilesCount>0</GenExtraFilesCount>
     <InhrCompID_22>
@@ -1429,8 +1426,8 @@
       <GenComponentVersion>01.183</GenComponentVersion>
       <GenDriverVersion>01.08</GenDriverVersion>
       <GenEventModule>Events</GenEventModule>
-      <HeaderAge>1229502971</HeaderAge>
-      <CodeAge>1229521251</CodeAge>
+      <HeaderAge>1235049635</HeaderAge>
+      <CodeAge>1235049635</CodeAge>
       <AsemblAge>-1</AsemblAge>
       <GenNumMethods>25</GenNumMethods>
       <Init>true</Init>
@@ -1475,127 +1472,127 @@
         <MethodPos0>Init</MethodPos0>
         <MethodType>method</MethodType>
         <ModuleType>Header</ModuleType>
-        <LineBeg>202</LineBeg>
-        <LineEnd>226</LineEnd>
+        <LineBeg>209</LineBeg>
+        <LineEnd>233</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos1>StartSingleMeasurement</MethodPos1>
         <MethodType>method</MethodType>
         <ModuleType>Header</ModuleType>
-        <LineBeg>227</LineBeg>
-        <LineEnd>266</LineEnd>
+        <LineBeg>234</LineBeg>
+        <LineEnd>273</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos2>CancelMeasurement</MethodPos2>
         <MethodType>method</MethodType>
         <ModuleType>Header</ModuleType>
-        <LineBeg>267</LineBeg>
-        <LineEnd>289</LineEnd>
+        <LineBeg>274</LineBeg>
+        <LineEnd>296</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos3>CreateSampleGroup</MethodPos3>
         <MethodType>method</MethodType>
         <ModuleType>Header</ModuleType>
-        <LineBeg>290</LineBeg>
-        <LineEnd>332</LineEnd>
+        <LineBeg>297</LineBeg>
+        <LineEnd>339</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos4>GetMeasuredValues</MethodPos4>
         <MethodType>method</MethodType>
         <ModuleType>Header</ModuleType>
-        <LineBeg>333</LineBeg>
-        <LineEnd>366</LineEnd>
+        <LineBeg>340</LineBeg>
+        <LineEnd>373</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos5>GetMeasurementCompleteStatus</MethodPos5>
         <MethodType>method</MethodType>
         <ModuleType>Header</ModuleType>
-        <LineBeg>367</LineBeg>
-        <LineEnd>388</LineEnd>
+        <LineBeg>374</LineBeg>
+        <LineEnd>395</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos6>StartCalibration</MethodPos6>
         <MethodType>method</MethodType>
         <ModuleType>Header</ModuleType>
-        <LineBeg>389</LineBeg>
-        <LineEnd>411</LineEnd>
+        <LineBeg>396</LineBeg>
+        <LineEnd>418</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos7>GetCalibrationResultStatus</MethodPos7>
         <MethodType>method</MethodType>
         <ModuleType>Header</ModuleType>
-        <LineBeg>412</LineBeg>
-        <LineEnd>432</LineEnd>
+        <LineBeg>419</LineBeg>
+        <LineEnd>439</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos8>MeasurementCompleteInterrupt</MethodPos8>
         <MethodType>method</MethodType>
         <ModuleType>Header</ModuleType>
-        <LineBeg>433</LineBeg>
-        <LineEnd>444</LineEnd>
+        <LineBeg>440</LineBeg>
+        <LineEnd>451</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos9>Init</MethodPos9>
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>147</LineBeg>
-        <LineEnd>221</LineEnd>
+        <LineBeg>154</LineBeg>
+        <LineEnd>232</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos10>StartSingleMeasurement</MethodPos10>
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>222</LineBeg>
-        <LineEnd>271</LineEnd>
+        <LineBeg>233</LineBeg>
+        <LineEnd>282</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos11>CancelMeasurement</MethodPos11>
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>272</LineBeg>
-        <LineEnd>301</LineEnd>
+        <LineBeg>283</LineBeg>
+        <LineEnd>312</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos12>CreateSampleGroup</MethodPos12>
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>302</LineBeg>
-        <LineEnd>364</LineEnd>
+        <LineBeg>313</LineBeg>
+        <LineEnd>375</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos13>GetMeasuredValues</MethodPos13>
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>365</LineBeg>
-        <LineEnd>409</LineEnd>
+        <LineBeg>376</LineBeg>
+        <LineEnd>420</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos14>GetMeasurementCompleteStatus</MethodPos14>
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>410</LineBeg>
-        <LineEnd>442</LineEnd>
+        <LineBeg>421</LineBeg>
+        <LineEnd>453</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos15>StartCalibration</MethodPos15>
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>443</LineBeg>
-        <LineEnd>475</LineEnd>
+        <LineBeg>454</LineBeg>
+        <LineEnd>486</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos16>GetCalibrationResultStatus</MethodPos16>
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>476</LineBeg>
-        <LineEnd>523</LineEnd>
+        <LineBeg>487</LineBeg>
+        <LineEnd>534</LineEnd>
       </MethodPos>
       <MethodPos>
         <MethodPos17>MeasurementCompleteInterrupt</MethodPos17>
         <MethodType>internal_method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>524</LineBeg>
-        <LineEnd>541</LineEnd>
+        <LineBeg>535</LineBeg>
+        <LineEnd>552</LineEnd>
       </MethodPos>
       <GenExtraFilesCount>1</GenExtraFilesCount>
       <ExtraFile0>Documentation\doxygen\AdcLdd1_component.txt</ExtraFile0>
@@ -1607,8 +1604,8 @@
     <GenComponentVersion>01.188</GenComponentVersion>
     <GenDriverVersion>01.12</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1229497930</HeaderAge>
-    <CodeAge>1229497930</CodeAge>
+    <HeaderAge>1234878135</HeaderAge>
+    <CodeAge>1234878135</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>36</GenNumMethods>
     <Init>true</Init>
@@ -1648,7 +1645,7 @@
     <SetOperationMode>false</SetOperationMode>
     <GetDriverState>false</GetDriverState>
     <GenNumEvents>5</GenNumEvents>
-    <OnBlockReceived_Selected>3</OnBlockReceived_Selected>
+    <OnBlockReceived_Selected>1</OnBlockReceived_Selected>
     <OnBlockReceived_Name>SerialCom_OnBlockReceived</OnBlockReceived_Name>
     <OnBlockReceived_Priority>interrupts disabled</OnBlockReceived_Priority>
     <OnBlockSent_Selected>3</OnBlockSent_Selected>
@@ -1675,29 +1672,29 @@
       <MethodPos0>Init</MethodPos0>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>160</LineBeg>
-      <LineEnd>182</LineEnd>
+      <LineBeg>159</LineBeg>
+      <LineEnd>181</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos1>ReceiveBlock</MethodPos1>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>183</LineBeg>
-      <LineEnd>228</LineEnd>
+      <LineBeg>182</LineBeg>
+      <LineEnd>227</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos2>SendBlock</MethodPos2>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>229</LineBeg>
-      <LineEnd>270</LineEnd>
+      <LineBeg>228</LineBeg>
+      <LineEnd>269</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos3>Interrupt</MethodPos3>
       <MethodType>internal_method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>271</LineBeg>
-      <LineEnd>283</LineEnd>
+      <LineBeg>270</LineBeg>
+      <LineEnd>282</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos4>Init</MethodPos4>
@@ -1725,21 +1722,21 @@
       <MethodType>internal_method</MethodType>
       <ModuleType>Code</ModuleType>
       <LineBeg>350</LineBeg>
-      <LineEnd>374</LineEnd>
+      <LineEnd>373</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos8>InterruptTx</MethodPos8>
       <MethodType>internal_method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>375</LineBeg>
-      <LineEnd>400</LineEnd>
+      <LineBeg>374</LineBeg>
+      <LineEnd>399</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos9>Interrupt</MethodPos9>
       <MethodType>internal_method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>401</LineBeg>
-      <LineEnd>431</LineEnd>
+      <LineBeg>400</LineBeg>
+      <LineEnd>430</LineEnd>
     </MethodPos>
     <GenExtraFilesCount>1</GenExtraFilesCount>
     <ExtraFile0>Documentation\doxygen\SerialCom_component.txt</ExtraFile0>
@@ -1750,8 +1747,8 @@
     <GenComponentVersion>02.086</GenComponentVersion>
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule />
-    <HeaderAge>1232962637</HeaderAge>
-    <CodeAge>1232962637</CodeAge>
+    <HeaderAge>1234662864</HeaderAge>
+    <CodeAge>1234662864</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>11</GenNumMethods>
     <GetDir>false</GetDir>
@@ -1805,8 +1802,8 @@
       <GenComponentVersion>01.033</GenComponentVersion>
       <GenDriverVersion>01.03</GenDriverVersion>
       <GenEventModule />
-      <HeaderAge>1232961372</HeaderAge>
-      <CodeAge>1232961372</CodeAge>
+      <HeaderAge>1234662864</HeaderAge>
+      <CodeAge>1234662864</CodeAge>
       <AsemblAge>-1</AsemblAge>
       <GenNumMethods>13</GenNumMethods>
       <Init>true</Init>
@@ -1875,83 +1872,55 @@
   </ComponentID_26>
   <ComponentID_33>
     <Generated>true</Generated>
-    <GenCompName>Motor_A_In_1</GenCompName>
+    <GenCompName>Motor_A_In1</GenCompName>
     <GenComponentVersion>02.241</GenComponentVersion>
     <GenDriverVersion>01.01</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1232962001</HeaderAge>
-    <CodeAge>1232962001</CodeAge>
+    <HeaderAge>1234665895</HeaderAge>
+    <CodeAge>1234665895</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>14</GenNumMethods>
     <Enable>false</Enable>
     <Disable>false</Disable>
     <EnableEvent>false</EnableEvent>
     <DisableEvent>false</DisableEvent>
-    <SetRatio8>false</SetRatio8>
-    <SetRatio16>true</SetRatio16>
+    <SetRatio8>true</SetRatio8>
+    <SetRatio16>false</SetRatio16>
     <SetDutyTicks16>false</SetDutyTicks16>
     <SetDutyTicks32>false</SetDutyTicks32>
-    <SetDutyUS>true</SetDutyUS>
-    <SetDutyMS>true</SetDutyMS>
+    <SetDutyUS>false</SetDutyUS>
+    <SetDutyMS>false</SetDutyMS>
     <SetDutySec>false</SetDutySec>
     <SetDutyReal>false</SetDutyReal>
     <SetValue>false</SetValue>
     <ClrValue>false</ClrValue>
     <GenNumEvents>3</GenNumEvents>
     <BeforeNewSpeed_Selected>0</BeforeNewSpeed_Selected>
-    <BeforeNewSpeed_Name>Motor_A_In_1_BeforeNewSpeed</BeforeNewSpeed_Name>
+    <BeforeNewSpeed_Name>Motor_A_In1_BeforeNewSpeed</BeforeNewSpeed_Name>
     <BeforeNewSpeed_Priority>interrupts disabled</BeforeNewSpeed_Priority>
     <AfterNewSpeed_Selected>0</AfterNewSpeed_Selected>
-    <AfterNewSpeed_Name>Motor_A_In_1_AfterNewSpeed</AfterNewSpeed_Name>
+    <AfterNewSpeed_Name>Motor_A_In1_AfterNewSpeed</AfterNewSpeed_Name>
     <AfterNewSpeed_Priority>interrupts disabled</AfterNewSpeed_Priority>
     <OnEnd_Selected>0</OnEnd_Selected>
-    <OnEnd_Name>Motor_A_In_1_OnEnd</OnEnd_Name>
+    <OnEnd_Name>Motor_A_In1_OnEnd</OnEnd_Name>
     <OnEnd_Priority>same as interrupt</OnEnd_Priority>
     <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
     <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
     <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
-    <GenMethodPos>6</GenMethodPos>
+    <GenMethodPos>2</GenMethodPos>
     <MethodPos>
-      <MethodPos0>SetRatio16</MethodPos0>
+      <MethodPos0>SetRatio8</MethodPos0>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>107</LineBeg>
-      <LineEnd>130</LineEnd>
+      <LineBeg>105</LineBeg>
+      <LineEnd>128</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos1>SetDutyUS</MethodPos1>
-      <MethodType>method</MethodType>
-      <ModuleType>Header</ModuleType>
-      <LineBeg>131</LineBeg>
-      <LineEnd>152</LineEnd>
-    </MethodPos>
-    <MethodPos>
-      <MethodPos2>SetDutyMS</MethodPos2>
-      <MethodType>method</MethodType>
-      <ModuleType>Header</ModuleType>
-      <LineBeg>153</LineBeg>
-      <LineEnd>174</LineEnd>
-    </MethodPos>
-    <MethodPos>
-      <MethodPos3>SetRatio16</MethodPos3>
+      <MethodPos1>SetRatio8</MethodPos1>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>91</LineBeg>
-      <LineEnd>117</LineEnd>
-    </MethodPos>
-    <MethodPos>
-      <MethodPos4>SetDutyUS</MethodPos4>
-      <MethodType>method</MethodType>
-      <ModuleType>Code</ModuleType>
-      <LineBeg>118</LineBeg>
-      <LineEnd>142</LineEnd>
-    </MethodPos>
-    <MethodPos>
-      <MethodPos5>SetDutyMS</MethodPos5>
-      <MethodType>method</MethodType>
-      <ModuleType>Code</ModuleType>
-      <LineBeg>143</LineBeg>
-      <LineEnd>167</LineEnd>
+      <LineBeg>89</LineBeg>
+      <LineEnd>115</LineEnd>
     </MethodPos>
     <GenExtraFilesCount>0</GenExtraFilesCount>
     <InhrCompID_34>
@@ -1960,8 +1929,8 @@
       <GenComponentVersion>01.014</GenComponentVersion>
       <GenDriverVersion>01.03</GenDriverVersion>
       <GenEventModule>Events</GenEventModule>
-      <HeaderAge>1232962001</HeaderAge>
-      <CodeAge>1232962001</CodeAge>
+      <HeaderAge>1234663003</HeaderAge>
+      <CodeAge>1234663003</CodeAge>
       <AsemblAge>-1</AsemblAge>
       <GenNumMethods>18</GenNumMethods>
       <Init>true</Init>
@@ -1971,10 +1940,10 @@
       <SetEventMask>false</SetEventMask>
       <GetEventMask>false</GetEventMask>
       <GetEventStatus>false</GetEventStatus>
-      <SetRatio8>false</SetRatio8>
-      <SetRatio16>true</SetRatio16>
-      <SetDutyUS>true</SetDutyUS>
-      <SetDutyMS>true</SetDutyMS>
+      <SetRatio8>true</SetRatio8>
+      <SetRatio16>false</SetRatio16>
+      <SetDutyUS>false</SetDutyUS>
+      <SetDutyMS>false</SetDutyMS>
       <SetDutySec>false</SetDutySec>
       <SetDutyReal>false</SetDutyReal>
       <SetValue>false</SetValue>
@@ -1989,76 +1958,48 @@
       <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
       <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
       <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
-      <GenMethodPos>10</GenMethodPos>
+      <GenMethodPos>6</GenMethodPos>
       <MethodPos>
         <MethodPos0>Init</MethodPos0>
         <MethodType>method</MethodType>
         <ModuleType>Header</ModuleType>
-        <LineBeg>135</LineBeg>
-        <LineEnd>160</LineEnd>
+        <LineBeg>131</LineBeg>
+        <LineEnd>156</LineEnd>
       </MethodPos>
       <MethodPos>
-        <MethodPos1>SetRatio16</MethodPos1>
+        <MethodPos1>SetRatio8</MethodPos1>
         <MethodType>method</MethodType>
         <ModuleType>Header</ModuleType>
-        <LineBeg>161</LineBeg>
-        <LineEnd>188</LineEnd>
+        <LineBeg>157</LineBeg>
+        <LineEnd>184</LineEnd>
       </MethodPos>
       <MethodPos>
-        <MethodPos2>SetDutyUS</MethodPos2>
-        <MethodType>method</MethodType>
-        <ModuleType>Header</ModuleType>
-        <LineBeg>189</LineBeg>
-        <LineEnd>215</LineEnd>
-      </MethodPos>
-      <MethodPos>
-        <MethodPos3>SetDutyMS</MethodPos3>
-        <MethodType>method</MethodType>
-        <ModuleType>Header</ModuleType>
-        <LineBeg>216</LineBeg>
-        <LineEnd>242</LineEnd>
-      </MethodPos>
-      <MethodPos>
-        <MethodPos4>SetRatio</MethodPos4>
+        <MethodPos2>SetRatio</MethodPos2>
         <MethodType>internal_method_declaration</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>116</LineBeg>
-        <LineEnd>116</LineEnd>
+        <LineBeg>114</LineBeg>
+        <LineEnd>114</LineEnd>
       </MethodPos>
       <MethodPos>
-        <MethodPos5>Init</MethodPos5>
+        <MethodPos3>Init</MethodPos3>
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>117</LineBeg>
-        <LineEnd>164</LineEnd>
+        <LineBeg>115</LineBeg>
+        <LineEnd>162</LineEnd>
       </MethodPos>
       <MethodPos>
-        <MethodPos6>SetRatio16</MethodPos6>
+        <MethodPos4>SetRatio8</MethodPos4>
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>165</LineBeg>
-        <LineEnd>199</LineEnd>
+        <LineBeg>163</LineBeg>
+        <LineEnd>197</LineEnd>
       </MethodPos>
       <MethodPos>
-        <MethodPos7>SetDutyUS</MethodPos7>
-        <MethodType>method</MethodType>
-        <ModuleType>Code</ModuleType>
-        <LineBeg>200</LineBeg>
-        <LineEnd>245</LineEnd>
-      </MethodPos>
-      <MethodPos>
-        <MethodPos8>SetDutyMS</MethodPos8>
-        <MethodType>method</MethodType>
-        <ModuleType>Code</ModuleType>
-        <LineBeg>246</LineBeg>
-        <LineEnd>291</LineEnd>
-      </MethodPos>
-      <MethodPos>
-        <MethodPos9>SetRatio</MethodPos9>
+        <MethodPos5>SetRatio</MethodPos5>
         <MethodType>internal_method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>292</LineBeg>
-        <LineEnd>316</LineEnd>
+        <LineBeg>198</LineBeg>
+        <LineEnd>222</LineEnd>
       </MethodPos>
       <GenExtraFilesCount>1</GenExtraFilesCount>
       <ExtraFile0>Documentation\doxygen\PwmLdd1_component.txt</ExtraFile0>
@@ -2070,8 +2011,8 @@
     <GenComponentVersion>01.164</GenComponentVersion>
     <GenDriverVersion>01.11</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1232962186</HeaderAge>
-    <CodeAge>1232962186</CodeAge>
+    <HeaderAge>1234659365</HeaderAge>
+    <CodeAge>1234659365</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>22</GenNumMethods>
     <Init>true</Init>
@@ -2227,83 +2168,55 @@
   </ComponentID_35>
   <ComponentID_36>
     <Generated>true</Generated>
-    <GenCompName>Motor_A_In_2</GenCompName>
+    <GenCompName>Motor_A_In2</GenCompName>
     <GenComponentVersion>02.241</GenComponentVersion>
     <GenDriverVersion>01.01</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1232962186</HeaderAge>
-    <CodeAge>1232962186</CodeAge>
+    <HeaderAge>1234665895</HeaderAge>
+    <CodeAge>1234665895</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>14</GenNumMethods>
     <Enable>false</Enable>
     <Disable>false</Disable>
     <EnableEvent>false</EnableEvent>
     <DisableEvent>false</DisableEvent>
-    <SetRatio8>false</SetRatio8>
-    <SetRatio16>true</SetRatio16>
+    <SetRatio8>true</SetRatio8>
+    <SetRatio16>false</SetRatio16>
     <SetDutyTicks16>false</SetDutyTicks16>
     <SetDutyTicks32>false</SetDutyTicks32>
-    <SetDutyUS>true</SetDutyUS>
-    <SetDutyMS>true</SetDutyMS>
+    <SetDutyUS>false</SetDutyUS>
+    <SetDutyMS>false</SetDutyMS>
     <SetDutySec>false</SetDutySec>
     <SetDutyReal>false</SetDutyReal>
     <SetValue>false</SetValue>
     <ClrValue>false</ClrValue>
     <GenNumEvents>3</GenNumEvents>
     <BeforeNewSpeed_Selected>0</BeforeNewSpeed_Selected>
-    <BeforeNewSpeed_Name>Motor_A_In_2_BeforeNewSpeed</BeforeNewSpeed_Name>
+    <BeforeNewSpeed_Name>Motor_A_In2_BeforeNewSpeed</BeforeNewSpeed_Name>
     <BeforeNewSpeed_Priority>interrupts disabled</BeforeNewSpeed_Priority>
     <AfterNewSpeed_Selected>0</AfterNewSpeed_Selected>
-    <AfterNewSpeed_Name>Motor_A_In_2_AfterNewSpeed</AfterNewSpeed_Name>
+    <AfterNewSpeed_Name>Motor_A_In2_AfterNewSpeed</AfterNewSpeed_Name>
     <AfterNewSpeed_Priority>interrupts disabled</AfterNewSpeed_Priority>
     <OnEnd_Selected>0</OnEnd_Selected>
-    <OnEnd_Name>Motor_A_In_2_OnEnd</OnEnd_Name>
+    <OnEnd_Name>Motor_A_In2_OnEnd</OnEnd_Name>
     <OnEnd_Priority>same as interrupt</OnEnd_Priority>
     <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
     <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
     <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
-    <GenMethodPos>6</GenMethodPos>
+    <GenMethodPos>2</GenMethodPos>
     <MethodPos>
-      <MethodPos0>SetRatio16</MethodPos0>
+      <MethodPos0>SetRatio8</MethodPos0>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>107</LineBeg>
-      <LineEnd>130</LineEnd>
+      <LineBeg>105</LineBeg>
+      <LineEnd>128</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos1>SetDutyUS</MethodPos1>
-      <MethodType>method</MethodType>
-      <ModuleType>Header</ModuleType>
-      <LineBeg>131</LineBeg>
-      <LineEnd>152</LineEnd>
-    </MethodPos>
-    <MethodPos>
-      <MethodPos2>SetDutyMS</MethodPos2>
-      <MethodType>method</MethodType>
-      <ModuleType>Header</ModuleType>
-      <LineBeg>153</LineBeg>
-      <LineEnd>174</LineEnd>
-    </MethodPos>
-    <MethodPos>
-      <MethodPos3>SetRatio16</MethodPos3>
+      <MethodPos1>SetRatio8</MethodPos1>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>91</LineBeg>
-      <LineEnd>117</LineEnd>
-    </MethodPos>
-    <MethodPos>
-      <MethodPos4>SetDutyUS</MethodPos4>
-      <MethodType>method</MethodType>
-      <ModuleType>Code</ModuleType>
-      <LineBeg>118</LineBeg>
-      <LineEnd>142</LineEnd>
-    </MethodPos>
-    <MethodPos>
-      <MethodPos5>SetDutyMS</MethodPos5>
-      <MethodType>method</MethodType>
-      <ModuleType>Code</ModuleType>
-      <LineBeg>143</LineBeg>
-      <LineEnd>167</LineEnd>
+      <LineBeg>89</LineBeg>
+      <LineEnd>115</LineEnd>
     </MethodPos>
     <GenExtraFilesCount>0</GenExtraFilesCount>
     <InhrCompID_37>
@@ -2312,8 +2225,8 @@
       <GenComponentVersion>01.014</GenComponentVersion>
       <GenDriverVersion>01.03</GenDriverVersion>
       <GenEventModule>Events</GenEventModule>
-      <HeaderAge>1232962186</HeaderAge>
-      <CodeAge>1232962186</CodeAge>
+      <HeaderAge>1234663003</HeaderAge>
+      <CodeAge>1234663003</CodeAge>
       <AsemblAge>-1</AsemblAge>
       <GenNumMethods>18</GenNumMethods>
       <Init>true</Init>
@@ -2323,10 +2236,10 @@
       <SetEventMask>false</SetEventMask>
       <GetEventMask>false</GetEventMask>
       <GetEventStatus>false</GetEventStatus>
-      <SetRatio8>false</SetRatio8>
-      <SetRatio16>true</SetRatio16>
-      <SetDutyUS>true</SetDutyUS>
-      <SetDutyMS>true</SetDutyMS>
+      <SetRatio8>true</SetRatio8>
+      <SetRatio16>false</SetRatio16>
+      <SetDutyUS>false</SetDutyUS>
+      <SetDutyMS>false</SetDutyMS>
       <SetDutySec>false</SetDutySec>
       <SetDutyReal>false</SetDutyReal>
       <SetValue>false</SetValue>
@@ -2341,76 +2254,48 @@
       <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
       <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
       <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
-      <GenMethodPos>10</GenMethodPos>
+      <GenMethodPos>6</GenMethodPos>
       <MethodPos>
         <MethodPos0>Init</MethodPos0>
         <MethodType>method</MethodType>
         <ModuleType>Header</ModuleType>
-        <LineBeg>135</LineBeg>
-        <LineEnd>160</LineEnd>
+        <LineBeg>131</LineBeg>
+        <LineEnd>156</LineEnd>
       </MethodPos>
       <MethodPos>
-        <MethodPos1>SetRatio16</MethodPos1>
+        <MethodPos1>SetRatio8</MethodPos1>
         <MethodType>method</MethodType>
         <ModuleType>Header</ModuleType>
-        <LineBeg>161</LineBeg>
-        <LineEnd>188</LineEnd>
+        <LineBeg>157</LineBeg>
+        <LineEnd>184</LineEnd>
       </MethodPos>
       <MethodPos>
-        <MethodPos2>SetDutyUS</MethodPos2>
-        <MethodType>method</MethodType>
-        <ModuleType>Header</ModuleType>
-        <LineBeg>189</LineBeg>
-        <LineEnd>215</LineEnd>
-      </MethodPos>
-      <MethodPos>
-        <MethodPos3>SetDutyMS</MethodPos3>
-        <MethodType>method</MethodType>
-        <ModuleType>Header</ModuleType>
-        <LineBeg>216</LineBeg>
-        <LineEnd>242</LineEnd>
-      </MethodPos>
-      <MethodPos>
-        <MethodPos4>SetRatio</MethodPos4>
+        <MethodPos2>SetRatio</MethodPos2>
         <MethodType>internal_method_declaration</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>116</LineBeg>
-        <LineEnd>116</LineEnd>
+        <LineBeg>114</LineBeg>
+        <LineEnd>114</LineEnd>
       </MethodPos>
       <MethodPos>
-        <MethodPos5>Init</MethodPos5>
+        <MethodPos3>Init</MethodPos3>
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>117</LineBeg>
-        <LineEnd>164</LineEnd>
+        <LineBeg>115</LineBeg>
+        <LineEnd>162</LineEnd>
       </MethodPos>
       <MethodPos>
-        <MethodPos6>SetRatio16</MethodPos6>
+        <MethodPos4>SetRatio8</MethodPos4>
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>165</LineBeg>
-        <LineEnd>199</LineEnd>
+        <LineBeg>163</LineBeg>
+        <LineEnd>197</LineEnd>
       </MethodPos>
       <MethodPos>
-        <MethodPos7>SetDutyUS</MethodPos7>
-        <MethodType>method</MethodType>
-        <ModuleType>Code</ModuleType>
-        <LineBeg>200</LineBeg>
-        <LineEnd>245</LineEnd>
-      </MethodPos>
-      <MethodPos>
-        <MethodPos8>SetDutyMS</MethodPos8>
-        <MethodType>method</MethodType>
-        <ModuleType>Code</ModuleType>
-        <LineBeg>246</LineBeg>
-        <LineEnd>291</LineEnd>
-      </MethodPos>
-      <MethodPos>
-        <MethodPos9>SetRatio</MethodPos9>
+        <MethodPos5>SetRatio</MethodPos5>
         <MethodType>internal_method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>292</LineBeg>
-        <LineEnd>316</LineEnd>
+        <LineBeg>198</LineBeg>
+        <LineEnd>222</LineEnd>
       </MethodPos>
       <GenExtraFilesCount>1</GenExtraFilesCount>
       <ExtraFile0>Documentation\doxygen\PwmLdd2_component.txt</ExtraFile0>
@@ -2422,20 +2307,20 @@
     <GenComponentVersion>02.241</GenComponentVersion>
     <GenDriverVersion>01.01</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1232962001</HeaderAge>
-    <CodeAge>1232962001</CodeAge>
+    <HeaderAge>1234663003</HeaderAge>
+    <CodeAge>1234663003</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>14</GenNumMethods>
     <Enable>false</Enable>
     <Disable>false</Disable>
     <EnableEvent>false</EnableEvent>
     <DisableEvent>false</DisableEvent>
-    <SetRatio8>false</SetRatio8>
-    <SetRatio16>true</SetRatio16>
+    <SetRatio8>true</SetRatio8>
+    <SetRatio16>false</SetRatio16>
     <SetDutyTicks16>false</SetDutyTicks16>
     <SetDutyTicks32>false</SetDutyTicks32>
-    <SetDutyUS>true</SetDutyUS>
-    <SetDutyMS>true</SetDutyMS>
+    <SetDutyUS>false</SetDutyUS>
+    <SetDutyMS>false</SetDutyMS>
     <SetDutySec>false</SetDutySec>
     <SetDutyReal>false</SetDutyReal>
     <SetValue>false</SetValue>
@@ -2453,48 +2338,20 @@
     <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
     <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
     <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
-    <GenMethodPos>6</GenMethodPos>
+    <GenMethodPos>2</GenMethodPos>
     <MethodPos>
-      <MethodPos0>SetRatio16</MethodPos0>
+      <MethodPos0>SetRatio8</MethodPos0>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>107</LineBeg>
-      <LineEnd>130</LineEnd>
+      <LineBeg>105</LineBeg>
+      <LineEnd>128</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos1>SetDutyUS</MethodPos1>
-      <MethodType>method</MethodType>
-      <ModuleType>Header</ModuleType>
-      <LineBeg>131</LineBeg>
-      <LineEnd>152</LineEnd>
-    </MethodPos>
-    <MethodPos>
-      <MethodPos2>SetDutyMS</MethodPos2>
-      <MethodType>method</MethodType>
-      <ModuleType>Header</ModuleType>
-      <LineBeg>153</LineBeg>
-      <LineEnd>174</LineEnd>
-    </MethodPos>
-    <MethodPos>
-      <MethodPos3>SetRatio16</MethodPos3>
+      <MethodPos1>SetRatio8</MethodPos1>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>91</LineBeg>
-      <LineEnd>117</LineEnd>
-    </MethodPos>
-    <MethodPos>
-      <MethodPos4>SetDutyUS</MethodPos4>
-      <MethodType>method</MethodType>
-      <ModuleType>Code</ModuleType>
-      <LineBeg>118</LineBeg>
-      <LineEnd>142</LineEnd>
-    </MethodPos>
-    <MethodPos>
-      <MethodPos5>SetDutyMS</MethodPos5>
-      <MethodType>method</MethodType>
-      <ModuleType>Code</ModuleType>
-      <LineBeg>143</LineBeg>
-      <LineEnd>167</LineEnd>
+      <LineBeg>89</LineBeg>
+      <LineEnd>115</LineEnd>
     </MethodPos>
     <GenExtraFilesCount>0</GenExtraFilesCount>
     <InhrCompID_39>
@@ -2503,8 +2360,8 @@
       <GenComponentVersion>01.014</GenComponentVersion>
       <GenDriverVersion>01.03</GenDriverVersion>
       <GenEventModule>Events</GenEventModule>
-      <HeaderAge>1232962001</HeaderAge>
-      <CodeAge>1232962001</CodeAge>
+      <HeaderAge>1234663003</HeaderAge>
+      <CodeAge>1234663003</CodeAge>
       <AsemblAge>-1</AsemblAge>
       <GenNumMethods>18</GenNumMethods>
       <Init>true</Init>
@@ -2514,10 +2371,10 @@
       <SetEventMask>false</SetEventMask>
       <GetEventMask>false</GetEventMask>
       <GetEventStatus>false</GetEventStatus>
-      <SetRatio8>false</SetRatio8>
-      <SetRatio16>true</SetRatio16>
-      <SetDutyUS>true</SetDutyUS>
-      <SetDutyMS>true</SetDutyMS>
+      <SetRatio8>true</SetRatio8>
+      <SetRatio16>false</SetRatio16>
+      <SetDutyUS>false</SetDutyUS>
+      <SetDutyMS>false</SetDutyMS>
       <SetDutySec>false</SetDutySec>
       <SetDutyReal>false</SetDutyReal>
       <SetValue>false</SetValue>
@@ -2532,76 +2389,48 @@
       <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
       <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
       <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
-      <GenMethodPos>10</GenMethodPos>
+      <GenMethodPos>6</GenMethodPos>
       <MethodPos>
         <MethodPos0>Init</MethodPos0>
         <MethodType>method</MethodType>
         <ModuleType>Header</ModuleType>
-        <LineBeg>135</LineBeg>
-        <LineEnd>160</LineEnd>
+        <LineBeg>131</LineBeg>
+        <LineEnd>156</LineEnd>
       </MethodPos>
       <MethodPos>
-        <MethodPos1>SetRatio16</MethodPos1>
+        <MethodPos1>SetRatio8</MethodPos1>
         <MethodType>method</MethodType>
         <ModuleType>Header</ModuleType>
-        <LineBeg>161</LineBeg>
-        <LineEnd>188</LineEnd>
+        <LineBeg>157</LineBeg>
+        <LineEnd>184</LineEnd>
       </MethodPos>
       <MethodPos>
-        <MethodPos2>SetDutyUS</MethodPos2>
-        <MethodType>method</MethodType>
-        <ModuleType>Header</ModuleType>
-        <LineBeg>189</LineBeg>
-        <LineEnd>215</LineEnd>
-      </MethodPos>
-      <MethodPos>
-        <MethodPos3>SetDutyMS</MethodPos3>
-        <MethodType>method</MethodType>
-        <ModuleType>Header</ModuleType>
-        <LineBeg>216</LineBeg>
-        <LineEnd>242</LineEnd>
-      </MethodPos>
-      <MethodPos>
-        <MethodPos4>SetRatio</MethodPos4>
+        <MethodPos2>SetRatio</MethodPos2>
         <MethodType>internal_method_declaration</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>116</LineBeg>
-        <LineEnd>116</LineEnd>
+        <LineBeg>114</LineBeg>
+        <LineEnd>114</LineEnd>
       </MethodPos>
       <MethodPos>
-        <MethodPos5>Init</MethodPos5>
+        <MethodPos3>Init</MethodPos3>
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>117</LineBeg>
-        <LineEnd>164</LineEnd>
+        <LineBeg>115</LineBeg>
+        <LineEnd>162</LineEnd>
       </MethodPos>
       <MethodPos>
-        <MethodPos6>SetRatio16</MethodPos6>
+        <MethodPos4>SetRatio8</MethodPos4>
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>165</LineBeg>
-        <LineEnd>199</LineEnd>
+        <LineBeg>163</LineBeg>
+        <LineEnd>197</LineEnd>
       </MethodPos>
       <MethodPos>
-        <MethodPos7>SetDutyUS</MethodPos7>
-        <MethodType>method</MethodType>
-        <ModuleType>Code</ModuleType>
-        <LineBeg>200</LineBeg>
-        <LineEnd>245</LineEnd>
-      </MethodPos>
-      <MethodPos>
-        <MethodPos8>SetDutyMS</MethodPos8>
-        <MethodType>method</MethodType>
-        <ModuleType>Code</ModuleType>
-        <LineBeg>246</LineBeg>
-        <LineEnd>291</LineEnd>
-      </MethodPos>
-      <MethodPos>
-        <MethodPos9>SetRatio</MethodPos9>
+        <MethodPos5>SetRatio</MethodPos5>
         <MethodType>internal_method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>292</LineBeg>
-        <LineEnd>316</LineEnd>
+        <LineBeg>198</LineBeg>
+        <LineEnd>222</LineEnd>
       </MethodPos>
       <GenExtraFilesCount>1</GenExtraFilesCount>
       <ExtraFile0>Documentation\doxygen\PwmLdd3_component.txt</ExtraFile0>
@@ -2613,20 +2442,20 @@
     <GenComponentVersion>02.241</GenComponentVersion>
     <GenDriverVersion>01.01</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1232962186</HeaderAge>
-    <CodeAge>1232962186</CodeAge>
+    <HeaderAge>1234663003</HeaderAge>
+    <CodeAge>1234663003</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>14</GenNumMethods>
     <Enable>false</Enable>
     <Disable>false</Disable>
     <EnableEvent>false</EnableEvent>
     <DisableEvent>false</DisableEvent>
-    <SetRatio8>false</SetRatio8>
-    <SetRatio16>true</SetRatio16>
+    <SetRatio8>true</SetRatio8>
+    <SetRatio16>false</SetRatio16>
     <SetDutyTicks16>false</SetDutyTicks16>
     <SetDutyTicks32>false</SetDutyTicks32>
-    <SetDutyUS>true</SetDutyUS>
-    <SetDutyMS>true</SetDutyMS>
+    <SetDutyUS>false</SetDutyUS>
+    <SetDutyMS>false</SetDutyMS>
     <SetDutySec>false</SetDutySec>
     <SetDutyReal>false</SetDutyReal>
     <SetValue>false</SetValue>
@@ -2644,48 +2473,20 @@
     <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
     <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
     <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
-    <GenMethodPos>6</GenMethodPos>
+    <GenMethodPos>2</GenMethodPos>
     <MethodPos>
-      <MethodPos0>SetRatio16</MethodPos0>
+      <MethodPos0>SetRatio8</MethodPos0>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>107</LineBeg>
-      <LineEnd>130</LineEnd>
+      <LineBeg>105</LineBeg>
+      <LineEnd>128</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos1>SetDutyUS</MethodPos1>
-      <MethodType>method</MethodType>
-      <ModuleType>Header</ModuleType>
-      <LineBeg>131</LineBeg>
-      <LineEnd>152</LineEnd>
-    </MethodPos>
-    <MethodPos>
-      <MethodPos2>SetDutyMS</MethodPos2>
-      <MethodType>method</MethodType>
-      <ModuleType>Header</ModuleType>
-      <LineBeg>153</LineBeg>
-      <LineEnd>174</LineEnd>
-    </MethodPos>
-    <MethodPos>
-      <MethodPos3>SetRatio16</MethodPos3>
+      <MethodPos1>SetRatio8</MethodPos1>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>91</LineBeg>
-      <LineEnd>117</LineEnd>
-    </MethodPos>
-    <MethodPos>
-      <MethodPos4>SetDutyUS</MethodPos4>
-      <MethodType>method</MethodType>
-      <ModuleType>Code</ModuleType>
-      <LineBeg>118</LineBeg>
-      <LineEnd>142</LineEnd>
-    </MethodPos>
-    <MethodPos>
-      <MethodPos5>SetDutyMS</MethodPos5>
-      <MethodType>method</MethodType>
-      <ModuleType>Code</ModuleType>
-      <LineBeg>143</LineBeg>
-      <LineEnd>167</LineEnd>
+      <LineBeg>89</LineBeg>
+      <LineEnd>115</LineEnd>
     </MethodPos>
     <GenExtraFilesCount>0</GenExtraFilesCount>
     <InhrCompID_41>
@@ -2694,8 +2495,8 @@
       <GenComponentVersion>01.014</GenComponentVersion>
       <GenDriverVersion>01.03</GenDriverVersion>
       <GenEventModule>Events</GenEventModule>
-      <HeaderAge>1232962186</HeaderAge>
-      <CodeAge>1232962186</CodeAge>
+      <HeaderAge>1234663003</HeaderAge>
+      <CodeAge>1234663003</CodeAge>
       <AsemblAge>-1</AsemblAge>
       <GenNumMethods>18</GenNumMethods>
       <Init>true</Init>
@@ -2705,10 +2506,10 @@
       <SetEventMask>false</SetEventMask>
       <GetEventMask>false</GetEventMask>
       <GetEventStatus>false</GetEventStatus>
-      <SetRatio8>false</SetRatio8>
-      <SetRatio16>true</SetRatio16>
-      <SetDutyUS>true</SetDutyUS>
-      <SetDutyMS>true</SetDutyMS>
+      <SetRatio8>true</SetRatio8>
+      <SetRatio16>false</SetRatio16>
+      <SetDutyUS>false</SetDutyUS>
+      <SetDutyMS>false</SetDutyMS>
       <SetDutySec>false</SetDutySec>
       <SetDutyReal>false</SetDutyReal>
       <SetValue>false</SetValue>
@@ -2723,76 +2524,48 @@
       <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
       <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
       <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
-      <GenMethodPos>10</GenMethodPos>
+      <GenMethodPos>6</GenMethodPos>
       <MethodPos>
         <MethodPos0>Init</MethodPos0>
         <MethodType>method</MethodType>
         <ModuleType>Header</ModuleType>
-        <LineBeg>135</LineBeg>
-        <LineEnd>160</LineEnd>
+        <LineBeg>131</LineBeg>
+        <LineEnd>156</LineEnd>
       </MethodPos>
       <MethodPos>
-        <MethodPos1>SetRatio16</MethodPos1>
+        <MethodPos1>SetRatio8</MethodPos1>
         <MethodType>method</MethodType>
         <ModuleType>Header</ModuleType>
-        <LineBeg>161</LineBeg>
-        <LineEnd>188</LineEnd>
+        <LineBeg>157</LineBeg>
+        <LineEnd>184</LineEnd>
       </MethodPos>
       <MethodPos>
-        <MethodPos2>SetDutyUS</MethodPos2>
-        <MethodType>method</MethodType>
-        <ModuleType>Header</ModuleType>
-        <LineBeg>189</LineBeg>
-        <LineEnd>215</LineEnd>
-      </MethodPos>
-      <MethodPos>
-        <MethodPos3>SetDutyMS</MethodPos3>
-        <MethodType>method</MethodType>
-        <ModuleType>Header</ModuleType>
-        <LineBeg>216</LineBeg>
-        <LineEnd>242</LineEnd>
-      </MethodPos>
-      <MethodPos>
-        <MethodPos4>SetRatio</MethodPos4>
+        <MethodPos2>SetRatio</MethodPos2>
         <MethodType>internal_method_declaration</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>116</LineBeg>
-        <LineEnd>116</LineEnd>
+        <LineBeg>114</LineBeg>
+        <LineEnd>114</LineEnd>
       </MethodPos>
       <MethodPos>
-        <MethodPos5>Init</MethodPos5>
+        <MethodPos3>Init</MethodPos3>
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>117</LineBeg>
-        <LineEnd>164</LineEnd>
+        <LineBeg>115</LineBeg>
+        <LineEnd>162</LineEnd>
       </MethodPos>
       <MethodPos>
-        <MethodPos6>SetRatio16</MethodPos6>
+        <MethodPos4>SetRatio8</MethodPos4>
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>165</LineBeg>
-        <LineEnd>199</LineEnd>
+        <LineBeg>163</LineBeg>
+        <LineEnd>197</LineEnd>
       </MethodPos>
       <MethodPos>
-        <MethodPos7>SetDutyUS</MethodPos7>
-        <MethodType>method</MethodType>
-        <ModuleType>Code</ModuleType>
-        <LineBeg>200</LineBeg>
-        <LineEnd>245</LineEnd>
-      </MethodPos>
-      <MethodPos>
-        <MethodPos8>SetDutyMS</MethodPos8>
-        <MethodType>method</MethodType>
-        <ModuleType>Code</ModuleType>
-        <LineBeg>246</LineBeg>
-        <LineEnd>291</LineEnd>
-      </MethodPos>
-      <MethodPos>
-        <MethodPos9>SetRatio</MethodPos9>
+        <MethodPos5>SetRatio</MethodPos5>
         <MethodType>internal_method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>292</LineBeg>
-        <LineEnd>316</LineEnd>
+        <LineBeg>198</LineBeg>
+        <LineEnd>222</LineEnd>
       </MethodPos>
       <GenExtraFilesCount>1</GenExtraFilesCount>
       <ExtraFile0>Documentation\doxygen\PwmLdd4_component.txt</ExtraFile0>
@@ -2804,12 +2577,12 @@
     <GenComponentVersion>02.241</GenComponentVersion>
     <GenDriverVersion>01.01</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1232962515</HeaderAge>
-    <CodeAge>1232962515</CodeAge>
+    <HeaderAge>1235069441</HeaderAge>
+    <CodeAge>1235069441</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>14</GenNumMethods>
-    <Enable>false</Enable>
-    <Disable>false</Disable>
+    <Enable>true</Enable>
+    <Disable>true</Disable>
     <EnableEvent>false</EnableEvent>
     <DisableEvent>false</DisableEvent>
     <SetRatio8>false</SetRatio8>
@@ -2835,48 +2608,76 @@
     <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
     <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
     <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
-    <GenMethodPos>6</GenMethodPos>
+    <GenMethodPos>10</GenMethodPos>
     <MethodPos>
-      <MethodPos0>SetRatio16</MethodPos0>
+      <MethodPos0>Enable</MethodPos0>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>107</LineBeg>
-      <LineEnd>130</LineEnd>
+      <LineBeg>109</LineBeg>
+      <LineEnd>125</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos1>SetDutyUS</MethodPos1>
+      <MethodPos1>Disable</MethodPos1>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>131</LineBeg>
-      <LineEnd>152</LineEnd>
-    </MethodPos>
-    <MethodPos>
-      <MethodPos2>SetDutyMS</MethodPos2>
-      <MethodType>method</MethodType>
-      <ModuleType>Header</ModuleType>
-      <LineBeg>153</LineBeg>
-      <LineEnd>174</LineEnd>
-    </MethodPos>
-    <MethodPos>
-      <MethodPos3>SetRatio16</MethodPos3>
-      <MethodType>method</MethodType>
-      <ModuleType>Code</ModuleType>
-      <LineBeg>91</LineBeg>
-      <LineEnd>117</LineEnd>
-    </MethodPos>
-    <MethodPos>
-      <MethodPos4>SetDutyUS</MethodPos4>
-      <MethodType>method</MethodType>
-      <ModuleType>Code</ModuleType>
-      <LineBeg>118</LineBeg>
+      <LineBeg>126</LineBeg>
       <LineEnd>142</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos5>SetDutyMS</MethodPos5>
+      <MethodPos2>SetRatio16</MethodPos2>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>143</LineBeg>
+      <LineEnd>166</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos3>SetDutyUS</MethodPos3>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>167</LineBeg>
+      <LineEnd>188</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos4>SetDutyMS</MethodPos4>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>189</LineBeg>
+      <LineEnd>210</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos5>Enable</MethodPos5>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>143</LineBeg>
-      <LineEnd>167</LineEnd>
+      <LineBeg>93</LineBeg>
+      <LineEnd>112</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos6>Disable</MethodPos6>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>113</LineBeg>
+      <LineEnd>132</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos7>SetRatio16</MethodPos7>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>133</LineBeg>
+      <LineEnd>159</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos8>SetDutyUS</MethodPos8>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>160</LineBeg>
+      <LineEnd>184</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos9>SetDutyMS</MethodPos9>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>185</LineBeg>
+      <LineEnd>209</LineEnd>
     </MethodPos>
     <GenExtraFilesCount>0</GenExtraFilesCount>
     <InhrCompID_44>
@@ -2885,14 +2686,14 @@
       <GenComponentVersion>01.014</GenComponentVersion>
       <GenDriverVersion>01.03</GenDriverVersion>
       <GenEventModule>Events</GenEventModule>
-      <HeaderAge>1232962515</HeaderAge>
-      <CodeAge>1232962515</CodeAge>
+      <HeaderAge>1235069441</HeaderAge>
+      <CodeAge>1235069441</CodeAge>
       <AsemblAge>-1</AsemblAge>
       <GenNumMethods>18</GenNumMethods>
       <Init>true</Init>
       <Deinit>false</Deinit>
-      <Enable>false</Enable>
-      <Disable>false</Disable>
+      <Enable>true</Enable>
+      <Disable>true</Disable>
       <SetEventMask>false</SetEventMask>
       <GetEventMask>false</GetEventMask>
       <GetEventStatus>false</GetEventStatus>
@@ -2914,76 +2715,104 @@
       <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
       <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
       <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
-      <GenMethodPos>10</GenMethodPos>
+      <GenMethodPos>14</GenMethodPos>
       <MethodPos>
         <MethodPos0>Init</MethodPos0>
         <MethodType>method</MethodType>
         <ModuleType>Header</ModuleType>
-        <LineBeg>135</LineBeg>
-        <LineEnd>160</LineEnd>
-      </MethodPos>
-      <MethodPos>
-        <MethodPos1>SetRatio16</MethodPos1>
-        <MethodType>method</MethodType>
-        <ModuleType>Header</ModuleType>
-        <LineBeg>161</LineBeg>
-        <LineEnd>188</LineEnd>
-      </MethodPos>
-      <MethodPos>
-        <MethodPos2>SetDutyUS</MethodPos2>
-        <MethodType>method</MethodType>
-        <ModuleType>Header</ModuleType>
-        <LineBeg>189</LineBeg>
-        <LineEnd>215</LineEnd>
-      </MethodPos>
-      <MethodPos>
-        <MethodPos3>SetDutyMS</MethodPos3>
-        <MethodType>method</MethodType>
-        <ModuleType>Header</ModuleType>
-        <LineBeg>216</LineBeg>
-        <LineEnd>242</LineEnd>
-      </MethodPos>
-      <MethodPos>
-        <MethodPos4>SetRatio</MethodPos4>
-        <MethodType>internal_method_declaration</MethodType>
-        <ModuleType>Code</ModuleType>
-        <LineBeg>116</LineBeg>
-        <LineEnd>116</LineEnd>
-      </MethodPos>
-      <MethodPos>
-        <MethodPos5>Init</MethodPos5>
-        <MethodType>method</MethodType>
-        <ModuleType>Code</ModuleType>
-        <LineBeg>117</LineBeg>
+        <LineBeg>139</LineBeg>
         <LineEnd>164</LineEnd>
       </MethodPos>
       <MethodPos>
-        <MethodPos6>SetRatio16</MethodPos6>
+        <MethodPos1>Enable</MethodPos1>
         <MethodType>method</MethodType>
-        <ModuleType>Code</ModuleType>
+        <ModuleType>Header</ModuleType>
         <LineBeg>165</LineBeg>
-        <LineEnd>199</LineEnd>
+        <LineEnd>184</LineEnd>
       </MethodPos>
       <MethodPos>
-        <MethodPos7>SetDutyUS</MethodPos7>
+        <MethodPos2>Disable</MethodPos2>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>185</LineBeg>
+        <LineEnd>204</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos3>SetRatio16</MethodPos3>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>205</LineBeg>
+        <LineEnd>232</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos4>SetDutyUS</MethodPos4>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>233</LineBeg>
+        <LineEnd>259</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos5>SetDutyMS</MethodPos5>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>260</LineBeg>
+        <LineEnd>286</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos6>SetRatio</MethodPos6>
+        <MethodType>internal_method_declaration</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>118</LineBeg>
+        <LineEnd>118</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos7>Init</MethodPos7>
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>200</LineBeg>
-        <LineEnd>245</LineEnd>
+        <LineBeg>119</LineBeg>
+        <LineEnd>166</LineEnd>
       </MethodPos>
       <MethodPos>
-        <MethodPos8>SetDutyMS</MethodPos8>
+        <MethodPos8>Enable</MethodPos8>
         <MethodType>method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>246</LineBeg>
-        <LineEnd>291</LineEnd>
+        <LineBeg>167</LineBeg>
+        <LineEnd>195</LineEnd>
       </MethodPos>
       <MethodPos>
-        <MethodPos9>SetRatio</MethodPos9>
+        <MethodPos9>Disable</MethodPos9>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>196</LineBeg>
+        <LineEnd>225</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos10>SetRatio16</MethodPos10>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>226</LineBeg>
+        <LineEnd>260</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos11>SetDutyUS</MethodPos11>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>261</LineBeg>
+        <LineEnd>306</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos12>SetDutyMS</MethodPos12>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>307</LineBeg>
+        <LineEnd>352</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos13>SetRatio</MethodPos13>
         <MethodType>internal_method</MethodType>
         <ModuleType>Code</ModuleType>
-        <LineBeg>292</LineBeg>
-        <LineEnd>316</LineEnd>
+        <LineBeg>353</LineBeg>
+        <LineEnd>377</LineEnd>
       </MethodPos>
       <GenExtraFilesCount>1</GenExtraFilesCount>
       <ExtraFile0>Documentation\doxygen\PwmLdd5_component.txt</ExtraFile0>
@@ -2995,14 +2824,14 @@
     <GenComponentVersion>01.164</GenComponentVersion>
     <GenDriverVersion>01.11</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1232962515</HeaderAge>
-    <CodeAge>1232962515</CodeAge>
+    <HeaderAge>1235069441</HeaderAge>
+    <CodeAge>1235069441</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>22</GenNumMethods>
     <Init>true</Init>
     <Deinit>false</Deinit>
-    <Enable>false</Enable>
-    <Disable>false</Disable>
+    <Enable>true</Enable>
+    <Disable>true</Disable>
     <SetEventMask>false</SetEventMask>
     <GetEventMask>false</GetEventMask>
     <GetEventStatus>false</GetEventStatus>
@@ -3011,7 +2840,7 @@
     <GetInputFrequency>false</GetInputFrequency>
     <SetPeriodTicks>false</SetPeriodTicks>
     <GetPeriodTicks>true</GetPeriodTicks>
-    <ResetCounter>false</ResetCounter>
+    <ResetCounter>true</ResetCounter>
     <GetCounterValue>true</GetCounterValue>
     <SetOffsetTicks>true</SetOffsetTicks>
     <GetOffsetTicks>true</GetOffsetTicks>
@@ -3056,94 +2885,1420 @@
     <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
     <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
     <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
-    <GenMethodPos>12</GenMethodPos>
+    <GenMethodPos>18</GenMethodPos>
     <MethodPos>
       <MethodPos0>Init</MethodPos0>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>157</LineBeg>
-      <LineEnd>182</LineEnd>
+      <LineBeg>163</LineBeg>
+      <LineEnd>188</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos1>GetPeriodTicks</MethodPos1>
+      <MethodPos1>Enable</MethodPos1>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>183</LineBeg>
-      <LineEnd>208</LineEnd>
+      <LineBeg>189</LineBeg>
+      <LineEnd>209</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos2>GetCounterValue</MethodPos2>
+      <MethodPos2>Disable</MethodPos2>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>209</LineBeg>
-      <LineEnd>227</LineEnd>
+      <LineBeg>210</LineBeg>
+      <LineEnd>230</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos3>SetOffsetTicks</MethodPos3>
+      <MethodPos3>GetPeriodTicks</MethodPos3>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>228</LineBeg>
-      <LineEnd>261</LineEnd>
+      <LineBeg>231</LineBeg>
+      <LineEnd>256</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos4>GetOffsetTicks</MethodPos4>
+      <MethodPos4>ResetCounter</MethodPos4>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>262</LineBeg>
-      <LineEnd>293</LineEnd>
+      <LineBeg>257</LineBeg>
+      <LineEnd>279</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos5>SelectOutputAction</MethodPos5>
+      <MethodPos5>GetCounterValue</MethodPos5>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>294</LineBeg>
-      <LineEnd>328</LineEnd>
+      <LineBeg>280</LineBeg>
+      <LineEnd>298</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos6>Init</MethodPos6>
+      <MethodPos6>SetOffsetTicks</MethodPos6>
       <MethodType>method</MethodType>
-      <ModuleType>Code</ModuleType>
-      <LineBeg>139</LineBeg>
-      <LineEnd>212</LineEnd>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>299</LineBeg>
+      <LineEnd>332</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos7>GetPeriodTicks</MethodPos7>
+      <MethodPos7>GetOffsetTicks</MethodPos7>
       <MethodType>method</MethodType>
-      <ModuleType>Code</ModuleType>
-      <LineBeg>213</LineBeg>
-      <LineEnd>246</LineEnd>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>333</LineBeg>
+      <LineEnd>364</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos8>GetCounterValue</MethodPos8>
+      <MethodPos8>SelectOutputAction</MethodPos8>
       <MethodType>method</MethodType>
-      <ModuleType>Code</ModuleType>
-      <LineBeg>247</LineBeg>
-      <LineEnd>269</LineEnd>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>365</LineBeg>
+      <LineEnd>399</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos9>SetOffsetTicks</MethodPos9>
+      <MethodPos9>Init</MethodPos9>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>270</LineBeg>
-      <LineEnd>316</LineEnd>
+      <LineBeg>143</LineBeg>
+      <LineEnd>217</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos10>GetOffsetTicks</MethodPos10>
+      <MethodPos10>Enable</MethodPos10>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>317</LineBeg>
-      <LineEnd>361</LineEnd>
+      <LineBeg>218</LineBeg>
+      <LineEnd>244</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos11>SelectOutputAction</MethodPos11>
+      <MethodPos11>Disable</MethodPos11>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>362</LineBeg>
-      <LineEnd>445</LineEnd>
+      <LineBeg>245</LineBeg>
+      <LineEnd>270</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos12>GetPeriodTicks</MethodPos12>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>271</LineBeg>
+      <LineEnd>304</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos13>ResetCounter</MethodPos13>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>305</LineBeg>
+      <LineEnd>332</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos14>GetCounterValue</MethodPos14>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>333</LineBeg>
+      <LineEnd>355</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos15>SetOffsetTicks</MethodPos15>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>356</LineBeg>
+      <LineEnd>402</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos16>GetOffsetTicks</MethodPos16>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>403</LineBeg>
+      <LineEnd>447</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos17>SelectOutputAction</MethodPos17>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>448</LineBeg>
+      <LineEnd>531</LineEnd>
     </MethodPos>
     <GenExtraFilesCount>1</GenExtraFilesCount>
     <ExtraFile0>Documentation\doxygen\TU3_component.txt</ExtraFile0>
   </ComponentID_45>
+  <ComponentID_48>
+    <Generated>true</Generated>
+    <GenCompName>SW2_Start_Button</GenCompName>
+    <GenComponentVersion>02.086</GenComponentVersion>
+    <GenDriverVersion>01.00</GenDriverVersion>
+    <GenEventModule />
+    <HeaderAge>1234397963</HeaderAge>
+    <CodeAge>1234397963</CodeAge>
+    <AsemblAge>-1</AsemblAge>
+    <GenNumMethods>11</GenNumMethods>
+    <GetDir>false</GetDir>
+    <SetDir>false</SetDir>
+    <SetInput>false</SetInput>
+    <SetOutput>false</SetOutput>
+    <GetVal>true</GetVal>
+    <PutVal>false</PutVal>
+    <ClrVal>false</ClrVal>
+    <SetVal>false</SetVal>
+    <NegVal>false</NegVal>
+    <ConnectPin>false</ConnectPin>
+    <GetRawVal>false</GetRawVal>
+    <GenNumEvents>0</GenNumEvents>
+    <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
+    <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
+    <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
+    <GenMethodPos>2</GenMethodPos>
+    <MethodPos>
+      <MethodPos0>GetVal</MethodPos0>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>98</LineBeg>
+      <LineEnd>116</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos1>GetVal</MethodPos1>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>84</LineBeg>
+      <LineEnd>106</LineEnd>
+    </MethodPos>
+    <GenExtraFilesCount>0</GenExtraFilesCount>
+    <InhrCompID_49>
+      <Generated>true</Generated>
+      <GenCompName>BitIoLdd3</GenCompName>
+      <GenComponentVersion>01.033</GenComponentVersion>
+      <GenDriverVersion>01.03</GenDriverVersion>
+      <GenEventModule />
+      <HeaderAge>1234397745</HeaderAge>
+      <CodeAge>1234397745</CodeAge>
+      <AsemblAge>-1</AsemblAge>
+      <GenNumMethods>13</GenNumMethods>
+      <Init>true</Init>
+      <Deinit>false</Deinit>
+      <GetDir>false</GetDir>
+      <SetDir>false</SetDir>
+      <SetInput>false</SetInput>
+      <SetOutput>false</SetOutput>
+      <GetVal>true</GetVal>
+      <PutVal>false</PutVal>
+      <ClrVal>false</ClrVal>
+      <SetVal>false</SetVal>
+      <NegVal>false</NegVal>
+      <ConnectPin>false</ConnectPin>
+      <GetRawVal>false</GetRawVal>
+      <GenNumEvents>0</GenNumEvents>
+      <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
+      <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
+      <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
+      <GenMethodPos>4</GenMethodPos>
+      <MethodPos>
+        <MethodPos0>Init</MethodPos0>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>117</LineBeg>
+        <LineEnd>140</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos1>GetVal</MethodPos1>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>141</LineBeg>
+        <LineEnd>162</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos2>Init</MethodPos2>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>93</LineBeg>
+        <LineEnd>139</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos3>GetVal</MethodPos3>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>140</LineBeg>
+        <LineEnd>168</LineEnd>
+      </MethodPos>
+      <GenExtraFilesCount>1</GenExtraFilesCount>
+      <ExtraFile0>Documentation\doxygen\BitIoLdd3_component.txt</ExtraFile0>
+    </InhrCompID_49>
+  </ComponentID_48>
+  <ComponentID_58>
+    <Generated>true</Generated>
+    <GenCompName>Power_Level1</GenCompName>
+    <GenComponentVersion>02.086</GenComponentVersion>
+    <GenDriverVersion>01.00</GenDriverVersion>
+    <GenEventModule />
+    <HeaderAge>1234830730</HeaderAge>
+    <CodeAge>1234830730</CodeAge>
+    <AsemblAge>-1</AsemblAge>
+    <GenNumMethods>11</GenNumMethods>
+    <GetDir>false</GetDir>
+    <SetDir>false</SetDir>
+    <SetInput>false</SetInput>
+    <SetOutput>false</SetOutput>
+    <GetVal>false</GetVal>
+    <PutVal>false</PutVal>
+    <ClrVal>true</ClrVal>
+    <SetVal>true</SetVal>
+    <NegVal>true</NegVal>
+    <ConnectPin>false</ConnectPin>
+    <GetRawVal>false</GetRawVal>
+    <GenNumEvents>0</GenNumEvents>
+    <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
+    <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
+    <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
+    <GenMethodPos>6</GenMethodPos>
+    <MethodPos>
+      <MethodPos0>ClrVal</MethodPos0>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>100</LineBeg>
+      <LineEnd>110</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos1>SetVal</MethodPos1>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>111</LineBeg>
+      <LineEnd>121</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos2>NegVal</MethodPos2>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>122</LineBeg>
+      <LineEnd>132</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos3>ClrVal</MethodPos3>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>86</LineBeg>
+      <LineEnd>100</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos4>SetVal</MethodPos4>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>101</LineBeg>
+      <LineEnd>115</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos5>NegVal</MethodPos5>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>116</LineBeg>
+      <LineEnd>130</LineEnd>
+    </MethodPos>
+    <GenExtraFilesCount>0</GenExtraFilesCount>
+    <InhrCompID_59>
+      <Generated>true</Generated>
+      <GenCompName>BitIoLdd5</GenCompName>
+      <GenComponentVersion>01.033</GenComponentVersion>
+      <GenDriverVersion>01.03</GenDriverVersion>
+      <GenEventModule />
+      <HeaderAge>1234830730</HeaderAge>
+      <CodeAge>1234830730</CodeAge>
+      <AsemblAge>-1</AsemblAge>
+      <GenNumMethods>13</GenNumMethods>
+      <Init>true</Init>
+      <Deinit>false</Deinit>
+      <GetDir>false</GetDir>
+      <SetDir>false</SetDir>
+      <SetInput>false</SetInput>
+      <SetOutput>false</SetOutput>
+      <GetVal>false</GetVal>
+      <PutVal>false</PutVal>
+      <ClrVal>true</ClrVal>
+      <SetVal>true</SetVal>
+      <NegVal>true</NegVal>
+      <ConnectPin>false</ConnectPin>
+      <GetRawVal>false</GetRawVal>
+      <GenNumEvents>0</GenNumEvents>
+      <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
+      <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
+      <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
+      <GenMethodPos>8</GenMethodPos>
+      <MethodPos>
+        <MethodPos0>Init</MethodPos0>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>121</LineBeg>
+        <LineEnd>144</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos1>ClrVal</MethodPos1>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>145</LineBeg>
+        <LineEnd>160</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos2>SetVal</MethodPos2>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>161</LineBeg>
+        <LineEnd>176</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos3>NegVal</MethodPos3>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>177</LineBeg>
+        <LineEnd>192</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos4>Init</MethodPos4>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>95</LineBeg>
+        <LineEnd>144</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos5>ClrVal</MethodPos5>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>145</LineBeg>
+        <LineEnd>164</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos6>SetVal</MethodPos6>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>165</LineBeg>
+        <LineEnd>184</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos7>NegVal</MethodPos7>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>185</LineBeg>
+        <LineEnd>204</LineEnd>
+      </MethodPos>
+      <GenExtraFilesCount>1</GenExtraFilesCount>
+      <ExtraFile0>Documentation\doxygen\BitIoLdd5_component.txt</ExtraFile0>
+    </InhrCompID_59>
+  </ComponentID_58>
+  <ComponentID_60>
+    <Generated>true</Generated>
+    <GenCompName>Power_Level2</GenCompName>
+    <GenComponentVersion>02.086</GenComponentVersion>
+    <GenDriverVersion>01.00</GenDriverVersion>
+    <GenEventModule />
+    <HeaderAge>1234830730</HeaderAge>
+    <CodeAge>1234830730</CodeAge>
+    <AsemblAge>-1</AsemblAge>
+    <GenNumMethods>11</GenNumMethods>
+    <GetDir>false</GetDir>
+    <SetDir>false</SetDir>
+    <SetInput>false</SetInput>
+    <SetOutput>false</SetOutput>
+    <GetVal>false</GetVal>
+    <PutVal>false</PutVal>
+    <ClrVal>true</ClrVal>
+    <SetVal>true</SetVal>
+    <NegVal>true</NegVal>
+    <ConnectPin>false</ConnectPin>
+    <GetRawVal>false</GetRawVal>
+    <GenNumEvents>0</GenNumEvents>
+    <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
+    <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
+    <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
+    <GenMethodPos>6</GenMethodPos>
+    <MethodPos>
+      <MethodPos0>ClrVal</MethodPos0>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>100</LineBeg>
+      <LineEnd>110</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos1>SetVal</MethodPos1>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>111</LineBeg>
+      <LineEnd>121</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos2>NegVal</MethodPos2>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>122</LineBeg>
+      <LineEnd>132</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos3>ClrVal</MethodPos3>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>86</LineBeg>
+      <LineEnd>100</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos4>SetVal</MethodPos4>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>101</LineBeg>
+      <LineEnd>115</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos5>NegVal</MethodPos5>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>116</LineBeg>
+      <LineEnd>130</LineEnd>
+    </MethodPos>
+    <GenExtraFilesCount>0</GenExtraFilesCount>
+    <InhrCompID_61>
+      <Generated>true</Generated>
+      <GenCompName>BitIoLdd6</GenCompName>
+      <GenComponentVersion>01.033</GenComponentVersion>
+      <GenDriverVersion>01.03</GenDriverVersion>
+      <GenEventModule />
+      <HeaderAge>1234830730</HeaderAge>
+      <CodeAge>1234830730</CodeAge>
+      <AsemblAge>-1</AsemblAge>
+      <GenNumMethods>13</GenNumMethods>
+      <Init>true</Init>
+      <Deinit>false</Deinit>
+      <GetDir>false</GetDir>
+      <SetDir>false</SetDir>
+      <SetInput>false</SetInput>
+      <SetOutput>false</SetOutput>
+      <GetVal>false</GetVal>
+      <PutVal>false</PutVal>
+      <ClrVal>true</ClrVal>
+      <SetVal>true</SetVal>
+      <NegVal>true</NegVal>
+      <ConnectPin>false</ConnectPin>
+      <GetRawVal>false</GetRawVal>
+      <GenNumEvents>0</GenNumEvents>
+      <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
+      <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
+      <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
+      <GenMethodPos>8</GenMethodPos>
+      <MethodPos>
+        <MethodPos0>Init</MethodPos0>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>121</LineBeg>
+        <LineEnd>144</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos1>ClrVal</MethodPos1>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>145</LineBeg>
+        <LineEnd>160</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos2>SetVal</MethodPos2>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>161</LineBeg>
+        <LineEnd>176</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos3>NegVal</MethodPos3>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>177</LineBeg>
+        <LineEnd>192</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos4>Init</MethodPos4>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>95</LineBeg>
+        <LineEnd>144</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos5>ClrVal</MethodPos5>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>145</LineBeg>
+        <LineEnd>164</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos6>SetVal</MethodPos6>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>165</LineBeg>
+        <LineEnd>184</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos7>NegVal</MethodPos7>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>185</LineBeg>
+        <LineEnd>204</LineEnd>
+      </MethodPos>
+      <GenExtraFilesCount>1</GenExtraFilesCount>
+      <ExtraFile0>Documentation\doxygen\BitIoLdd6_component.txt</ExtraFile0>
+    </InhrCompID_61>
+  </ComponentID_60>
+  <ComponentID_62>
+    <Generated>true</Generated>
+    <GenCompName>Power_Level3</GenCompName>
+    <GenComponentVersion>02.086</GenComponentVersion>
+    <GenDriverVersion>01.00</GenDriverVersion>
+    <GenEventModule />
+    <HeaderAge>1234830730</HeaderAge>
+    <CodeAge>1234830730</CodeAge>
+    <AsemblAge>-1</AsemblAge>
+    <GenNumMethods>11</GenNumMethods>
+    <GetDir>false</GetDir>
+    <SetDir>false</SetDir>
+    <SetInput>false</SetInput>
+    <SetOutput>false</SetOutput>
+    <GetVal>false</GetVal>
+    <PutVal>false</PutVal>
+    <ClrVal>true</ClrVal>
+    <SetVal>true</SetVal>
+    <NegVal>true</NegVal>
+    <ConnectPin>false</ConnectPin>
+    <GetRawVal>false</GetRawVal>
+    <GenNumEvents>0</GenNumEvents>
+    <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
+    <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
+    <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
+    <GenMethodPos>6</GenMethodPos>
+    <MethodPos>
+      <MethodPos0>ClrVal</MethodPos0>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>100</LineBeg>
+      <LineEnd>110</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos1>SetVal</MethodPos1>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>111</LineBeg>
+      <LineEnd>121</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos2>NegVal</MethodPos2>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>122</LineBeg>
+      <LineEnd>132</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos3>ClrVal</MethodPos3>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>86</LineBeg>
+      <LineEnd>100</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos4>SetVal</MethodPos4>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>101</LineBeg>
+      <LineEnd>115</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos5>NegVal</MethodPos5>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>116</LineBeg>
+      <LineEnd>130</LineEnd>
+    </MethodPos>
+    <GenExtraFilesCount>0</GenExtraFilesCount>
+    <InhrCompID_63>
+      <Generated>true</Generated>
+      <GenCompName>BitIoLdd7</GenCompName>
+      <GenComponentVersion>01.033</GenComponentVersion>
+      <GenDriverVersion>01.03</GenDriverVersion>
+      <GenEventModule />
+      <HeaderAge>1234830730</HeaderAge>
+      <CodeAge>1234830730</CodeAge>
+      <AsemblAge>-1</AsemblAge>
+      <GenNumMethods>13</GenNumMethods>
+      <Init>true</Init>
+      <Deinit>false</Deinit>
+      <GetDir>false</GetDir>
+      <SetDir>false</SetDir>
+      <SetInput>false</SetInput>
+      <SetOutput>false</SetOutput>
+      <GetVal>false</GetVal>
+      <PutVal>false</PutVal>
+      <ClrVal>true</ClrVal>
+      <SetVal>true</SetVal>
+      <NegVal>true</NegVal>
+      <ConnectPin>false</ConnectPin>
+      <GetRawVal>false</GetRawVal>
+      <GenNumEvents>0</GenNumEvents>
+      <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
+      <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
+      <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
+      <GenMethodPos>8</GenMethodPos>
+      <MethodPos>
+        <MethodPos0>Init</MethodPos0>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>121</LineBeg>
+        <LineEnd>144</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos1>ClrVal</MethodPos1>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>145</LineBeg>
+        <LineEnd>160</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos2>SetVal</MethodPos2>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>161</LineBeg>
+        <LineEnd>176</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos3>NegVal</MethodPos3>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>177</LineBeg>
+        <LineEnd>192</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos4>Init</MethodPos4>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>95</LineBeg>
+        <LineEnd>144</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos5>ClrVal</MethodPos5>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>145</LineBeg>
+        <LineEnd>164</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos6>SetVal</MethodPos6>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>165</LineBeg>
+        <LineEnd>184</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos7>NegVal</MethodPos7>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>185</LineBeg>
+        <LineEnd>204</LineEnd>
+      </MethodPos>
+      <GenExtraFilesCount>1</GenExtraFilesCount>
+      <ExtraFile0>Documentation\doxygen\BitIoLdd7_component.txt</ExtraFile0>
+    </InhrCompID_63>
+  </ComponentID_62>
+  <ComponentID_64>
+    <Generated>true</Generated>
+    <GenCompName>Power_Level4</GenCompName>
+    <GenComponentVersion>02.086</GenComponentVersion>
+    <GenDriverVersion>01.00</GenDriverVersion>
+    <GenEventModule />
+    <HeaderAge>1234830730</HeaderAge>
+    <CodeAge>1234830730</CodeAge>
+    <AsemblAge>-1</AsemblAge>
+    <GenNumMethods>11</GenNumMethods>
+    <GetDir>false</GetDir>
+    <SetDir>false</SetDir>
+    <SetInput>false</SetInput>
+    <SetOutput>false</SetOutput>
+    <GetVal>false</GetVal>
+    <PutVal>false</PutVal>
+    <ClrVal>true</ClrVal>
+    <SetVal>true</SetVal>
+    <NegVal>true</NegVal>
+    <ConnectPin>false</ConnectPin>
+    <GetRawVal>false</GetRawVal>
+    <GenNumEvents>0</GenNumEvents>
+    <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
+    <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
+    <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
+    <GenMethodPos>6</GenMethodPos>
+    <MethodPos>
+      <MethodPos0>ClrVal</MethodPos0>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>100</LineBeg>
+      <LineEnd>110</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos1>SetVal</MethodPos1>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>111</LineBeg>
+      <LineEnd>121</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos2>NegVal</MethodPos2>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>122</LineBeg>
+      <LineEnd>132</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos3>ClrVal</MethodPos3>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>86</LineBeg>
+      <LineEnd>100</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos4>SetVal</MethodPos4>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>101</LineBeg>
+      <LineEnd>115</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos5>NegVal</MethodPos5>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>116</LineBeg>
+      <LineEnd>130</LineEnd>
+    </MethodPos>
+    <GenExtraFilesCount>0</GenExtraFilesCount>
+    <InhrCompID_65>
+      <Generated>true</Generated>
+      <GenCompName>BitIoLdd8</GenCompName>
+      <GenComponentVersion>01.033</GenComponentVersion>
+      <GenDriverVersion>01.03</GenDriverVersion>
+      <GenEventModule />
+      <HeaderAge>1234830730</HeaderAge>
+      <CodeAge>1234830730</CodeAge>
+      <AsemblAge>-1</AsemblAge>
+      <GenNumMethods>13</GenNumMethods>
+      <Init>true</Init>
+      <Deinit>false</Deinit>
+      <GetDir>false</GetDir>
+      <SetDir>false</SetDir>
+      <SetInput>false</SetInput>
+      <SetOutput>false</SetOutput>
+      <GetVal>false</GetVal>
+      <PutVal>false</PutVal>
+      <ClrVal>true</ClrVal>
+      <SetVal>true</SetVal>
+      <NegVal>true</NegVal>
+      <ConnectPin>false</ConnectPin>
+      <GetRawVal>false</GetRawVal>
+      <GenNumEvents>0</GenNumEvents>
+      <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
+      <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
+      <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
+      <GenMethodPos>8</GenMethodPos>
+      <MethodPos>
+        <MethodPos0>Init</MethodPos0>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>121</LineBeg>
+        <LineEnd>144</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos1>ClrVal</MethodPos1>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>145</LineBeg>
+        <LineEnd>160</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos2>SetVal</MethodPos2>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>161</LineBeg>
+        <LineEnd>176</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos3>NegVal</MethodPos3>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>177</LineBeg>
+        <LineEnd>192</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos4>Init</MethodPos4>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>95</LineBeg>
+        <LineEnd>144</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos5>ClrVal</MethodPos5>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>145</LineBeg>
+        <LineEnd>164</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos6>SetVal</MethodPos6>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>165</LineBeg>
+        <LineEnd>184</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos7>NegVal</MethodPos7>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>185</LineBeg>
+        <LineEnd>204</LineEnd>
+      </MethodPos>
+      <GenExtraFilesCount>1</GenExtraFilesCount>
+      <ExtraFile0>Documentation\doxygen\BitIoLdd8_component.txt</ExtraFile0>
+    </InhrCompID_65>
+  </ComponentID_64>
+  <ComponentID_70>
+    <Generated>true</Generated>
+    <GenCompName>ErrorLED</GenCompName>
+    <GenComponentVersion>02.086</GenComponentVersion>
+    <GenDriverVersion>01.00</GenDriverVersion>
+    <GenEventModule />
+    <HeaderAge>1234867479</HeaderAge>
+    <CodeAge>1234867479</CodeAge>
+    <AsemblAge>-1</AsemblAge>
+    <GenNumMethods>11</GenNumMethods>
+    <GetDir>false</GetDir>
+    <SetDir>false</SetDir>
+    <SetInput>false</SetInput>
+    <SetOutput>false</SetOutput>
+    <GetVal>true</GetVal>
+    <PutVal>true</PutVal>
+    <ClrVal>true</ClrVal>
+    <SetVal>true</SetVal>
+    <NegVal>false</NegVal>
+    <ConnectPin>false</ConnectPin>
+    <GetRawVal>false</GetRawVal>
+    <GenNumEvents>0</GenNumEvents>
+    <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
+    <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
+    <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
+    <GenMethodPos>8</GenMethodPos>
+    <MethodPos>
+      <MethodPos0>GetVal</MethodPos0>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>101</LineBeg>
+      <LineEnd>119</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos1>PutVal</MethodPos1>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>120</LineBeg>
+      <LineEnd>134</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos2>ClrVal</MethodPos2>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>135</LineBeg>
+      <LineEnd>145</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos3>SetVal</MethodPos3>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>146</LineBeg>
+      <LineEnd>156</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos4>GetVal</MethodPos4>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>87</LineBeg>
+      <LineEnd>109</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos5>PutVal</MethodPos5>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>110</LineBeg>
+      <LineEnd>128</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos6>ClrVal</MethodPos6>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>129</LineBeg>
+      <LineEnd>143</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos7>SetVal</MethodPos7>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>144</LineBeg>
+      <LineEnd>158</LineEnd>
+    </MethodPos>
+    <GenExtraFilesCount>0</GenExtraFilesCount>
+    <InhrCompID_71>
+      <Generated>true</Generated>
+      <GenCompName>BitIoLdd9</GenCompName>
+      <GenComponentVersion>01.033</GenComponentVersion>
+      <GenDriverVersion>01.03</GenDriverVersion>
+      <GenEventModule />
+      <HeaderAge>1234867479</HeaderAge>
+      <CodeAge>1234867479</CodeAge>
+      <AsemblAge>-1</AsemblAge>
+      <GenNumMethods>13</GenNumMethods>
+      <Init>true</Init>
+      <Deinit>false</Deinit>
+      <GetDir>false</GetDir>
+      <SetDir>false</SetDir>
+      <SetInput>false</SetInput>
+      <SetOutput>false</SetOutput>
+      <GetVal>true</GetVal>
+      <PutVal>true</PutVal>
+      <ClrVal>true</ClrVal>
+      <SetVal>true</SetVal>
+      <NegVal>false</NegVal>
+      <ConnectPin>false</ConnectPin>
+      <GetRawVal>false</GetRawVal>
+      <GenNumEvents>0</GenNumEvents>
+      <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
+      <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
+      <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
+      <GenMethodPos>10</GenMethodPos>
+      <MethodPos>
+        <MethodPos0>Init</MethodPos0>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>123</LineBeg>
+        <LineEnd>146</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos1>GetVal</MethodPos1>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>147</LineBeg>
+        <LineEnd>168</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos2>PutVal</MethodPos2>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>169</LineBeg>
+        <LineEnd>194</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos3>ClrVal</MethodPos3>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>195</LineBeg>
+        <LineEnd>210</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos4>SetVal</MethodPos4>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>211</LineBeg>
+        <LineEnd>226</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos5>Init</MethodPos5>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>96</LineBeg>
+        <LineEnd>145</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos6>GetVal</MethodPos6>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>146</LineBeg>
+        <LineEnd>174</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos7>PutVal</MethodPos7>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>175</LineBeg>
+        <LineEnd>208</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos8>ClrVal</MethodPos8>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>209</LineBeg>
+        <LineEnd>228</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos9>SetVal</MethodPos9>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>229</LineBeg>
+        <LineEnd>248</LineEnd>
+      </MethodPos>
+      <GenExtraFilesCount>1</GenExtraFilesCount>
+      <ExtraFile0>Documentation\doxygen\BitIoLdd9_component.txt</ExtraFile0>
+    </InhrCompID_71>
+  </ComponentID_70>
+  <ComponentID_77>
+    <Generated>true</Generated>
+    <GenCompName>GreenLED</GenCompName>
+    <GenComponentVersion>02.086</GenComponentVersion>
+    <GenDriverVersion>01.00</GenDriverVersion>
+    <GenEventModule />
+    <HeaderAge>1234869066</HeaderAge>
+    <CodeAge>1234869066</CodeAge>
+    <AsemblAge>-1</AsemblAge>
+    <GenNumMethods>11</GenNumMethods>
+    <GetDir>false</GetDir>
+    <SetDir>false</SetDir>
+    <SetInput>false</SetInput>
+    <SetOutput>false</SetOutput>
+    <GetVal>true</GetVal>
+    <PutVal>true</PutVal>
+    <ClrVal>true</ClrVal>
+    <SetVal>true</SetVal>
+    <NegVal>false</NegVal>
+    <ConnectPin>false</ConnectPin>
+    <GetRawVal>false</GetRawVal>
+    <GenNumEvents>0</GenNumEvents>
+    <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
+    <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
+    <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
+    <GenMethodPos>8</GenMethodPos>
+    <MethodPos>
+      <MethodPos0>GetVal</MethodPos0>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>101</LineBeg>
+      <LineEnd>119</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos1>PutVal</MethodPos1>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>120</LineBeg>
+      <LineEnd>134</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos2>ClrVal</MethodPos2>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>135</LineBeg>
+      <LineEnd>145</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos3>SetVal</MethodPos3>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>146</LineBeg>
+      <LineEnd>156</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos4>GetVal</MethodPos4>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>87</LineBeg>
+      <LineEnd>109</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos5>PutVal</MethodPos5>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>110</LineBeg>
+      <LineEnd>128</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos6>ClrVal</MethodPos6>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>129</LineBeg>
+      <LineEnd>143</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos7>SetVal</MethodPos7>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>144</LineBeg>
+      <LineEnd>158</LineEnd>
+    </MethodPos>
+    <GenExtraFilesCount>0</GenExtraFilesCount>
+    <InhrCompID_78>
+      <Generated>true</Generated>
+      <GenCompName>BitIoLdd10</GenCompName>
+      <GenComponentVersion>01.033</GenComponentVersion>
+      <GenDriverVersion>01.03</GenDriverVersion>
+      <GenEventModule />
+      <HeaderAge>1234869066</HeaderAge>
+      <CodeAge>1234869066</CodeAge>
+      <AsemblAge>-1</AsemblAge>
+      <GenNumMethods>13</GenNumMethods>
+      <Init>true</Init>
+      <Deinit>false</Deinit>
+      <GetDir>false</GetDir>
+      <SetDir>false</SetDir>
+      <SetInput>false</SetInput>
+      <SetOutput>false</SetOutput>
+      <GetVal>true</GetVal>
+      <PutVal>true</PutVal>
+      <ClrVal>true</ClrVal>
+      <SetVal>true</SetVal>
+      <NegVal>false</NegVal>
+      <ConnectPin>false</ConnectPin>
+      <GetRawVal>false</GetRawVal>
+      <GenNumEvents>0</GenNumEvents>
+      <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
+      <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
+      <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
+      <GenMethodPos>10</GenMethodPos>
+      <MethodPos>
+        <MethodPos0>Init</MethodPos0>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>123</LineBeg>
+        <LineEnd>146</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos1>GetVal</MethodPos1>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>147</LineBeg>
+        <LineEnd>168</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos2>PutVal</MethodPos2>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>169</LineBeg>
+        <LineEnd>194</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos3>ClrVal</MethodPos3>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>195</LineBeg>
+        <LineEnd>210</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos4>SetVal</MethodPos4>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>211</LineBeg>
+        <LineEnd>226</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos5>Init</MethodPos5>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>96</LineBeg>
+        <LineEnd>145</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos6>GetVal</MethodPos6>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>146</LineBeg>
+        <LineEnd>174</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos7>PutVal</MethodPos7>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>175</LineBeg>
+        <LineEnd>208</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos8>ClrVal</MethodPos8>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>209</LineBeg>
+        <LineEnd>228</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos9>SetVal</MethodPos9>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>229</LineBeg>
+        <LineEnd>248</LineEnd>
+      </MethodPos>
+      <GenExtraFilesCount>1</GenExtraFilesCount>
+      <ExtraFile0>Documentation\doxygen\BitIoLdd10_component.txt</ExtraFile0>
+    </InhrCompID_78>
+  </ComponentID_77>
+  <ComponentID_79>
+    <Generated>true</Generated>
+    <GenCompName>BlueLED</GenCompName>
+    <GenComponentVersion>02.086</GenComponentVersion>
+    <GenDriverVersion>01.00</GenDriverVersion>
+    <GenEventModule />
+    <HeaderAge>1234869094</HeaderAge>
+    <CodeAge>1234869094</CodeAge>
+    <AsemblAge>-1</AsemblAge>
+    <GenNumMethods>11</GenNumMethods>
+    <GetDir>false</GetDir>
+    <SetDir>false</SetDir>
+    <SetInput>false</SetInput>
+    <SetOutput>false</SetOutput>
+    <GetVal>true</GetVal>
+    <PutVal>true</PutVal>
+    <ClrVal>true</ClrVal>
+    <SetVal>true</SetVal>
+    <NegVal>false</NegVal>
+    <ConnectPin>false</ConnectPin>
+    <GetRawVal>false</GetRawVal>
+    <GenNumEvents>0</GenNumEvents>
+    <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
+    <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
+    <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
+    <GenMethodPos>8</GenMethodPos>
+    <MethodPos>
+      <MethodPos0>GetVal</MethodPos0>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>101</LineBeg>
+      <LineEnd>119</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos1>PutVal</MethodPos1>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>120</LineBeg>
+      <LineEnd>134</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos2>ClrVal</MethodPos2>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>135</LineBeg>
+      <LineEnd>145</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos3>SetVal</MethodPos3>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>146</LineBeg>
+      <LineEnd>156</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos4>GetVal</MethodPos4>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>87</LineBeg>
+      <LineEnd>109</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos5>PutVal</MethodPos5>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>110</LineBeg>
+      <LineEnd>128</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos6>ClrVal</MethodPos6>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>129</LineBeg>
+      <LineEnd>143</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos7>SetVal</MethodPos7>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>144</LineBeg>
+      <LineEnd>158</LineEnd>
+    </MethodPos>
+    <GenExtraFilesCount>0</GenExtraFilesCount>
+    <InhrCompID_80>
+      <Generated>true</Generated>
+      <GenCompName>BitIoLdd11</GenCompName>
+      <GenComponentVersion>01.033</GenComponentVersion>
+      <GenDriverVersion>01.03</GenDriverVersion>
+      <GenEventModule />
+      <HeaderAge>1234869094</HeaderAge>
+      <CodeAge>1234869094</CodeAge>
+      <AsemblAge>-1</AsemblAge>
+      <GenNumMethods>13</GenNumMethods>
+      <Init>true</Init>
+      <Deinit>false</Deinit>
+      <GetDir>false</GetDir>
+      <SetDir>false</SetDir>
+      <SetInput>false</SetInput>
+      <SetOutput>false</SetOutput>
+      <GetVal>true</GetVal>
+      <PutVal>true</PutVal>
+      <ClrVal>true</ClrVal>
+      <SetVal>true</SetVal>
+      <NegVal>false</NegVal>
+      <ConnectPin>false</ConnectPin>
+      <GetRawVal>false</GetRawVal>
+      <GenNumEvents>0</GenNumEvents>
+      <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
+      <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
+      <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
+      <GenMethodPos>10</GenMethodPos>
+      <MethodPos>
+        <MethodPos0>Init</MethodPos0>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>123</LineBeg>
+        <LineEnd>146</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos1>GetVal</MethodPos1>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>147</LineBeg>
+        <LineEnd>168</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos2>PutVal</MethodPos2>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>169</LineBeg>
+        <LineEnd>194</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos3>ClrVal</MethodPos3>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>195</LineBeg>
+        <LineEnd>210</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos4>SetVal</MethodPos4>
+        <MethodType>method</MethodType>
+        <ModuleType>Header</ModuleType>
+        <LineBeg>211</LineBeg>
+        <LineEnd>226</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos5>Init</MethodPos5>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>96</LineBeg>
+        <LineEnd>145</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos6>GetVal</MethodPos6>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>146</LineBeg>
+        <LineEnd>174</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos7>PutVal</MethodPos7>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>175</LineBeg>
+        <LineEnd>208</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos8>ClrVal</MethodPos8>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>209</LineBeg>
+        <LineEnd>228</LineEnd>
+      </MethodPos>
+      <MethodPos>
+        <MethodPos9>SetVal</MethodPos9>
+        <MethodType>method</MethodType>
+        <ModuleType>Code</ModuleType>
+        <LineBeg>229</LineBeg>
+        <LineEnd>248</LineEnd>
+      </MethodPos>
+      <GenExtraFilesCount>1</GenExtraFilesCount>
+      <ExtraFile0>Documentation\doxygen\BitIoLdd11_component.txt</ExtraFile0>
+    </InhrCompID_80>
+  </ComponentID_79>
   <UsedSrcFiles>
     <SrcFile0>Drivers\Common\PWM_LDDSetRatio16.inc=-1</SrcFile0>
     <SrcFile1>Drivers\Common\CheckRegBits8_Rst.prg=1183486427</SrcFile1>
@@ -3191,29 +4346,29 @@
     <SrcFile43>Drivers\Common\SetRegBits8_Rst.prg=1183486427</SrcFile43>
     <SrcFile44>Drivers\Common\DefineISR.prg=1183486427</SrcFile44>
     <SrcFile45>Drivers\Kinetis\IsSupported_USBDCD_PDD.prg=1183486097</SrcFile45>
-    <SrcFile46>Drivers\Common\TimerUnit_LDDSetEventMask.inc=-1</SrcFile46>
-    <SrcFile47>Drivers\Kinetis\InitPin.prg=1183486437</SrcFile47>
-    <SrcFile48>Drivers\Common\PWMAbstract.inc=-1</SrcFile48>
-    <SrcFile49>Drivers\Common\InitReg8.prg=1183486427</SrcFile49>
-    <SrcFile50>Drivers\Kinetis\IsSupported_FTM_PDD.prg=1183486065</SrcFile50>
-    <SrcFile51>Drivers\Common\CommonInitialization.prg=1183486427</SrcFile51>
-    <SrcFile52>Drivers\Common\RTOSAdaptor.prg=1183486427</SrcFile52>
-    <SrcFile53>Drivers\Kinetis\IsSupported_UART0_PDD.prg=1183486093</SrcFile53>
-    <SrcFile54>Drivers\Common\KinetisSettings.inc=1183486427</SrcFile54>
-    <SrcFile55>Drivers\Common\SetReg32.prg=1183486427</SrcFile55>
-    <SrcFile56>Drivers\Kinetis\IsSupported_LLWU_PDD.prg=1183486082</SrcFile56>
-    <SrcFile57>Drivers\Common\TimerUnit_LDDInit.inc=-1</SrcFile57>
-    <SrcFile58>Drivers\Common\ADC_LDDStartSingleMeasurement.inc=-1</SrcFile58>
-    <SrcFile59>Drivers\Kinetis\Kinetis_Linker.prg=1200530696</SrcFile59>
-    <SrcFile60>Drivers\Common\BitIO_LDDSetVal.inc=-1</SrcFile60>
-    <SrcFile61>Drivers\Kinetis\PWM_LDD.drv=-1</SrcFile61>
-    <SrcFile62>Drivers\Common\Header.end=1183486427</SrcFile62>
-    <SrcFile63>Drivers\Common\OneBitIOPutVal.inc=-1</SrcFile63>
-    <SrcFile64>Drivers\Kinetis\Init_AXBS_KINETIS.prg=1183486075</SrcFile64>
-    <SrcFile65>Drivers\Kinetis\Init_MPU_KINETIS.prg=1183486065</SrcFile65>
-    <SrcFile66>Drivers\Kinetis\IsSupported_RCM_PDD.prg=1183486068</SrcFile66>
-    <SrcFile67>Drivers\Kinetis\TimerInt_LDD.drv=-1</SrcFile67>
-    <SrcFile68>Drivers\Common\PWM_LDDInit.inc=-1</SrcFile68>
+    <SrcFile46>Drivers\Kinetis\InitPin.prg=1183486437</SrcFile46>
+    <SrcFile47>Drivers\Common\PWMAbstract.inc=-1</SrcFile47>
+    <SrcFile48>Drivers\Common\InitReg8.prg=1183486427</SrcFile48>
+    <SrcFile49>Drivers\Kinetis\IsSupported_FTM_PDD.prg=1183486065</SrcFile49>
+    <SrcFile50>Drivers\Common\CommonInitialization.prg=1183486427</SrcFile50>
+    <SrcFile51>Drivers\Common\RTOSAdaptor.prg=1183486427</SrcFile51>
+    <SrcFile52>Drivers\Kinetis\IsSupported_UART0_PDD.prg=1183486093</SrcFile52>
+    <SrcFile53>Drivers\Common\KinetisSettings.inc=1183486427</SrcFile53>
+    <SrcFile54>Drivers\Common\SetReg32.prg=1183486427</SrcFile54>
+    <SrcFile55>Drivers\Kinetis\IsSupported_LLWU_PDD.prg=1183486082</SrcFile55>
+    <SrcFile56>Drivers\Common\TimerUnit_LDDInit.inc=-1</SrcFile56>
+    <SrcFile57>Drivers\Common\ADC_LDDStartSingleMeasurement.inc=-1</SrcFile57>
+    <SrcFile58>Drivers\Kinetis\Kinetis_Linker.prg=1200530696</SrcFile58>
+    <SrcFile59>Drivers\Common\BitIO_LDDSetVal.inc=-1</SrcFile59>
+    <SrcFile60>Drivers\Kinetis\PWM_LDD.drv=-1</SrcFile60>
+    <SrcFile61>Drivers\Common\Header.end=1183486427</SrcFile61>
+    <SrcFile62>Drivers\Common\OneBitIOPutVal.inc=-1</SrcFile62>
+    <SrcFile63>Drivers\Kinetis\Init_AXBS_KINETIS.prg=1183486075</SrcFile63>
+    <SrcFile64>Drivers\Kinetis\Init_MPU_KINETIS.prg=1183486065</SrcFile64>
+    <SrcFile65>Drivers\Kinetis\IsSupported_RCM_PDD.prg=1183486068</SrcFile65>
+    <SrcFile66>Drivers\Kinetis\TimerInt_LDD.drv=-1</SrcFile66>
+    <SrcFile67>Drivers\Common\PWM_LDDInit.inc=-1</SrcFile67>
+    <SrcFile68>Drivers\Common\PWM_LDDDisable.inc=-1</SrcFile68>
     <SrcFile69>Drivers\Common\HeaderFreescale.h=1183486427</SrcFile69>
     <SrcFile70>Drivers\Kinetis\IsSupported_FTFL_PDD.prg=1183486085</SrcFile70>
     <SrcFile71>Drivers\Kinetis\Init_AIPS0_KINETIS.prg=1183486073</SrcFile71>
@@ -3248,16 +4403,16 @@
     <SrcFile100>Drivers\Kinetis\Kinetis_InterruptVectorTable.prg=1183486428</SrcFile100>
     <SrcFile101>Drivers\Kinetis\IsSupported_FTFA_PDD.prg=1183486053</SrcFile101>
     <SrcFile102>Drivers\Kinetis\IsSupported_SysTick_PDD.prg=1183486066</SrcFile102>
-    <SrcFile103>Drivers\Common\TimerIntEnableEvent.inc=-1</SrcFile103>
-    <SrcFile104>Drivers\Common\TimerInt_LDDInit.inc=-1</SrcFile104>
-    <SrcFile105>Drivers\Kinetis\Init_FMC_KINETIS.prg=1183486064</SrcFile105>
-    <SrcFile106>Drivers\TimerUnit_LDD.src=-1</SrcFile106>
-    <SrcFile107>Drivers\Common\Serial_LDDAbstract.inc=1183486050</SrcFile107>
-    <SrcFile108>Drivers\sw\RTOSAdaptor\Common_RTOSAdaptor.prg=1214542121</SrcFile108>
-    <SrcFile109>Drivers\Common\InitReg8Block.prg=1183486427</SrcFile109>
-    <SrcFile110>Drivers\Kinetis\IsSupported_LPUART_PDD.prg=1183486057</SrcFile110>
-    <SrcFile111>Drivers\Common\ErrorDefinitions.inc=1183486427</SrcFile111>
-    <SrcFile112>Drivers\Common\ADC_LDDStartCalibration.inc=-1</SrcFile112>
+    <SrcFile103>Drivers\Common\TimerInt_LDDInit.inc=-1</SrcFile103>
+    <SrcFile104>Drivers\Kinetis\Init_FMC_KINETIS.prg=1183486064</SrcFile104>
+    <SrcFile105>Drivers\TimerUnit_LDD.src=-1</SrcFile105>
+    <SrcFile106>Drivers\Common\Serial_LDDAbstract.inc=1183486050</SrcFile106>
+    <SrcFile107>Drivers\sw\RTOSAdaptor\Common_RTOSAdaptor.prg=1214542121</SrcFile107>
+    <SrcFile108>Drivers\Common\InitReg8Block.prg=1183486427</SrcFile108>
+    <SrcFile109>Drivers\Kinetis\IsSupported_LPUART_PDD.prg=1183486057</SrcFile109>
+    <SrcFile110>Drivers\Common\ErrorDefinitions.inc=1183486427</SrcFile110>
+    <SrcFile111>Drivers\Common\ADC_LDDStartCalibration.inc=-1</SrcFile111>
+    <SrcFile112>Drivers\Common\PWMEnable.inc=-1</SrcFile112>
     <SrcFile113>Drivers\Common\PE_ConstAbstract.inc=1183486427</SrcFile113>
     <SrcFile114>Drivers\Kinetis\IO_Map.drv=1183486432</SrcFile114>
     <SrcFile115>Drivers\Common\Header.C=1183486427</SrcFile115>
@@ -3277,147 +4432,148 @@
     <SrcFile129>Drivers\Kinetis\IsSupported_SMC_PDD.prg=1183486054</SrcFile129>
     <SrcFile130>Drivers\Kinetis\Init_FTMRx_FlashConfig_KINETIS.prg=1183486080</SrcFile130>
     <SrcFile131>Drivers\Common\InitReg_GetValue.prg=1183486427</SrcFile131>
-    <SrcFile132>Drivers\Common\TimerIntDisableEvent.inc=-1</SrcFile132>
-    <SrcFile133>Drivers\Common\TimerInt_LDDOnInterrupt.inc=-1</SrcFile133>
-    <SrcFile134>Drivers\Kinetis\IsSupported_DMA_PDD.prg=1183486093</SrcFile134>
+    <SrcFile132>Drivers\Common\TimerInt_LDDOnInterrupt.inc=-1</SrcFile132>
+    <SrcFile133>Drivers\Kinetis\IsSupported_DMA_PDD.prg=1183486093</SrcFile133>
+    <SrcFile134>Drivers\Common\PWMSetRatio8.inc=-1</SrcFile134>
     <SrcFile135>Drivers\Kinetis\ADC_LDD_NO_FIFO.drv=-1</SrcFile135>
     <SrcFile136>Drivers\Common\DoxyGenComponentDoc.prg=1183486427</SrcFile136>
     <SrcFile137>Drivers\Kinetis\IsSupported_GPIO_PDD.prg=1183486056</SrcFile137>
     <SrcFile138>Drivers\Common\GeneralParametersNone.inc=1183486427</SrcFile138>
-    <SrcFile139>Drivers\Common\ADCMeasure.inc=-1</SrcFile139>
-    <SrcFile140>Drivers\Kinetis\IsSupported_UART_PDD.prg=1183486055</SrcFile140>
-    <SrcFile141>Drivers\Common\GeneralInternalGlobal.inc=1183486427</SrcFile141>
-    <SrcFile142>Drivers\Common\TimerUnit_LDDDisable.inc=-1</SrcFile142>
-    <SrcFile143>Drivers\Common\Serial_LDDReceiveBlock.inc=1183486050</SrcFile143>
-    <SrcFile144>Drivers\Common\PE_MisraEnableRules.prg=1183486427</SrcFile144>
-    <SrcFile145>Drivers\Common\ADCCalibrate.inc=-1</SrcFile145>
-    <SrcFile146>Drivers\Common\GeneralInternalDescription.prg=1183486427</SrcFile146>
-    <SrcFile147>Drivers\Kinetis\Init_SIM_KINETIS.prg=1183486066</SrcFile147>
-    <SrcFile148>Drivers\Common\GeneralParameters.inc=1183486427</SrcFile148>
-    <SrcFile149>Drivers\Common\Serial_LDDInit.inc=1183486050</SrcFile149>
-    <SrcFile150>Drivers\TimerInt.src=-1</SrcFile150>
-    <SrcFile151>Drivers\sw\RTOSAdaptor\Default_RTOSAdaptor.prg=1214542121</SrcFile151>
-    <SrcFile152>Drivers\Common\GenReg32InitInfo.prg=1183486427</SrcFile152>
-    <SrcFile153>Drivers\Kinetis\Serial_LDD.drv=1183486077</SrcFile153>
-    <SrcFile154>Drivers\Common\Serial_LDDSendBlock.inc=1183486050</SrcFile154>
-    <SrcFile155>Drivers\Common\BitIO_LDDPutVal.inc=-1</SrcFile155>
-    <SrcFile156>Drivers\Common\ADCGetChanValue.inc=-1</SrcFile156>
-    <SrcFile157>Drivers\Common\GeneralPublicGlobal.inc=1183486427</SrcFile157>
-    <SrcFile158>Drivers\Kinetis\Kinetis_FlashConfig.prg=1183486434</SrcFile158>
-    <SrcFile159>Drivers\Common\BitIO_LDDGetVal.inc=-1</SrcFile159>
-    <SrcFile160>Drivers\Kinetis\Kinetis_MCG.prg=1183486436</SrcFile160>
-    <SrcFile161>Drivers\Kinetis\IsSupported_LCD_PDD.prg=1183486054</SrcFile161>
-    <SrcFile162>Drivers\BitIO.src=-1</SrcFile162>
-    <SrcFile163>Drivers\Kinetis\Kinetis_EntryPointCode.prg=1183486434</SrcFile163>
-    <SrcFile164>Drivers\Kinetis\IsSupported_DMAMUX_PDD.prg=1183486089</SrcFile164>
-    <SrcFile165>Drivers\Common\OneBitIOAbstract.inc=-1</SrcFile165>
-    <SrcFile166>Drivers\ADC.src=-1</SrcFile166>
-    <SrcFile167>Drivers\Kinetis\IsSupported_SPI_PDD.prg=1183486099</SrcFile167>
-    <SrcFile168>Drivers\Kinetis\IsSupported_SDHC_PDD.prg=1183486052</SrcFile168>
-    <SrcFile169>Drivers\ADC_LDD.src=-1</SrcFile169>
-    <SrcFile170>Drivers\Kinetis\InitIntPriority.prg=1183486080</SrcFile170>
-    <SrcFile171>Drivers\Kinetis\InitIntRequest.prg=1183486094</SrcFile171>
-    <SrcFile172>Drivers\Common\EBGNSupport\StringLib.prg=1183486427</SrcFile172>
-    <SrcFile173>Drivers\Common\GeneralDamage.inc=1183486427</SrcFile173>
-    <SrcFile174>Drivers\Kinetis\IsSupported_WDOG_PDD.prg=1183486103</SrcFile174>
-    <SrcFile175>Drivers\VAR\InitClockGate.prg=1183486427</SrcFile175>
-    <SrcFile176>Drivers\Kinetis\BitIO.drv=-1</SrcFile176>
-    <SrcFile177>Drivers\Kinetis\FTFx.prg=1183486433</SrcFile177>
-    <SrcFile178>Drivers\Common\PWMSetDutyUS.inc=-1</SrcFile178>
-    <SrcFile179>Drivers\Common\ADCGetValue.inc=-1</SrcFile179>
-    <SrcFile180>Drivers\Kinetis\Init_ExternalBus_KINETIS.prg=1183486059</SrcFile180>
-    <SrcFile181>Drivers\Common\PE_MisraDisableRules.prg=1183486427</SrcFile181>
-    <SrcFile182>Drivers\Common\PE_Limitations.inc=1183486427</SrcFile182>
-    <SrcFile183>Drivers\Common\HeaderGeneral.c=1183486427</SrcFile183>
-    <SrcFile184>Drivers\Kinetis\IsSupported_DAC_PDD.prg=1183486085</SrcFile184>
-    <SrcFile185>Drivers\VAR\InitPin.prg=1183486427</SrcFile185>
-    <SrcFile186>Drivers\Common\HeaderGeneral.h=1183486427</SrcFile186>
-    <SrcFile187>Drivers\Common\BitIO_LDDClrVal.inc=-1</SrcFile187>
-    <SrcFile188>Drivers\Kinetis\Init_RCM_KINETIS.prg=1183486052</SrcFile188>
-    <SrcFile189>Drivers\Common\OneBitIOSetVal.inc=-1</SrcFile189>
-    <SrcFile190>Drivers\Kinetis\Init_PMC_KINETIS.prg=1183486069</SrcFile190>
-    <SrcFile191>Drivers\Common\TimerUnit_LDDGetPeriodTicks.inc=-1</SrcFile191>
-    <SrcFile192>Drivers\Common\PWM_LDDSetDutyMS.inc=-1</SrcFile192>
-    <SrcFile193>Drivers\Common\SetRegBits32.prg=1183486427</SrcFile193>
-    <SrcFile194>Drivers\Common\PE_ErrorAbstract.inc=1183486427</SrcFile194>
-    <SrcFile195>Drivers\Common\TimerUnit_LDDSelectOutputAction.inc=-1</SrcFile195>
-    <SrcFile196>lib\doxygen\pex.doxyfile=1214542122</SrcFile196>
-    <SrcFile197>Drivers\Kinetis\IsSupported_NFC_PDD.prg=1183486082</SrcFile197>
-    <SrcFile198>Drivers\PWM_LDD.src=-1</SrcFile198>
-    <SrcFile199>Drivers\Common\GeneralEvent.inc=1183486427</SrcFile199>
-    <SrcFile200>Drivers\Kinetis\IsSupported_ADC_PDD.prg=1183486096</SrcFile200>
-    <SrcFile201>Drivers\Common\SetRegBitMask.prg=1183486427</SrcFile201>
-    <SrcFile202>Drivers\Kinetis\IsSupported_CMT_PDD.prg=1183486057</SrcFile202>
-    <SrcFile203>Drivers\Common\CommonRegInitialization.prg=1183486427</SrcFile203>
-    <SrcFile204>Drivers\Common\SetReg8.prg=1183486427</SrcFile204>
-    <SrcFile205>Drivers\Kinetis\CreateSupportedPddList.prg=1183486433</SrcFile205>
-    <SrcFile206>Drivers\Kinetis\Init_LLWU_KINETIS.prg=1183486058</SrcFile206>
-    <SrcFile207>Drivers\Common\ADC_LDDCreateSampleGroup.inc=-1</SrcFile207>
-    <SrcFile208>Drivers\Common\ADC_LDDAbstract.inc=-1</SrcFile208>
-    <SrcFile209>Drivers\Common\PE_MisraDisableRuleForSymbol.prg=1183486427</SrcFile209>
-    <SrcFile210>Drivers\Common\OneBitIOGetVal.inc=-1</SrcFile210>
-    <SrcFile211>Drivers\Kinetis\IsSupported_SCB_PDD.prg=1183486065</SrcFile211>
-    <SrcFile212>Drivers\Common\ADC_LDDGetMeasurementCompleteStatus.inc=-1</SrcFile212>
-    <SrcFile213>Drivers\Common\DoxyGenCpuDoc.prg=1183486427</SrcFile213>
-    <SrcFile214>Drivers\Kinetis\PExRegMap_MKL25Z4.prg=1183486435</SrcFile214>
-    <SrcFile215>Drivers\Kinetis\IsSupported_ENET_PDD.prg=1183486070</SrcFile215>
-    <SrcFile216>Drivers\Common\TimerUnit_LDDGetOffsetTicks.inc=-1</SrcFile216>
-    <SrcFile217>Drivers\Kinetis\Init_MCM_KINETIS.prg=1183486080</SrcFile217>
-    <SrcFile218>Drivers\Common\PE_LDD.prg=1183486427</SrcFile218>
-    <SrcFile219>Drivers\Common\BitIO_LDDNegVal.inc=-1</SrcFile219>
-    <SrcFile220>Drivers\Common\CheckRegBits32_Rst.prg=1183486427</SrcFile220>
-    <SrcFile221>Drivers\Kinetis\IsSupported_CRC_PDD.prg=1183486054</SrcFile221>
-    <SrcFile222>Drivers\Common\LDDSupport\PE_LDD_Event.prg=1183486427</SrcFile222>
-    <SrcFile223>Drivers\Common\Header.doxy=1214542121</SrcFile223>
-    <SrcFile224>Drivers\Kinetis\PE_Error.drv=1183486437</SrcFile224>
-    <SrcFile225>Drivers\Kinetis\IsSupported_KBI_PDD.prg=1183486097</SrcFile225>
-    <SrcFile226>Drivers\Common\PE_TypesAbstract.inc=1183486427</SrcFile226>
-    <SrcFile227>Drivers\Common\TimerUnit_LDDEnable.inc=-1</SrcFile227>
-    <SrcFile228>Drivers\Kinetis\IsSupported_PIT_PDD.prg=1183486057</SrcFile228>
-    <SrcFile229>Drivers\Common\Utils\Misc.inc=1183486427</SrcFile229>
-    <SrcFile230>Drivers\Common\ToolChain_Settings.prg=1183486427</SrcFile230>
-    <SrcFile231>Drivers\Kinetis\IsSupported_FTFE_PDD.prg=1183486067</SrcFile231>
-    <SrcFile232>Drivers\Kinetis\IsSupported_FMC_PDD.prg=1183486051</SrcFile232>
-    <SrcFile233>Drivers\Common\PE_MisraRuleToDocumentation_Kinetis.prg=1183486427</SrcFile233>
-    <SrcFile234>Drivers\Common\ADCOnCalibrationEnd.inc=-1</SrcFile234>
-    <SrcFile235>Drivers\Kinetis\InitClockGate.prg=1183486068</SrcFile235>
-    <SrcFile236>Drivers\Common\TimerInt_LDDAbstract.inc=-1</SrcFile236>
-    <SrcFile237>Drivers\Kinetis\IsSupported_USBHS_PDD.prg=1183486084</SrcFile237>
-    <SrcFile238>Drivers\Common\CommonRegInitialization_NotRst.prg=1183486427</SrcFile238>
-    <SrcFile239>Drivers\Common\Serial_LDDOnBlockSent.inc=1183486050</SrcFile239>
-    <SrcFile240>Drivers\Kinetis\IsSupported_I2S_PDD.prg=1183486068</SrcFile240>
-    <SrcFile241>Drivers\Common\InitReg32Block.prg=1183486427</SrcFile241>
-    <SrcFile242>Drivers\Kinetis\IsSupported_IRQ_PDD.prg=1183486082</SrcFile242>
-    <SrcFile243>Drivers\Common\TimerIntOnInterrupt.inc=-1</SrcFile243>
-    <SrcFile244>Drivers\Common\KinetisAbstract.inc=1183486427</SrcFile244>
-    <SrcFile245>Drivers\Common\ADCAbstract.inc=-1</SrcFile245>
-    <SrcFile246>Drivers\Kinetis\TimerUnit_LDD.drv=-1</SrcFile246>
-    <SrcFile247>Drivers\Kinetis\Init_SystemControl_KINETIS.prg=1183486081</SrcFile247>
-    <SrcFile248>Drivers\Kinetis\IsSupported_SIM_PDD.prg=1183486066</SrcFile248>
-    <SrcFile249>Drivers\Common\TimerInt_LDDSetEventMask.inc=-1</SrcFile249>
-    <SrcFile250>Drivers\Kinetis\IsSupported_COP_PDD.prg=1183486071</SrcFile250>
-    <SrcFile251>Drivers\Common\TimerInt_LDDInterrupt.inc=-1</SrcFile251>
-    <SrcFile252>Drivers\Kinetis\IsSupported_NVIC_PDD.prg=1183486071</SrcFile252>
-    <SrcFile253>Drivers\Kinetis\InitInterrupt.prg=1183486436</SrcFile253>
-    <SrcFile254>Drivers\Common\CommonEnabling.prg=1183486427</SrcFile254>
-    <SrcFile255>Drivers\Common\CreateIntSection.prg=1183486427</SrcFile255>
-    <SrcFile256>Drivers\Common\Doxy_CollectRegInitInfo.prg=1183486427</SrcFile256>
-    <SrcFile257>Drivers\Common\TimerUnit_LDDSetOffsetTicks.inc=-1</SrcFile257>
-    <SrcFile258>Drivers\Common\SetRegBits8.prg=1183486427</SrcFile258>
-    <SrcFile259>Drivers\Kinetis\IsSupported_OSC_PDD.prg=1183486053</SrcFile259>
-    <SrcFile260>Drivers\Common\OneBitIONegVal.inc=-1</SrcFile260>
-    <SrcFile261>Drivers\Common\DeclareISR.prg=1183486427</SrcFile261>
-    <SrcFile262>Drivers\Common\ADCOnEnd.inc=-1</SrcFile262>
-    <SrcFile263>Drivers\Common\Serial_LDDOnBlockReceived.inc=1183486050</SrcFile263>
-    <SrcFile264>Drivers\Kinetis\IsSupported_FTMRE_PDD.prg=1183486086</SrcFile264>
-    <SrcFile265>Drivers\VAR\InitIntRequest.prg=1183486427</SrcFile265>
-    <SrcFile266>Drivers\Common\TimerIntAbstract.inc=-1</SrcFile266>
-    <SrcFile267>Drivers\Common\GeneralReturnNothing.inc=1183486427</SrcFile267>
-    <SrcFile268>Drivers\PWM.src=-1</SrcFile268>
-    <SrcFile269>Drivers\Common\CommonInitialization_FLASH.prg=1183486427</SrcFile269>
-    <SrcFile270>Drivers\TimerInt_LDD.src=-1</SrcFile270>
-    <SrcFile271>Drivers\Serial_LDD.src=1183486050</SrcFile271>
-    <SrcFile272>Drivers\Kinetis\ADC.drv=-1</SrcFile272>
+    <SrcFile139>Drivers\Common\TimerUnit_LDDResetCounter.inc=-1</SrcFile139>
+    <SrcFile140>Drivers\Common\ADCMeasure.inc=-1</SrcFile140>
+    <SrcFile141>Drivers\Kinetis\IsSupported_UART_PDD.prg=1183486055</SrcFile141>
+    <SrcFile142>Drivers\Common\GeneralInternalGlobal.inc=1183486427</SrcFile142>
+    <SrcFile143>Drivers\Common\TimerUnit_LDDDisable.inc=-1</SrcFile143>
+    <SrcFile144>Drivers\Common\Serial_LDDReceiveBlock.inc=1183486050</SrcFile144>
+    <SrcFile145>Drivers\Common\PE_MisraEnableRules.prg=1183486427</SrcFile145>
+    <SrcFile146>Drivers\Common\ADCCalibrate.inc=-1</SrcFile146>
+    <SrcFile147>Drivers\Common\GeneralInternalDescription.prg=1183486427</SrcFile147>
+    <SrcFile148>Drivers\Kinetis\Init_SIM_KINETIS.prg=1183486066</SrcFile148>
+    <SrcFile149>Drivers\Common\GeneralParameters.inc=1183486427</SrcFile149>
+    <SrcFile150>Drivers\Common\Serial_LDDInit.inc=1183486050</SrcFile150>
+    <SrcFile151>Drivers\TimerInt.src=-1</SrcFile151>
+    <SrcFile152>Drivers\sw\RTOSAdaptor\Default_RTOSAdaptor.prg=1214542121</SrcFile152>
+    <SrcFile153>Drivers\Common\GenReg32InitInfo.prg=1183486427</SrcFile153>
+    <SrcFile154>Drivers\Kinetis\Serial_LDD.drv=1183486077</SrcFile154>
+    <SrcFile155>Drivers\Common\PWM_LDDSetRatio8.inc=-1</SrcFile155>
+    <SrcFile156>Drivers\Common\Serial_LDDSendBlock.inc=1183486050</SrcFile156>
+    <SrcFile157>Drivers\Common\BitIO_LDDPutVal.inc=-1</SrcFile157>
+    <SrcFile158>Drivers\Common\ADCGetChanValue.inc=-1</SrcFile158>
+    <SrcFile159>Drivers\Common\GeneralPublicGlobal.inc=1183486427</SrcFile159>
+    <SrcFile160>Drivers\Kinetis\Kinetis_FlashConfig.prg=1183486434</SrcFile160>
+    <SrcFile161>Drivers\Common\BitIO_LDDGetVal.inc=-1</SrcFile161>
+    <SrcFile162>Drivers\Kinetis\Kinetis_MCG.prg=1183486436</SrcFile162>
+    <SrcFile163>Drivers\Kinetis\IsSupported_LCD_PDD.prg=1183486054</SrcFile163>
+    <SrcFile164>Drivers\BitIO.src=-1</SrcFile164>
+    <SrcFile165>Drivers\Kinetis\Kinetis_EntryPointCode.prg=1183486434</SrcFile165>
+    <SrcFile166>Drivers\Kinetis\IsSupported_DMAMUX_PDD.prg=1183486089</SrcFile166>
+    <SrcFile167>Drivers\ADC.src=-1</SrcFile167>
+    <SrcFile168>Drivers\Common\OneBitIOAbstract.inc=-1</SrcFile168>
+    <SrcFile169>Drivers\Kinetis\IsSupported_SPI_PDD.prg=1183486099</SrcFile169>
+    <SrcFile170>Drivers\Kinetis\IsSupported_SDHC_PDD.prg=1183486052</SrcFile170>
+    <SrcFile171>Drivers\ADC_LDD.src=-1</SrcFile171>
+    <SrcFile172>Drivers\Kinetis\InitIntPriority.prg=1183486080</SrcFile172>
+    <SrcFile173>Drivers\Kinetis\InitIntRequest.prg=1183486094</SrcFile173>
+    <SrcFile174>Drivers\Common\EBGNSupport\StringLib.prg=1183486427</SrcFile174>
+    <SrcFile175>Drivers\Common\GeneralDamage.inc=1183486427</SrcFile175>
+    <SrcFile176>Drivers\Kinetis\IsSupported_WDOG_PDD.prg=1183486103</SrcFile176>
+    <SrcFile177>Drivers\VAR\InitClockGate.prg=1183486427</SrcFile177>
+    <SrcFile178>Drivers\Kinetis\BitIO.drv=-1</SrcFile178>
+    <SrcFile179>Drivers\Kinetis\FTFx.prg=1183486433</SrcFile179>
+    <SrcFile180>Drivers\Common\PWMSetDutyUS.inc=-1</SrcFile180>
+    <SrcFile181>Drivers\Common\ADCGetValue.inc=-1</SrcFile181>
+    <SrcFile182>Drivers\Kinetis\Init_ExternalBus_KINETIS.prg=1183486059</SrcFile182>
+    <SrcFile183>Drivers\Common\PE_MisraDisableRules.prg=1183486427</SrcFile183>
+    <SrcFile184>Drivers\Common\PE_Limitations.inc=1183486427</SrcFile184>
+    <SrcFile185>Drivers\Common\HeaderGeneral.c=1183486427</SrcFile185>
+    <SrcFile186>Drivers\Kinetis\IsSupported_DAC_PDD.prg=1183486085</SrcFile186>
+    <SrcFile187>Drivers\VAR\InitPin.prg=1183486427</SrcFile187>
+    <SrcFile188>Drivers\Common\HeaderGeneral.h=1183486427</SrcFile188>
+    <SrcFile189>Drivers\Common\BitIO_LDDClrVal.inc=-1</SrcFile189>
+    <SrcFile190>Drivers\Kinetis\Init_RCM_KINETIS.prg=1183486052</SrcFile190>
+    <SrcFile191>Drivers\Common\OneBitIOSetVal.inc=-1</SrcFile191>
+    <SrcFile192>Drivers\Kinetis\Init_PMC_KINETIS.prg=1183486069</SrcFile192>
+    <SrcFile193>Drivers\Common\TimerUnit_LDDGetPeriodTicks.inc=-1</SrcFile193>
+    <SrcFile194>Drivers\Common\PWM_LDDSetDutyMS.inc=-1</SrcFile194>
+    <SrcFile195>Drivers\Common\SetRegBits32.prg=1183486427</SrcFile195>
+    <SrcFile196>Drivers\Common\PE_ErrorAbstract.inc=1183486427</SrcFile196>
+    <SrcFile197>Drivers\Common\TimerUnit_LDDSelectOutputAction.inc=-1</SrcFile197>
+    <SrcFile198>lib\doxygen\pex.doxyfile=1214542122</SrcFile198>
+    <SrcFile199>Drivers\Common\PWMDisable.inc=-1</SrcFile199>
+    <SrcFile200>Drivers\Kinetis\IsSupported_NFC_PDD.prg=1183486082</SrcFile200>
+    <SrcFile201>Drivers\Common\PWM_LDDEnable.inc=-1</SrcFile201>
+    <SrcFile202>Drivers\PWM_LDD.src=-1</SrcFile202>
+    <SrcFile203>Drivers\Common\GeneralEvent.inc=1183486427</SrcFile203>
+    <SrcFile204>Drivers\Kinetis\IsSupported_ADC_PDD.prg=1183486096</SrcFile204>
+    <SrcFile205>Drivers\Common\SetRegBitMask.prg=1183486427</SrcFile205>
+    <SrcFile206>Drivers\Kinetis\IsSupported_CMT_PDD.prg=1183486057</SrcFile206>
+    <SrcFile207>Drivers\Common\CommonRegInitialization.prg=1183486427</SrcFile207>
+    <SrcFile208>Drivers\Common\SetReg8.prg=1183486427</SrcFile208>
+    <SrcFile209>Drivers\Kinetis\CreateSupportedPddList.prg=1183486433</SrcFile209>
+    <SrcFile210>Drivers\Kinetis\Init_LLWU_KINETIS.prg=1183486058</SrcFile210>
+    <SrcFile211>Drivers\Common\ADC_LDDCreateSampleGroup.inc=-1</SrcFile211>
+    <SrcFile212>Drivers\Common\ADC_LDDAbstract.inc=-1</SrcFile212>
+    <SrcFile213>Drivers\Common\PE_MisraDisableRuleForSymbol.prg=1183486427</SrcFile213>
+    <SrcFile214>Drivers\Common\OneBitIOGetVal.inc=-1</SrcFile214>
+    <SrcFile215>Drivers\Kinetis\IsSupported_SCB_PDD.prg=1183486065</SrcFile215>
+    <SrcFile216>Drivers\Common\ADC_LDDGetMeasurementCompleteStatus.inc=-1</SrcFile216>
+    <SrcFile217>Drivers\Common\DoxyGenCpuDoc.prg=1183486427</SrcFile217>
+    <SrcFile218>Drivers\Kinetis\PExRegMap_MKL25Z4.prg=1183486435</SrcFile218>
+    <SrcFile219>Drivers\Kinetis\IsSupported_ENET_PDD.prg=1183486070</SrcFile219>
+    <SrcFile220>Drivers\Common\TimerUnit_LDDGetOffsetTicks.inc=-1</SrcFile220>
+    <SrcFile221>Drivers\Kinetis\Init_MCM_KINETIS.prg=1183486080</SrcFile221>
+    <SrcFile222>Drivers\Common\PE_LDD.prg=1183486427</SrcFile222>
+    <SrcFile223>Drivers\Common\BitIO_LDDNegVal.inc=-1</SrcFile223>
+    <SrcFile224>Drivers\Common\CheckRegBits32_Rst.prg=1183486427</SrcFile224>
+    <SrcFile225>Drivers\Kinetis\IsSupported_CRC_PDD.prg=1183486054</SrcFile225>
+    <SrcFile226>Drivers\Common\LDDSupport\PE_LDD_Event.prg=1183486427</SrcFile226>
+    <SrcFile227>Drivers\Common\Header.doxy=1214542121</SrcFile227>
+    <SrcFile228>Drivers\Kinetis\PE_Error.drv=1183486437</SrcFile228>
+    <SrcFile229>Drivers\Kinetis\IsSupported_KBI_PDD.prg=1183486097</SrcFile229>
+    <SrcFile230>Drivers\Common\PE_TypesAbstract.inc=1183486427</SrcFile230>
+    <SrcFile231>Drivers\Common\TimerUnit_LDDEnable.inc=-1</SrcFile231>
+    <SrcFile232>Drivers\Kinetis\IsSupported_PIT_PDD.prg=1183486057</SrcFile232>
+    <SrcFile233>Drivers\Common\Utils\Misc.inc=1183486427</SrcFile233>
+    <SrcFile234>Drivers\Common\ToolChain_Settings.prg=1183486427</SrcFile234>
+    <SrcFile235>Drivers\Kinetis\IsSupported_FTFE_PDD.prg=1183486067</SrcFile235>
+    <SrcFile236>Drivers\Kinetis\IsSupported_FMC_PDD.prg=1183486051</SrcFile236>
+    <SrcFile237>Drivers\Common\PE_MisraRuleToDocumentation_Kinetis.prg=1183486427</SrcFile237>
+    <SrcFile238>Drivers\Kinetis\InitClockGate.prg=1183486068</SrcFile238>
+    <SrcFile239>Drivers\Common\TimerInt_LDDAbstract.inc=-1</SrcFile239>
+    <SrcFile240>Drivers\Kinetis\IsSupported_USBHS_PDD.prg=1183486084</SrcFile240>
+    <SrcFile241>Drivers\Common\CommonRegInitialization_NotRst.prg=1183486427</SrcFile241>
+    <SrcFile242>Drivers\Common\Serial_LDDOnBlockSent.inc=1183486050</SrcFile242>
+    <SrcFile243>Drivers\Kinetis\IsSupported_I2S_PDD.prg=1183486068</SrcFile243>
+    <SrcFile244>Drivers\Common\InitReg32Block.prg=1183486427</SrcFile244>
+    <SrcFile245>Drivers\Kinetis\IsSupported_IRQ_PDD.prg=1183486082</SrcFile245>
+    <SrcFile246>Drivers\Common\TimerIntOnInterrupt.inc=-1</SrcFile246>
+    <SrcFile247>Drivers\Common\KinetisAbstract.inc=1183486427</SrcFile247>
+    <SrcFile248>Drivers\Common\ADCAbstract.inc=-1</SrcFile248>
+    <SrcFile249>Drivers\Kinetis\TimerUnit_LDD.drv=-1</SrcFile249>
+    <SrcFile250>Drivers\Kinetis\Init_SystemControl_KINETIS.prg=1183486081</SrcFile250>
+    <SrcFile251>Drivers\Kinetis\IsSupported_SIM_PDD.prg=1183486066</SrcFile251>
+    <SrcFile252>Drivers\Kinetis\IsSupported_COP_PDD.prg=1183486071</SrcFile252>
+    <SrcFile253>Drivers\Common\TimerInt_LDDInterrupt.inc=-1</SrcFile253>
+    <SrcFile254>Drivers\Kinetis\IsSupported_NVIC_PDD.prg=1183486071</SrcFile254>
+    <SrcFile255>Drivers\Kinetis\InitInterrupt.prg=1183486436</SrcFile255>
+    <SrcFile256>Drivers\Common\CommonEnabling.prg=1183486427</SrcFile256>
+    <SrcFile257>Drivers\Common\CreateIntSection.prg=1183486427</SrcFile257>
+    <SrcFile258>Drivers\Common\Doxy_CollectRegInitInfo.prg=1183486427</SrcFile258>
+    <SrcFile259>Drivers\Common\TimerUnit_LDDSetOffsetTicks.inc=-1</SrcFile259>
+    <SrcFile260>Drivers\Common\SetRegBits8.prg=1183486427</SrcFile260>
+    <SrcFile261>Drivers\Kinetis\IsSupported_OSC_PDD.prg=1183486053</SrcFile261>
+    <SrcFile262>Drivers\Common\OneBitIONegVal.inc=-1</SrcFile262>
+    <SrcFile263>Drivers\Common\DeclareISR.prg=1183486427</SrcFile263>
+    <SrcFile264>Drivers\Common\ADCOnEnd.inc=-1</SrcFile264>
+    <SrcFile265>Drivers\Kinetis\IsSupported_FTMRE_PDD.prg=1183486086</SrcFile265>
+    <SrcFile266>Drivers\VAR\InitIntRequest.prg=1183486427</SrcFile266>
+    <SrcFile267>Drivers\Common\TimerIntAbstract.inc=-1</SrcFile267>
+    <SrcFile268>Drivers\Common\GeneralReturnNothing.inc=1183486427</SrcFile268>
+    <SrcFile269>Drivers\PWM.src=-1</SrcFile269>
+    <SrcFile270>Drivers\Common\CommonInitialization_FLASH.prg=1183486427</SrcFile270>
+    <SrcFile271>Drivers\TimerInt_LDD.src=-1</SrcFile271>
+    <SrcFile272>Drivers\Serial_LDD.src=1183486050</SrcFile272>
+    <SrcFile273>Drivers\Kinetis\ADC.drv=-1</SrcFile273>
   </UsedSrcFiles>
 </GenerationInfo_G_C>
 

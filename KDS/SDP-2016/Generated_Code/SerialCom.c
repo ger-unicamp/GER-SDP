@@ -7,7 +7,7 @@
 **     Version     : Component 01.188, Driver 01.12, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-08, 10:30, # CodeGen: 61
+**     Date/Time   : 2016-12-26, 23:53, # CodeGen: 126
 **     Abstract    :
 **         This component "Serial_LDD" implements an asynchronous serial
 **         communication. The component supports different settings of
@@ -49,7 +49,7 @@
 **            Auto initialization                          : no
 **            Event mask                                   : 
 **              OnBlockSent                                : Enabled
-**              OnBlockReceived                            : Enabled
+**              OnBlockReceived                            : Disabled
 **              OnTxComplete                               : Disabled
 **              OnError                                    : Disabled
 **              OnBreak                                    : Disabled
@@ -128,7 +128,7 @@ extern "C" {
 #endif
 
 /*! The mask of available events used to enable/disable events during runtime. */
-#define AVAILABLE_EVENTS_MASK (LDD_SERIAL_ON_BLOCK_RECEIVED | LDD_SERIAL_ON_BLOCK_SENT)
+#define AVAILABLE_EVENTS_MASK (LDD_SERIAL_ON_BLOCK_SENT)
 
 /* {Default RTOS Adapter} Static object used for simulation of dynamic driver memory allocation */
 static SerialCom_TDeviceData DeviceDataPrv__DEFAULT_RTOS_ALLOC;
@@ -368,7 +368,6 @@ static void InterruptRx(SerialCom_TDeviceDataPtr DeviceDataPrv)
     DeviceDataPrv->InpRecvDataNum++;   /* Increment received char. counter */
     if (DeviceDataPrv->InpRecvDataNum == DeviceDataPrv->InpDataNumReq) { /* Is the requested number of characters received? */
       DeviceDataPrv->InpDataNumReq = 0x00U; /* If yes then clear number of requested characters to be received. */
-      SerialCom_OnBlockReceived(DeviceDataPrv->UserDataPtr);
     }
   }
 }

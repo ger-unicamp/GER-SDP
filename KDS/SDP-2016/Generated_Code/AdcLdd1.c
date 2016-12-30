@@ -7,7 +7,7 @@
 **     Version     : Component 01.183, Driver 01.08, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-09, 00:10, # CodeGen: 64
+**     Date/Time   : 2016-12-29, 11:36, # CodeGen: 143
 **     Abstract    :
 **         This device "ADC_LDD" implements an A/D converter,
 **         its control methods and interrupt/event handling procedure.
@@ -19,12 +19,17 @@
 **            A/D interrupt                                : INT_ADC0
 **            A/D interrupt priority                       : medium priority
 **          DMA                                            : Disabled
-**          A/D channel list                               : 1
+**          A/D channel list                               : 2
 **            Channel 0                                    : 
 **              Channel mode                               : Single Ended
 **                Input                                    : 
 **                  A/D channel (pin)                      : ADC0_SE6b/PTD5/SPI1_SCK/UART2_TX/TPM0_CH5
-**                  A/D channel (pin) signal               : 
+**                  A/D channel (pin) signal               : Analog_Output_Camera
+**            Channel 1                                    : 
+**              Channel mode                               : Single Ended
+**                Input                                    : 
+**                  A/D channel (pin)                      : CMP0_IN5/ADC0_SE4b/PTE29/TPM0_CH2/TPM_CLKIN0
+**                  A/D channel (pin) signal               : Battery_Level
 **          Static sample groups                           : Disabled
 **          Max. samples                                   : 8
 **          A/D resolution                                 : 8 bits
@@ -118,7 +123,7 @@
 
 /* MODULE AdcLdd1. */
 
-#include "ImageConverter.h"
+#include "AD_Converter.h"
 #include "AdcLdd1.h"
 /* {Default RTOS Adapter} No RTOS includes */
 
@@ -126,14 +131,16 @@
 extern "C" { 
 #endif
 
-#define AdcLdd1_AVAILABLE_CHANNEL0_31_PIN_MASK (LDD_ADC_CHANNEL_0_PIN) /*!< Mask of all allocated channel pins from 0 to 31 */
+#define AdcLdd1_AVAILABLE_CHANNEL0_31_PIN_MASK (LDD_ADC_CHANNEL_0_PIN | LDD_ADC_CHANNEL_1_PIN) /*!< Mask of all allocated channel pins from 0 to 31 */
 #define AdcLdd1_AVAILABLE_CHANNEL32_63_PIN_MASK 0x00U /*!< Mask of all allocated channel pins from 32 to 63 */
 #define AdcLdd1_AVAILABLE_TRIGGER_PIN_MASK 0x00U /*!< Mask of all allocated trigger pins */
 #define AdcLdd1_AVAILABLE_VOLT_REF_PIN_MASK (LDD_ADC_LOW_VOLT_REF_PIN | LDD_ADC_HIGH_VOLT_REF_PIN) /*!< Mask of all allocated voltage reference pins */
 
 static const uint8_t ChannelToPin[] = { /* Channel to pin conversion table */
   /* ADC0_SC1A: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,COCO=0,AIEN=1,DIFF=0,ADCH=6 */
-  0x46U                                /* Status and control register value */
+  0x46U,                               /* Status and control register value */
+  /* ADC0_SC1A: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,COCO=0,AIEN=1,DIFF=0,ADCH=4 */
+  0x44U                                /* Status and control register value */
 };
 
 typedef struct {
@@ -198,6 +205,10 @@ LDD_TDeviceData* AdcLdd1_Init(LDD_TUserData *UserDataPtr)
   NVIC_ISER |= NVIC_ISER_SETENA(0x8000);
   /* PORTD_PCR5: ISF=0,MUX=0 */
   PORTD_PCR5 &= (uint32_t)~(uint32_t)((PORT_PCR_ISF_MASK | PORT_PCR_MUX(0x07)));
+  /* ADC0_CFG2: MUXSEL=1 */
+  ADC0_CFG2 |= ADC_CFG2_MUXSEL_MASK;
+  /* PORTE_PCR29: ISF=0,MUX=0 */
+  PORTE_PCR29 &= (uint32_t)~(uint32_t)((PORT_PCR_ISF_MASK | PORT_PCR_MUX(0x07)));
   /* ADC0_CFG2: MUXSEL=1 */
   ADC0_CFG2 |= ADC_CFG2_MUXSEL_MASK;
   /* ADC0_CFG1: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,ADLPC=0,ADIV=3,ADLSMP=0,MODE=0,ADICLK=1 */

@@ -7,7 +7,7 @@
 **     Version     : Component 01.164, Driver 01.11, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-11-29, 16:20, # CodeGen: 72
+**     Date/Time   : 2016-12-23, 13:00, # CodeGen: 88
 **     Abstract    :
 **          This TimerUnit component provides a low level API for unified hardware access across
 **          various timer devices using the Prescaler-Counter-Compare-Capture timer structure.
@@ -28,7 +28,7 @@
 **            Channel 0                                    : 
 **              Mode                                       : Compare
 **                Compare                                  : TPM0_C2V
-**                Offset                                   : 0 ms
+**                Offset                                   : 25 ms
 **                Output on compare                        : Set
 **                  Output on overrun                      : Clear
 **                  Initial state                          : Low
@@ -38,7 +38,7 @@
 **            Channel 1                                    : 
 **              Mode                                       : Compare
 **                Compare                                  : TPM0_C3V
-**                Offset                                   : 10 ms
+**                Offset                                   : 25 ms
 **                Output on compare                        : Set
 **                  Output on overrun                      : Clear
 **                  Initial state                          : Low
@@ -48,7 +48,7 @@
 **            Channel 2                                    : 
 **              Mode                                       : Compare
 **                Compare                                  : TPM0_C0V
-**                Offset                                   : 0 ms
+**                Offset                                   : 25 ms
 **                Output on compare                        : Set
 **                  Output on overrun                      : Clear
 **                  Initial state                          : Low
@@ -58,7 +58,7 @@
 **            Channel 3                                    : 
 **              Mode                                       : Compare
 **                Compare                                  : TPM0_C1V
-**                Offset                                   : 10 ms
+**                Offset                                   : 25 ms
 **                Output on compare                        : Set
 **                  Output on overrun                      : Clear
 **                  Initial state                          : Low
@@ -233,20 +233,20 @@ LDD_TDeviceData* TU2_Init(LDD_TUserData *UserDataPtr)
   TPM0_MOD = TPM_MOD_MOD(0xFFFF);      /* Set up modulo register */
   /* TPM0_C2SC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,CHF=0,CHIE=0,MSB=1,MSA=0,ELSB=1,ELSA=1,??=0,DMA=0 */
   TPM0_C2SC = (TPM_CnSC_MSB_MASK | TPM_CnSC_ELSB_MASK | TPM_CnSC_ELSA_MASK); /* Set up channel status and control register */
-  /* TPM0_C2V: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,VAL=0 */
-  TPM0_C2V = TPM_CnV_VAL(0x00);        /* Set up channel value register */
+  /* TPM0_C2V: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,VAL=0xFFFF */
+  TPM0_C2V = TPM_CnV_VAL(0xFFFF);      /* Set up channel value register */
   /* TPM0_C3SC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,CHF=0,CHIE=0,MSB=1,MSA=0,ELSB=1,ELSA=1,??=0,DMA=0 */
   TPM0_C3SC = (TPM_CnSC_MSB_MASK | TPM_CnSC_ELSB_MASK | TPM_CnSC_ELSA_MASK); /* Set up channel status and control register */
-  /* TPM0_C3V: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,VAL=0x6666 */
-  TPM0_C3V = TPM_CnV_VAL(0x6666);      /* Set up channel value register */
+  /* TPM0_C3V: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,VAL=0xFFFF */
+  TPM0_C3V = TPM_CnV_VAL(0xFFFF);      /* Set up channel value register */
   /* TPM0_C0SC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,CHF=0,CHIE=0,MSB=1,MSA=0,ELSB=1,ELSA=1,??=0,DMA=0 */
   TPM0_C0SC = (TPM_CnSC_MSB_MASK | TPM_CnSC_ELSB_MASK | TPM_CnSC_ELSA_MASK); /* Set up channel status and control register */
-  /* TPM0_C0V: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,VAL=0 */
-  TPM0_C0V = TPM_CnV_VAL(0x00);        /* Set up channel value register */
+  /* TPM0_C0V: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,VAL=0xFFFF */
+  TPM0_C0V = TPM_CnV_VAL(0xFFFF);      /* Set up channel value register */
   /* TPM0_C1SC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,CHF=0,CHIE=0,MSB=1,MSA=0,ELSB=1,ELSA=1,??=0,DMA=0 */
   TPM0_C1SC = (TPM_CnSC_MSB_MASK | TPM_CnSC_ELSB_MASK | TPM_CnSC_ELSA_MASK); /* Set up channel status and control register */
-  /* TPM0_C1V: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,VAL=0x6666 */
-  TPM0_C1V = TPM_CnV_VAL(0x6666);      /* Set up channel value register */
+  /* TPM0_C1V: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,VAL=0xFFFF */
+  TPM0_C1V = TPM_CnV_VAL(0xFFFF);      /* Set up channel value register */
   /* PORTC_PCR3: ISF=0,MUX=4 */
   PORTC_PCR3 = (uint32_t)((PORTC_PCR3 & (uint32_t)~(uint32_t)(
                 PORT_PCR_ISF_MASK |

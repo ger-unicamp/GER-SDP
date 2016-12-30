@@ -7,7 +7,7 @@
 **     Version     : Component 01.188, Driver 01.12, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-08, 10:30, # CodeGen: 61
+**     Date/Time   : 2016-12-26, 23:53, # CodeGen: 126
 **     Abstract    :
 **         This component "Serial_LDD" implements an asynchronous serial
 **         communication. The component supports different settings of
@@ -49,7 +49,7 @@
 **            Auto initialization                          : no
 **            Event mask                                   : 
 **              OnBlockSent                                : Enabled
-**              OnBlockReceived                            : Enabled
+**              OnBlockReceived                            : Disabled
 **              OnTxComplete                               : Disabled
 **              OnError                                    : Disabled
 **              OnBreak                                    : Disabled
@@ -136,7 +136,6 @@ extern "C" {
 #define SerialCom_ReceiveBlock_METHOD_ENABLED /*!< ReceiveBlock method of the component SerialCom is enabled (generated) */
 
 /* Events configuration constants - generated for all enabled component's events */
-#define SerialCom_OnBlockReceived_EVENT_ENABLED /*!< OnBlockReceived event of the component SerialCom is enabled (generated) */
 #define SerialCom_OnBlockSent_EVENT_ENABLED /*!< OnBlockSent event of the component SerialCom is enabled (generated) */
 
 #define ENABLED_TX_INT        0x01U    /*!< TX interrupt enabled      */

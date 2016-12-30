@@ -7,7 +7,7 @@
 **     Version     : Component 01.183, Driver 01.08, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-08, 10:30, # CodeGen: 61
+**     Date/Time   : 2016-12-29, 11:36, # CodeGen: 143
 **     Abstract    :
 **         This device "ADC_LDD" implements an A/D converter,
 **         its control methods and interrupt/event handling procedure.
@@ -19,12 +19,17 @@
 **            A/D interrupt                                : INT_ADC0
 **            A/D interrupt priority                       : medium priority
 **          DMA                                            : Disabled
-**          A/D channel list                               : 1
+**          A/D channel list                               : 2
 **            Channel 0                                    : 
 **              Channel mode                               : Single Ended
 **                Input                                    : 
 **                  A/D channel (pin)                      : ADC0_SE6b/PTD5/SPI1_SCK/UART2_TX/TPM0_CH5
-**                  A/D channel (pin) signal               : 
+**                  A/D channel (pin) signal               : Analog_Output_Camera
+**            Channel 1                                    : 
+**              Channel mode                               : Single Ended
+**                Input                                    : 
+**                  A/D channel (pin)                      : CMP0_IN5/ADC0_SE4b/PTE29/TPM0_CH2/TPM_CLKIN0
+**                  A/D channel (pin) signal               : Battery_Level
 **          Static sample groups                           : Disabled
 **          Max. samples                                   : 8
 **          A/D resolution                                 : 8 bits
@@ -168,10 +173,12 @@ extern "C" {
    and "Signal" is the value of the " A/D channel (pin) signal" property. This constant
    can be used in the method CreateSampleGroup() to specify required channel.
    (See ComponentName_TSample struct) */
+#define AdcLdd1_Analog_Output_Camera    0U
+#define AdcLdd1_Battery_Level           1U
 
 /* This constant contains the number of channels in the "A/D channel list"
    group */
-#define AdcLdd1_CHANNEL_COUNT           1u
+#define AdcLdd1_CHANNEL_COUNT           2u
 
 /* This constant can be used in the sample array to create a gap in sample group.
    It is intended to disable a measurement of a sample */

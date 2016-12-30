@@ -7,7 +7,7 @@
 **     Version     : Component 01.018, Driver 01.02, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-10-08, 10:30, # CodeGen: 61
+**     Date/Time   : 2016-12-29, 22:36, # CodeGen: 150
 **     Abstract    :
 **          This TimerInt component implements a periodic interrupt.
 **          When the component and its events are enabled, the "OnInterrupt"
@@ -41,10 +41,9 @@
 **          Referenced components                          : 
 **            Linked TimerUnit                             : TU1
 **     Contents    :
-**         Init         - LDD_TDeviceData* TimerIntLdd1_Init(LDD_TUserData *UserDataPtr);
-**         Enable       - LDD_TError TimerIntLdd1_Enable(LDD_TDeviceData *DeviceDataPtr);
-**         Disable      - LDD_TError TimerIntLdd1_Disable(LDD_TDeviceData *DeviceDataPtr);
-**         SetEventMask - LDD_TError TimerIntLdd1_SetEventMask(LDD_TDeviceData *DeviceDataPtr,...
+**         Init    - LDD_TDeviceData* TimerIntLdd1_Init(LDD_TUserData *UserDataPtr);
+**         Enable  - LDD_TError TimerIntLdd1_Enable(LDD_TDeviceData *DeviceDataPtr);
+**         Disable - LDD_TError TimerIntLdd1_Disable(LDD_TDeviceData *DeviceDataPtr);
 **
 **     Copyright : 1997 - 2015 Freescale Semiconductor, Inc. 
 **     All Rights Reserved.
@@ -124,7 +123,6 @@ extern "C" {
 #define TimerIntLdd1_Init_METHOD_ENABLED /*!< Init method of the component TimerIntLdd1 is enabled (generated) */
 #define TimerIntLdd1_Enable_METHOD_ENABLED /*!< Enable method of the component TimerIntLdd1 is enabled (generated) */
 #define TimerIntLdd1_Disable_METHOD_ENABLED /*!< Disable method of the component TimerIntLdd1 is enabled (generated) */
-#define TimerIntLdd1_SetEventMask_METHOD_ENABLED /*!< SetEventMask method of the component TimerIntLdd1 is enabled (generated) */
 
 /* Events configuration constants - generated for all enabled component's events */
 #define TimerIntLdd1_OnInterrupt_EVENT_ENABLED /*!< OnInterrupt event of the component TimerIntLdd1 is enabled (generated) */
@@ -196,34 +194,6 @@ LDD_TError TimerIntLdd1_Enable(LDD_TDeviceData *DeviceDataPtr);
 */
 /* ===================================================================*/
 LDD_TError TimerIntLdd1_Disable(LDD_TDeviceData *DeviceDataPtr);
-
-/*
-** ===================================================================
-**     Method      :  TimerIntLdd1_SetEventMask (component TimerInt_LDD)
-*/
-/*!
-**     @brief
-**         Enables/disables event(s). The events contained within the
-**         mask are enabled. Events not contained within the mask are
-**         disabled. The component event masks are defined in the
-**         PE_Types.h file. Note: Event that are not generated (See the
-**         "Events" tab in the Component inspector) are not handled by
-**         this method. In this case the method returns ERR_PARAM_MASK
-**         error code. See also method [GetEventMask].
-**     @param
-**         DeviceDataPtr   - Device data structure
-**                           pointer returned by [Init] method.
-**     @param
-**         EventMask       - Event mask
-**     @return
-**                         - Error code, possible codes:
-**                           ERR_OK - OK
-**                           ERR_SPEED - The component does not work in
-**                           the active clock configuration
-**                           ERR_PARAM_MASK - Event mask is not valid
-*/
-/* ===================================================================*/
-LDD_TError TimerIntLdd1_SetEventMask(LDD_TDeviceData *DeviceDataPtr, LDD_TEventMask EventMask);
 
 /*
 ** ===================================================================

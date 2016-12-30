@@ -7,7 +7,7 @@
 **     Version     : Component 02.241, Driver 01.01, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-11-29, 16:30, # CodeGen: 73
+**     Date/Time   : 2016-12-29, 21:15, # CodeGen: 146
 **     Abstract    :
 **         This component implements a pulse-width modulation generator
 **         that generates signal with variable duty and fixed cycle. 
@@ -25,7 +25,7 @@
 **          Same period in modes                           : no
 **          Component uses entire timer                    : no
 **          Initialization                                 : 
-**            Enabled in init. code                        : yes
+**            Enabled in init. code                        : no
 **            Events enabled in init.                      : yes
 **          CPU clock/speed selection                      : 
 **            High speed mode                              : This component enabled
@@ -34,6 +34,8 @@
 **          Referenced components                          : 
 **            PWM_LDD                                      : PWM_LDD
 **     Contents    :
+**         Enable     - byte Servomotor_Enable(void);
+**         Disable    - byte Servomotor_Disable(void);
 **         SetRatio16 - byte Servomotor_SetRatio16(word Ratio);
 **         SetDutyUS  - byte Servomotor_SetDutyUS(word Time);
 **         SetDutyMS  - byte Servomotor_SetDutyMS(word Time);
@@ -88,6 +90,46 @@
 #ifdef __cplusplus
 extern "C" {
 #endif 
+
+/*
+** ===================================================================
+**     Method      :  Servomotor_Enable (component PWM)
+**     Description :
+**         This method enables the component - it starts the signal
+**         generation. Events may be generated (<DisableEvent>
+**         /<EnableEvent>).
+**     Parameters  : None
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+** ===================================================================
+*/
+/*
+byte Servomotor_Enable(void)
+**  This method is implemented as a macro. See Servomotor.h file.  **
+*/
+
+/*
+** ===================================================================
+**     Method      :  Servomotor_Disable (component PWM)
+**     Description :
+**         This method disables the component - it stops the signal
+**         generation and events calling. When the timer is disabled,
+**         it is possible to call <ClrValue> and <SetValue> methods.
+**     Parameters  : None
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+** ===================================================================
+*/
+/*
+byte Servomotor_Disable(void)
+**  This method is implemented as a macro. See Servomotor.h file.  **
+*/
 
 /*
 ** ===================================================================

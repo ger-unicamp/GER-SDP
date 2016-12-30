@@ -7,7 +7,7 @@
 **     Version     : Component 01.164, Driver 01.11, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-11-29, 16:30, # CodeGen: 73
+**     Date/Time   : 2016-12-29, 21:15, # CodeGen: 146
 **     Abstract    :
 **          This TimerUnit component provides a low level API for unified hardware access across
 **          various timer devices using the Prescaler-Counter-Compare-Capture timer structure.
@@ -36,7 +36,7 @@
 **                  Output pin signal                      : 
 **                Interrupt                                : Disabled
 **          Initialization                                 : 
-**            Enabled in init. code                        : yes
+**            Enabled in init. code                        : no
 **            Auto initialization                          : no
 **            Event mask                                   : 
 **              OnCounterRestart                           : Disabled
@@ -59,7 +59,10 @@
 **            Clock configuration 7                        : This component disabled
 **     Contents    :
 **         Init               - LDD_TDeviceData* TU3_Init(LDD_TUserData *UserDataPtr);
+**         Enable             - LDD_TError TU3_Enable(LDD_TDeviceData *DeviceDataPtr);
+**         Disable            - LDD_TError TU3_Disable(LDD_TDeviceData *DeviceDataPtr);
 **         GetPeriodTicks     - LDD_TError TU3_GetPeriodTicks(LDD_TDeviceData *DeviceDataPtr, TU3_TValueType...
+**         ResetCounter       - LDD_TError TU3_ResetCounter(LDD_TDeviceData *DeviceDataPtr);
 **         GetCounterValue    - TU3_TValueType TU3_GetCounterValue(LDD_TDeviceData *DeviceDataPtr);
 **         SetOffsetTicks     - LDD_TError TU3_SetOffsetTicks(LDD_TDeviceData *DeviceDataPtr, uint8_t...
 **         GetOffsetTicks     - LDD_TError TU3_GetOffsetTicks(LDD_TDeviceData *DeviceDataPtr, uint8_t...
@@ -145,7 +148,10 @@ extern "C" {
   
 /* Methods configuration constants - generated for all enabled component's methods */
 #define TU3_Init_METHOD_ENABLED        /*!< Init method of the component TU3 is enabled (generated) */
+#define TU3_Enable_METHOD_ENABLED      /*!< Enable method of the component TU3 is enabled (generated) */
+#define TU3_Disable_METHOD_ENABLED     /*!< Disable method of the component TU3 is enabled (generated) */
 #define TU3_GetPeriodTicks_METHOD_ENABLED /*!< GetPeriodTicks method of the component TU3 is enabled (generated) */
+#define TU3_ResetCounter_METHOD_ENABLED /*!< ResetCounter method of the component TU3 is enabled (generated) */
 #define TU3_GetCounterValue_METHOD_ENABLED /*!< GetCounterValue method of the component TU3 is enabled (generated) */
 #define TU3_SetOffsetTicks_METHOD_ENABLED /*!< SetOffsetTicks method of the component TU3 is enabled (generated) */
 #define TU3_GetOffsetTicks_METHOD_ENABLED /*!< GetOffsetTicks method of the component TU3 is enabled (generated) */
@@ -183,6 +189,48 @@ LDD_TDeviceData* TU3_Init(LDD_TUserData *UserDataPtr);
 
 /*
 ** ===================================================================
+**     Method      :  TU3_Enable (component TimerUnit_LDD)
+*/
+/*!
+**     @brief
+**         Enables the component - it starts the signal generation.
+**         Events may be generated (see SetEventMask). The method is
+**         not available if the counter can't be disabled/enabled by HW.
+**     @param
+**         DeviceDataPtr   - Device data structure
+**                           pointer returned by [Init] method.
+**     @return
+**                         - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - The component does not work in
+**                           the active clock configuration
+*/
+/* ===================================================================*/
+LDD_TError TU3_Enable(LDD_TDeviceData *DeviceDataPtr);
+
+/*
+** ===================================================================
+**     Method      :  TU3_Disable (component TimerUnit_LDD)
+*/
+/*!
+**     @brief
+**         Disables the component - it stops signal generation and
+**         events calling. The method is not available if the counter
+**         can't be disabled/enabled by HW.
+**     @param
+**         DeviceDataPtr   - Device data structure
+**                           pointer returned by [Init] method.
+**     @return
+**                         - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - The component does not work in
+**                           the active clock configuration
+*/
+/* ===================================================================*/
+LDD_TError TU3_Disable(LDD_TDeviceData *DeviceDataPtr);
+
+/*
+** ===================================================================
 **     Method      :  TU3_GetPeriodTicks (component TimerUnit_LDD)
 */
 /*!
@@ -206,6 +254,29 @@ LDD_TDeviceData* TU3_Init(LDD_TUserData *UserDataPtr);
 */
 /* ===================================================================*/
 LDD_TError TU3_GetPeriodTicks(LDD_TDeviceData *DeviceDataPtr, TU3_TValueType *TicksPtr);
+
+/*
+** ===================================================================
+**     Method      :  TU3_ResetCounter (component TimerUnit_LDD)
+*/
+/*!
+**     @brief
+**         Resets counter. If counter is counting up then it is set to
+**         zero. If counter is counting down then counter is updated to
+**         the reload value.
+**         The method is not available if HW doesn't allow resetting of
+**         the counter.
+**     @param
+**         DeviceDataPtr   - Device data structure
+**                           pointer returned by [Init] method.
+**     @return
+**                         - Error code, possible codes:
+**                           ERR_OK - OK 
+**                           ERR_SPEED - The component does not work in
+**                           the active clock configuration
+*/
+/* ===================================================================*/
+LDD_TError TU3_ResetCounter(LDD_TDeviceData *DeviceDataPtr);
 
 /*
 ** ===================================================================

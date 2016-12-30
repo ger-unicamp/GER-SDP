@@ -7,7 +7,7 @@
 **     Version     : Component 01.014, Driver 01.03, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-11-29, 16:30, # CodeGen: 73
+**     Date/Time   : 2016-12-29, 21:15, # CodeGen: 146
 **     Abstract    :
 **          This component implements a pulse-width modulation generator
 **          that generates signal with variable duty and fixed cycle.
@@ -26,7 +26,7 @@
 **          Starting pulse width                           : 18.55 ms
 **          Initial polarity                               : low
 **          Initialization                                 : 
-**            Enabled in init. code                        : yes
+**            Enabled in init. code                        : no
 **            Auto initialization                          : yes
 **            Event mask                                   : 
 **              OnEnd                                      : Disabled
@@ -43,6 +43,8 @@
 **            Linked component                             : TU3
 **     Contents    :
 **         Init       - LDD_TDeviceData* PwmLdd5_Init(LDD_TUserData *UserDataPtr);
+**         Enable     - LDD_TError PwmLdd5_Enable(LDD_TDeviceData *DeviceDataPtr);
+**         Disable    - LDD_TError PwmLdd5_Disable(LDD_TDeviceData *DeviceDataPtr);
 **         SetRatio16 - LDD_TError PwmLdd5_SetRatio16(LDD_TDeviceData *DeviceDataPtr, uint16_t Ratio);
 **         SetDutyUS  - LDD_TError PwmLdd5_SetDutyUS(LDD_TDeviceData *DeviceDataPtr, uint16_t Time);
 **         SetDutyMS  - LDD_TError PwmLdd5_SetDutyMS(LDD_TDeviceData *DeviceDataPtr, uint16_t Time);
@@ -125,6 +127,8 @@ extern "C" {
 
 /* Methods configuration constants - generated for all enabled component's methods */
 #define PwmLdd5_Init_METHOD_ENABLED    /*!< Init method of the component PwmLdd5 is enabled (generated) */
+#define PwmLdd5_Enable_METHOD_ENABLED  /*!< Enable method of the component PwmLdd5 is enabled (generated) */
+#define PwmLdd5_Disable_METHOD_ENABLED /*!< Disable method of the component PwmLdd5 is enabled (generated) */
 #define PwmLdd5_SetRatio16_METHOD_ENABLED /*!< SetRatio16 method of the component PwmLdd5 is enabled (generated) */
 #define PwmLdd5_SetDutyUS_METHOD_ENABLED /*!< SetDutyUS method of the component PwmLdd5 is enabled (generated) */
 #define PwmLdd5_SetDutyMS_METHOD_ENABLED /*!< SetDutyMS method of the component PwmLdd5 is enabled (generated) */
@@ -158,6 +162,46 @@ extern "C" {
 */
 /* ===================================================================*/
 LDD_TDeviceData* PwmLdd5_Init(LDD_TUserData *UserDataPtr);
+
+/*
+** ===================================================================
+**     Method      :  PwmLdd5_Enable (component PWM_LDD)
+*/
+/*!
+**     @brief
+**         Enables the component - it starts the signal generation.
+**         Events may be generated (see SetEventMask).
+**     @param
+**         DeviceDataPtr   - Device data structure
+**                           pointer returned by [Init] method.
+**     @return
+**                         - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - The component does not work in
+**                           the active clock configuration
+*/
+/* ===================================================================*/
+LDD_TError PwmLdd5_Enable(LDD_TDeviceData *DeviceDataPtr);
+
+/*
+** ===================================================================
+**     Method      :  PwmLdd5_Disable (component PWM_LDD)
+*/
+/*!
+**     @brief
+**         Disables the component - it stops signal generation and
+**         events calling.
+**     @param
+**         DeviceDataPtr   - Device data structure
+**                           pointer returned by [Init] method.
+**     @return
+**                         - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - The component does not work in
+**                           the active clock configuration
+*/
+/* ===================================================================*/
+LDD_TError PwmLdd5_Disable(LDD_TDeviceData *DeviceDataPtr);
 
 /*
 ** ===================================================================

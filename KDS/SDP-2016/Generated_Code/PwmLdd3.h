@@ -7,7 +7,7 @@
 **     Version     : Component 01.014, Driver 01.03, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-11-29, 16:14, # CodeGen: 71
+**     Date/Time   : 2016-12-23, 14:50, # CodeGen: 96
 **     Abstract    :
 **          This component implements a pulse-width modulation generator
 **          that generates signal with variable duty and fixed cycle.
@@ -23,7 +23,7 @@
 **          Counter                                        : TPM0_CNT
 **          Interrupt service/event                        : Disabled
 **          Period                                         : 25 ms
-**          Starting pulse width                           : 0 ms
+**          Starting pulse width                           : 25 ms
 **          Initial polarity                               : low
 **          Initialization                                 : 
 **            Enabled in init. code                        : yes
@@ -42,10 +42,8 @@
 **          Referenced components                          : 
 **            Linked component                             : TU2
 **     Contents    :
-**         Init       - LDD_TDeviceData* PwmLdd3_Init(LDD_TUserData *UserDataPtr);
-**         SetRatio16 - LDD_TError PwmLdd3_SetRatio16(LDD_TDeviceData *DeviceDataPtr, uint16_t Ratio);
-**         SetDutyUS  - LDD_TError PwmLdd3_SetDutyUS(LDD_TDeviceData *DeviceDataPtr, uint16_t Time);
-**         SetDutyMS  - LDD_TError PwmLdd3_SetDutyMS(LDD_TDeviceData *DeviceDataPtr, uint16_t Time);
+**         Init      - LDD_TDeviceData* PwmLdd3_Init(LDD_TUserData *UserDataPtr);
+**         SetRatio8 - LDD_TError PwmLdd3_SetRatio8(LDD_TDeviceData *DeviceDataPtr, uint8_t Ratio);
 **
 **     Copyright : 1997 - 2015 Freescale Semiconductor, Inc. 
 **     All Rights Reserved.
@@ -125,9 +123,7 @@ extern "C" {
 
 /* Methods configuration constants - generated for all enabled component's methods */
 #define PwmLdd3_Init_METHOD_ENABLED    /*!< Init method of the component PwmLdd3 is enabled (generated) */
-#define PwmLdd3_SetRatio16_METHOD_ENABLED /*!< SetRatio16 method of the component PwmLdd3 is enabled (generated) */
-#define PwmLdd3_SetDutyUS_METHOD_ENABLED /*!< SetDutyUS method of the component PwmLdd3 is enabled (generated) */
-#define PwmLdd3_SetDutyMS_METHOD_ENABLED /*!< SetDutyMS method of the component PwmLdd3 is enabled (generated) */
+#define PwmLdd3_SetRatio8_METHOD_ENABLED /*!< SetRatio8 method of the component PwmLdd3 is enabled (generated) */
 
 /* Events configuration constants - generated for all enabled component's events */
 
@@ -161,22 +157,22 @@ LDD_TDeviceData* PwmLdd3_Init(LDD_TUserData *UserDataPtr);
 
 /*
 ** ===================================================================
-**     Method      :  PwmLdd3_SetRatio16 (component PWM_LDD)
+**     Method      :  PwmLdd3_SetRatio8 (component PWM_LDD)
 */
 /*!
 **     @brief
 **         This method sets a new duty-cycle ratio. Ratio is expressed
-**         as a 16-bit unsigned integer number. 0 - FFFF value is
+**         as an 8-bit unsigned integer number. 0 - FF value is
 **         proportional to ratio 0 - 100%. The method is available
 **         only if it is not selected list of predefined values in
 **         [Starting pulse width] property. 
-**         Note: Calculated duty depends on the timer possibilities and
+**         Note: Calculated duty depends on the timer capabilities and
 **         on the selected period.
 **     @param
 **         DeviceDataPtr   - Device data structure
 **                           pointer returned by [Init] method.
 **     @param
-**         Ratio           - Ratio to set. 0 - 65535 value is
+**         Ratio           - Ratio to set. 0 - 255 value is
 **                           proportional to ratio 0 - 100%
 **     @return
 **                         - Error code, possible codes:
@@ -185,61 +181,7 @@ LDD_TDeviceData* PwmLdd3_Init(LDD_TUserData *UserDataPtr);
 **                           the active clock configuration
 */
 /* ===================================================================*/
-LDD_TError PwmLdd3_SetRatio16(LDD_TDeviceData *DeviceDataPtr, uint16_t Ratio);
-
-/*
-** ===================================================================
-**     Method      :  PwmLdd3_SetDutyUS (component PWM_LDD)
-*/
-/*!
-**     @brief
-**         This method sets the new duty value of the output signal.
-**         The duty is expressed in microseconds as a 16-bit unsigned
-**         integer number. The method is available only if it is not
-**         selected list of predefined values in [Starting pulse width]
-**         property.
-**     @param
-**         DeviceDataPtr   - Device data structure
-**                           pointer returned by [Init] method.
-**     @param
-**         Time            - Duty to set [in microseconds]
-**     @return
-**                         - Error code, possible codes:
-**                           ERR_OK - OK
-**                           ERR_SPEED - The component does not work in
-**                           the active clock configuration
-**                           ERR_MATH - Overflow during evaluation
-**                           ERR_PARAM_RANGE - Parameter out of range
-*/
-/* ===================================================================*/
-LDD_TError PwmLdd3_SetDutyUS(LDD_TDeviceData *DeviceDataPtr, uint16_t Time);
-
-/*
-** ===================================================================
-**     Method      :  PwmLdd3_SetDutyMS (component PWM_LDD)
-*/
-/*!
-**     @brief
-**         This method sets the new duty value of the output signal.
-**         The duty is expressed in milliseconds as a 16-bit unsigned
-**         integer number. The method is available only if it is not
-**         selected list of predefined values in [Starting pulse width]
-**         property.
-**     @param
-**         DeviceDataPtr   - Device data structure
-**                           pointer returned by [Init] method.
-**     @param
-**         Time            - Duty to set [in milliseconds]
-**     @return
-**                         - Error code, possible codes:
-**                           ERR_OK - OK
-**                           ERR_SPEED - The component does not work in
-**                           the active clock configuration
-**                           ERR_MATH - Overflow during evaluation
-**                           ERR_PARAM_RANGE - Parameter out of range
-*/
-/* ===================================================================*/
-LDD_TError PwmLdd3_SetDutyMS(LDD_TDeviceData *DeviceDataPtr, uint16_t Time);
+LDD_TError PwmLdd3_SetRatio8(LDD_TDeviceData *DeviceDataPtr, uint8_t Ratio);
 
 /* END PwmLdd3. */
 

@@ -48,16 +48,16 @@ by the component.
 <td class="regResetVal">0x0000FFFF</td>
  <td>TPM0_MOD register, peripheral PwmLdd3.</td></tr>
 <tr><td>0x40038020</td><td>TPM0_C2V</td>
-<td class="regResetVal">0x00000000</td>
+<td class="regNotResetVal">0x0000FFFF</td>
  <td>TPM0_C2V register, peripheral PwmLdd3.</td></tr>
 <tr><td>0x40038028</td><td>TPM0_C3V</td>
-<td class="regNotResetVal">0x00006666</td>
+<td class="regNotResetVal">0x0000FFFF</td>
  <td>TPM0_C3V register, peripheral PwmLdd3.</td></tr>
 <tr><td>0x40038010</td><td>TPM0_C0V</td>
-<td class="regResetVal">0x00000000</td>
+<td class="regNotResetVal">0x0000FFFF</td>
  <td>TPM0_C0V register, peripheral PwmLdd3.</td></tr>
 <tr><td>0x40038018</td><td>TPM0_C1V</td>
-<td class="regNotResetVal">0x00006666</td>
+<td class="regNotResetVal">0x0000FFFF</td>
  <td>TPM0_C1V register, peripheral PwmLdd3.</td></tr>
 <tr><td>0x4004B00C</td><td>PORTC_PCR3</td>
 <td class="regNotResetVal">0x00000400</td>
@@ -678,10 +678,10 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x40038020</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000000</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x0000FFFF</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
-<tr><td>0 - 15</td><td>VAL</td><td>0x00</td><td>Channel Value</td>
+<tr><td>0 - 15</td><td>VAL</td><td>0x8000</td><td>Channel Value</td>
 </tr></table>
 <div class="reghdr1">TPM0_C3V</div>
 <div class="regdiag">
@@ -725,10 +725,10 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x40038028</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00006666</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x0000FFFF</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
-<tr><td>0 - 15</td><td>VAL</td><td>0x00</td><td>Channel Value</td>
+<tr><td>0 - 15</td><td>VAL</td><td>0x8000</td><td>Channel Value</td>
 </tr></table>
 <div class="reghdr1">TPM0_C0V</div>
 <div class="regdiag">
@@ -772,10 +772,10 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x40038010</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000000</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x0000FFFF</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
-<tr><td>0 - 15</td><td>VAL</td><td>0x00</td><td>Channel Value</td>
+<tr><td>0 - 15</td><td>VAL</td><td>0x8000</td><td>Channel Value</td>
 </tr></table>
 <div class="reghdr1">TPM0_C1V</div>
 <div class="regdiag">
@@ -819,10 +819,10 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x40038018</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00006666</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x0000FFFF</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
-<tr><td>0 - 15</td><td>VAL</td><td>0x00</td><td>Channel Value</td>
+<tr><td>0 - 15</td><td>VAL</td><td>0x8000</td><td>Channel Value</td>
 </tr></table>
 <div class="reghdr1">PORTC_PCR3</div>
 <div class="regdiag">
@@ -1064,7 +1064,7 @@ registers of the peripheral(s) configured by the component.
 **          Counter                                        : TPM0_CNT
 **          Interrupt service/event                        : Disabled
 **          Period                                         : 25 ms
-**          Starting pulse width                           : 0 ms
+**          Starting pulse width                           : 25 ms
 **          Initial polarity                               : low
 **          Initialization                                 : 
 **            Enabled in init. code                        : yes

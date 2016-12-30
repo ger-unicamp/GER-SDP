@@ -8,11 +8,9 @@
 #ifndef SOURCES_GLOBALVARIABLES_H_
 #define SOURCES_GLOBALVARIABLES_H_
 
-
-uint8_t pixelArray[2][128];
-
 volatile bool serialTest;
 volatile bool serialFinished;
 volatile bool serialTestStart;
+extern volatile bool ApplicationEnd;
 
 #endif /* SOURCES_GLOBALVARIABLES_H_ */

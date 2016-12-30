@@ -4,21 +4,30 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Sources/BatteryController.c \
 ../Sources/CameraController.c \
 ../Sources/Events.c \
+../Sources/MotorController.c \
 ../Sources/SerialCommunication.c \
+../Sources/ServoController.c \
 ../Sources/main.c 
 
 OBJS += \
+./Sources/BatteryController.o \
 ./Sources/CameraController.o \
 ./Sources/Events.o \
+./Sources/MotorController.o \
 ./Sources/SerialCommunication.o \
+./Sources/ServoController.o \
 ./Sources/main.o 
 
 C_DEPS += \
+./Sources/BatteryController.d \
 ./Sources/CameraController.d \
 ./Sources/Events.d \
+./Sources/MotorController.d \
 ./Sources/SerialCommunication.d \
+./Sources/ServoController.d \
 ./Sources/main.d 
 
 

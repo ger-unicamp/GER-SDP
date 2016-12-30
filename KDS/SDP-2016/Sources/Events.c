@@ -56,9 +56,9 @@ void Cpu_OnNMIINT(void)
 
 /*
  ** ===================================================================
- **     Event       :  ClockInterruption_OnInterrupt (module Events)
+ **     Event       :  Camera_CLK_Interruption_OnInterrupt (module Events)
  **
- **     Component   :  ClockInterruption [TimerInt]
+ **     Component   :  Camera_CLK_Interruption [TimerInt]
  **     Description :
  **         When a timer interrupt occurs this event is called (only
  **         when the component is enabled - <Enable_Motors> and the events are
@@ -68,50 +68,43 @@ void Cpu_OnNMIINT(void)
  **     Returns     : Nothing
  ** ===================================================================
  */
-void ClockInterruption_OnInterrupt(void)
+void Camera_CLK_Interruption_OnInterrupt(void)
 {
 	switch (state)
 	{
-
+	// First state
 	case HALF_LOW_CLK:
 	{
-
 		// next state
 		state = HIGH_CLK;
 
 		if (clockCounter == 0)
 		{
-			// SI High.
+			// SI High
 			SI_SetVal();
 			while (!SI_GetVal());
 		}
 
-		// Fim de um ciclo.
-		// A camera precisa de um clock a mais para enviar o ultimo pixel.
+		// End of the cycle
+		// The camera needs an extra clock (129) to send the last pixel
 		else if (clockCounter == 129)
 		{
 			clockCounter = 0;
-			// E 20 microssegundos para se preparar para o proximo ciclo.
+
+			// And 20 microseconds to prepare for the next cycle.
 			state = WAIT_TRANSFER_CHARGE;
 
-			// Updates the control samples
-			if (measuringCounter < 0)
-			{
-				// In this case happened overflow.
-				measuringCounter = 0;
-			}
-			else
-			{
-				measuringCounter++;
-			}
+			// Checks if reading is finished
+			verifySample();
 		}
-
 		break;
 	}
+
 	case HIGH_CLK:
 	{
 		// Clock High.
 		CLK_SetVal();
+		while (!CLK_GetVal());
 
 		clockCounter++;
 
@@ -119,6 +112,7 @@ void ClockInterruption_OnInterrupt(void)
 
 		break;
 	}
+
 	case HALF_HIGH_CLK:
 	{
 		if (clockCounter == 1)
@@ -129,8 +123,7 @@ void ClockInterruption_OnInterrupt(void)
 		}
 
 		// Starts the AD convertion
-		ImageConverter_Measure(FALSE);
-
+		AD_Converter_MeasureChan(FALSE, 0);
 		state = LOW_CLK;
 		break;
 	}
@@ -138,6 +131,7 @@ void ClockInterruption_OnInterrupt(void)
 	{
 		// Clock Low.
 		CLK_ClrVal();
+		while (CLK_GetVal());
 
 		state = HALF_LOW_CLK;
 
@@ -159,14 +153,15 @@ void ClockInterruption_OnInterrupt(void)
 
 		break;
 	}
+
 	}
 }
 
 /*
  ** ===================================================================
- **     Event       :  ImageConverter_OnEnd (module Events)
+ **     Event       :  AD_Converter_OnEnd (module Events)
  **
- **     Component   :  ImageConverter [ImageConverter]
+ **     Component   :  AD_Converter [AD_Converter]
  **     Description :
  **         This event is called after the measurement (which consists
  **         of <1 or more conversions>) is/are finished.
@@ -176,50 +171,16 @@ void ClockInterruption_OnInterrupt(void)
  **     Returns     : Nothing
  ** ===================================================================
  */
-void ImageConverter_OnEnd(void)
+void AD_Converter_OnEnd(void)
 {
-
-	ImageConverter_GetValue(&pixelArray[0][clockCounter]);
-}
-
-/*
- ** ===================================================================
- **     Event       :  ImageConverter_OnCalibrationEnd (module Events)
- **
- **     Component   :  ImageConverter [ImageConverter]
- **     Description :
- **         This event is called when the calibration has been finished.
- **         User should check if the calibration pass or fail by
- **         Calibration status method./nThis event is enabled only if
- **         the <Interrupt service/event> property is enabled.
- **     Parameters  : None
- **     Returns     : Nothing
- ** ===================================================================
- */
-void ImageConverter_OnCalibrationEnd(void)
-{
-	/* Write your code here ... */
-}
-
-/*
- ** ===================================================================
- **     Event       :  SerialCom_OnBlockReceived (module Events)
- **
- **     Component   :  SerialCom [Serial_LDD]
- */
-/*!
- **     @brief
- **         This event is called when the requested number of data is
- **         moved to the input buffer.
- **     @param
- **         UserDataPtr     - Pointer to the user or
- **                           RTOS specific data. This pointer is passed
- **                           as the parameter of Init method.
- */
-/* ===================================================================*/
-void SerialCom_OnBlockReceived(LDD_TUserData *UserDataPtr)
-{
-	/* Write your code here ... */
+	if (!handlingPowerUpdate)
+	{
+		AD_Converter_GetChanValue(0, &rawImageBuffer[clockCounter]);
+	}
+	else
+	{
+		updatePowerState();
+	}
 }
 
 /*
@@ -243,7 +204,6 @@ void SerialCom_OnBlockSent(LDD_TUserData *UserDataPtr)
 	Serial_Device *ptr = (Serial_Device*)UserDataPtr;
 
 	ptr->isSent = TRUE; /* set flag so sender knows we have finished */
-
 }
 
 /* END Events */

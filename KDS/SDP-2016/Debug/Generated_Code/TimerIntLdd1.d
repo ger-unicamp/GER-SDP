@@ -1,5 +1,5 @@
 Generated_Code/TimerIntLdd1.o: ../Generated_Code/TimerIntLdd1.c \
- ../Generated_Code/ClockInterruption.h ../Generated_Code/PE_Types.h \
+ ../Generated_Code/Camera_CLK_Interruption.h ../Generated_Code/PE_Types.h \
  ../Generated_Code/PE_Error.h ../Generated_Code/PE_Const.h \
  ../Generated_Code/IO_Map.h \
  /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Static_Code/IO_Map/MKL25Z4.h \
@@ -8,7 +8,7 @@ Generated_Code/TimerIntLdd1.o: ../Generated_Code/TimerIntLdd1.c \
  /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Static_Code/PDD/PDD_Types.h \
  ../Generated_Code/Cpu.h
 
-../Generated_Code/ClockInterruption.h:
+../Generated_Code/Camera_CLK_Interruption.h:
 
 ../Generated_Code/PE_Types.h:
 

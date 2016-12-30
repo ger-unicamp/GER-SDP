@@ -1,7 +1,7 @@
 Sources/CameraController.o: ../Sources/CameraController.c \
  ../Sources/CameraController.h \
  /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/PE_Types.h \
- /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/ClockInterruption.h \
+ /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Camera_CLK_Interruption.h \
  /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/PE_Types.h \
  /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/PE_Error.h \
  /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/PE_Const.h \
@@ -19,7 +19,7 @@ Sources/CameraController.o: ../Sources/CameraController.c \
 
 /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/PE_Types.h:
 
-/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/ClockInterruption.h:
+/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Camera_CLK_Interruption.h:
 
 /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/PE_Types.h:
 

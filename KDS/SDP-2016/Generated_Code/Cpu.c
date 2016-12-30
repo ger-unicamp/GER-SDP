@@ -8,7 +8,7 @@
 **     Repository  : Kinetis
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-11-29, 16:34, # CodeGen: 75
+**     Date/Time   : 2016-12-27, 01:03, # CodeGen: 134
 **     Abstract    :
 **
 **     Settings    :
@@ -247,18 +247,18 @@
 #include "BitIoLdd1.h"
 #include "CLK.h"
 #include "BitIoLdd2.h"
-#include "ClockInterruption.h"
+#include "Camera_CLK_Interruption.h"
 #include "TimerIntLdd1.h"
 #include "TU1.h"
-#include "ImageConverter.h"
+#include "AD_Converter.h"
 #include "AdcLdd1.h"
 #include "SerialCom.h"
 #include "Enable_Motors.h"
 #include "BitIoLdd4.h"
-#include "Motor_A_In_1.h"
+#include "Motor_A_In1.h"
 #include "PwmLdd1.h"
 #include "TU2.h"
-#include "Motor_A_In_2.h"
+#include "Motor_A_In2.h"
 #include "PwmLdd2.h"
 #include "Motor_B_In1.h"
 #include "PwmLdd3.h"
@@ -267,6 +267,22 @@
 #include "Servomotor.h"
 #include "PwmLdd5.h"
 #include "TU3.h"
+#include "SW2_Start_Button.h"
+#include "BitIoLdd3.h"
+#include "Power_Level1.h"
+#include "BitIoLdd5.h"
+#include "Power_Level2.h"
+#include "BitIoLdd6.h"
+#include "Power_Level3.h"
+#include "BitIoLdd7.h"
+#include "Power_Level4.h"
+#include "BitIoLdd8.h"
+#include "ErrorLED.h"
+#include "BitIoLdd9.h"
+#include "GreenLED.h"
+#include "BitIoLdd10.h"
+#include "BlueLED.h"
+#include "BitIoLdd11.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -453,9 +469,9 @@ void PE_low_level_init(void)
   (void)BitIoLdd2_Init(NULL);
   /* ### TimerInt_LDD "TimerIntLdd1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)TimerIntLdd1_Init(NULL);
-  /* ### TimerInt "ClockInterruption" init code ... */
-  /* ### ADC "ImageConverter" init code ... */
-  ImageConverter_Init();
+  /* ### TimerInt "Camera_CLK_Interruption" init code ... */
+  /* ### ADC "AD_Converter" init code ... */
+  AD_Converter_Init();
   /* ### BitIO_LDD "BitIoLdd4" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)BitIoLdd4_Init(NULL);
   /* ### PWM_LDD "PwmLdd1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
@@ -468,6 +484,22 @@ void PE_low_level_init(void)
   (void)PwmLdd4_Init(NULL);
   /* ### PWM_LDD "PwmLdd5" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)PwmLdd5_Init(NULL);
+  /* ### BitIO_LDD "BitIoLdd3" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)BitIoLdd3_Init(NULL);
+  /* ### BitIO_LDD "BitIoLdd5" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)BitIoLdd5_Init(NULL);
+  /* ### BitIO_LDD "BitIoLdd6" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)BitIoLdd6_Init(NULL);
+  /* ### BitIO_LDD "BitIoLdd7" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)BitIoLdd7_Init(NULL);
+  /* ### BitIO_LDD "BitIoLdd8" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)BitIoLdd8_Init(NULL);
+  /* ### BitIO_LDD "BitIoLdd9" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)BitIoLdd9_Init(NULL);
+  /* ### BitIO_LDD "BitIoLdd10" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)BitIoLdd10_Init(NULL);
+  /* ### BitIO_LDD "BitIoLdd11" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)BitIoLdd11_Init(NULL);
   __EI();
 }
   /* Flash configuration field */

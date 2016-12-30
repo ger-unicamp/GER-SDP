@@ -7,7 +7,7 @@
 **     Version     : Component 01.014, Driver 01.03, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-11-29, 16:14, # CodeGen: 71
+**     Date/Time   : 2016-12-23, 14:50, # CodeGen: 96
 **     Abstract    :
 **          This component implements a pulse-width modulation generator
 **          that generates signal with variable duty and fixed cycle.
@@ -23,7 +23,7 @@
 **          Counter                                        : TPM0_CNT
 **          Interrupt service/event                        : Disabled
 **          Period                                         : 25 ms
-**          Starting pulse width                           : 0 ms
+**          Starting pulse width                           : 25 ms
 **          Initial polarity                               : low
 **          Initialization                                 : 
 **            Enabled in init. code                        : yes
@@ -42,10 +42,8 @@
 **          Referenced components                          : 
 **            Linked component                             : TU2
 **     Contents    :
-**         Init       - LDD_TDeviceData* PwmLdd1_Init(LDD_TUserData *UserDataPtr);
-**         SetRatio16 - LDD_TError PwmLdd1_SetRatio16(LDD_TDeviceData *DeviceDataPtr, uint16_t Ratio);
-**         SetDutyUS  - LDD_TError PwmLdd1_SetDutyUS(LDD_TDeviceData *DeviceDataPtr, uint16_t Time);
-**         SetDutyMS  - LDD_TError PwmLdd1_SetDutyMS(LDD_TDeviceData *DeviceDataPtr, uint16_t Time);
+**         Init      - LDD_TDeviceData* PwmLdd1_Init(LDD_TUserData *UserDataPtr);
+**         SetRatio8 - LDD_TError PwmLdd1_SetRatio8(LDD_TDeviceData *DeviceDataPtr, uint8_t Ratio);
 **
 **     Copyright : 1997 - 2015 Freescale Semiconductor, Inc. 
 **     All Rights Reserved.
@@ -149,7 +147,7 @@ LDD_TDeviceData* PwmLdd1_Init(LDD_TUserData *UserDataPtr)
   DeviceDataPrv = &DeviceDataPrv__DEFAULT_RTOS_ALLOC;
   DeviceDataPrv->UserDataPtr = UserDataPtr; /* Store the RTOS device structure */
   DeviceDataPrv->EnUser = TRUE;        /* Set the flag "device enabled" */
-  DeviceDataPrv->RatioStore = 0x01U;   /* Ratio after initialization */
+  DeviceDataPrv->RatioStore = 0xFFFFU; /* Ratio after initialization */
   /* Registration of the device structure */
   PE_LDD_RegisterDeviceStructure(PE_LDD_COMPONENT_PwmLdd1_ID,DeviceDataPrv);
   DeviceDataPrv->LinkedDeviceDataPtr = TU2_Init((LDD_TUserData *)NULL);
@@ -165,22 +163,22 @@ LDD_TDeviceData* PwmLdd1_Init(LDD_TUserData *UserDataPtr)
 
 /*
 ** ===================================================================
-**     Method      :  PwmLdd1_SetRatio16 (component PWM_LDD)
+**     Method      :  PwmLdd1_SetRatio8 (component PWM_LDD)
 */
 /*!
 **     @brief
 **         This method sets a new duty-cycle ratio. Ratio is expressed
-**         as a 16-bit unsigned integer number. 0 - FFFF value is
+**         as an 8-bit unsigned integer number. 0 - FF value is
 **         proportional to ratio 0 - 100%. The method is available
 **         only if it is not selected list of predefined values in
 **         [Starting pulse width] property. 
-**         Note: Calculated duty depends on the timer possibilities and
+**         Note: Calculated duty depends on the timer capabilities and
 **         on the selected period.
 **     @param
 **         DeviceDataPtr   - Device data structure
 **                           pointer returned by [Init] method.
 **     @param
-**         Ratio           - Ratio to set. 0 - 65535 value is
+**         Ratio           - Ratio to set. 0 - 255 value is
 **                           proportional to ratio 0 - 100%
 **     @return
 **                         - Error code, possible codes:
@@ -189,105 +187,13 @@ LDD_TDeviceData* PwmLdd1_Init(LDD_TUserData *UserDataPtr)
 **                           the active clock configuration
 */
 /* ===================================================================*/
-LDD_TError PwmLdd1_SetRatio16(LDD_TDeviceData *DeviceDataPtr, uint16_t Ratio)
+LDD_TError PwmLdd1_SetRatio8(LDD_TDeviceData *DeviceDataPtr, uint8_t Ratio)
 {
   PwmLdd1_TDeviceData *DeviceDataPrv = (PwmLdd1_TDeviceData *)DeviceDataPtr;
 
-  DeviceDataPrv->RatioStore = Ratio;   /* Store new value of the ratio */
+  DeviceDataPrv->RatioStore = (uint16_t)Ratio << 8U; /* Store new value of the ratio */
   SetRatio(DeviceDataPtr);
   return ERR_OK;
-}
-
-/*
-** ===================================================================
-**     Method      :  PwmLdd1_SetDutyUS (component PWM_LDD)
-*/
-/*!
-**     @brief
-**         This method sets the new duty value of the output signal.
-**         The duty is expressed in microseconds as a 16-bit unsigned
-**         integer number. The method is available only if it is not
-**         selected list of predefined values in [Starting pulse width]
-**         property.
-**     @param
-**         DeviceDataPtr   - Device data structure
-**                           pointer returned by [Init] method.
-**     @param
-**         Time            - Duty to set [in microseconds]
-**     @return
-**                         - Error code, possible codes:
-**                           ERR_OK - OK
-**                           ERR_SPEED - The component does not work in
-**                           the active clock configuration
-**                           ERR_MATH - Overflow during evaluation
-**                           ERR_PARAM_RANGE - Parameter out of range
-*/
-/* ===================================================================*/
-LDD_TError PwmLdd1_SetDutyUS(LDD_TDeviceData *DeviceDataPtr, uint16_t Time)
-{
-  PwmLdd1_TDeviceData *DeviceDataPrv = (PwmLdd1_TDeviceData *)DeviceDataPtr;
-  LDD_TimerUnit_Tfloat rtval;          /* Result of multiplication */
-
-  /* Time test - this test can be disabled by setting the "Ignore range checking"
-     property to the "yes" value in the "Configuration inspector" */
-  if (Time > 0x61A8U) {                /* Is the given value out of range? */
-    return ERR_PARAM_RANGE;            /* If yes then error */
-  }
-  rtval = Time * 2.62144F;             /* Multiply given value and actual clock configuration coefficient */
-  if (rtval > 0xFFFFUL) {              /* Is the result greater than 65535 ? */
-    DeviceDataPrv->RatioStore = 0xFFFFU; /* If yes then use maximal possible value */
-  }
-  else {
-    DeviceDataPrv->RatioStore = (uint16_t)rtval;
-  }
-  SetRatio(DeviceDataPtr);             /* Calculate and set up new appropriate values of the duty register */
-  return ERR_OK;                       /* OK */
-}
-
-/*
-** ===================================================================
-**     Method      :  PwmLdd1_SetDutyMS (component PWM_LDD)
-*/
-/*!
-**     @brief
-**         This method sets the new duty value of the output signal.
-**         The duty is expressed in milliseconds as a 16-bit unsigned
-**         integer number. The method is available only if it is not
-**         selected list of predefined values in [Starting pulse width]
-**         property.
-**     @param
-**         DeviceDataPtr   - Device data structure
-**                           pointer returned by [Init] method.
-**     @param
-**         Time            - Duty to set [in milliseconds]
-**     @return
-**                         - Error code, possible codes:
-**                           ERR_OK - OK
-**                           ERR_SPEED - The component does not work in
-**                           the active clock configuration
-**                           ERR_MATH - Overflow during evaluation
-**                           ERR_PARAM_RANGE - Parameter out of range
-*/
-/* ===================================================================*/
-LDD_TError PwmLdd1_SetDutyMS(LDD_TDeviceData *DeviceDataPtr, uint16_t Time)
-{
-  PwmLdd1_TDeviceData *DeviceDataPrv = (PwmLdd1_TDeviceData *)DeviceDataPtr;
-  LDD_TimerUnit_Tfloat rtval;          /* Result of multiplication */
-
-  /* Time test - this test can be disabled by setting the "Ignore range checking"
-     property to the "yes" value in the "Configuration inspector" */
-  if (Time > 0x19U) {                  /* Is the given value out of range? */
-    return ERR_PARAM_RANGE;            /* If yes then error */
-  }
-  rtval = Time * 2621.44F;             /* Multiply given value and actual clock configuration coefficient */
-  if (rtval > 0xFFFFUL) {              /* Is the result greater than 65535 ? */
-    DeviceDataPrv->RatioStore = 0xFFFFU; /* If yes then use maximal possible value */
-  }
-  else {
-    DeviceDataPrv->RatioStore = (uint16_t)rtval;
-  }
-  SetRatio(DeviceDataPtr);             /* Calculate and set up new appropriate values of the duty register */
-  return ERR_OK;                       /* OK */
 }
 
 /*

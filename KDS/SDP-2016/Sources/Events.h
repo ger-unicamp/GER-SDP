@@ -37,18 +37,18 @@
 #include "BitIoLdd1.h"
 #include "CLK.h"
 #include "BitIoLdd2.h"
-#include "ClockInterruption.h"
+#include "Camera_CLK_Interruption.h"
 #include "TimerIntLdd1.h"
 #include "TU1.h"
-#include "ImageConverter.h"
+#include "AD_Converter.h"
 #include "AdcLdd1.h"
 #include "SerialCom.h"
 #include "Enable_Motors.h"
 #include "BitIoLdd4.h"
-#include "Motor_A_In_1.h"
+#include "Motor_A_In1.h"
 #include "PwmLdd1.h"
 #include "TU2.h"
-#include "Motor_A_In_2.h"
+#include "Motor_A_In2.h"
 #include "PwmLdd2.h"
 #include "Motor_B_In1.h"
 #include "PwmLdd3.h"
@@ -57,12 +57,29 @@
 #include "Servomotor.h"
 #include "PwmLdd5.h"
 #include "TU3.h"
+#include "SW2_Start_Button.h"
+#include "BitIoLdd3.h"
+#include "Power_Level1.h"
+#include "BitIoLdd5.h"
+#include "Power_Level2.h"
+#include "BitIoLdd6.h"
+#include "Power_Level3.h"
+#include "BitIoLdd7.h"
+#include "Power_Level4.h"
+#include "BitIoLdd8.h"
+#include "GreenLED.h"
+#include "BitIoLdd10.h"
+#include "BlueLED.h"
+#include "BitIoLdd11.h"
+#include "ErrorLED.h"
+#include "BitIoLdd9.h"
 
+/* User includes*/
 #include "CameraController.h"
 #include "SerialCommunication.h"
+#include "BatteryController.h"
 
 // User Variables
-extern uint8_t pixelArray[2][128];
 extern volatile bool serialTest;
 extern volatile bool serialFinished;
 extern volatile bool serialTestStart;
@@ -90,9 +107,9 @@ void Cpu_OnNMIINT(void);
 
 /*
 ** ===================================================================
-**     Event       :  ClockInterruption_OnInterrupt (module Events)
+**     Event       :  Camera_CLK_Interruption_OnInterrupt (module Events)
 **
-**     Component   :  ClockInterruption [TimerInt]
+**     Component   :  Camera_CLK_Interruption [TimerInt]
 **     Description :
 **         When a timer interrupt occurs this event is called (only
 **         when the component is enabled - <Enable_Motors> and the events are
@@ -102,7 +119,7 @@ void Cpu_OnNMIINT(void);
 **     Returns     : Nothing
 ** ===================================================================
 */
-void ClockInterruption_OnInterrupt(void);
+void Camera_CLK_Interruption_OnInterrupt(void);
 
 /*
 ** ===================================================================
@@ -154,12 +171,12 @@ void SerialInterrupt_OnInterrupt(void);
 ** ===================================================================
 */
 
-void ImageConverter_OnEnd(void);
+void AD_Converter_OnEnd(void);
 /*
 ** ===================================================================
-**     Event       :  ImageConverter_OnEnd (module Events)
+**     Event       :  AD_Converter_OnEnd (module Events)
 **
-**     Component   :  ImageConverter [ImageConverter]
+**     Component   :  AD_Converter [AD_Converter]
 **     Description :
 **         This event is called after the measurement (which consists
 **         of <1 or more conversions>) is/are finished.
@@ -169,40 +186,6 @@ void ImageConverter_OnEnd(void);
 **     Returns     : Nothing
 ** ===================================================================
 */
-
-void ImageConverter_OnCalibrationEnd(void);
-/*
-** ===================================================================
-**     Event       :  ImageConverter_OnCalibrationEnd (module Events)
-**
-**     Component   :  ImageConverter [ImageConverter]
-**     Description :
-**         This event is called when the calibration has been finished.
-**         User should check if the calibration pass or fail by
-**         Calibration status method./nThis event is enabled only if
-**         the <Interrupt service/event> property is enabled.
-**     Parameters  : None
-**     Returns     : Nothing
-** ===================================================================
-*/
-
-/*
-** ===================================================================
-**     Event       :  SerialCom_OnBlockReceived (module Events)
-**
-**     Component   :  SerialCom [Serial_LDD]
-*/
-/*!
-**     @brief
-**         This event is called when the requested number of data is
-**         moved to the input buffer.
-**     @param
-**         UserDataPtr     - Pointer to the user or
-**                           RTOS specific data. This pointer is passed
-**                           as the parameter of Init method.
-*/
-/* ===================================================================*/
-void SerialCom_OnBlockReceived(LDD_TUserData *UserDataPtr);
 
 /*
 ** ===================================================================

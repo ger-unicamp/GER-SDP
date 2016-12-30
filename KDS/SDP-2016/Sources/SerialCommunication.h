@@ -26,10 +26,12 @@ typedef struct
 	volatile bool isSent; // Flag to send data. Must be volatile.
 } Serial_Device;
 
-void runSerialTest();
-void sendArrayOfPixels(uint8_t array[]);
-void itoa_8_bit(uint8_t sample);
+void sendChar(char character);
+void sendString(char* string);
 
-void sendAChar(char c);
+void sendArrayOfPixels(uint8 array[]);
+void itoa_8_bit(uint8 sample);
+
+void floatToChar(float number, char* array, int digitsBefore, int digitsAfter);
 
 #endif /* SOURCES_SERIALCOMMUNICATION_H_ */
