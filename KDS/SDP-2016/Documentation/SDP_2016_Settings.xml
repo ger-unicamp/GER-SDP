@@ -252,7 +252,7 @@ PE_DEBUGHALT();
       <Component_uses_entire_timer v="no" />
       <group name="Initialization">
         <Enabled_in_init__code v="no" />
-        <Events_enabled_in_init_ v="yes" />
+        <Events_enabled_in_init_ v="no" />
       </group>
       <group name="CPU clock/speed selection">
         <High_speed_mode v="This component enabled" />
@@ -274,7 +274,7 @@ PE_DEBUGHALT();
             <group name="Initialization">
               <Enabled_in_init__code v="no" />
               <group name="Event mask">
-                <OnInterrupt v="Enabled" />
+                <OnInterrupt v="Disabled" />
               </group>
             </group>
             <group name="Referenced components">
@@ -286,7 +286,7 @@ PE_DEBUGHALT();
             <Deinit v="don&amp;apos;t generate code" />
             <Enable v="generate code" />
             <Disable v="generate code" />
-            <SetEventMask v="don&amp;apos;t generate code" />
+            <SetEventMask v="generate code" />
             <GetEventMask v="don&amp;apos;t generate code" />
             <GetEventStatus v="don&amp;apos;t generate code" />
             <SelectPeriod v="don&amp;apos;t generate code" />
@@ -312,8 +312,8 @@ PE_DEBUGHALT();
     <Methods>
       <Enable v="generate code" />
       <Disable v="generate code" />
-      <EnableEvent v="don&amp;apos;t generate code" />
-      <DisableEvent v="don&amp;apos;t generate code" />
+      <EnableEvent v="generate code" />
+      <DisableEvent v="generate code" />
       <SetPeriodMode v="don&amp;apos;t generate code" />
       <SetPeriodTicks16 v="don&amp;apos;t generate code" />
       <SetPeriodTicks32 v="don&amp;apos;t generate code" />
@@ -361,7 +361,7 @@ PE_DEBUGHALT();
       <group name="Initialization">
         <Enabled_in_init__code v="no" />
         <group name="Event mask">
-          <OnCounterRestart v="Enabled" />
+          <OnCounterRestart v="Disabled" />
           <OnChannel0 v="Disabled" />
           <OnChannel1 v="Disabled" />
           <OnChannel2 v="Disabled" />
@@ -378,7 +378,7 @@ PE_DEBUGHALT();
       <Deinit v="don&amp;apos;t generate code" />
       <Enable v="generate code" />
       <Disable v="generate code" />
-      <SetEventMask v="don&amp;apos;t generate code" />
+      <SetEventMask v="generate code" />
       <GetEventMask v="don&amp;apos;t generate code" />
       <GetEventStatus v="don&amp;apos;t generate code" />
       <SelectInputFrequency v="don&amp;apos;t generate code" />

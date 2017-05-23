@@ -80,55 +80,70 @@
 #include "MotorController.h"
 #include "ServoController.h"
 #include "BatteryController.h"
+
+#include "ImageProcessing.h"
+#include "SystemController.h"
+
 #include "SerialCommunication.h"
 #include "GlobalVariables.h"
 
 
 
 /* Global Variables */
-volatile bool ApplicationEnd;
+
 
 /*lint -save  -e970 Disable MISRA rule (6.3) checking. */
 int main(void)
 /*lint -restore Enable_Motors MISRA rule (6.3) checking. */
 {
+	uint8 image[128];
+
 	/*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
 	PE_low_level_init();
 	/*** End of Processor Expert internal initialization.                    ***/
+
+	Camera_CLK_Interruption_Enable();
 
 	// Enables motors
 	Enable_Motors_SetVal();
 
 	Servomotor_Enable();
 
-	// Update the battery indicator LED
-//	updateBatteryLevel();
-
 	// Wait for the SW2 button to be pressed
 	while (!SW2_Start_Button_GetVal());
 
-	ApplicationEnd = FALSE;
-	uint8 vetor[128];
-	for (int i = 0; i < 128;i++)
-		vetor[i] = i;
+	getRawImageMean(1);
+	//	sendArrayOfPixels(rawImage);
+
+	calibration();
+
+
+	while (1)
+	{
+		getRawImageMean(1);
+
+		binarization(image);
+		sendArrayOfPixels(image);
+
+		updateBatteryLevel();
+	}
 
 	// Program Loop
-	while (!ApplicationEnd)
+	while (TRUE)
 	{
-
 		getRawImageMean(1);
-//		sendArrayOfPixels(rawImage);
-		sendArrayOfPixels(vetor);
 
+		binarization(image);
 
-		//setMotorsSpeed(100, 100);
-		//setServoDirection(175);
+		basicControll(image);
+
+		// delay for the servo// Melhorar isso
+		for (int i = 0; i < 50000; i++);
 
 		// Update the battery indicator LED
 		updateBatteryLevel();
 		//sendBatteryLevel();
 	}
-	// FAZER FUNÇÃO PARA FINALIZAÇÃO
 
 	/*** Don't write any code pass this line, or it will be deleted during code generation. ***/
   /*** RTOS startup code. Macro PEX_RTOS_START is defined by the RTOS component. DON'T MODIFY THIS CODE!!! ***/

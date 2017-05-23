@@ -66,16 +66,12 @@ void updatePowerState()
 	}
 	else
 	{
-		//ApplicationEnd = TRUE;
-		// FUNÇÃO PARA DESLIGAR MOTORES!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
 		Power_Level1_NegVal();
 		Power_Level2_NegVal();
 		Power_Level3_NegVal();
 		Power_Level4_NegVal();
 
-		for (int delay = 0; delay < 1000000; delay++);
+		for (int delay = 0; delay < 100000; delay++);
 	}
 
 	handlingPowerUpdate = FALSE;

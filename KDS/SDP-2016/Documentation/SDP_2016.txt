@@ -38,6 +38,8 @@ Module "Camera_CLK_Interruption" (component TimerInt)
    - Camera_CLK_Interruption_Enable -This method enables the component - it starts the timer. Events may be generated 
                 (<DisableEvent>/<EnableEvent>).
    - Camera_CLK_Interruption_Disable -This method disables the component - it stops the timer. No events will be generated.
+   - Camera_CLK_Interruption_EnableEvent -This method enables the events.
+   - Camera_CLK_Interruption_DisableEvent -This method disables the events.
 
 Module "TU1"       (component TimerUnit_LDD)
    - TU1_Init -Initializes the device. Allocates memory for the device data structure, allocates interrupt vectors and sets 
@@ -49,6 +51,10 @@ Module "TU1"       (component TimerUnit_LDD)
                 method is not available if the counter can't be disabled/enabled by HW.
    - TU1_Disable -Disables the component - it stops signal generation and events calling. The method is not available if the 
                 counter can't be disabled/enabled by HW.
+   - TU1_SetEventMask -Enables/disables event(s). The events contained within the mask are enabled. Events not contained within 
+                the mask are disabled. The component event masks are defined in the PE_Types.h file. Note: Event that are not 
+                generated (See the "Events" tab in the Component inspector) are not handled by this method. In this case the 
+                method returns ERR_PARAM_MASK error code. See also method <GetEventMask>.
 
 Module "AD_Converter" (component ADC)
    - AD_Converter_Measure -This method performs one measurement on all channels that are set in the component inspector. (Note: 

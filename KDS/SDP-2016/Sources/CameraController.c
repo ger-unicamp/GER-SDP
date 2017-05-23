@@ -90,11 +90,11 @@ int getRawImageMean(int samplesNum)
 	initializeCamera();
 
 	// Camera activation
-	Camera_CLK_Interruption_Enable();
+	Camera_CLK_Interruption_EnableEvent();
 
 	while (currentSample < samplesNumber);
 
-	Camera_CLK_Interruption_Disable();
+	Camera_CLK_Interruption_DisableEvent();
 }
 
 /*
@@ -104,7 +104,7 @@ int getRawImageMean(int samplesNum)
 void verifySample()
 {
 	// The first sample is Discarded
-	if (currentSample != -1)
+	if (currentSample >= 0)
 	{
 		for (int pixel = 0; pixel < 128; pixel++)
 		{

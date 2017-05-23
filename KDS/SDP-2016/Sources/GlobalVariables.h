@@ -11,6 +11,5 @@
 volatile bool serialTest;
 volatile bool serialFinished;
 volatile bool serialTestStart;
-extern volatile bool ApplicationEnd;
 
 #endif /* SOURCES_GLOBALVARIABLES_H_ */

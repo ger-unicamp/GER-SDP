@@ -97,9 +97,11 @@
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/BatteryController.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/CameraController.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/Events.c</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/ImageProcessing.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/MotorController.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/SerialCommunication.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/ServoController.c</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/SystemController.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/main.c</PathName>
     </GeneratedCs>
     <GeneratedHs>
@@ -153,9 +155,11 @@
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/CameraController.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/Events.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/GlobalVariables.h</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/ImageProcessing.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/MotorController.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/SerialCommunication.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/ServoController.h</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/SystemController.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Static_Code/IO_Map/MKL25Z4.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Static_Code/PDD/ADC_PDD.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Static_Code/PDD/CMP_PDD.h</PathName>

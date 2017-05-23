@@ -10,8 +10,8 @@
  * Parameter:
  *    Direction of the Servomotor:
  *    0: Center
- *    Negative values: Turn left  (max: -255)
- *    Positive values: Turn right (max: 255)
+ *    Negative values: Turn left  (max: -350)
+ *    Positive values: Turn right (max: 350)
  *
  *    Wait 480 ms between two calls of this function
  */

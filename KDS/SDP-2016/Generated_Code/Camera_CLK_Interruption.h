@@ -7,7 +7,7 @@
 **     Version     : Component 02.161, Driver 01.02, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-12-29, 22:36, # CodeGen: 150
+**     Date/Time   : 2016-12-30, 17:27, # CodeGen: 158
 **     Abstract    :
 **         This component "TimerInt" implements a periodic interrupt.
 **         When the component and its events are enabled, the "OnInterrupt"
@@ -27,7 +27,7 @@
 **          Component uses entire timer                    : no
 **          Initialization                                 : 
 **            Enabled in init. code                        : no
-**            Events enabled in init.                      : yes
+**            Events enabled in init.                      : no
 **          CPU clock/speed selection                      : 
 **            High speed mode                              : This component enabled
 **            Low speed mode                               : This component disabled
@@ -35,8 +35,10 @@
 **          Referenced components                          : 
 **            TimerInt_LDD                                 : TimerInt_LDD
 **     Contents    :
-**         Enable  - byte Camera_CLK_Interruption_Enable(void);
-**         Disable - byte Camera_CLK_Interruption_Disable(void);
+**         Enable       - byte Camera_CLK_Interruption_Enable(void);
+**         Disable      - byte Camera_CLK_Interruption_Disable(void);
+**         EnableEvent  - byte Camera_CLK_Interruption_EnableEvent(void);
+**         DisableEvent - byte Camera_CLK_Interruption_DisableEvent(void);
 **
 **     Copyright : 1997 - 2015 Freescale Semiconductor, Inc. 
 **     All Rights Reserved.
@@ -138,6 +140,36 @@ extern "C" {
 ** ===================================================================
 */
 #define Camera_CLK_Interruption_Disable() (TimerIntLdd1_Disable(TimerIntLdd1_DeviceData))
+
+/*
+** ===================================================================
+**     Method      :  Camera_CLK_Interruption_EnableEvent (component TimerInt)
+**     Description :
+**         This method enables the events.
+**     Parameters  : None
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+** ===================================================================
+*/
+#define Camera_CLK_Interruption_EnableEvent() (TimerIntLdd1_SetEventMask(TimerIntLdd1_DeviceData, LDD_TIMERINT_ON_INTERRUPT))
+
+/*
+** ===================================================================
+**     Method      :  Camera_CLK_Interruption_DisableEvent (component TimerInt)
+**     Description :
+**         This method disables the events.
+**     Parameters  : None
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+** ===================================================================
+*/
+#define Camera_CLK_Interruption_DisableEvent() (TimerIntLdd1_SetEventMask(TimerIntLdd1_DeviceData, 0U))
 
 /*
 ** ===================================================================

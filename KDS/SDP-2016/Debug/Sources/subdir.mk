@@ -7,27 +7,33 @@ C_SRCS += \
 ../Sources/BatteryController.c \
 ../Sources/CameraController.c \
 ../Sources/Events.c \
+../Sources/ImageProcessing.c \
 ../Sources/MotorController.c \
 ../Sources/SerialCommunication.c \
 ../Sources/ServoController.c \
+../Sources/SystemController.c \
 ../Sources/main.c 
 
 OBJS += \
 ./Sources/BatteryController.o \
 ./Sources/CameraController.o \
 ./Sources/Events.o \
+./Sources/ImageProcessing.o \
 ./Sources/MotorController.o \
 ./Sources/SerialCommunication.o \
 ./Sources/ServoController.o \
+./Sources/SystemController.o \
 ./Sources/main.o 
 
 C_DEPS += \
 ./Sources/BatteryController.d \
 ./Sources/CameraController.d \
 ./Sources/Events.d \
+./Sources/ImageProcessing.d \
 ./Sources/MotorController.d \
 ./Sources/SerialCommunication.d \
 ./Sources/ServoController.d \
+./Sources/SystemController.d \
 ./Sources/main.d 
 
 

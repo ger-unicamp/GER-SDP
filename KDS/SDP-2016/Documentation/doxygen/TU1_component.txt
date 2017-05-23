@@ -21,7 +21,7 @@ by the component.
 <td class="regNotResetVal">0x00000000</td>
  <td>PIT_MCR register, peripheral TU1.</td></tr>
 <tr><td>0x40037108</td><td>PIT_TCTRL0</td>
-<td class="regNotResetVal">0x00000002</td>
+<td class="regResetVal">0x00000000</td>
  <td>PIT_TCTRL0 register, peripheral TU1.</td></tr>
 <tr><td>0x4003710C</td><td>PIT_TFLG0</td>
 <td class="regNotResetVal">0x00000001</td>
@@ -202,11 +202,11 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x40037108</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000002</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000000</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
 <tr><td>2</td><td>CHN</td><td>0x00</td><td>Chain Mode</td>
-<tr><td>1</td><td>TIE</td><td>0x01</td><td>Timer Interrupt Enable</td>
+<tr><td>1</td><td>TIE</td><td>0x00</td><td>Timer Interrupt Enable</td>
 <tr><td>0</td><td>TEN</td><td>0x00</td><td>Timer Enable</td>
 </tr></table>
 <div class="reghdr1">PIT_TFLG0</div>
@@ -413,7 +413,7 @@ registers of the peripheral(s) configured by the component.
 **            Enabled in init. code                        : no
 **            Auto initialization                          : no
 **            Event mask                                   : 
-**              OnCounterRestart                           : Enabled
+**              OnCounterRestart                           : Disabled
 **              OnChannel0                                 : Disabled
 **              OnChannel1                                 : Disabled
 **              OnChannel2                                 : Disabled

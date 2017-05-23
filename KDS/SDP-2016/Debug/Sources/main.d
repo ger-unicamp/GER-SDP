@@ -79,7 +79,8 @@ Sources/main.o: ../Sources/main.c \
  /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/BitIoLdd9.h \
  ../Sources/CameraController.h ../Sources/SerialCommunication.h \
  ../Sources/BatteryController.h ../Sources/GlobalVariables.h \
- ../Sources/MotorController.h ../Sources/ServoController.h
+ ../Sources/MotorController.h ../Sources/ServoController.h \
+ ../Sources/ImageProcessing.h ../Sources/SystemController.h
 
 /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Cpu.h:
 
@@ -248,3 +249,7 @@ Sources/main.o: ../Sources/main.c \
 ../Sources/MotorController.h:
 
 ../Sources/ServoController.h:
+
+../Sources/ImageProcessing.h:
+
+../Sources/SystemController.h:
