@@ -16,5 +16,6 @@ volatile uint8 referenceImage[128];
 
 void calibration();
 void binarization(uint8 binarizedImage[]);
+void setBorders(uint8 image[], uint8 *leftBorder, uint8 *rightBorder);
 
 #endif /* IMAGEPROCESSING_H_ */

@@ -15,6 +15,6 @@
 #include "ServoController.h"
 #include "CameraController.h"
 
-void basicControll(uint8 image[]);
+void advancedControl(double pid_output);
 
 #endif /* SOURCES_SYSTEMCONTROLLER_H_ */

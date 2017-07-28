@@ -77,7 +77,7 @@ void initializeCamera()
 int getRawImageMean(int samplesNum)
 {
 	// Standard value
-	currentSample = -1;
+	currentSample = -2;
 	samplesNumber = samplesNum;
 
 	// Initializes the array for put the image with zeros

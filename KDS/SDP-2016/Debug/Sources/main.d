@@ -80,7 +80,8 @@ Sources/main.o: ../Sources/main.c \
  ../Sources/CameraController.h ../Sources/SerialCommunication.h \
  ../Sources/BatteryController.h ../Sources/GlobalVariables.h \
  ../Sources/MotorController.h ../Sources/ServoController.h \
- ../Sources/ImageProcessing.h ../Sources/SystemController.h
+ ../Sources/ImageProcessing.h ../Sources/SystemController.h \
+ ../Sources/PID.h ../Sources/Error_management.h
 
 /home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/Cpu.h:
 
@@ -253,3 +254,7 @@ Sources/main.o: ../Sources/main.c \
 ../Sources/ImageProcessing.h:
 
 ../Sources/SystemController.h:
+
+../Sources/PID.h:
+
+../Sources/Error_management.h:

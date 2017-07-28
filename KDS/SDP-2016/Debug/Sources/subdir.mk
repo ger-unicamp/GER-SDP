@@ -6,9 +6,11 @@
 C_SRCS += \
 ../Sources/BatteryController.c \
 ../Sources/CameraController.c \
+../Sources/Error_management.c \
 ../Sources/Events.c \
 ../Sources/ImageProcessing.c \
 ../Sources/MotorController.c \
+../Sources/PID.c \
 ../Sources/SerialCommunication.c \
 ../Sources/ServoController.c \
 ../Sources/SystemController.c \
@@ -17,9 +19,11 @@ C_SRCS += \
 OBJS += \
 ./Sources/BatteryController.o \
 ./Sources/CameraController.o \
+./Sources/Error_management.o \
 ./Sources/Events.o \
 ./Sources/ImageProcessing.o \
 ./Sources/MotorController.o \
+./Sources/PID.o \
 ./Sources/SerialCommunication.o \
 ./Sources/ServoController.o \
 ./Sources/SystemController.o \
@@ -28,9 +32,11 @@ OBJS += \
 C_DEPS += \
 ./Sources/BatteryController.d \
 ./Sources/CameraController.d \
+./Sources/Error_management.d \
 ./Sources/Events.d \
 ./Sources/ImageProcessing.d \
 ./Sources/MotorController.d \
+./Sources/PID.d \
 ./Sources/SerialCommunication.d \
 ./Sources/ServoController.d \
 ./Sources/SystemController.d \

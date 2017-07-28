@@ -12,4 +12,6 @@ volatile bool serialTest;
 volatile bool serialFinished;
 volatile bool serialTestStart;
 
+
+
 #endif /* SOURCES_GLOBALVARIABLES_H_ */

@@ -99,6 +99,7 @@
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/Events.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/ImageProcessing.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/MotorController.c</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/PID.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/SerialCommunication.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/ServoController.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/SystemController.c</PathName>
@@ -157,6 +158,7 @@
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/GlobalVariables.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/ImageProcessing.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/MotorController.h</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/PID.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/SerialCommunication.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/ServoController.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/SystemController.h</PathName>

@@ -83,10 +83,11 @@
 
 #include "ImageProcessing.h"
 #include "SystemController.h"
+#include "PID.h"
 
 #include "SerialCommunication.h"
 #include "GlobalVariables.h"
-
+#include "Error_management.h"
 
 
 /* Global Variables */
@@ -97,10 +98,20 @@ int main(void)
 /*lint -restore Enable_Motors MISRA rule (6.3) checking. */
 {
 	uint8 image[128];
+	uint8 lef, rig;
+	char str_lef[] = "\n\rLeft: ";
+	char str_rig[] = "\n\rRig: ";
+	SPID pid_controller;
+	double pid_error, pid_output;
+
 
 	/*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
 	PE_low_level_init();
 	/*** End of Processor Expert internal initialization.                    ***/
+
+	// Setar contantes do pid.
+	resetPID(&pid_controller);
+
 
 	Camera_CLK_Interruption_Enable();
 
@@ -110,20 +121,38 @@ int main(void)
 	Servomotor_Enable();
 
 	// Wait for the SW2 button to be pressed
-	while (!SW2_Start_Button_GetVal());
+	while (!SW2_Start_Button_GetVal())
+	{
+		getRawImageMean(1);
+		sendArrayOfPixels(rawImage);
+		updateBatteryLevel();
+	}
 
-	getRawImageMean(1);
-	//	sendArrayOfPixels(rawImage);
+	while(SW2_Start_Button_GetVal());
 
 	calibration();
+	while (!SW2_Start_Button_GetVal());
+	while(SW2_Start_Button_GetVal());
 
-
-	while (1)
+	// test of binarization
+	while (0)
 	{
 		getRawImageMean(1);
 
 		binarization(image);
-		sendArrayOfPixels(image);
+
+		setBorders(image, &lef, &rig);
+
+		sendString(str_lef);
+		itoa_8_bit(lef);
+
+		sendString(str_rig);
+		itoa_8_bit(rig);
+
+
+		//sendArrayOfPixels(image);
+		//sendArrayOfPixels(rawImage); // For test of rawImage
+
 
 		updateBatteryLevel();
 	}
@@ -135,7 +164,16 @@ int main(void)
 
 		binarization(image);
 
-		basicControll(image);
+		//sendArrayOfPixels(image);
+
+		// obtem o erro atual
+		pid_error = get_error(image);
+
+		// obtem a saida do pid
+		pid_output = update_pid(&pid_controller, pid_error);
+
+		// atua sobre a resposta do pid
+		advancedControl(pid_output);
 
 		// delay for the servo// Melhorar isso
 		for (int i = 0; i < 50000; i++);

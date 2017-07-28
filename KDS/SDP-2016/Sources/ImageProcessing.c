@@ -10,9 +10,9 @@
 
 void calibration()
 {
-	for (int pixel = 0; pixel < 128; pixel++)
+	for (int border = 0; border < 128; border++)
 	{
-		referenceImage[pixel] = rawImage[pixel];
+		referenceImage[border] = rawImage[border];
 	}
 }
 
@@ -20,16 +20,53 @@ void binarization(uint8 binarizedImage[])
 {
 	float light;
 
-	for (int pixel = 0; pixel < 128; pixel++)
+	for (int border = 0; border < 128; border++)
 	{
-		light = (float) rawImage[pixel] / (float) referenceImage[pixel];
+		light = (float) rawImage[border] / (float) referenceImage[border];
 		if (light < 0.6)
 		{
-			binarizedImage[pixel] = 0;
+			binarizedImage[border] = 0;
 		}
 		else
 		{
-			binarizedImage[pixel] = 255;
+			binarizedImage[border] = 255;
 		}
 	}
+}
+
+void setBorders(uint8 image[], uint8 *leftBorder, uint8 *rightBorder)
+{
+	int index;
+	bool found = FALSE;
+	uint8 border;
+
+	// right side
+	// default value
+	border = 127;
+	// Percorre do centro ate o limite direito da camera procurando uma borda
+	for (index = 64; index < 127 && !found; index++)
+	{
+		if (image[index] == 0)
+		{
+			border = index;
+			found = TRUE;
+		}
+	}
+	*rightBorder = border - 64;
+
+	found = FALSE;
+
+	// left side
+	// default value
+	border = 0;
+	// Percorre do centro ate o limite esquerdo da camera procurando uma borda
+	for (index = 63; index >= 0 && !found; index--)
+	{
+		if (image[index] == 0)
+		{
+			border = index;
+			found = TRUE;
+		}
+	}
+	*leftBorder = 63 - border;
 }
