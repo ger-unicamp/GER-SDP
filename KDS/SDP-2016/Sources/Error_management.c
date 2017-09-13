@@ -12,7 +12,7 @@ double get_error(uint8 image[])
 
 	double error;
 
-	setBorders(image, &left_border, &right_border);
+	set_borders(image, &left_border, &right_border);
 	range = left_border + right_border;
 
 	error = ((double)(right_border - left_border)) / range;

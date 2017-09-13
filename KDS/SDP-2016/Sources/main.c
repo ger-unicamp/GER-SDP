@@ -109,9 +109,6 @@ int main(void)
 	PE_low_level_init();
 	/*** End of Processor Expert internal initialization.                    ***/
 
-	// Setar contantes do pid.
-	resetPID(&pid_controller);
-
 
 	Camera_CLK_Interruption_Enable();
 
@@ -131,16 +128,40 @@ int main(void)
 	while(SW2_Start_Button_GetVal());
 
 	calibration();
+
+	while (!SW2_Start_Button_GetVal());
+	while(SW2_Start_Button_GetVal());
+
+	// Read a image
+	getRawImageMean(1);
+	binarization(image);
+
+	// Setar as contantes do pid.
+	resetPID(&pid_controller, (double) get_track_width(image));
+
 	while (!SW2_Start_Button_GetVal());
 	while(SW2_Start_Button_GetVal());
 
 	// test of binarization
 	while (0)
 	{
-		getRawImageMean(1);
+		//getRawImageMean(1);
 
-		binarization(image);
+		while (!SW2_Start_Button_GetVal())
+		{
+			getRawImageMean(1);
+			sendArrayOfPixels(rawImage);
+		}
+		while(SW2_Start_Button_GetVal());
 
+		while (!SW2_Start_Button_GetVal())
+		{
+			getRawImageMean(1);
+			binarization(image);
+			sendArrayOfPixels(image);
+		}
+
+	/*
 		setBorders(image, &lef, &rig);
 
 		sendString(str_lef);
@@ -154,7 +175,7 @@ int main(void)
 		//sendArrayOfPixels(rawImage); // For test of rawImage
 
 
-		updateBatteryLevel();
+		updateBatteryLevel();*/
 	}
 
 	// Program Loop
@@ -170,7 +191,7 @@ int main(void)
 		pid_error = get_error(image);
 
 		// obtem a saida do pid
-		pid_output = update_pid(&pid_controller, pid_error);
+		pid_output = update_pid(&pid_controller, pid_error,  (double) get_track_width(image));
 
 		// atua sobre a resposta do pid
 		advancedControl(pid_output);

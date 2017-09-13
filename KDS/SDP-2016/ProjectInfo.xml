@@ -96,6 +96,7 @@
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Project_Settings/Startup_Code/startup.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/BatteryController.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/CameraController.c</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/Error_management.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/Events.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/ImageProcessing.c</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/MotorController.c</PathName>
@@ -154,6 +155,7 @@
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code/TimerIntLdd1.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/BatteryController.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/CameraController.h</PathName>
+      <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/Error_management.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/Events.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/GlobalVariables.h</PathName>
       <PathName>/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources/ImageProcessing.h</PathName>

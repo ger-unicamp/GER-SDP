@@ -20,14 +20,14 @@ struct SPID
   int i_min;
 
   double last_error;
-  double time_const;
+  double last_track_width;
 } typedef SPID;
 
 
-double update_pid (SPID * pid, double error);
-double get_derivative_state(SPID *pid, double error);
+double update_pid (SPID * pid, double error, double track_width);
+double get_derivative_state(SPID *pid, double error, double track_width);
 void set_integral_state(SPID * pid, double error);
-void resetPID(SPID *pid);
+void resetPID(SPID *pid, double initial_track_width);
 
 
 #endif /* SOURCES_PID_H_ */

@@ -34,7 +34,15 @@ void binarization(uint8 binarizedImage[])
 	}
 }
 
-void setBorders(uint8 image[], uint8 *leftBorder, uint8 *rightBorder)
+uint8 get_track_width(uint8 image[])
+{
+	uint8 left_border, right_border;
+	set_borders(image, &left_border, &right_border);
+
+	return left_border + right_border;
+}
+
+void set_borders(uint8 image[], uint8 *leftBorder, uint8 *rightBorder)
 {
 	int index;
 	bool found = FALSE;

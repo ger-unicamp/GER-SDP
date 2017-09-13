@@ -16,5 +16,6 @@
 #define RATE		350
 
 void setServoDirection(int direction);
+void dc_motors_normalization(double pid_output, int * pwm_left, int * pwm_right);
 
 #endif /* SOURCES_SERVOCONTROLLER_H_ */
