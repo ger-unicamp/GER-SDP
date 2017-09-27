@@ -117,6 +117,9 @@ int main(void)
 
 	Servomotor_Enable();
 
+	// Setar as contantes do pid.
+	resetPID(&pid_controller);
+
 	// Wait for the SW2 button to be pressed
 	while (!SW2_Start_Button_GetVal())
 	{
@@ -128,16 +131,6 @@ int main(void)
 	while(SW2_Start_Button_GetVal());
 
 	calibration();
-
-	while (!SW2_Start_Button_GetVal());
-	while(SW2_Start_Button_GetVal());
-
-	// Read a image
-	getRawImageMean(1);
-	binarization(image);
-
-	// Setar as contantes do pid.
-	resetPID(&pid_controller, (double) get_track_width(image));
 
 	while (!SW2_Start_Button_GetVal());
 	while(SW2_Start_Button_GetVal());
@@ -191,7 +184,7 @@ int main(void)
 		pid_error = get_error(image);
 
 		// obtem a saida do pid
-		pid_output = update_pid(&pid_controller, pid_error,  (double) get_track_width(image));
+		pid_output = update_pid(&pid_controller, pid_error);
 
 		// atua sobre a resposta do pid
 		advancedControl(pid_output);

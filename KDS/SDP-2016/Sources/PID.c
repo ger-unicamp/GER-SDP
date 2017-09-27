@@ -2,22 +2,22 @@
 
 // the setup routine runs once when you press reset:
 
-void resetPID(SPID *pid, double initial_track_width)
+void resetPID(SPID *pid)
 {
-	pid->p_gain = 0;
-	pid->d_gain = 1;
+	pid->p_gain = 1.0;
+	pid->d_gain = 0.0;
 	pid->i_gain = 0;
 
 	pid->i_state = 0;
 	pid->i_max = 1;
-	pid->i_min = 0;
+	pid->i_min = -1;
 
 	pid->last_error = 0;
-	pid->last_track_width = initial_track_width;
 }
 
-double update_pid (SPID * pid, double error, double track_width)
+double update_pid (SPID * pid, double error)
 {
+	double output;
 
 	// Termo proporcionao, integrativo e derivativo.
 	double p_term = 0, i_term = 0, d_term = 0;
@@ -29,24 +29,31 @@ double update_pid (SPID * pid, double error, double track_width)
 	p_term = error * pid->p_gain;
 
 	// integral term
-//	i_term = pid->i_gain * pid->i_state;
+	i_term = pid->i_gain * pid->i_state;
 
-	// derivative error
-	d_term = get_derivative_state(pid, error, track_width) * pid->d_gain;
+	// derivative term
+	d_term = get_derivative_state(pid, error);
 
 	pid->last_error = error;
 
+	output = p_term + i_term + d_term;
 
-	return p_term + i_term + d_term;
 
+	if (output < -1)
+	{
+		output = -1;
+	}
+	else if (output > 1)
+	{
+		output = 1;
+	}
+
+	return output;
 }
 
-double get_derivative_state(SPID *pid, double error, double track_width)
+double get_derivative_state(SPID *pid, double error)
 {
-	double mean = (pid->last_track_width + track_width) / 2;
-	pid->last_track_width = track_width;
-
-	return (error - pid->last_error) / mean;
+	return (error - pid->last_error) * pid->d_gain;
 }
 
 void set_integral_state(SPID * pid, double error)

@@ -41,7 +41,7 @@
       <File Name="Static_Code/PDD/CMP_PDD.h" FileDate="2016-10-08, 20:50:20" FileAge="1475970620000" FileType="1048576" />
       <File Name="Static_Code/PDD/DAC_PDD.h" FileDate="2016-10-08, 20:50:20" FileAge="1475970620000" FileType="1048576" />
       <File Name="Static_Code/PDD/UART0_PDD.h" FileDate="2016-10-08, 20:50:20" FileAge="1475970620000" FileType="1048576" />
-      <File Name="Documentation/SDP_2016_SIGNALS.txt" FileDate="2017-09-13, 08:02:50" FileAge="1505300570000" FileType="3072" />
+      <File Name="Documentation/SDP_2016_SIGNALS.txt" FileDate="2017-09-27, 09:47:38" FileAge="1506516458000" FileType="3072" />
       <File Name="Generated_Code/Enable_Motors.h" FileDate="2016-12-23, 14:46:32" FileAge="1482511592000" FileType="45637" CompNumb="26" />
       <File Name="Static_Code/PDD/SIM_PDD.h" FileDate="2016-10-08, 20:50:20" FileAge="1475970620000" FileType="1048576" />
       <File Name="Generated_Code/Enable_Motors.c" FileDate="2016-12-23, 14:46:32" FileAge="1482511592000" FileType="45637" CompNumb="26" />
@@ -162,7 +162,7 @@
       <File Name="Documentation/doxygen/PwmLdd2_component.txt" FileDate="2016-12-23, 13:01:11" FileAge="1482505271000" FileType="45637" CompNumb="37" />
       <File Name="Generated_Code/TU2.c" FileDate="2016-12-23, 13:01:11" FileAge="1482505271000" FileType="45637" CompNumb="35" />
       <File Name="Static_Code/PDD/PDD_Types.h" FileDate="2016-10-08, 20:50:20" FileAge="1475970620000" FileType="1048576" CompNumb="2" />
-      <File Name="Sources/main.c" FileDate="2017-08-29, 18:42:09" FileAge="1504042929000" FileType="128" />
+      <File Name="Sources/main.c" FileDate="2017-09-27, 09:47:17" FileAge="1506516437000" FileType="128" />
       <File Name="Generated_Code/Vectors.c" FileDate="2016-12-27, 01:03:27" FileAge="1482807807000" FileType="45637" CompNumb="2" />
       <File Name="Static_Code/PDD/FTFA_PDD.h" FileDate="2016-10-08, 20:50:20" FileAge="1475970620000" FileType="1048576" />
       <File Name="Generated_Code/ErrorLED.h" FileDate="2016-12-26, 18:40:46" FileAge="1482784846000" FileType="45637" CompNumb="70" />
@@ -173,5 +173,5 @@
       <File Name="Generated_Code/PE_Types.h" FileDate="2016-12-27, 00:37:46" FileAge="1482806266000" FileType="45637" />
     </GeneratedByPE>
   </GeneratedFilesList>
-  <CodeGenReference>180</CodeGenReference>
+  <CodeGenReference>181</CodeGenReference>
 </CodeGenerationInfo>

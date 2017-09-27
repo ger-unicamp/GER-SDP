@@ -11,9 +11,9 @@
 struct SPID
 {
   // PID gains
-  int p_gain;
-  int d_gain;
-  int i_gain;
+  double p_gain;
+  double d_gain;
+  double i_gain;
 
   double i_state;
   int i_max;
@@ -24,10 +24,10 @@ struct SPID
 } typedef SPID;
 
 
-double update_pid (SPID * pid, double error, double track_width);
-double get_derivative_state(SPID *pid, double error, double track_width);
+double update_pid (SPID * pid, double error);
+double get_derivative_state(SPID *pid, double error);
 void set_integral_state(SPID * pid, double error);
-void resetPID(SPID *pid, double initial_track_width);
+void resetPID(SPID *pid);
 
 
 #endif /* SOURCES_PID_H_ */
