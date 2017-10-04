@@ -8,6 +8,14 @@
 #ifndef SOURCES_PID_H_
 #define SOURCES_PID_H_
 
+// Switchs
+#include "BitIoLdd11.h"
+#include "Switch1.h"
+#include "BitIoLdd12.h"
+#include "Switch2.h"
+#include "BitIoLdd13.h"
+#include "Switch3.h"
+
 struct SPID
 {
   // PID gains
@@ -23,10 +31,15 @@ struct SPID
   double last_track_width;
 } typedef SPID;
 
+// Default values of gains
+#define P_DEFAUT_GAIN 0.8
+#define D_DEFAUT_GAIN 0.4
+#define I_DEFAUT_GAIN 0
 
 double update_pid (SPID * pid, double error);
 double get_derivative_state(SPID *pid, double error);
 void set_integral_state(SPID * pid, double error);
+void update_gains(SPID *pid);
 void resetPID(SPID *pid);
 
 

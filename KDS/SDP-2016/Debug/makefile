@@ -61,7 +61,7 @@ all: SDP_2016.elf secondary-outputs
 SDP_2016.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross ARM C++ Linker'
-	arm-none-eabi-g++ -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Project_Settings/Linker_Files/ProcessorExpert.ld" -Xlinker --gc-sections -L"/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Project_Settings/Linker_Files" -Wl,-Map,"SDP_2016.map" -specs=nano.specs -specs=nosys.specs -o "SDP_2016.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-g++ -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "C:/Users/aluno/Documents/Projetos/SDP/Git/GER-SDP/KDS/SDP-2016/Project_Settings/Linker_Files/ProcessorExpert.ld" -Xlinker --gc-sections -L"C:/Users/aluno/Documents/Projetos/SDP/Git/GER-SDP/KDS/SDP-2016/Project_Settings/Linker_Files" -Wl,-Map,"SDP_2016.map" -specs=nano.specs -specs=nosys.specs -o "SDP_2016.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

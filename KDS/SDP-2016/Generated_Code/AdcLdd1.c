@@ -7,7 +7,7 @@
 **     Version     : Component 01.183, Driver 01.08, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-12-29, 11:36, # CodeGen: 143
+**     Date/Time   : 2017-10-04, 08:44, # CodeGen: 181
 **     Abstract    :
 **         This device "ADC_LDD" implements an A/D converter,
 **         its control methods and interrupt/event handling procedure.
@@ -38,7 +38,7 @@
 **          Asynchro clock output                          : Disabled
 **          Sample time                                    : 4 clock periods
 **          Number of conversions                          : 1
-**          Conversion time                                : 13.076923 Âµs
+**          Conversion time                                : 13.076923 µs
 **          ADC clock                                      : 1.31 MHz (762.939 ns)
 **          Single conversion time - Single-ended          : 17.023 us
 **          Single conversion time - Differential          : 24.652 us

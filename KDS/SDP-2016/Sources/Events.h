@@ -71,6 +71,12 @@
 #include "BitIoLdd10.h"
 #include "BlueLED.h"
 #include "BitIoLdd11.h"
+#include "Switch1.h"
+#include "BitIoLdd12.h"
+#include "Switch2.h"
+#include "BitIoLdd13.h"
+#include "Switch3.h"
+#include "BitIoLdd14.h"
 #include "ErrorLED.h"
 #include "BitIoLdd9.h"
 

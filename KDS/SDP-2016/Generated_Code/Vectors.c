@@ -6,7 +6,7 @@
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-12-27, 01:03, # CodeGen: 134
+**     Date/Time   : 2017-10-04, 09:54, # CodeGen: 182
 **     Abstract    :
 **
 **     Settings    :
@@ -95,6 +95,12 @@
   #include "BitIoLdd10.h"
   #include "BlueLED.h"
   #include "BitIoLdd11.h"
+  #include "Switch1.h"
+  #include "BitIoLdd12.h"
+  #include "Switch2.h"
+  #include "BitIoLdd13.h"
+  #include "Switch3.h"
+  #include "BitIoLdd14.h"
   #include "Events.h"
 
 

@@ -4,10 +4,6 @@
 
 void resetPID(SPID *pid)
 {
-	pid->p_gain = 1.0;
-	pid->d_gain = 0.0;
-	pid->i_gain = 0;
-
 	pid->i_state = 0;
 	pid->i_max = 1;
 	pid->i_min = -1;
@@ -22,6 +18,9 @@ double update_pid (SPID * pid, double error)
 	// Termo proporcionao, integrativo e derivativo.
 	double p_term = 0, i_term = 0, d_term = 0;
 
+
+	// Verify how controls is been used.
+	update_gains(pid);
 
 	//set_integral_state(pid,  error);
 
@@ -70,6 +69,39 @@ void set_integral_state(SPID * pid, double error)
 	else if(pid->i_state < pid->i_min)
 	{
 		pid->i_state = pid->i_min;
+	}
+}
+
+void update_gains(SPID *pid)
+{
+	// Proportional gain
+	if (Switch1_GetVal())
+	{
+		pid->p_gain = P_DEFAUT_GAIN;
+	}
+	else
+	{
+		pid->p_gain = 0;
+	}
+
+	// Derivative gain
+	if (Switch2_GetVal())
+	{
+		pid->d_gain = D_DEFAUT_GAIN;
+	}
+	else
+	{
+		pid->d_gain = 0;
+	}
+
+	// Integrative gain
+	if (Switch3_GetVal())
+	{
+		pid->i_gain = I_DEFAUT_GAIN;
+	}
+	else
+	{
+		pid->i_gain = 0;
 	}
 }
 

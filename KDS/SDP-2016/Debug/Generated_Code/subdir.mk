@@ -9,6 +9,9 @@ C_SRCS += \
 ../Generated_Code/BitIoLdd1.c \
 ../Generated_Code/BitIoLdd10.c \
 ../Generated_Code/BitIoLdd11.c \
+../Generated_Code/BitIoLdd12.c \
+../Generated_Code/BitIoLdd13.c \
+../Generated_Code/BitIoLdd14.c \
 ../Generated_Code/BitIoLdd2.c \
 ../Generated_Code/BitIoLdd3.c \
 ../Generated_Code/BitIoLdd4.c \
@@ -42,6 +45,9 @@ C_SRCS += \
 ../Generated_Code/SW2_Start_Button.c \
 ../Generated_Code/SerialCom.c \
 ../Generated_Code/Servomotor.c \
+../Generated_Code/Switch1.c \
+../Generated_Code/Switch2.c \
+../Generated_Code/Switch3.c \
 ../Generated_Code/TU1.c \
 ../Generated_Code/TU2.c \
 ../Generated_Code/TU3.c \
@@ -54,6 +60,9 @@ OBJS += \
 ./Generated_Code/BitIoLdd1.o \
 ./Generated_Code/BitIoLdd10.o \
 ./Generated_Code/BitIoLdd11.o \
+./Generated_Code/BitIoLdd12.o \
+./Generated_Code/BitIoLdd13.o \
+./Generated_Code/BitIoLdd14.o \
 ./Generated_Code/BitIoLdd2.o \
 ./Generated_Code/BitIoLdd3.o \
 ./Generated_Code/BitIoLdd4.o \
@@ -87,6 +96,9 @@ OBJS += \
 ./Generated_Code/SW2_Start_Button.o \
 ./Generated_Code/SerialCom.o \
 ./Generated_Code/Servomotor.o \
+./Generated_Code/Switch1.o \
+./Generated_Code/Switch2.o \
+./Generated_Code/Switch3.o \
 ./Generated_Code/TU1.o \
 ./Generated_Code/TU2.o \
 ./Generated_Code/TU3.o \
@@ -99,6 +111,9 @@ C_DEPS += \
 ./Generated_Code/BitIoLdd1.d \
 ./Generated_Code/BitIoLdd10.d \
 ./Generated_Code/BitIoLdd11.d \
+./Generated_Code/BitIoLdd12.d \
+./Generated_Code/BitIoLdd13.d \
+./Generated_Code/BitIoLdd14.d \
 ./Generated_Code/BitIoLdd2.d \
 ./Generated_Code/BitIoLdd3.d \
 ./Generated_Code/BitIoLdd4.d \
@@ -132,6 +147,9 @@ C_DEPS += \
 ./Generated_Code/SW2_Start_Button.d \
 ./Generated_Code/SerialCom.d \
 ./Generated_Code/Servomotor.d \
+./Generated_Code/Switch1.d \
+./Generated_Code/Switch2.d \
+./Generated_Code/Switch3.d \
 ./Generated_Code/TU1.d \
 ./Generated_Code/TU2.d \
 ./Generated_Code/TU3.d \
@@ -143,7 +161,7 @@ C_DEPS += \
 Generated_Code/%.o: ../Generated_Code/%.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross ARM C Compiler'
-	arm-none-eabi-gcc -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Static_Code/PDD" -I"/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Static_Code/IO_Map" -I"/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Sources" -I"/home/marcelo/Documentos/GER/SDP/SDP-2016/KDS/SDP-2016/Generated_Code" -std=c99 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"C:/Users/aluno/Documents/Projetos/SDP/Git/GER-SDP/KDS/SDP-2016/Static_Code/PDD" -I"C:/Users/aluno/Documents/Projetos/SDP/Git/GER-SDP/KDS/SDP-2016/Static_Code/IO_Map" -I"C:/Users/aluno/Documents/Projetos/SDP/Git/GER-SDP/KDS/SDP-2016/Sources" -I"C:/Users/aluno/Documents/Projetos/SDP/Git/GER-SDP/KDS/SDP-2016/Generated_Code" -std=c99 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

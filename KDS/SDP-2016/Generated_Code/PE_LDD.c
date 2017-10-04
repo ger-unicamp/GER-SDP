@@ -6,7 +6,7 @@
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-12-27, 00:37, # CodeGen: 129
+**     Date/Time   : 2017-10-04, 09:54, # CodeGen: 182
 **     Abstract    :
 **
 **     Settings    :
@@ -69,7 +69,10 @@
 ** Array of initialized device structures of LDD components.
 ** ===========================================================================
 */
-LDD_TDeviceData *PE_LDD_DeviceDataList[22] = {
+LDD_TDeviceData *PE_LDD_DeviceDataList[25] = {
+    NULL,
+    NULL,
+    NULL,
     NULL,
     NULL,
     NULL,

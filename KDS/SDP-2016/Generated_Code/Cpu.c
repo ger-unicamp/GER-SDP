@@ -8,7 +8,7 @@
 **     Repository  : Kinetis
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-12-27, 01:03, # CodeGen: 134
+**     Date/Time   : 2017-10-04, 09:54, # CodeGen: 182
 **     Abstract    :
 **
 **     Settings    :
@@ -283,6 +283,12 @@
 #include "BitIoLdd10.h"
 #include "BlueLED.h"
 #include "BitIoLdd11.h"
+#include "Switch1.h"
+#include "BitIoLdd12.h"
+#include "Switch2.h"
+#include "BitIoLdd13.h"
+#include "Switch3.h"
+#include "BitIoLdd14.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -500,6 +506,12 @@ void PE_low_level_init(void)
   (void)BitIoLdd10_Init(NULL);
   /* ### BitIO_LDD "BitIoLdd11" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)BitIoLdd11_Init(NULL);
+  /* ### BitIO_LDD "BitIoLdd12" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)BitIoLdd12_Init(NULL);
+  /* ### BitIO_LDD "BitIoLdd13" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)BitIoLdd13_Init(NULL);
+  /* ### BitIO_LDD "BitIoLdd14" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)BitIoLdd14_Init(NULL);
   __EI();
 }
   /* Flash configuration field */

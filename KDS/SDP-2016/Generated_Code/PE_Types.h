@@ -6,7 +6,7 @@
 **     Component   : PE_Types
 **     Version     : Driver 01.01
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-12-27, 00:37, # CodeGen: 129
+**     Date/Time   : 2017-10-04, 09:54, # CodeGen: 182
 **     Abstract    :
 **         PE_Types.h - contains definitions of basic types,
 **         register access macros and hardware specific macros
@@ -226,6 +226,9 @@ typedef unsigned long int       uint32;
 #define PE_LDD_COMPONENT_BitIoLdd9_ID            0x13U
 #define PE_LDD_COMPONENT_BitIoLdd10_ID           0x14U
 #define PE_LDD_COMPONENT_BitIoLdd11_ID           0x15U
+#define PE_LDD_COMPONENT_BitIoLdd12_ID           0x16U
+#define PE_LDD_COMPONENT_BitIoLdd13_ID           0x17U
+#define PE_LDD_COMPONENT_BitIoLdd14_ID           0x18U
 
 /*
 ** ===================================================================
@@ -1254,7 +1257,7 @@ typedef struct LDD_USB_TDevDescriptor_Struct {
   uint16_t  bcdDevice;                 /*!< Device release number in binary-coded decimal */
   uint8_t   iManufacturer;             /*!< Index of string descriptor describing manufacturer */
   uint8_t   iProduct;                  /*!< Index of string descriptor describing product */
-  uint8_t   iSerialNumber;             /*!< Index of string descriptor describing the deviceï¿½s serial number */
+  uint8_t   iSerialNumber;             /*!< Index of string descriptor describing the device’s serial number */
   uint8_t   bNumConfigurations;        /*!< Number of possible configurations */
 } LDD_USB_TDevDescriptor;
 

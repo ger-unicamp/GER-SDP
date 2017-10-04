@@ -44,6 +44,9 @@
 - \subpage BitIoLdd9
 - \subpage BitIoLdd10
 - \subpage BitIoLdd11
+- \subpage BitIoLdd12
+- \subpage BitIoLdd13
+- \subpage BitIoLdd14
 
 */
 

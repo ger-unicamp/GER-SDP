@@ -247,7 +247,7 @@ PE_DEBUGHALT();
         <Interrupt v="INT_PIT" />
         <Interrupt_priority v="medium priority" />
       </boolgroup>
-      <Interrupt_period v="15 &amp;#181;s" />
+      <Interrupt_period v="10 &amp;#181;s" />
       <Same_period_in_modes v="yes" />
       <Component_uses_entire_timer v="no" />
       <group name="Initialization">
@@ -270,7 +270,7 @@ PE_DEBUGHALT();
               <Interrupt v="INT_PIT" />
               <Interrupt_priority v="medium priority" />
             </boolgroup>
-            <Interrupt_period v="15 &amp;#181;s" />
+            <Interrupt_period v="10 &amp;#181;s" />
             <group name="Initialization">
               <Enabled_in_init__code v="no" />
               <group name="Event mask">
@@ -349,7 +349,7 @@ PE_DEBUGHALT();
       </enumgroup>
       <enumgroup name="Counter restart" v="On-match">
         <Period_device v="PIT_LDVAL0" />
-        <Period v="15 &amp;#181;s" />
+        <Period v="10 &amp;#181;s" />
         <boolgroup name="Interrupt" v="Enabled">
           <Interrupt v="INT_PIT" />
           <Interrupt_priority v="medium priority" />
