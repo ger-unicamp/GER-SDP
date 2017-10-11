@@ -61,9 +61,9 @@
       <File Name="Static_Code/PDD/COP_PDD.h" FileDate="2017-10-04, 08:05:58" FileAge="1507118758180" FileType="1048576" />
       <File Name="Generated_Code/SerialCom.h" FileDate="2017-10-04, 08:05:58" FileAge="1507118758084" FileType="45637" CompNumb="23" />
       <File Name="Static_Code/PDD/DMA_PDD.h" FileDate="2017-10-04, 08:05:58" FileAge="1507118758184" FileType="1048576" />
-      <File Name="Documentation/SDP_2016_SIGNALS.txt" FileDate="2017-10-04, 09:55:59" FileAge="1507125359844" FileType="3072" />
-      <File Name="Generated_Code/BitIoLdd13.h" FileDate="2017-10-04, 09:55:09" FileAge="1507125309702" FileType="45637" CompNumb="84" />
+      <File Name="Documentation/SDP_2016_SIGNALS.txt" FileDate="2017-10-11, 09:41:53" FileAge="1507729313874" FileType="3072" />
       <File Name="Documentation/doxygen/PwmLdd3_component.txt" FileDate="2017-10-04, 08:05:57" FileAge="1507118757882" FileType="45637" CompNumb="39" />
+      <File Name="Generated_Code/BitIoLdd13.h" FileDate="2017-10-04, 09:55:09" FileAge="1507125309702" FileType="45637" CompNumb="84" />
       <File Name="Generated_Code/Power_Level3.h" FileDate="2017-10-04, 08:05:58" FileAge="1507118758030" FileType="45637" CompNumb="62" />
       <File Name="Generated_Code/SerialCom.c" FileDate="2017-10-04, 08:05:58" FileAge="1507118758084" FileType="45637" CompNumb="23" />
       <File Name="Generated_Code/BitIoLdd13.c" FileDate="2017-10-04, 09:55:09" FileAge="1507125309699" FileType="45637" CompNumb="84" />
@@ -148,8 +148,8 @@
       <File Name="Generated_Code/Power_Level2.h" FileDate="2017-10-04, 08:05:58" FileAge="1507118758029" FileType="45637" CompNumb="60" />
       <File Name="Generated_Code/BitIoLdd12.c" FileDate="2017-10-04, 09:55:09" FileAge="1507125309714" FileType="45637" CompNumb="82" />
       <File Name="Generated_Code/Power_Level2.c" FileDate="2017-10-04, 08:05:58" FileAge="1507118758028" FileType="45637" CompNumb="60" />
-      <File Name="Documentation/doxygen/BitIoLdd12_component.txt" FileDate="2017-10-04, 09:55:09" FileAge="1507125309711" FileType="45637" CompNumb="82" />
       <File Name="Generated_Code/BitIoLdd10.h" FileDate="2017-10-04, 08:05:57" FileAge="1507118757922" FileType="45637" CompNumb="78" />
+      <File Name="Documentation/doxygen/BitIoLdd12_component.txt" FileDate="2017-10-04, 09:55:09" FileAge="1507125309711" FileType="45637" CompNumb="82" />
       <File Name="Documentation/doxygen/pex.css" FileDate="2017-10-04, 08:05:57" FileAge="1507118757888" FileType="16384" CompNumb="2" />
       <File Name="Generated_Code/Motor_A_In1.h" FileDate="2017-10-04, 08:05:57" FileAge="1507118757985" FileType="45637" CompNumb="33" />
       <File Name="Generated_Code/BitIoLdd10.c" FileDate="2017-10-04, 08:05:57" FileAge="1507118757921" FileType="45637" CompNumb="78" />
@@ -164,17 +164,17 @@
       <File Name="Generated_Code/PE_Error.h" FileDate="2017-10-04, 08:05:58" FileAge="1507118758025" FileType="45637" />
       <File Name="Generated_Code/PwmLdd5.h" FileDate="2017-10-04, 08:05:58" FileAge="1507118758081" FileType="45637" CompNumb="44" />
       <File Name="Static_Code/PDD/MCM_PDD.h" FileDate="2017-10-04, 08:05:58" FileAge="1507118758250" FileType="1048576" />
-      <File Name="Project_Settings/Startup_Code/startup.c" FileDate="2017-10-04, 08:05:58" FileAge="1507118758148" FileType="16384" CompNumb="2" />
       <File Name="Generated_Code/PwmLdd5.c" FileDate="2017-10-04, 08:05:58" FileAge="1507118758074" FileType="45637" CompNumb="44" />
+      <File Name="Project_Settings/Startup_Code/startup.c" FileDate="2017-10-04, 08:05:58" FileAge="1507118758148" FileType="16384" CompNumb="2" />
       <File Name="Static_Code/PDD/RTC_PDD.h" FileDate="2017-10-04, 08:05:58" FileAge="1507118758364" FileType="1048576" />
       <File Name="Generated_Code/PwmLdd3.h" FileDate="2017-10-04, 08:05:58" FileAge="1507118758073" FileType="45637" CompNumb="39" />
-      <File Name="Documentation/doxygen/PwmLdd2_component.txt" FileDate="2017-10-04, 08:05:57" FileAge="1507118757882" FileType="45637" CompNumb="37" />
       <File Name="Generated_Code/SI.h" FileDate="2017-10-04, 08:05:58" FileAge="1507118758082" FileType="45637" CompNumb="3" />
+      <File Name="Documentation/doxygen/PwmLdd2_component.txt" FileDate="2017-10-04, 08:05:57" FileAge="1507118757882" FileType="45637" CompNumb="37" />
       <File Name="Generated_Code/PwmLdd3.c" FileDate="2017-10-04, 08:05:58" FileAge="1507118758065" FileType="45637" CompNumb="39" />
       <File Name="Generated_Code/PE_LDD.h" FileDate="2017-10-04, 09:55:10" FileAge="1507125310582" FileType="45637" CompNumb="2" />
       <File Name="Generated_Code/PwmLdd1.h" FileDate="2017-10-04, 08:05:58" FileAge="1507118758032" FileType="45637" CompNumb="34" />
-      <File Name="Documentation/doxygen/TimerIntLdd1_component.txt" FileDate="2017-10-04, 08:44:20" FileAge="1507121060834" FileType="45637" CompNumb="9" />
       <File Name="Generated_Code/SI.c" FileDate="2017-10-04, 08:05:58" FileAge="1507118758082" FileType="45637" CompNumb="3" />
+      <File Name="Documentation/doxygen/TimerIntLdd1_component.txt" FileDate="2017-10-04, 08:44:20" FileAge="1507121060834" FileType="45637" CompNumb="9" />
       <File Name="Generated_Code/PE_LDD.c" FileDate="2017-10-04, 09:55:10" FileAge="1507125310579" FileType="45637" CompNumb="2" />
       <File Name="Generated_Code/PwmLdd1.c" FileDate="2017-10-04, 08:05:58" FileAge="1507118758031" FileType="45637" CompNumb="34" />
       <File Name="Generated_Code/BitIoLdd8.h" FileDate="2017-10-04, 08:05:57" FileAge="1507118757972" FileType="45637" CompNumb="65" />
@@ -188,5 +188,5 @@
       <File Name="Generated_Code/BitIoLdd6.c" FileDate="2017-10-04, 08:05:57" FileAge="1507118757929" FileType="45637" CompNumb="61" />
     </GeneratedByPE>
   </GeneratedFilesList>
-  <CodeGenReference>185</CodeGenReference>
+  <CodeGenReference>186</CodeGenReference>
 </CodeGenerationInfo>

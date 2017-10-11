@@ -22,13 +22,11 @@ double update_pid (SPID * pid, double error)
 	// Verify how controls is been used.
 	update_gains(pid);
 
-	//set_integral_state(pid,  error);
-
 	// Proportional term
 	p_term = error * pid->p_gain;
 
 	// integral term
-	i_term = pid->i_gain * pid->i_state;
+	i_term = get_integral_term(pid, error);
 
 	// derivative term
 	d_term = get_derivative_state(pid, error);
@@ -55,8 +53,14 @@ double get_derivative_state(SPID *pid, double error)
 	return (error - pid->last_error) * pid->d_gain;
 }
 
-void set_integral_state(SPID * pid, double error)
+double get_integral_term(SPID * pid, double error)
 {
+	// Reset of i_state
+	if (error < LIMIT_ERROR)
+	{
+		pid->i_state = 0;
+	}
+
 	// calculate the integrator state
 	pid->i_state += error;
 
@@ -70,6 +74,8 @@ void set_integral_state(SPID * pid, double error)
 	{
 		pid->i_state = pid->i_min;
 	}
+	// Return the integrative error.
+	return pid->i_state * pid->i_gain;
 }
 
 void update_gains(SPID *pid)
@@ -84,8 +90,18 @@ void update_gains(SPID *pid)
 		pid->p_gain = 0;
 	}
 
-	// Derivative gain
+	// Integrative gain
 	if (Switch2_GetVal())
+	{
+		pid->i_gain = I_DEFAUT_GAIN;
+	}
+	else
+	{
+		pid->i_gain = 0;
+	}
+
+	// Derivative gain
+	if (Switch3_GetVal())
 	{
 		pid->d_gain = D_DEFAUT_GAIN;
 	}
@@ -94,14 +110,6 @@ void update_gains(SPID *pid)
 		pid->d_gain = 0;
 	}
 
-	// Integrative gain
-	if (Switch3_GetVal())
-	{
-		pid->i_gain = I_DEFAUT_GAIN;
-	}
-	else
-	{
-		pid->i_gain = 0;
-	}
+
 }
 

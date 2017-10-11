@@ -34,11 +34,13 @@ struct SPID
 // Default values of gains
 #define P_DEFAUT_GAIN 0.8
 #define D_DEFAUT_GAIN 0.4
-#define I_DEFAUT_GAIN 0
+#define I_DEFAUT_GAIN 0.6
+
+#define LIMIT_ERROR 0.1
 
 double update_pid (SPID * pid, double error);
 double get_derivative_state(SPID *pid, double error);
-void set_integral_state(SPID * pid, double error);
+double get_integral_term(SPID * pid, double error);
 void update_gains(SPID *pid);
 void resetPID(SPID *pid);
 
